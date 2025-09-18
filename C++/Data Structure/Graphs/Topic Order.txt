@@ -2,6 +2,12 @@
 2. BFS Variations and Applications (Common Problems)
 3. DFS Variations and Applications (Common Problems)
 4. Cycles
+    Cycle in an Undirected graph
+    Cycle in a Directed Graph
+    Cycle in a graph using colors
+    Negative cycle in a Graph | (Bellman Ford)
+    Cycles of length n
+    Clone a Directed Acyclic Graph
 5. Connectivity
     Articulation Points and Bridges
     Strongly Connected Components
