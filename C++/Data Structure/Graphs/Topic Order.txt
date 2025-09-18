@@ -1,0 +1,14 @@
+1. Traversals
+2. BFS Variations and Applications (Common Problems)
+3. DFS Variations and Applications (Common Problems)
+4. Cycles
+5. Connectivity
+    Articulation Points and Bridges
+    Strongly Connected Components
+    Eulerian path and circuit
+6. Topological Sorting & DAG
+7. Shortest Path
+8. Minimum Spanning Trees
+9. Maximum Flow
+10. BFS Applications
+11. DFS Applications
