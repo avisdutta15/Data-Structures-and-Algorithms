@@ -1,6 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/*
+    In Depth First Search (or DFS) for a graph, we traverse all adjacent vertices one by one. 
+    When we traverse an adjacent vertex, we completely finish the traversal of all vertices 
+    reachable through that adjacent vertex.
+
+    initialize visited[V] = false
+
+    DFS(u, visited)
+        visited[u] = true
+        for all neighbours v of u:
+            if v is not visited
+                DFS(v)
+
+    Time Complexity:
+    We initialize the visited array before calling the DFS. O(V)
+    The DFS(u) is called exactly once for all vertices. 
+    Within DFS, for each node, we explore all of its neighbors (adjacent vertices).
+    Each edge is examined once when traversing from one node to its neighbor. 
+    In an undirected graph, each edge is checked twice (once for each endpoint), 
+    but this constant factor does not affect the overall complexity.
+    Therefore, the total time in processing the edges is proportional to the number of edges, E, i.e., O(E).
+
+    Total TC: O(V) + O(E)
+
+    Ref: https://www.youtube.com/watch?v=bP3MWJHeohc
+*/
+
 class Solution{
 private:
     void DFSUtil(vector<vector<int>> &adjList, int u, vector<int> &traversal, vector<bool> &visited){
@@ -26,10 +53,10 @@ public:
     }
     
     // DFS Traversal on the given graph
-    vector<int> DFS(vector<vector<int>> &adjList, int V){
+    vector<int> DFS(vector<vector<int>> &adjList, int V, int startIndex){
         vector<int> traversal; 
         vector<bool> visited(V, false);
-        DFSUtil(adjList, 0, traversal, visited);
+        DFSUtil(adjList, startIndex, traversal, visited);
         return traversal;
     }
 };
@@ -41,7 +68,7 @@ int main(){
     int vertices = 5; // or edges.size()
     
     vector<vector<int>> adjList = obj.buildGraph(edges, vertices);
-    vector<int> traversal = obj.DFS(adjList, vertices);
+    vector<int> traversal = obj.DFS(adjList, vertices, 0);
     for(auto u: traversal)
         cout<<u<<" ";
     cout<<endl;
