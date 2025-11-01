@@ -2,110 +2,169 @@
 using namespace std;
 
 /*
-    Problem Statement:
-    Given a Linked List of M nodes and a number N, find the value at the Nth node from the end of the Linked List. 
-    If there is no Nth node from the end, print -1.
+	Problem Statement:
+	Given a Linked List of M nodes and a number N, find the value at the Nth node from the end of the Linked List.
+	If there is no Nth node from the end, print -1.
+
+	Example:
+	-------
+	Input: 1 -> 2 -> 3 -> 4, N = 3
+	Output: 2
+	Explanation: Node 2 is the third node from the end of the linked list.
+
+	Input: 35 -> 15 -> 4 -> 20, N = 4
+	Output: 35
+	Explanation: Node 35 is the fourth node from the end of the linked list.
+
+	Approach:
+	The idea is to maintain two pointers, say ptr1 and ptr2 point to the head of Linked List
+	and move ptr1 to the Nth node from the head to ensure that the distance between ptr2 and
+	ptr1 is (N - 1).
+	Now, move both the pointers simultaneously until ptr1 reaches the last node.
+	Since the distance between ptr1 and ptr2 is (N - 1), so when ptr1 will reach the last node,
+	ptr2 will reach Nth node from the end of Linked List. Return the value of node pointed by ptr1.
 
     Example:
-    -------
-    Input: 1 -> 2 -> 3 -> 4, N = 3
-    Output: 2
-    Explanation: Node 2 is the third node from the end of the linked list.
-    
-    Input: 35 -> 15 -> 4 -> 20, N = 4
-    Output: 35
-    Explanation: Node 35 is the fourth node from the end of the linked list.
+    List: 1 2 3 4
+    n = 3 i.e. 3rd node from end
+    As per our approach we need to maintain a gap of n-1 i.e. 2
+    1 2 = 1st gap
+    2 3 = 2nd gap
+    so move ptr1 till element 3 and wait.
+    now move both ptr1 and ptr2=head till we reach the last node.
+    1     2    3    4
+    p2         p1
+          p2        p1
+    now p2 is standing at the 3rd node from end.
 
-    Approach:
-    The idea is to maintain two pointers, say ptr1 and ptr2 point to the head of Linked List 
-    and move ptr1 to the Nth node from the head to ensure that the distance between ptr2 and 
-    ptr1 is (N - 1). 
-    Now, move both the pointers simultaneously until ptr1 reaches the last node. 
-    Since the distance between ptr1 and ptr2 is (N - 1), so when ptr1 will reach the last node, 
-    ptr2 will reach Nth node from the end of Linked List. Return the value of node pointed by ptr1.
+    Example2:
+    List: 1 2 3 4
+    n = 1 i.e. 1st node from end
+    maintain a gap of n-1 i.e. 0 between p1 and p2
+    so p1 and p2 points to 1
+    1   2   3   4
+    p1
+    p2
+        p1
+        p2
+            p1
+            p2  
+                p1
+                p2
+    Now p2 points to nth node from end.
 */
 
-struct LinkedListNode {
-    int data;
-    LinkedListNode* next = nullptr;
-    LinkedListNode(int data = 0, LinkedListNode* next = nullptr) : data(data), next(next) {}
+struct ListNode {
+	int data;
+	ListNode* next;
+	ListNode() : data(0), next(nullptr) {}
+	ListNode(int data) : data(data), next(nullptr) {}
+	ListNode(int data, ListNode* next) : data(data), next(next) {}
 };
 
 class LinkedList {
-private:
-    LinkedListNode* head, * tail;
+	ListNode* head;
+	ListNode* tail;
 public:
-    LinkedList() {
-        //initialize the variables
-        head = nullptr;
-        tail = head;
-    }
+	LinkedList() {
+		head = nullptr;
+		tail = nullptr;
+	}
 
-    void push_back(int data) {
-        LinkedListNode* node = new LinkedListNode(data);
+	//Add data to the back of the list
+	void push_back(int data) {
+		//if list is empty
+		if (head == nullptr) {
+			head = new ListNode(data);
+			tail = head;
+		}
+		else {
+			//else add it at back
+			tail->next = new ListNode(data);
+			tail = tail->next;
+		}
+	}
 
-        // if list is empty
-        if (head == nullptr) {
-            head = node;
-        }
-        else {
-            tail->next = node;
-        }
-        //update the tail in both cases
-        tail = node;
-    }
+	//Property to get the head node
+	ListNode* getHeadNode() {
+		return head;
+	}
 
-    void printList() {
-        if (head == nullptr) {
-            cout << "List is empty" << endl;
-            return;
-        }
+	//Print the entire list
+	void printList() {
+		if (head == nullptr) {
+			cout << "Nothing to print. List is empty" << endl;
+			return;
+		}
 
-        LinkedListNode* currentNode = head;
-        while (currentNode != nullptr) {
-            cout << currentNode->data << " ";
-            currentNode = currentNode->next;
-        }
-    }    
+		ListNode* currentNode = head;
+		while (currentNode != nullptr) {
+			cout << currentNode->data << " ";
+			currentNode = currentNode->next;
+		}
+		cout << endl;
+	}
+};
 
-    int printNthNodeFromEnd(int N) {
-        LinkedListNode* ptr1 = head;
-        LinkedListNode* ptr2 = head;
+class Solution {
+public:
+	ListNode* displayNthFromEnd(ListNode* head, int n) {
+		if (head == nullptr)
+			return nullptr;
 
-        int nodeCount = 1;
-        while (ptr1!=nullptr && nodeCount != N){
-            ptr1 = ptr1->next;
-            nodeCount++;
-        }
+		int gap = 0;
+		ListNode* currentNode = head;
+		ListNode* nthNodeFromEnd = head;
+		while (currentNode != nullptr && gap < n-1) {
+			currentNode = currentNode->next;
+			gap++;
+		}
 
-        //if N doesnot exist then return -1
-        if (ptr1 == nullptr)
-            return -1;
+		//if n is greater than the size of the list
+		if (currentNode == nullptr)
+			return nullptr;
 
-        while (ptr1->next != nullptr) {
-            ptr1 = ptr1->next;
-            ptr2 = ptr2->next;
-        }
-        return ptr2->data;
-    }
+		while (currentNode->next != nullptr) {
+			nthNodeFromEnd = nthNodeFromEnd->next;
+			currentNode = currentNode->next;
+		}
+
+		return nthNodeFromEnd;
+	}
 };
 
 int main() {
-    LinkedList* list = new LinkedList();
-    list->push_back(10);
-    list->push_back(20);
-    list->push_back(30);
-    list->push_back(40);
-    list->push_back(50);
-    list->push_back(60);
-    list->push_back(70);
-    list->push_back(80);
+	LinkedList* list1 = new LinkedList();
+	list1->push_back(10);
+	list1->push_back(20);
+	list1->push_back(30);
+	list1->push_back(40);
+	list1->printList();
 
-    list->printList();
-    cout << endl;
+	Solution obj;
+	ListNode* nthNode = obj.displayNthFromEnd(list1->getHeadNode(), 1);
+	if (nthNode == nullptr) {
+		cout << "n is greater than size of list" << endl;
+	}
+	else {
+		cout << "1th node: " << nthNode->data << endl;
+	}
 
-    cout << "5th Node from back: " << list->printNthNodeFromEnd(5) << endl;
-    cout << "9th Node from back: " << list->printNthNodeFromEnd(100) << endl;
+	nthNode = obj.displayNthFromEnd(list1->getHeadNode(), 4);
+	if (nthNode == nullptr) {
+		cout << "n is greater than size of list" << endl;
+	}
+	else {
+		cout << "4th node: " << nthNode->data << endl;
+	}
 
-    return 0;
+	nthNode = obj.displayNthFromEnd(list1->getHeadNode(), 5);
+	if (nthNode == nullptr) {
+		cout << "n is greater than size of list" << endl;
+	}
+	else {
+		cout << "5th node: " << nthNode->data << endl;
+	}
+
+	return 0;
 }

@@ -1,187 +1,210 @@
 #include <iostream>
 using namespace std;
 
-struct LinkedListNode {
-    int data;
-    LinkedListNode* next = nullptr;
-    LinkedListNode(int data = 0, LinkedListNode* next = nullptr) : data(data), next(next) {}
+struct ListNode {
+	int data;
+	ListNode* next;
+	ListNode() : data(0), next(nullptr) {}
+	ListNode(int data) : data(data), next(nullptr) {}
+	ListNode(int data, ListNode* next) : data(data), next(next) {}
 };
 
 class LinkedList {
-private:
-    LinkedListNode* head, * tail;
+	ListNode* head;
+	ListNode* tail;
 public:
-    LinkedList() {
-        head = nullptr;
-        tail = head;
-    }
+	LinkedList() {
+		head = nullptr;
+		tail = nullptr;
+	}
 
-    void push_back(int data) {
-        LinkedListNode* node = new LinkedListNode(data);
+	//Add data to the back of the list
+	void push_back(int data) {
+		//if list is empty
+		if (head == nullptr) {
+			head = new ListNode(data);
+			tail = head;
+		}
+		else {
+			//else add it at back
+			tail->next = new ListNode(data);
+			tail = tail->next;
+		}
+	}
 
-        // if list is empty
-        if (head == nullptr) {
-            head = node;
-        }
-        else {
-            tail->next = node;
-        }
-        //update the tail in both cases
-        tail = node;
-    }
+	//Add data to the beginning of the list
+	void push_front(int data) {
+		//Create the node
+		ListNode* node = new ListNode(data);
 
-    void push_front(int data) {
-        LinkedListNode* node = new LinkedListNode(data);
+		//if list is empty - make it the head and tail
+		if (head == nullptr) {
+			head = node;
+			tail = head;
+		}
+		//else - make it head
+		else {
+			node->next = head;
+			head = node;
+		}
+	}
 
-        //if list is empty
-        if (head == nullptr) {
-            head = node;
-            tail = node;
-        } 
-        else{
-            node->next = head;
-            head = node;
-        }
-    }
+	//Search key
+	bool search_key(int key) {
+		if (head == nullptr) {
+			cout << "List is empty." << endl;
+			return false;
+		}
+		ListNode* currentNode = head;
+		while (currentNode != nullptr && currentNode->data != key) {
+			currentNode = currentNode->next;
+		}
+		//if found then return true else node came outside list so return false.
+		return currentNode == nullptr ? false : true;
+	}
 
-    int pop_front() {
-        if (head == nullptr) {
-            cout << "List is empty" << endl;
-            return -1;
-        }
-        
-        int result = -1;
-        //if only 1 element
-        if (head->next == nullptr) {
-            result = head->data;
-            delete head;
-            head = nullptr;
-            tail = nullptr;
-        }
-        else {
-            result = head->data;
-            LinkedListNode* nodeToDelete = head;
-            head = head->next;
-            delete nodeToDelete;
-            nodeToDelete = nullptr;
-        }
-        return result;
-    }
+	//Delete data from the back of the list
+	int pop_back() {
+		//base case - list is empty. Return
+		if (head == nullptr) {
+			cout << "Nothing to delete. List is empty" << endl;
+			return -1;
+		}
+		int result = tail->data;
 
-    int pop_back() {
-        if (head == nullptr) {
-            cout << "List is empty" << endl;
-            return -1;
-        }
+		//if list has only one node then update the head and tail to null
+		if (head == tail) {
+			delete(head);
+			head = nullptr;
+			tail = nullptr;
+		}
+		else {
+			//else delete the tail and make the tailprev the new tail
+			ListNode* currentNode = head;
+			while (currentNode->next != tail) {
+				currentNode = currentNode->next;
+			}
+			//current node is now tail prev
+			currentNode->next = nullptr;
 
-        int result = -1;
-        //if only 1 element
-        if (head->next == nullptr) {
-            result = head->data;
-            delete head;
-            head = nullptr;
-            tail = nullptr;
-        }
-        else {
-            result = tail->data;
-            LinkedListNode* tailPrev = head;
-            while (tailPrev->next != tail)
-                tailPrev = tailPrev->next;
-            delete tail;
-            tail = nullptr;
-            tailPrev->next = nullptr;
-            tail = tailPrev;
-        }
-        return result;
-    }
+			delete(tail);
+			tail = nullptr;
 
-    void deleteList() {
-        if (head == nullptr)
-            return;
+			tail = currentNode;
+		}
 
-        LinkedListNode* currentNode = head;
-        while (currentNode != nullptr) {
-            LinkedListNode* nodeToDelete = currentNode;
-            currentNode = currentNode->next;
-            delete nodeToDelete;
-            nodeToDelete = nullptr;
-        }
-        head = nullptr;
-        tail = nullptr;
-    }
+		return result;
+	}
 
-    bool searchKey(int data) {
-        if (head == nullptr) {
-            cout << "List is empty" << endl;
-            return false;
-        }
+	//Delete data from the beginning of the list
+	int pop_front() {
+		//base case - list is empty
+		if (head == nullptr) {
+			cout << "Nothing to delete. List is empty" << endl;
+			return -1;
+		}
 
-        LinkedListNode* currentNode = head;
-        while (currentNode != nullptr) {
-            if (currentNode->data == data)
-                return true;
-            currentNode = currentNode->next;
-        }
-        return false;
-    }
+		int result = head->data;
+		//if list has only one node then update the head and tail to null
+		if (head == tail) {
+			head = nullptr;
+			tail = nullptr;
+		}
+		else {
+			ListNode* nodeToDelete = head;
+			head = head->next;
+			delete(nodeToDelete);
+			nodeToDelete = nullptr;
+		}
 
-    void printList() {
-        if (head == nullptr) {
-            cout << "List is empty" << endl;
-            return;
-        }
+		return result;
+	}
 
-        LinkedListNode* currentNode = head;
-        while (currentNode != nullptr) {
-            cout << currentNode->data << " ";
-            currentNode = currentNode->next;
-        }
-    }    
+	//Delete list
+	void deleteList() {
+		if (head == nullptr) {
+			cout << "Nothing to delete. List is empty." << endl;
+			return;
+		}
+		ListNode* currentNode = head;
+		ListNode* nodeToDelete = nullptr;
+		while (currentNode != nullptr) {
+			nodeToDelete = currentNode;
+			currentNode = currentNode->next;
+			delete(nodeToDelete);
+			nodeToDelete = nullptr;
+		}
+
+		head = nullptr;
+		tail = nullptr;
+	}
+
+	//Print the entire list
+	void printList() {
+		if (head == nullptr) {
+			cout << "Nothing to print. List is empty" << endl;
+			return;
+		}
+
+		ListNode* currentNode = head;
+		while (currentNode != nullptr) {
+			cout << currentNode->data << " ";
+			currentNode = currentNode->next;
+		}
+		cout << endl;
+	}
 };
 
 int main() {
-    LinkedList* list = new LinkedList();
-    list->push_back(10);
-    list->push_back(20);
-    list->push_back(30);
-    list->push_front(5);
-    list->push_front(2);
+	//Test push back
+	LinkedList* list1 = new LinkedList();
+	list1->push_back(10);
+	list1->push_back(20);
+	list1->push_back(30);
+	list1->push_back(40);
+	list1->printList();
+	list1->search_key(10) == true ? cout<<"Key 10 found!"<<endl : cout<<"Key 10 not found!"<<endl;
+	list1->search_key(100) == true ? cout<<"Key 100 found!"<<endl : cout<<"Key 100 not found!"<<endl;
 
-    //Test 1 : List not empty. Print list
-    cout << endl;
-    list->printList();
-    cout << endl;
+	//Test pop_back
+	LinkedList* list2 = new LinkedList();
+	list2->push_back(100);
+	list2->push_back(200);
+	list2->push_back(300);
+	list2->push_back(400);
+	list2->printList();
 
-    //Test 2: List not empty. Search Key Present
-    list->searchKey(10) == true ? cout << "Found key: " << 10 << endl : cout << "Not Found Key: " << 10 << endl;
+	cout << "Deleting last element : " << list2->pop_back() << endl;
+	cout << "Deleting last element : " << list2->pop_back() << endl;
+	cout << "Deleting last element : " << list2->pop_back() << endl;
+	cout << "Deleting last element : " << list2->pop_back() << endl;
+	cout << "Deleting last element : " << list2->pop_back() << endl;
 
-    //Test 3: List not empty. Search Key Present
-    list->searchKey(100) == true ? cout << "Found key: " << 100 << endl : cout << "Not Found Key: " << 100 << endl;
-    
-    //Test 4: Delete Keys one by one
-    cout << "Deleted: "<< list->pop_front() << endl;
-    cout << "Deleted: "<< list->pop_front() << endl;
-    cout << "Deleted: "<< list->pop_back() << endl;
-    cout << "Deleted: "<< list->pop_back() << endl;
-    cout << "Deleted: "<< list->pop_back() << endl;
-    cout << "Deleted: "<< list->pop_back() << endl;
+	//Test pop_front
+	LinkedList* list3 = new LinkedList();
+	list3->push_back(1);
+	list3->push_back(2);
+	list3->push_back(3);
+	list3->push_back(4);
+	list3->printList();
 
-    list->printList();
+	cout << "Deleting first element : " << list3->pop_front() << endl;
+	cout << "Deleting first element : " << list3->pop_front() << endl;
+	cout << "Deleting first element : " << list3->pop_front() << endl;
+	cout << "Deleting first element : " << list3->pop_front() << endl;
+	cout << "Deleting first element : " << list3->pop_front() << endl;
 
-    //Test 5: Add data to empty list
-    list->push_back(10);
-    list->push_back(20);
-    list->push_back(30);
+	//Test delete list
+	LinkedList* list4 = new LinkedList();
+	list4->push_back(1000);
+	list4->push_back(2000);
+	list4->push_back(3000);
+	list4->push_back(4000);
+	list4->printList();
+	list4->deleteList();
+	list4->search_key(1000) == true ? cout << "Key 1000 found!" << endl : cout << "Key 1000 not found!" << endl;
+	list4->deleteList();
+	list4->printList();
 
-    list->push_front(5);
-    list->push_front(2);
-
-    list->printList();
-
-    //Test 6: Delete whole List
-    list->deleteList();
-    cout << endl;
-    list->printList();
-
-    return 0;
+	return 0;
 }
