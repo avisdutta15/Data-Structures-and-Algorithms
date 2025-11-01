@@ -24,8 +24,10 @@ using namespace std;
     and return the next node that was returned from recursion.
 
     2. Iterative
-    The idea is to reverse the linked list and maintain the maximum value from left side. If value of current node is 
-    greater than maximum value, then update the max value and move to next node. Otherwise, delete the current node. 
+    The idea is to reverse the linked list and maintain the maximum value from left side. 
+    Since we reversed the list, the deletion of an element becomes easier (node_prev->next = node->next). 
+    If value of current node is greater than maximum value from left, then update the max value and move to next node. 
+    Otherwise, delete the current node. 
     Reverse the resultant list and return it. 
 
 */
@@ -49,6 +51,7 @@ private:
         LinkedListNode* nodeToReturn = nullptr;
 
         //Compare the current node data with the maxTillNow.
+        //if current node < maxTillNow that means it has greater nodes to its right. so delete it.
         if (node->data < maxTillNow) {
             delete node;
             node = nullptr;
