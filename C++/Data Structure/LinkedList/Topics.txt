@@ -12,7 +12,7 @@
 4. Is Linked List pallindrome.
 5. Odd Even List
    Segregate odd and even positioned nodes
-   Partition List
+   Partition List [TODO]
 6. Reverse Problems
 	A. Iterative reverse
 	B. Recursive reverse
@@ -25,10 +25,10 @@
 		current->next->next = current;
 		current->next = NULL;
 	C. Reverse List between index i and j.
-	D. Reverse a Linked List in groups of given size
-	E. Reverse alternate K nodes in a Singly Linked List 
-	F. Print Immutable Linked List in Reverse
-	G. Reverse Nodes in Even Length Groups
+	D. Reverse a Linked List in groups of given size [TODO]
+	E. Reverse alternate K nodes in a Singly Linked List [TODO]
+	F. Print Immutable Linked List in Reverse [TODO]
+	G. Reverse Nodes in Even Length Groups [TODO]
 7. Add two numbers represented by linked lists
    Add two numbers represented by linked lists (II)
    Mulitply two numbers represented by linked lists
@@ -40,7 +40,7 @@
 			find the random node in the hash table. join Hash[OldNode]->random = Hash[OldNode->random]
 
 	App2: Inserting new nodes in between
-		
+	LinkedList Random Node (https://www.youtube.com/watch?v=FoHIX3URFaM)
 		
 
 9. Find a triplet from three linked lists with sum equal to a given number
