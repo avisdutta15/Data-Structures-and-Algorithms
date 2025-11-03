@@ -5,12 +5,14 @@
 	C. Delete Nodes which have greater value on right
 	D. Delete N nodes after M nodes [IMP]
 	E. Delete Last occurance of an element
-	F. Remove duplicate elements from sorted/unsorted linked list
+	F. Remove duplicate elements from sorted (I/II)/unsorted linked list
 	G. Delete a node in linked list when you are not passed the pointer to pointer to head i.e. (**head) and it should not return any pointer.
 		To handle the case when the node to be deleted is the first node, we copy the next node data to head and delete the next node.
 3. Cycle Detection, Finding the first node of the cycle, Remove loop
 4. Is Linked List pallindrome.
-5. Segregate odd and even positioned nodes
+5. Odd Even List
+   Segregate odd and even positioned nodes
+   Partition List
 6. Reverse Problems
 	A. Iterative reverse
 	B. Recursive reverse
@@ -22,11 +24,14 @@
 		reverse(current->next);
 		current->next->next = current;
 		current->next = NULL;
-
-	C. Reverse a Linked List in groups of given size
-	D. Reverse alternate K nodes in a Singly Linked List 
+	C. Reverse List between index i and j.
+	D. Reverse a Linked List in groups of given size
+	E. Reverse alternate K nodes in a Singly Linked List 
+	F. Print Immutable Linked List in Reverse
+	G. Reverse Nodes in Even Length Groups
 7. Add two numbers represented by linked lists
-   Mylitply two numbers represented by linked lists
+   Add two numbers represented by linked lists (II)
+   Mulitply two numbers represented by linked lists
 8. Clone a Linked List with random pointer (V VIP)
 	App1: Use Hash table
 		HashTable (oldNode, corrsponding newNode)
@@ -47,7 +52,7 @@
 	C. Point to next higher value node in a linked list with an arbitrary pointer (TODO)
 11. Swap problems
 	A. Swap nodes in a linked list without swapping data
-	B. Pairwise swap elements of a given linked list by changing links (TODO)
+	B. Pairwise swap elements of a given linked list by changing links (TODO) [Swap nodes in pair]
 12. Sorting
 	A. Bubble Sort
 	B. Insertion Sort
@@ -59,6 +64,8 @@
 	H. Sort a linked list that is sorted alternating ascending and descending orders (TODO)
 13. Convert a binary tree to DLL		|
 14. Convert a DLL to Binary Tree		|	Very Very Important	
+	Convert Sorted List to Binary Search Tree
+	Convert BST to Sorted DLL
 15. Find the N/K the node and squareRoot(n)th node.
 16. Find the modulo node
 17. Length of longest palindrome list in a linked list using O(1) extra space
@@ -73,6 +80,8 @@
 	}
 	2. Flatten a multilevel linked list (level wise)
 	3. Flatten a multilevel linked list (depth wise)
+	4. Flatten Binary Tree to Linked List
+	5. Flatten a Multilevel DLL
 21. Josephus Circle using circular linked list
 22. Construct a linked list from 2D matrix
 23. Merge two Linked Lists:
@@ -86,5 +95,43 @@
 		else
 			list2->next = merge(list1, list2->next);
 			return list2;
+	Merge K sorted Lists
 
 24. Intersection of two Linked Lists - Solve this without finding the length of the lists
+25. LRU Cache
+    LFU Cache
+26. Reorder List
+27. Populating Next Right Pointers in each Node.
+28. Populating Next Right Pointers in each Node II.
+29. Insertion Sort List
+30. Sort List
+31. Design Twitter
+32. Plus One Linked List
+33. Design Phone Directory
+34. Linked List Random Node
+35. All O(1) Data Structure
+36. Design Circular Queue
+37. Design HashSet
+38. Design HashMap
+39. Design LinkedList
+40. Insert into Sorted Circular Linked List
+41. Max Stack
+42. Split Linked Lists into Parts
+43. Linked List components
+44. Next Greater Node in Linked List
+45. Remove Zero Sum Consequtive nodes
+46. Design Skiplist
+47. Convert Binary Number in Linked List to Integer
+48. Linked List in Binary Tree
+49. Design Browser History
+50. Add Two Polynomials represented as Linked Lists
+51. Merge In between Linked Lists
+52. Design Front Middle Back Queue
+53. Swapping Nodes in Linked List
+54. Design Most Recently used Queue
+55. Design Text Editor
+56. Spiral Matrix IV
+57. Split a Circular Linked List.
+58. Double a Number represented as Linked List
+59. Convert DLL to Array I/II
+60. Minimum Pair Removal to Sort Array I/II
