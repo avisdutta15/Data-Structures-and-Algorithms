@@ -31,7 +31,7 @@
 	G. Reverse Nodes in Even Length Groups [TODO]
 7. Add two numbers represented by linked lists
    Add two numbers represented by linked lists (II)
-   Mulitply two numbers represented by linked lists
+   Mulitply two numbers represented by linked lists [TODO]
 8. Clone a Linked List with random pointer (V VIP)
 	App1: Use Hash table
 		HashTable (oldNode, corrsponding newNode)
@@ -41,8 +41,6 @@
 
 	App2: Inserting new nodes in between
 	LinkedList Random Node (https://www.youtube.com/watch?v=FoHIX3URFaM)
-		
-
 9. Find a triplet from three linked lists with sum equal to a given number
 10. MergeSort Problems
 	A. MergeSort
