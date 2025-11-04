@@ -9,48 +9,36 @@ struct ListNode {
 	ListNode(int data, ListNode* next) : data(data), next(next) {}
 };
 
-class Solution {
+class LinkedList {
 public:
-	ListNode* removeNthFromEnd(ListNode* head, int n) {
-		if (head == nullptr)
-			return nullptr;
+    ListNode* removeNthFromEnd(ListNode *head, int n) {
+        if (head == nullptr)
+            return head;
 
-		int index = 0;
-		ListNode* currentNode = head;
-		while (currentNode != nullptr && index < n-1) {
-			currentNode = currentNode->next;
-			index++;
-		}
+        //if n = size of the list then we will modify the head. Hence keep a dummy head.
+        ListNode* dummyHead = new ListNode(0, head);
+        ListNode* prev = dummyHead;
+        ListNode* ptr1 = head, * ptr2 = head;
+        int index = 1;
+        while (ptr1 != nullptr && index != n) {
+            ptr1 = ptr1->next;
+            index++;
+        }
+        
+        while (ptr1->next != nullptr) {
+            //ptr2 is the final nth node so keep track of its prev
+            prev = ptr2;
+            ptr1 = ptr1->next;
+            ptr2 = ptr2->next;
+        }
 
-		ListNode* nthNodeFromEnd = head;
-		ListNode* nthNodeFromEndPrev = nullptr;
-		while (currentNode->next != nullptr) {
-			nthNodeFromEndPrev = nthNodeFromEnd;
-			nthNodeFromEnd = nthNodeFromEnd->next;
-			currentNode = currentNode->next;
-		}
+        ListNode* nodeToDelete = ptr2;
+        prev->next = ptr2->next;
+        delete(ptr2);
+        ptr2 = nullptr;
 
-		//only one node and n == 1
-		//n = size of the list i.e. nth node from = head - then delete the head and update head
-		//n = any other node then delete that node and update previous_node -> next
-		if (head->next == nullptr && n == 1) {
-			delete(head);
-			head = nullptr;
-		}
-		else if (nthNodeFromEnd == head) {
-			ListNode* nodeToDelete = head;
-			head = head->next;
-			delete(nodeToDelete);
-			nodeToDelete = nullptr;
-		}
-		else {
-			nthNodeFromEndPrev->next = nthNodeFromEnd->next;
-			delete(nthNodeFromEnd);
-			nthNodeFromEnd = nullptr;
-		}
-
-		return head;
-	}
+        return dummyHead->next;
+    }    
 };
 
 void printList(ListNode* node) {

@@ -108,29 +108,24 @@ public:
 
 class Solution {
 public:
-	ListNode* displayNthFromEnd(ListNode* head, int n) {
-		if (head == nullptr)
-			return nullptr;
+    ListNode* displayNthFromEnd(ListNode *head, int n) {
+        if (head == nullptr)
+            return head;
 
-		int gap = 0;
-		ListNode* currentNode = head;
-		ListNode* nthNodeFromEnd = head;
-		while (currentNode != nullptr && gap < n-1) {
-			currentNode = currentNode->next;
-			gap++;
-		}
+        ListNode* ptr1 = head, * ptr2 = head;
+        int index = 1;
+        while (ptr1 != nullptr && index != n) {
+            ptr1 = ptr1->next;
+            index++;
+        }
+        
+        while (ptr1->next != nullptr) {
+            ptr1 = ptr1->next;
+            ptr2 = ptr2->next;
+        }
 
-		//if n is greater than the size of the list
-		if (currentNode == nullptr)
-			return nullptr;
-
-		while (currentNode->next != nullptr) {
-			nthNodeFromEnd = nthNodeFromEnd->next;
-			currentNode = currentNode->next;
-		}
-
-		return nthNodeFromEnd;
-	}
+        return ptr2;
+    }    
 };
 
 int main() {
