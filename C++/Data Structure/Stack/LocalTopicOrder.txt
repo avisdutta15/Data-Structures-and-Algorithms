@@ -1,0 +1,323 @@
+1. Stack using Array
+2. Stack using List
+3. Stack using Queue
+	i.  Insert at q's end
+        ii. One by one pop elements from q's front and insert into q's end
+        
+4. Design Minimum Stack 
+	- With O(N) space
+	- With O(1) space [https://www.youtube.com/watch?v=ZvaRHYYI0-4&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=11]
+		push when x<=min:   push(2*x-min).     min = x
+		pop  when top<=min: min = 2*min-top(). pop()
+5. Design Middle Stack
+
+_____________________________________________________________________________________________________
+
+Parenthesis
+1. Balanced Parenthesis
+	Longest Balanced Parenthesis:
+	Approach 1: Using Stack
+		for(int i=0; i<s.length(); i++){
+			if(c=='(') 	
+				stack.push({'(', i});
+			else
+				if(stack.size()!=0 && stack.top().first == '(')
+					stack.pop();
+					maxLen = max(maxLen, i-stack.empty()?-1 : stack.top().second);
+				else
+					stack.push({')',i});
+				
+			
+		}
+		return maxLen;
+	Approach 2: Two Pointers
+		for(int i=0; i<s.length(); i++){
+			if( ( )
+				opening++;
+			else if( ) )
+				closing++;
+			
+			if(opening == closing)
+				maxLen = max(maxLen, 2 * opening);
+			else if(closing > opening)
+				opening = 0; closing = 0;
+		}
+
+		Traverse another time from right to left and do the same thing.
+		But check if (opening > closing) then opening = 0; closing = 0
+
+		Why do we need right to left?  ex - ((()). 
+		From left to right, left never becomes equal to right.
+    		But from right to left, they become equal.
+2. Duplicate Parenthesis
+    ((a+b)+c)
+    when 1st ) is encountered then stack.top!='(' so pop till we get'('
+    then pop '('.
+    When 2nd ) is encountered then stack.top!='(' so pop till we get '('
+    then pop '('.
+    So return false
+    
+    ((a+b))+c)
+    when 1st ) is encountered then stack.top!='(' so pop till we get '('
+    then pop '('
+    When 2nd ) is encountered then stack.top=='(' so it means it is a duplicate 
+    Hence return true
+
+3. Check if expression contains any redundant brackets
+	((a+b))		- Yes [duplicate parenthesis]
+	(a+(b)/c)	- Yes [(b) is unwanted]
+	(a+b*(c-d))	- No
+
+	An expr contains redundant brackets in 2 cases: i) duplicate brackets and 
+							ii) if () contains only operands and no operators
+	When a ')' is encountered,
+		if(stack.top()=='(') 
+			then a duplicate bracket is encountered. 
+			return true
+		int operator_count = 0;
+		while(stack.top()!='('){
+			//keep a track of number of operators till the opening bracket is hit.
+			if(isOperator(stack.top())
+				operator_count++;
+			stack.pop();
+		}
+		if(operator_count==0) 
+			then the second case occurs e.g. (b)
+			return true; 
+
+
+
+3. Minimum Bracket Reversal
+4. Print all valid parenthesis
+	we can always add a '(' but we can only add a ')' if 
+	number of remaining ')' is < number of remaining '('
+	(())  N = 3.
+	In this case remaining '(' = 1
+		     remaining ')' = 1
+	So we can add '(' but cannot add ')'
+
+	function(N, open, close, parenthesis){
+		if(open == N && close == N)
+			print parenthesis
+			return;
+		if(open < N)
+			function(N, open + 1, close, parenthesis + '(')
+		if(close < open and close < N)
+			function(N, open, close + 1, parenthesis + ')')
+	}
+
+5. Find the number of valid parenthesis with N parenthesis.
+	n/2 th catalan number
+
+
+7. Expression evaluation (Basic Calculator)  [TODO]
+   https://leetcode.com/problems/basic-calculator/discuss/62362/JAVA-Easy-Version-To-Understand!!!!!
+
+8. Remove Invalid Parentheses
+	1. DFS
+		. for each bracket character we have 2 options - include or exclude.
+		. if the removed count is less than global removed count then put the expression into a set(to avoid duplicates).
+
+		dfs(str, indx, leftcount, rightcount, removedcount, expr){
+
+		    //a balanced parenthesis will have equal opening and closing brackets.
+		    if(leftcount == rightcount){
+			if(indx == str.length){
+			   if(removedcount < globalmin){
+				globalmin = removedcount;
+				set.clear(); set.insert(expr);
+			   }
+			   else if(removedcount == globalmin)
+				set.insert(expr);
+			}
+			return;
+		    }
+			if(str[indx]!=')' or '(')
+				dfs(str, indx+1, leftcount, rightcount, removedcount, expr+str[indx]);
+			else{
+				//exclude
+				dfs(str, indx+1, leftcount, rightcount, removedcount+1, expr);
+
+				//include
+				if(str[index]=='(')
+					dfs(str, indx+1, leftcount+1, rightcount, removedcount, expr+str[indx]);
+				if(str[index]==')' and rightcount<leftcount)
+					dfs(str, indx+1, leftcount, rightcount+1, removedcount, expr+str[indx]);
+			}
+		}
+
+	2. Limited Backtracking
+	Count the left and right parenthesis to be removed to make the expr valid.
+	Then while removing a ( or ) check whether we can remove the bracket.
+	Suppose leftBacketToBeRemoved==0 that means we cannot remove a (.
+
+	if((str[indx] == '(' && leftBacketToBeRemoved>0)  or (str[indx] == ')' && rightBacketToBeRemoved>0)){
+		dfs(str,
+		   index+1,
+		   leftCount,
+		   rightCount,
+		   str[indx]=='('?  leftBacketToBeRemoved-1 : leftBacketToBeRemoved,
+		   str[indx]==')'?  rightBacketToBeRemoved-1 : rightBacketToBeRemoved,
+		   expr
+                  );
+	}
+
+9. Maximum depth in a balanced parenthesis
+	. Maximum depth = number of opening bracket.
+	    While not end of string
+		if '(' 
+		    depth ++;
+		    maxDepth = max(maxDepth, depth)		    
+		if ')' 
+		    if depth <= 0 that means we didnot encounter any ( so unbalanced. 
+			return -1.
+		    else 
+			depth--
+	    if(depth>0)
+		this means that the string has more ) than (.
+		return -1.
+	    return maxDepth;
+			
+_____________________________________________________________________________________________________
+
+
+using Stack Operations
+
+	1. Reverse a stack without aux ds
+	2. Reverse a stack without aux ds and without recursion. (Possible only if stack is represented as list)
+	3. Sort a stack
+	4. Delete middle element of a stack without any aux ds. [Do a recursion. While returning back push all items in memeory except itemId = stacksize/2]
+	5. Delete K array elements which are smaller than next or become smaller
+		Input       : arr[] = {20, 10, 25, 30, 40}
+              	k = 2
+		Output      : 25 30 40
+
+		push A[0] into stack
+		from 1 to n
+		    if(count !=K)
+			if A[i]>stack.top then stack.pop. Increment count
+		    stack.push(A[i])
+_____________________________________________________________________________________________________
+
+Intervals
+	1. Merge overlapping intervals
+	2. Meeting Rooms I, II
+	3. Maximum number of platforms required
+	4. Insert Interval			
+	5. Find Intersection of all Intervals
+		(l1, r1)  (l2, r2)
+		Intersection exists if: r1<l2. 
+		Then the intersection is : {max(l1,l2), min(r1,r2)}
+	
+
+_____________________________________________________________________________________________________
+
+Next Greater Element variants
+------------------------------
+	1. NGE
+		Approach 1: Stack contains elements. A[i] is NGE. 
+					traverse left to right.
+						while stack.top() < A[i] then
+							A[i] is NGE for stack.top()
+							stack.pop()
+						stack.push(A[i])
+					while(stack is not empty)
+						-1 is NGE for stack.top
+
+		Approach 2: Stack contains NGE. A[i] is element
+					traverse right to left
+						while A[i]>stack.top()
+							stack.pop()
+						if(stack is empty)
+							NGE of A[i] = -1
+						else 
+							NGE of A[i] = stack.top();
+						stack.push(A[i])
+					
+
+	2. Replace every element with the least greater element on its right
+	3. Replace every element with the greatest element on right side
+		Traverse from right to left
+		Keep track of maximum element so far.
+		greatest element on right side of A[i] = maxElement
+	4. Next Greater Frequency Element. (Hash + Stack[keep indices in stack])
+		a[] = [1,   1, 2, 3, 4, 2,  1] 
+		      [-1, -1, 1, 2, 2, 1, -1]
+	5. Find maximum difference between nearest left and right smaller elements
+		arr[] = {2, 1, 8}    O/P: 1
+		LS[] {0, 0, 1}	
+		RS[] {1, 0, 0}
+	6. Find next Smaller of next Greater in an array  [IMP]
+		Create 2 arrays NGE[] and RS[].  (store indices in these arrays)
+		1. find the next greater element of every element (store the indices)
+        2. find the next smaller element of every element (store the indices)
+        3. now for every i  [0<=i<=N]
+                nextGreaterIndex = NGE[i];
+                if(nextGreaterIndex == -1)
+                    ans[i] = -1;
+                else{
+                    nextSmallerIndex = NSE[nextGreaterIndex];
+                    if(nextSmallerIndex == -1)
+                        ans[i] = -1
+                    else
+                        ans[i] = A[nextSmallerIndex];
+                }
+
+		
+
+_____________________________________________________________________________________________________
+
+
+LeetCode:
+
+	2. Trapping Rainwater
+	3. Largest Rectangular area in histogram
+			for(int i = 0; i <= n-1; i++) { 
+				if(stk.empty() || height[i] >= height[stk.top()]) 
+					stk.push(i);
+				else {		
+					while(!stk.empty() && height[i] < height[stk.top()]) {
+						right[stk.top()] = i - stk.top() - 1;
+						stk.pop();
+					}
+					stk.push(i);
+				} 
+			}
+			Similarly populate left using i=n-1 to i=0
+			Traverse once again to calculate the max area
+				if(left[i]==0 and right[i]==0)
+					maxHeight = max(maxHeight, H[i])
+				else
+					length = H[i]
+					breadth = left[i] + right[i] + 1
+					maxHeight = max(maxHeight, length*breadth)
+
+	4. Basic Calculator (I, II, III, IV)
+		When elders come (*/) then juniors stay (+-)
+		When juniors come (+-) then elders go away (*/)
+		else when same level come then process prev then insert this.
+	5. Stock span
+	6. Maximum Frequency Stack 
+	8. Decode a string	
+	9. Find maximum of minimum for every window size in a given array  [TODO IMP]
+	10. Ternary Operator Parser
+ 
+
+Difference between Trapping RainWater and Histogram Area
+	Trapping RainWater  ==  For building i we check the GLOBAL max height in left and right of i
+	Histogram Area 	    ==  For building i we check the next max height in left and right of i
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
