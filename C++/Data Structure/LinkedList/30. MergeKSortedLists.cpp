@@ -7,32 +7,26 @@ using namespace std;
 /*
 	Problem Statement:
 	-----------------
-	You are given the heads of two sorted linked lists list1 and list2.
-	Merge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists.
-	Return the head of the merged linked list.
+	Given k sorted linked lists of different sizes, we need to merge them into a single list while maintaining their sorted order.
+
 
 	Examples:
 	---------
-	Input: head1 = [5, 10, 15, 40]
-		   head2 = [2, 3, 20] 
-	Output: 2 -> 3 -> 5 -> 10 -> 15 -> 20 -> 40
+	Input: 
+			head1->1->3->5->7
+			head2->2->4->6->8
+			head3->0->9->10->11
 
-	Input: head1 = [1 ,1]
-		   head2 = [2, 4]
-	Output: 1 -> 1 -> 2 -> 4
-	
+	O/P:	0->1->2->3->4->5->6->7->8->9->10->11->null
+
 	Approach:
 	---------
-	1. Use Recursion
-		The idea is to pick the smaller head node at each step and let recursion merge the remaining parts. 
-		If one list is empty, return the other; otherwise the smaller node becomes the next node in the merged 
-		list and its next is the recursive merge of the rest.
-
-	2. Iterative using dummyNode
-		The idea is to iteratively merge two sorted linked lists using a dummy node to simplify the process. 
-		A current pointer tracks the last node of the merged list. We compare the nodes from both lists and 
-		append the smaller node to the merged list. Once one list is fully traversed, the remaining nodes 
-		from the other list are appended. The merged list is returned starting from the node after the dummy node.
+	The idea is to use a min heap to efficiently track the smallest element among all lists at any given time by initially 
+	storing the first node from each list in the heap, then repeatedly extracting the minimum element to build the merged 
+	list while adding the next node from that same list to maintain the heap's role in finding the next smallest element.
+	
+	Time Complexity: O(n * log k) , where n is the total number of nodes from all lists.
+	Auxiliary Space: O(k), due to heap. There are at most k elements at any instant.
 */
 
 class ListNode {
@@ -46,16 +40,10 @@ public:
 
 class Solution {
 private:
-	struct RowInfo {
-		ListNode* node;
-		int rowId;
-		RowInfo(ListNode *node, int rowId): node(node), rowId(rowId){}
-	};
-
 	class Compare {
 	public:
-		bool operator()(RowInfo a, RowInfo b) {
-			if (a.node->data >= b.node->data) {
+		bool operator()(ListNode *a, ListNode *b) {
+			if (a->data >= b->data) {
 				return true;
 			}
 			return false;
@@ -64,35 +52,27 @@ private:
 
 public:
 	ListNode* mergeKLists(vector<ListNode*>& lists) {
-		priority_queue < RowInfo, vector<RowInfo>, Compare> pq;
+		priority_queue <ListNode *, vector<ListNode *>, Compare> pq;
 
 		//insert first k rows into pq
 		for (int rowId = 0; rowId < lists.size(); rowId++) {
-			pq.push(RowInfo(lists[0], rowId));
+			pq.push(lists[rowId]);
 		}
 
-		ListNode* head = nullptr, * tail= head;
+		ListNode* dummyHead = new ListNode(0);
+		ListNode* tail = dummyHead;
 		while (!pq.empty()) {
-			int rowId = pq.top().rowId;
-			ListNode* current = pq.top().node;
+			ListNode* node = pq.top();
 			pq.pop();
 
-			if (head == nullptr) {
-				head = current;
-				tail = current;
-			}
-			else {
-				tail->next = current;
-				tail = current;
-			}
+			tail->next = node;
+			tail = tail->next;
 
-			//if the row still has nodes
-			if (current->next != nullptr) {
-				pq.push(RowInfo(current->next, rowId));
-			}
+			if (node->next != nullptr)
+				pq.push(node->next);
 		}
 
-		return head;
+		return dummyHead->next;
 	}
 };
 
@@ -113,33 +93,33 @@ int main() {
 	Solution obj;
 
 	//Test 1 : 
-	ListNode* head1 = new ListNode(5);
-	head1->next = new ListNode(10);
-	head1->next->next = new ListNode(15);
-	head1->next->next->next = new ListNode(40);
+	//	1->3->5->7
+	//	2->4->6->8
+	//	0->9->10->11
+	//O/P:	0->1->2->3->4->5->6->7->8->9->10->11->null
+	ListNode* head1 = new ListNode(1);
+	head1->next = new ListNode(3);
+	head1->next->next = new ListNode(5);
+	head1->next->next->next = new ListNode(7);
 
 	ListNode *head2 = new ListNode(2);
-	head2->next = new ListNode(3);
-	head2->next->next = new ListNode(20);
+	head2->next = new ListNode(4);
+	head2->next->next = new ListNode(6);
+	head2->next->next->next = new ListNode(8);
+
+	ListNode* head3 = new ListNode(0);
+	head3->next = new ListNode(9);
+	head3->next->next = new ListNode(10);
+	head3->next->next->next = new ListNode(11);
 
 	printList(head1);
 	printList(head2);
-	
-	ListNode* newHead = obj.mergeTwoLists(head1, head2);
-	printList(newHead);
-	
-	//Test 2 : 
-	cout << "Test 2" << endl;
-	ListNode* head3 = new ListNode(1);
-	head3->next = new ListNode(1);
-
-	ListNode* head4 = new ListNode(2);
-	head4->next = new ListNode(4);
-
 	printList(head3);
-	printList(head4);
+
+	vector<ListNode*> arr = { head1, head2, head3 };
 	
-	newHead = obj.mergeTwoListsIterative(head3, head4);
+	ListNode* newHead = obj.mergeKLists(arr);
 	printList(newHead);
+	
 	return 0;
 }
