@@ -1,0 +1,72 @@
+Find all intervals that overlap
+Merge Intervals
+Insert Interval
+Meeting Rooms
+Meeting Rooms II
+Meeting Rooms III
+N Meeting in One Room (// https://www.youtube.com/watch?v=mKfhTotEguk&list=PLgUwDviBIf0rF1w2Koyh78zafB0cz7tea&index=7)
+Maximum number of platforms required
+Find Intersection of all Intervals
+Non overlapping intervals 
+Find Right Interval
+Interval List Intersections
+Data Stream as Disjoint Intervals 
+Teemo Attacking
+Add Bold Tag in String
+Range Module
+Employee Free Time
+Partition Labels
+Amount of New Area Painted Each Day
+Longest Substring of One Repeating Character
+Count Integers in Intervals
+Divide Intervals Into Minimum Number of Groups
+Determine if Two Events Have Conflict
+Count Ways to Group Overlapping Ranges
+Points That Intersect With Cars
+Count Days Without Meetings
+Minimize Connected Groups by Inserting Interval
+My Calender I	
+My Calender II (https://www.youtube.com/watch?v=rRMdxFA-8G4&t=212s)
+My Calender III 
+
+
+
+
+
+------------------------------------------------------------------------
+Interval related problems:
+
+	Tips:
+	1. Sort the intervals based on start time
+	2. check if two intervals overlap
+	   So if two intervals Ia=[a0,a1] and Ib=[b0,b1] don’t overlap, that means 
+	   that Ib must be either fully to the left or fully to the right of Ia on 
+	   the real number line. Now, if Ib is fully to the left of Ia, that means 
+	   in particular that b’s rightmost point b1 must be to the left of a – that 
+	   is, smaller than a0. And again, vice versa for the right side. So the two
+	   intervals don’t overlap if either b1 < a0 or a1 < b0 
+	
+ 	   bool overlap(Interval a, Interval b){
+		if(a.end<b.start || b.end<a.start)
+		   return false;
+		return true;
+	   }
+	3. To merge 2 overlapping intervals, we want the minimum start time among the 
+	   two intervals and the minimum end time among the two intervals.
+
+	4. Suppose our intervals are not sorted. Then how to tell if two intervals
+	   overlap or not?
+			
+		bool overlap(Interval i1, Interval i2){
+			if(max(i1.start, i2.start) < min(i1.end, i2.end))
+				return true;
+			return false;
+		}
+
+b:                     |---------|
+a0<b0 & a1<b0:  |----|
+a0<b0 & a1>b0:  |------------| (a started within b)
+a0<b0 & a1>b1:  |-------------------| (a started within b)
+a0>b0 & a0<b1:            |----|  (b started within a)
+a0>b0 & a0>b1:            |---------| (b started within a)
+a0>b1 & a1>b1:                      |----|

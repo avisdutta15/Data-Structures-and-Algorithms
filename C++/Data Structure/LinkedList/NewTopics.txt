@@ -49,41 +49,44 @@
 	        An important observation is, all negative elements are present in reverse order. 
 	        So we traverse the list, whenever we find an element that is out of order, we move it to the front of linked list.
 34.     Point to next higher value node in a linked list with an arbitrary pointer
-33. Swap problems
-34.     Swap nodes in a linked list without swapping data
-35.     Pairwise swap elements of a given linked list by changing links (TODO) [Swap nodes in pair]
-36. Sorting
-37.     Bubble Sort
-38.     Insertion Sort
-39.     Merge Sort
-40.     Quick Sort
-41.     Merge two sorted linked lists such that the resultant list is in reverse order
-42.     Sort a Linked List of 0s, 1s and 2s.
-43.     Rearrange list in zig zag fashion (TODO)
-44.     Sort a linked list that is sorted alternating ascending and descending orders (TODO)
-45. Convert a binary tree to DLL		|
-46. Convert a DLL to Binary Tree		|	Very Very Important	
-47.	Convert Sorted List to Binary Search Tree
-48.	Convert BST to Sorted DLL
-49. Find the N/K the node and squareRoot(n)th node.
-50. Find the modulo node
-51. Length of longest palindrome list in a linked list using O(1) extra space
-52. Partitioning a linked list around a given value and keeping the original order
-53. Rearrange a given list such that it consists of alternating minimum maximum elements
-54. Flatten a multi-level linked list and its variations:
-55.     Flatten a linked list and the output should be in sorted order
+            first attach the arbit pointer to next node using next pointer
+                node->arbit = node->next
+            sort the array using merge sort based on arbit pointer.
+35. Swap problems
+36.     Swap nodes in a linked list without swapping data
+37.     Pairwise swap elements of a given linked list by changing links (TODO) [Swap nodes in pair]
+38. Sorting
+39.     Bubble Sort
+40.     Insertion Sort
+41.     Merge Sort
+42.     Quick Sort
+43.     Merge two sorted linked lists such that the resultant list is in reverse order
+44.     Sort a Linked List of 0s, 1s and 2s.
+45.     Rearrange list in zig zag fashion (TODO)
+46.     Sort a linked list that is sorted alternating ascending and descending orders (TODO)
+47. Convert a binary tree to DLL		|   [TODO]
+48. Convert a DLL to Binary Tree		|	Very Very Important	
+49.	Convert Sorted List to Binary Search Tree
+50.	Convert BST to Sorted DLL
+51. Find the N/K the node and squareRoot(n)th node.
+52. Find the modulo node
+53. Length of longest palindrome list in a linked list using O(1) extra space
+54. Partitioning a linked list around a given value and keeping the original order
+55. Rearrange a given list such that it consists of alternating minimum maximum elements
+56. Flatten a multi-level linked list and its variations:
+57.     Flatten a linked list and the output should be in sorted order
 	    Node *flatten(Node *head){
         		if(head==NULL || head->right==NULL)
             		return head;
          		return merge(head, flatten(head->right));
 	    }
-56.     Flatten a multilevel linked list (level wise)
-57.     Flatten a multilevel linked list (depth wise)
-58.     Flatten Binary Tree to Linked List
-59.     Flatten a Multilevel DLL
-60. Josephus Circle using circular linked list
-61. Construct a linked list from 2D matrix
-62. Merge two Linked Lists:
+58.     Flatten a multilevel linked list (level wise)
+59.     Flatten a multilevel linked list (depth wise)
+60.     Flatten Binary Tree to Linked List
+61.     Flatten a Multilevel DLL
+62. Josephus Circle using circular linked list
+63. Construct a linked list from 2D matrix
+64. Merge two Linked Lists:
 	    Node* merge(Node *list1, Node *list2)
 		    if(list1==NULL)	return list2;
 		    if(list2==NULL) return list1;
@@ -94,42 +97,42 @@
 		    else
 		    	list2->next = merge(list1, list2->next);
 		    	return list2;
-63. Merge K sorted Lists
-64. Intersection of two Linked Lists - Solve this without finding the length of the lists
-65. Linked List Random Node
-66. 
-67. Reorder List
-68. Populating Next Right Pointers in each Node.
-69. Populating Next Right Pointers in each Node II.
-70. Insertion Sort List
-71. Plus One Linked List
-72. Design Twitter
-73. Design Phone Directory
-74. LRU Cache
-75. LFU Cache
-76. All O(1) Data Structure
-77. Design Circular Queue
-78. Design HashSet
-79. Design HashMap
-80. Design LinkedList
-81. Design Browser History
-82. Design Skiplist
-83. Design Front Middle Back Queue
-84. Design Most Recently used Queue
-85. Design Text Editor
-86. Remove Zero Sum Consequtive nodes
-87. Max Stack
-88. Convert Binary Number in Linked List to Integer
-89. Linked List in Binary Tree
-90. Insert into Sorted Circular Linked List
-91. Add Two Polynomials represented as Linked Lists
-92. Merge In between Linked Lists
-93. Split Linked Lists into Parts
-94. Swapping Nodes in Linked List
-95. Linked List components
-96. Next Greater Node in Linked List
-97. Spiral Matrix IV
-98. Split a Circular Linked List.
-99. Double a Number represented as Linked List
-100. Convert DLL to Array I/II
-101. Minimum Pair Removal to Sort Array I/II
+65. Merge K sorted Lists
+66. Intersection of two Linked Lists - Solve this without finding the length of the lists
+67. Linked List Random Node
+68. 
+69. Reorder List
+70. Populating Next Right Pointers in each Node.
+71. Populating Next Right Pointers in each Node II.
+72. Insertion Sort List
+73. Plus One Linked List
+74. Design Twitter
+75. Design Phone Directory
+76. LRU Cache
+77. LFU Cache
+78. All O(1) Data Structure
+79. Design Circular Queue
+80. Design HashSet
+81. Design HashMap
+82. Design LinkedList
+83. Design Browser History
+84. Design Skiplist
+85. Design Front Middle Back Queue
+86. Design Most Recently used Queue
+87. Design Text Editor
+88. Remove Zero Sum Consequtive nodes
+89. Max Stack
+90. Convert Binary Number in Linked List to Integer
+91. Linked List in Binary Tree
+92. Insert into Sorted Circular Linked List
+93. Add Two Polynomials represented as Linked Lists
+94. Merge In between Linked Lists
+95. Split Linked Lists into Parts
+96. Swapping Nodes in Linked List
+97. Linked List components
+98. Next Greater Node in Linked List
+99. Spiral Matrix IV
+100. Split a Circular Linked List.
+101. Double a Number represented as Linked List
+102. Convert DLL to Array I/II
+103. Minimum Pair Removal to Sort Array I/II
