@@ -3,7 +3,7 @@ Merge Intervals
 Insert Interval
 Meeting Rooms
 Meeting Rooms II
-Meeting Rooms III
+Meeting Rooms III [TODO]
 N Meeting in One Room (// https://www.youtube.com/watch?v=mKfhTotEguk&list=PLgUwDviBIf0rF1w2Koyh78zafB0cz7tea&index=7)
 Maximum number of platforms required
 Find Intersection of all Intervals
@@ -14,7 +14,7 @@ Data Stream as Disjoint Intervals
 Teemo Attacking
 Add Bold Tag in String
 Range Module
-Employee Free Time
+Employee Free Time (Own Solution + algomonster)
 Partition Labels
 Amount of New Area Painted Each Day
 Longest Substring of One Repeating Character
@@ -58,7 +58,7 @@ Interval related problems:
 	   overlap or not?
 			
 		bool overlap(Interval i1, Interval i2){
-			if(max(i1.start, i2.start) < min(i1.end, i2.end))
+			if(max(i1.start, i2.start) <= min(i1.end, i2.end))
 				return true;
 			return false;
 		}
