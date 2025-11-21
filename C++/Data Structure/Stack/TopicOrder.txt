@@ -5,15 +5,15 @@ Ref: https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFG
 84. Largest Rectangle in Histogram
 85. Maximal Rectangle
 255. Verify Preorder Sequence in Binary Search Tree
-316. Remove Duplicate Letters
+316. Remove Duplicate Letters - [https://www.youtube.com/watch?v=rU5p0MRm5zU]
 321. Create Maximum Number
-402. Remove K Digits
+402. Remove K Digits [https://www.youtube.com/watch?v=cFabMOnJaq0, edge cases - https://www.youtube.com/watch?v=jmbuRzYPGrg]
 456. 132 Pattern
-496. Next Greater Element I
-503. Next Greater Element II
-581. Shortest Unsorted Continuous Subarray
+496. Next Greater Element I [NGE+HashTable]
+503. Next Greater Element II [https://www.youtube.com/watch?v=7PrncD7v9YQ]
+581. Shortest Unsorted Continuous Subarray [https://www.youtube.com/watch?v=JKcX5k00oaA, https://www.youtube.com/watch?v=p-O7FExDH1M]
 654. Maximum Binary Tree
-739. Daily Temperatures
+739. Daily Temperatures [https://www.youtube.com/watch?v=ZhZEmGv-sOY]
 768. Max Chunks To Make Sorted II
 769. Max Chunks To Make Sorted
 853. Car Fleet
