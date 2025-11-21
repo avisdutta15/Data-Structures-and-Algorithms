@@ -1,0 +1,129 @@
+priority_queue Basics:
+----------------------
+1. by default, priority_queue is max heap.
+2. for min heap
+	priority_queue<int, vector<int>, greater<int> > Q;
+
+3. writing a custom comparator for min heap
+	class comp{
+		public:
+			bool operator()(int a, int b){
+				return (a>b);
+			}
+	}
+	
+	priority_queue<int, vector<int>, comp> pq;
+
+4. Note: we donot use comp() in priority_queue as we use in sort
+         we reverse the logic for min heap a>b as compared to sort. For sorting in ascending order, we used a<b.
+
+5. using lambda function in priority queue
+	
+	    auto cmp = [](pair<int, pair<int,int>> &a, pair<int, pair<int,int>> &b){
+                            return a.first > b.first;
+                       };
+            priority_queue<pair<int, pair<int,int>>, vector<pair<int, pair<int,int>>>, decltype(cmp)> minHeap(cmp);
+
+6. Root is at index 0 (i).
+   left child = 2*(i) + 1
+   right child = 2*(i) + 2
+   parent = (i-1)/2
+   firstInternalNode = (heapSize-1)/2
+
+Warmup Problems
+---------------
+1. Max Heap (maxHeap.cpp)
+2. Check if an array is a Heap (checkIfAnArrayIsHeap.cpp) --preorder traversal from root to internal nodes in top down manner
+3. Convert a Min Heap To Max Heap (convetMinHeapToMaxHeap.cpp)  --start from internal nodes and start heapify in bottom up manner
+4. Convert a BST to Heap (convertBSTToHeap.cpp) --store the inorder in an array, then do preorder on heap and store elements from array.
+
+
+Patterns:
+----------
+1. Top K Pattern
+LC #215 - Kth largest number in an array
+LC #973 - K closest points to origin
+            K Closest element
+LC #347 - Top k frequent elements/numbers
+LC #692 - Top k frequent words
+LC #264 - Ugly Number II
+LC #451 - Frequency Sort
+LC #703 - Kth largest number in a stream
+LC #767 - Reorganize String
+LC #358 - Rearrange string K distance apart
+LC #1439 - Kth smallest sum of a matrix with sorted rows
+            Product of K Largest numbers in a stream (productOfLargestKInstream.cpp)
+            Sum of numbers between K1st and K2nd smallest elements in an Array where 
+                    K1<K2 (SumOfK1thandK2thSmallestElements.cpp)
+            Find the Kth Non repeating character in a string (FirstKthNonRepeatingCharacter.cpp)
+            Connect n ropes with minimum cost
+
+
+
+2. Merge K sorted pattern
+LC #23 - Merge K sorted
+LC #373 - K pairs with the smallest sum
+LC #378 - K smallest numbers in M-sorted lists
+
+3. Two Heaps Pattern
+LC #295 - Find median from a data stream
+LC #480 - Sliding window Median
+LC #502 - Maximize Capital/IPO
+
+4. Minimum number Pattern
+LC #1167 - Minimum Cost to connect sticks/ropes
+LC #253 - Meeting Rooms II
+LC #759 - Employee free time
+LC #857 - Minimumcost to hire K workers
+LC #621 - Minimum number of CPU (Task scheduler)
+LC #871 - Minimum number of Refueling stops
+
+5. Misc
+1. Rearrange characters in a string such that no two adjacent are same.
+	Store the freq of each char in MAP. If Freq(c)>size/2 then its not possible to rearrange
+	while(Q.size()>=2){
+                auto i1 = Q.top(); Q.pop();
+                auto i2 = Q.top(); Q.pop();
+                ans.push_back(i1.second);
+                ans.push_back(i2.second);
+                if(--i1.first > 0) Q.push(i1);
+                if(--i2.first > 0) Q.push(i2);
+            }
+
+            if(Q.size()>=0)
+                ans.push_back(Q.top().second);
+
+2. Rearrange characters in a string such that the duplicates are K distance apart
+3. Rearrange characters in a string such that the duplicates are atleast K distance apart
+	Store the freq in MAP
+	Take a max heap of [freq, char]
+	While heap not empty
+		create a chunk of size min(K, remainingStringSize);
+		for i=0; i<chunkSize; i++
+			pop from heap. place the char in ans. place the char in temp_array.
+		push all the chars in temp array to heap whose freq>0.
+2. Kth Largest Contiguous Sum
+3. Find K Pairs with smallest sum
+3. Design a special Data Structure.
+4. Sliding Window Median
+   Median in a sorted matrix
+5. Smallest Range in K lists
+	Algo: Minimize the range: [max-min]
+		  At each step, from the K available numbers from each step, compute max and min.
+		  Move to the direction of min. Why? because we want to minimize the range.
+		  keep a min heap of K numbers. u will get the min in O(1) time.
+		  Compute the max on go
+6. Swim in Rising Water
+7. Trapping Rain Water II 
+8. Minimum Number Of refueling stops
+9. Ugly Number [TODO]
+10. Ugly Number II [TODO]
+11. Super Ugly Number [TODO]
+12. The Skyline Problem [WriteUp] - From Tushar and 
+				    https://leetcode.com/problems/the-skyline-problem/discuss/61222/17-Line-O(n-log-n)-time-O(n)-space-C++-Accepted-Easy-Solution-w-Explanations/62500
+				    Note: also write how the vector<pair> works on sorting 
+12. Sort an almost(K) sorted array
+13. furthest-building-you-can-reach/
+14. course-schedule-iii/
+15. last-stone-weight/
+16. the-k-weakest-rows-in-a-matrix/

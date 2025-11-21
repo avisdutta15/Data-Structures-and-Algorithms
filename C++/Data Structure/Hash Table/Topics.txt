@@ -1,0 +1,246 @@
+1. Frequency Counting & Anagram Patterns
+Core: Counting character/word frequencies to solve comparison problems
+49. Group Anagrams ⭐
+242. Valid Anagram ⭐
+438. Find All Anagrams in a String ⭐
+567. Permutation in String ⭐
+760. Find Anagram Mappings ⭐
+890. Find and Replace Pattern ⭐
+1347. Minimum Number of Steps to Make Two Strings Anagram ⭐
+1657. Determine if Two Strings Are Close ⭐
+2273. Find Resultant Array After Removing Anagrams ⭐
+1915. Number of Wonderful Substrings ⭐
+1178. Number of Valid Words for Each Puzzle ⭐
+1002. Find Common Characters ⭐
+451. Sort Characters By Frequency ⭐
+1636. Sort Array by Increasing Frequency ⭐
+347. Top K Frequent Elements ⭐
+692. Top K Frequent Words ⭐
+
+2. Two Sum & Variants Pattern
+Core: Using hash maps to store complements for efficient pair lookups
+1. Two Sum ⭐
+   Two Sum Closest
+170. Two Sum III - Data structure design ⭐
+653. Two Sum IV - Input is a BST ⭐
+1679. Max Number of K-Sum Pairs ⭐
+    3 Sum
+    3 Sum Closest
+    Find three element from different three arrays such that that a + b + c = sum
+454. 4Sum II ⭐
+2006. Count Number of Pairs With Absolute Difference K ⭐
+     Count the number of pairs whose XOR is 0.
+532. K-diff Pairs in an Array ⭐
+325. Maximum Size Subarray Sum Equals k ⭐
+560. Subarray Sum Equals K ⭐
+523. Continuous Subarray Sum ⭐
+525. Contiguous Array ⭐
+930. Binary Subarrays With Sum ⭐
+974. Subarray Sums Divisible by K ⭐
+1248. Count Number of Nice Subarrays ⭐
+
+Subarray and Sum Problem Variations:
+------------------------------------
+1. Count Subarrays with given Sum K
+2. Find a Subarray with given Sum K
+3. Find all Subarray with given Sum K
+4. Find Longest Subarray with given Sum K
+5. Largest subarray with equal number of 0s and 1s  
+	Approach 1: [Replace 0 with -1. Problem redues to finding Prob.4 with K=0]
+   	Approach 2: Keep a prefix sum. When A[i] = 1 then prefix sum +=1 
+					    A[i] = 0 then prefix sum -=1
+		    Rest is same as above. i.e. subarray sum = 0
+6. Longest subarray having count of 1s one more than count of 0s [Replace 0 with -1. Problem redues to finding Prob.4 with K=1]
+7. Count subarrays with same even and odd elements [Replace odd with -1, even with 1. Then Prob.4 with K=0]
+8. Continuous Subarray Sum equals multiple of K
+9. Length of Largest subarray with contiguous elements. [for each subarray[i..j], if maxele-minele == j-i then it contains contiguous elements]
+	for i=0 to n-1
+	   for j=i+1 to n-1
+		subarray [i..j].
+		minele = min(minele, A[j])
+		maxele = max(maxele, A[j])
+		if(maxele-minele == j-i) subarray found
+9.1 Find the length of smallest subarray with sum k
+10. Subarray Sum Closest To K
+11. Shortest Subarray with Sum at Least K - https://www.youtube.com/watch?v=eWbH_j6Lgnk
+12. Maximum Sum of SubArray Close to K.
+13. Maximum distance between two occurrences
+14. First Unique Character
+15. Find common characters between strings
+16. Longest consecutive subsequence
+17. Brick Wall
+18. Max Points on a Line
+19. Longest Palindrome by Contacting Two Letter Words
+20. Number of pairs with Concatenation equal to target
+21. Find a triplet that sums to a given value
+22. Check if array pairs are divisible by k
+23. Count distinct element in every window
+24. Subarray sum divisible by k
+25. Group Anagrams
+26. Count numbers of substrings with exactly k distinct characters
+27. Count of substrings having at least k unique characters
+28. Largest substring with at least k unique characters
+29. Maximum sum of distinct subarrays with length k
+
+Reference - https://leetcode.com/discuss/post/5106455/master-prefix-sum-hash-map-technique-by-ixtc3/
+
+Mod and Hashing:
+---------------
+Note: Sum of all remainders of elements of A when divided by K is equal to K.  A[0]%K+A[1]%K+...+A[n-1]%K=K
+      a%b = K =>  a = b.j + K => a-K = b.j
+1. Find a subarray whose sum is divisible by K
+2. Count the number of subarrays whose sum is divisible by K
+3. Longest subarray with sum divisible by k
+4. Divisible Sum Pairs
+5. Check if an array can be divided into pairs whose sum is divisible by k  
+6. Find all pairs (a, b) in an array such that a % b = k  [IMP] 
+7. Subarray with no pair sum divisible by K
+
+Product and Hashing:
+-------------------
+1. Pair with given product | Set 1 (Find if any pair exists) [special case when prod = 0] 
+   (a*b = K then K%a==0 and b = K/a)
+	If arr[i] is 0 and K is also 0, return true, else ignore arr[i].
+	If K % arr[i] is 0 that means there exists a b in for whom a*b=K. Find b using K/arr[i] exists in table, return true.
+	Insert arr[i] into the hash table.		
+2. Count number of triplets with product equal to given number
+
+Counting Distinct Subarrays:
+--------------------------
+1. Subarrays with distinct elements
+2. Count subarrays having total distinct elements same as original array
+
+
+3. Substring & Sliding Window Patterns
+Core: Using hash maps to track characters in windows
+3. Longest Substring Without Repeating Characters ⭐
+76. Minimum Window Substring ⭐
+159. Longest Substring with At Most Two Distinct Characters ⭐
+340. Longest Substring with At Most K Distinct Characters ⭐
+395. Longest Substring with At Least K Repeating Characters ⭐
+424. Longest Repeating Character Replacement ⭐
+904. Fruit Into Baskets ⭐
+992. Subarrays with K Different Integers ⭐
+1100. Find K-Length Substrings With No Repeated Characters ⭐
+1358. Number of Substrings Containing All Three Characters ⭐
+1695. Maximum Erasure Value ⭐
+
+4. Design Problems with Hash Tables
+Core: Implementing data structures using hash maps
+146. LRU Cache ⭐
+460. LFU Cache ⭐
+380. Insert Delete GetRandom O(1) ⭐
+381. Insert Delete GetRandom O(1) - Duplicates allowed ⭐
+432. All O`one Data Structure ⭐
+705. Design HashSet ⭐
+706. Design HashMap ⭐
+1396. Design Underground System ⭐
+981. Time Based Key-Value Store ⭐
+1146. Snapshot Array ⭐
+208. Implement Trie (Prefix Tree) ⭐
+677. Map Sum Pairs ⭐
+895. Maximum Frequency Stack ⭐
+1797. Design Authentication Manager ⭐
+
+5. String & Word Pattern Problems
+Core: Mapping patterns between strings
+205. Isomorphic Strings ⭐
+290. Word Pattern ⭐
+291. Word Pattern II ⭐
+249. Group Shifted Strings ⭐
+890. Find and Replace Pattern ⭐
+953. Verifying an Alien Dictionary ⭐
+1153. String Transforms Into Another String ⭐
+
+6. Graph & Tree Problems with Hash Maps
+Core: Storing relationships, parents, or visited nodes
+133. Clone Graph ⭐
+138. Copy List with Random Pointer ⭐
+105. Construct Binary Tree from Preorder and Inorder Traversal ⭐
+106. Construct Binary Tree from Inorder and Postorder Traversal ⭐
+863. All Nodes Distance K in Binary Tree ⭐
+652. Find Duplicate Subtrees ⭐
+721. Accounts Merge ⭐
+947. Most Stones Removed with Same Row or Column ⭐
+1202. Smallest String With Swaps ⭐
+2196. Create Binary Tree From Descriptions ⭐
+
+7. Array & Set Operations
+Core: Finding intersections, unions, duplicates, missing numbers
+217. Contains Duplicate ⭐
+219. Contains Duplicate II ⭐
+268. Missing Number ⭐
+349. Intersection of Two Arrays ⭐
+350. Intersection of Two Arrays II ⭐
+442. Find All Duplicates in an Array ⭐
+448. Find All Numbers Disappeared in an Array ⭐
+645. Set Mismatch ⭐
+1207. Unique Number of Occurrences ⭐
+2215. Find the Difference of Two Arrays ⭐
+2225. Find Players With Zero or One Losses ⭐
+
+8. Matrix & Grid Problems
+Core: Tracking visited cells, row/column constraints
+36. Valid Sudoku ⭐
+37. Sudoku Solver ⭐
+73. Set Matrix Zeroes ⭐
+311. Sparse Matrix Multiplication ⭐
+2352. Equal Row and Column Pairs ⭐
+2133. Check if Every Row and Column Contains All Numbers ⭐
+
+9. Math & Number Theory Problems
+Core: Storing remainders, factors, or mathematical properties
+166. Fraction to Recurring Decimal ⭐
+169. Majority Element ⭐
+229. Majority Element II ⭐
+202. Happy Number ⭐
+1010. Pairs of Songs With Total Durations Divisible by 60 ⭐
+1497. Check If Array Pairs Are Divisible by k ⭐
+1814. Count Nice Pairs in an Array ⭐
+523. Continuous Subarray Sum ⭐
+
+10. Advanced Patterns & Specialized Problems
+
+Bit Manipulation & XOR:
+421. Maximum XOR of Two Numbers in an Array ⭐
+1442. Count Triplets That Can Form Two Arrays of Equal XOR ⭐
+2275. Largest Combination With Bitwise AND Greater Than Zero ⭐
+
+Palindrome Problems:
+266. Palindrome Permutation ⭐
+267. Palindrome Permutation II ⭐
+409. Longest Palindrome ⭐
+336. Palindrome Pairs ⭐
+1316. Distinct Echo Substrings ⭐
+
+Sequence & Consecutive Patterns:
+128. Longest Consecutive Sequence ⭐
+1218. Longest Arithmetic Subsequence of Given Difference ⭐
+1027. Longest Arithmetic Subsequence ⭐
+659. Split Array into Consecutive Subsequences ⭐
+
+Word Ladder & BFS:
+127. Word Ladder ⭐
+126. Word Ladder II ⭐
+433. Minimum Genetic Mutation ⭐
+
+Game & Simulation Problems:
+299. Bulls and Cows ⭐
+348. Design Tic-Tac-Toe ⭐
+1275. Find Winner on a Tic Tac Toe Game ⭐
+
+Quick Pattern Identification Tips:
+"Find pairs/combinations that sum to X" → Two Sum pattern
+
+"Group similar items/words" → Frequency counting
+
+"Longest substring with at most K distinct chars" → Sliding window + hash map
+
+"Design data structure with O(1) operations" → Hash map + other DS
+
+"Find duplicates/missing numbers" → Array indexing or set operations
+
+"Check if strings follow pattern" → Bi-directional mapping
+
+This categorization should help you recognize patterns quickly when approaching new hash table problems!
+
