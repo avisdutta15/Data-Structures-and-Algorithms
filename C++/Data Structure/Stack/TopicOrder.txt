@@ -1,5 +1,6 @@
 Monotonic Increasing/Decreasing Stack
 ------------------------------------------
+Ref: https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFGWj24HmY-&index=2&pp=iAQB
 42. Trapping Rain Water
 84. Largest Rectangle in Histogram
 85. Maximal Rectangle
