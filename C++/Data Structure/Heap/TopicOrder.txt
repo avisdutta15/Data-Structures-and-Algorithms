@@ -127,3 +127,37 @@ LC #871 - Minimum number of Refueling stops
 14. course-schedule-iii/
 15. last-stone-weight/
 16. the-k-weakest-rows-in-a-matrix/
+
+7. Two Heaps
+
+Build on efficient data structures and algorithms using two heaps for dynamic data processing.
+IPO
+Find Median from Data Stream
+Sliding Window Median
+Schedule Tasks on Minimum Machines
+Meeting Rooms III
+Largest Number After Digit Swaps by Parity
+Find Right Interval
+
+8. K-way merge
+
+Introduction to K-way Merge
+Merge Sorted Array
+Merge K Sorted Lists
+Kth Smallest Number in M Sorted Lists
+Kth Smallest Element in a Sorted Matrix
+Find K Pairs with Smallest Sums
+
+9. Top K Elements
+
+Introduction to Top K Elements
+Kth Largest Element in a Stream
+Reorganize String
+K Closest Points to Origin
+Top K Frequent Elements
+Kth Largest Element in an Array
+Third Maximum Number
+Find Subsequence of Length K with the Largest Sum
+Minimum Cost to Hire K Workers
+Maximal Score After Applying K Operations
+Find the Kth Largest Integer in the Array
