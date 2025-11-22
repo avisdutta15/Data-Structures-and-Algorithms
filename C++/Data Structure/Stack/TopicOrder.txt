@@ -18,7 +18,7 @@ Ref: https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFG
 769. Max Chunks To Make Sorted
 853. Car Fleet
 901. Online Stock Span
-907. Sum of Subarray Minimums
+907. Sum of Subarray Minimums [https://www.youtube.com/watch?v=v0e8p9JCgRc]
 962. Maximum Width Ramp
 975. Odd Even Jump
 1008. Construct Binary Search Tree from Preorder Traversal
