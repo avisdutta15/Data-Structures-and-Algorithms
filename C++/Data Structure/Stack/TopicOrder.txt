@@ -125,17 +125,22 @@ Basic Calculator III
 
 Implementations
 ----------------
+Implement Stack using Array
+Implement Stack using List
+Implement Stack using Queues
+Implement Queue using Stacks
+Design a Middle Stack
+Min Stack
+Max Stack
+Design a Stack With Increment Operation [https://www.youtube.com/watch?v=-JzKnBKOxyM]
+Build an Array With Stack Operations [https://www.youtube.com/watch?v=nmNLu1Qz-C0&pp=ygUkQnVpbGQgYW4gQXJyYXkgV2l0aCBTdGFjayBPcGVyYXRpb25z]
+Design Video Sharing Platform [https://leetcode.ca/2022-05-26-2254-Design-Video-Sharing-Platform/]
+Design a Text Editor
+Design Browser History
 Simplify Path
 Reorder List
 Evaluate Reverse Polish Notation
-Min Stack
-Design Video Sharing Platform
-Design a Text Editor
-Design Browser History
-Design a Stack With Increment Operation
-Implement Stack using Queues
-Implement Queue using Stacks
-Build an Array With Stack Operations
+
 
 Linked List
 ----------------
@@ -150,13 +155,16 @@ Double a Number Represented as a Linked List
 
 
 
+Remove All Adjacent Duplicates In String
+Remove All Adjacent Duplicates in String II
+Removing Stars From a String
+Validate Stack Sequences
+Asteroid Collision
 Mini Parser
 Longest Absolute File Path
 Decode String
 Backspace String Compare
 Decoded String at Index
-Remove All Adjacent Duplicates In String
-Remove All Adjacent Duplicates in String II
 Make The String Great
 Add Two Numbers II
 Find Permutation
@@ -164,12 +172,9 @@ Zuma Game
 Tag Validator
 Exclusive Time of Functions
 Baseball Game
-Max Stack
 Maximum Frequency Stack
 Number of Atoms
-Asteroid Collision
 Stamping The Sequence
-Validate Stack Sequences
 Check If Word Is Valid After Substitutions
 Clumsy Factorial
 Dinner Plate Stacks
@@ -184,7 +189,6 @@ Replace Non-Coprime Numbers in Array
 Count Collisions on a Road
 Minimum Deletions to Make Array Beautiful
 Construct Smallest Number From DI String
-Removing Stars From a String
 Using a Robot to Print the Lexicographically Smallest String
 Maximum Frequency Score of a Subarray
 Minimum Time to Complete All Tasks
