@@ -73,6 +73,74 @@ Ref: https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFG
 3676. Count Bowl Subarrays
 
 
+Categorized Monotonic Stack
+---------------------------
+1. Next Greater Element / Next Smaller Element
+Next Greater Node In Linked List
+Final Prices With a Special Discount in a Shop (next smaller or equal)
+Number of Visible People in a Queue (next greater, but also count)
+Next Greater Element IV (next greater element but with two conditions)
+
+2. Previous Greater Element / Previous Smaller Element
+Buildings With an Ocean View (previous greater element, but from right to left)
+Number of People That Can Be Seen in a Grid (previous greater in two dimensions)
+
+3. Problems that use the concept of "span" (like stock span)
+Sum of Subarray Ranges (can use two stacks for min and max)
+Sum of Total Strength of Wizards (min and max in subarrays)
+
+4. Problems that require finding the left and right boundaries where the current element is the minimum/maximum
+Sum of Subarray Minimums (find left and right boundaries for each element as the minimum)
+Maximum Subarray Min-Product (similar to 907, but with product)
+Subarray With Elements Greater Than Varying Threshold (using boundaries)
+Find Sorted Submatrices With Maximum Element at Most K (2D version)
+
+5. Problems that use monotonic stack to maintain a subsequence
+Find the Most Competitive Subsequence (maintain increasing stack with k length)
+Smallest Subsequence of Distinct Characters (maintain increasing stack with condition)
+Smallest K-Length Subsequence With Occurrences of a Letter (with frequency condition)
+
+6. Problems that use monotonic stack in a more complex way (like dynamic programming or two passes)
+Odd Even Jump (using monotonic stack to find next greater and next smaller)
+Longest Well-Performing Interval (using prefix sum and monotonic stack)
+Minimum Cost Tree From Leaf Values (using decreasing stack)
+Minimum Number of Increments on Subarrays to Form a Target Array (using stack to track increments)
+Shortest Subarray to be Removed to Make Array Sorted (using two pointers and stack)
+Car Fleet II (using stack to simulate cars)
+Maximum Score of a Good Subarray (using boundaries)
+Maximum of Minimum Values in All Subarrays (using boundaries for each element as minimum)
+The Number of Weak Characters in the Game (sort and use stack)
+Steps to Make Array Non-decreasing (using stack to simulate removals)
+Jump Game VIII (using stack to find next greater and then DP)
+Finding the Number of Visible Mountains (using stack to track visible mountains)
+Maximum Number of Books You Can Take (using stack to track increasing books)
+Remove Nodes From Linked List (using decreasing stack)
+Minimum Number of Visited Cells in a Grid (using stack for each row and column)
+Maximum Sum Queries (using segment tree or stack)
+Apply Operations to Maximize Score (using boundaries and sorting)
+Maximal Range That Each Element Is Maximum in It (using boundaries)
+Maximum Length of Semi-Decreasing Subarrays (using next greater and previous greater)
+Beautiful Towers I (using boundaries)
+Beautiful Towers II (using boundaries)
+Find Building Where Alice and Bob Can Meet (using stack to track next greater)
+Find Maximum Non-decreasing Array Length (using stack and DP)
+Find the Number of Subarrays Where Boundary Elements Are Maximum (using boundaries)
+Maximum Array Hopping Score I (using stack to track next greater)
+Maximum Array Hopping Score II (using stack to track next greater)
+Minimum Operations to Make Array Equal to Target (using stack to track increments)
+Count Non-Decreasing Subarrays After K Operations (using stack to track boundaries)
+Maximum and Minimum Sums of at Most Size K Subarrays (using deque for min and max)
+Make Array Non-decreasing (using stack to track merges)
+Minimum Operations to Convert All Elements to Zero (using stack to track ranges)
+Smallest Subarray to Sort in Every Sliding Window (using stack to track min and max in window)
+Maximum Balanced Shipments (using stack to track balanced shipments)
+Count Bowl Subarrays (using stack to track boundaries)
+
+
+
+
+
+
 Parentheses
 -------------
 Valid Parentheses
@@ -120,8 +188,8 @@ Basic Calculator
 ------------------
 Basic Calculator
 Basic Calculator II
-Basic Calculator IV
 Basic Calculator III
+Basic Calculator IV
 
 Implementations
 ----------------
