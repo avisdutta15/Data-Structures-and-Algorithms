@@ -22,15 +22,14 @@ Range Sum
 Range Sum II - Input is Matrix
 Subarray Sum Equals K
 Find all Subarray with given Sum K
+Count Subarrays with given Sum K
 Maximum Size Subarray Sum Equals k
 Largest subarray with equal number of 0s and 1s
 Longest subarray having count of 1s one more than count of 0s
 Count subarrays with same even and odd elements
 Subarray Sums Divisible by K
-Count Subarrays with given Sum K
-Continuous Subarray Sum
-Continuous Subarray Sum equals multiple of K
-Contiguous Array
+Continuous Subarray Sum equals multiple of K (https://www.youtube.com/watch?v=wmn3c1mP0pY&t=5s)
+Contiguous Array - https://www.youtube.com/watch?v=-SWrz90jCUM
 Length of Largest subarray with contiguous elements
 Find the length of smallest subarray with sum k
 Subarray Sum Closest To K
@@ -61,10 +60,7 @@ Count number of triplets with product equal to given number
 5. Frequency Counting
 Group Anagrams
 Valid Anagram
-Find All Anagrams in a String 
-
-
-6. Frequency Counting
+Find All Anagrams in a String
 Permutation in String
 Find Anagram Mappings
 Find and Replace Pattern
@@ -84,7 +80,7 @@ Longest Palindrome by Contacting Two Letter Words
 Number of pairs with Concatenation equal to target
 
 
-7. Sliding Window and Hashing
+6. Sliding Window and Hashing
 Count distinct element in every window
 Count numbers of substrings with exactly k distinct characters
 Count of substrings having at least k unique characters
@@ -102,7 +98,7 @@ Find K-Length Substrings With No Repeated Characters
 Number of Substrings Containing All Three Characters 
 Maximum Erasure Value 
 
-8. Design Problems with Hash Tables
+7. Design Problems with Hash Tables
 LRU Cache 
 LFU Cache 
 Insert Delete GetRandom O(1) 

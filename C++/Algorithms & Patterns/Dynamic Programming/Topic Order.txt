@@ -1,0 +1,221 @@
+1. Knapsack Intro
+------------------
+0.  Knapsack Types(Fractional, 0/1, Unbounded)
+1.  0/1 Knapsack (Recursive, TopDown, BottomUp)
+2.  Print 0/1 Knapsack
+
+2. SubSet Sum Variations
+------------------------
+3.  Subset Sum
+4.  Print Subset sum
+5.  Count Number of Subsets with given Sum
+6.  Print All subsets with given sum 
+7.  Maximum Size subset with sum K
+8.  Maximum subset sum such that no two elements are adjacent
+9.  Count the number of distinct subset sums of an array
+
+3. Subset Sum & Partitions
+--------------------------
+10. Equal Sum Partition (2 Sum Partition)
+11. 3 Sum Partition
+12. K Sum Partition
+13. Minimum Sum Partition.
+14. Count Subsets with Given Difference
+
+16. Target Sum
+17. Unbounded Knapsack
+18. Rod Cutting
+
+4. Coin Change & Variations
+---------------------------
+19. Coin Change (Maximum number of ways)
+20. Coin Change 2 (Minimum number of coins)
+21. Find number of solutions of a linear equation of n variables dp
+22. Count number of ways to reach a given score in a game where a player can score 3 or 5 or 10 points in a move
+23. Maximum number of segments of lengths a, b and c (variation of min number of coins. Instead of min we need max)
+
+
+--------------------------------------------------------------------------------------------------
+5. Longest Common Subsequence
+-----------------------------
+1. LCS Length
+2. Print LCS
+3. Print All LCS (also in lexo graphical order).
+4. Space Optimized LCS [TODO]
+5. LCS (Longest Common Subsequence) of three strings
+
+Variations:
+-----------
+6. Shortest Common Supersequence (using LCS)
+7. Printing Shortest Common Supersequence (using LCS)
+8. Minimum Cost To Make Two Strings Identical
+9. Minimum cost to make two strings identical by deleting the digits
+10. Longest common subsequence with permutations allowed
+11. Longest Repeated Subsequence [LCS. When str[i]==str[j] then indices whould not match. i.e. i!=j]
+12. Longest Pallindromic Subsequence 
+13. Print Longest Palindromic Subsequence
+14. Minimum Number of deletion to make a string palindrome
+15. Minimum Number of insertion to make a string palindrome
+16. Find if string is K-Palindrome or not
+17. Minimum number of deletions and insertions to transform one string into another
+18. Shortest possible combination of two strings
+19. Longest Common Substring
+
+Hard Problems:
+--------------
+20. Count ways to increase LCS length of two strings by one
+				Or
+   Number of ways to insert a character to increase the LCS by one
+21. Longest Common Subsequence with at most k changes allowed
+22. Minimum cost to make Longest Common Subsequence of length k
+23. LCS formed by consecutive segments of at least length K
+24. Edit Distance
+25. Distinct Subsequences
+------------------------------------------------------------------------------------------------------
+6. Longest Increasing Subsequence
+----------------------------------
+1. LIS
+2. print LIS (https://www.geeksforgeeks.org/construction-of-longest-increasing-subsequence-using-dynamic-programming/)
+3. Number Of LIS in an array
+4. Count all increasing subsequences
+5. Maximum Sum Increasing Subsequence (MSIS)
+6. print MSIS (https://www.geeksforgeeks.org/printing-maximum-sum-increasing-subsequence/)
+7. Maximum Length Chain of Pairs 
+   Print Maximum Length Chain of Pairs 
+8. Building Bridges
+9. Longest bitonic sequence (max(abs(LIS[i]-LDS[i])-1)). -1 because A[i] is counted 2wice in LIS and LDS both 
+10.printing Longest bitonic sequence 
+11.Box Stacking
+12.Russion Doll
+13.Find LIS of an array in a circular manner.
+	Append the same elements(i.e. whole array) with the given array.
+	For every window of size n(no. of elements in the given array), perform LIS.
+	Return maximum length.
+	
+	{1, 4, 6, 2, 3}
+	After appending elements resultant array
+	will be {1, 4, 6, 2, 3, 1, 4, 6, 2, 3}.
+
+	Now for every consecutive n elements perform LIS.
+	1- {1, 4, 6, 2, 3} --3 is length of LIS.
+	2- {4, 6, 2, 3, 1} --2 is length of LIS.
+	3- {6, 2, 3, 1, 4} --3
+	4- {2, 3, 1, 4, 6}-- 4 {2, 3, 4, 6}
+	5- {3, 1, 4, 6, 2} --3.
+	6- {1, 4, 6, 2, 3} Original list.
+
+	So, maximum length of LIS in circular manner is 4. 	
+14. Find longest bitonic sequence such that increasing and decreasing parts are from two different arrays
+        Calculate LIS from 1st array and LDS from 2nd array
+15. Longest Increasing Consequtive Subsequence
+16. Longest subsequence such that difference between adjacents is one
+17. Maximum length subsequence with difference between adjacent elements as either 0 or 1
+18. Find the Longest Increasing Subsequence in Circular manner
+    
+Applications:
+1. Size of array after repeated deletion of LIS
+2. Minimum number of deletions to make a sorted sequence. (sizeOfArray - LIS)
+3. Minimum insertions to sort an array. At any step we can insert any array 
+   element from its position to any other position. (sizeOfArray - LIS)
+
+
+    Maximum sum Bi-tonic Sub-sequence 
+	construct two arrays MSIBS[] and MSDBS[]. 
+	MSIBS[i] stores the sum of the Increasing subsequence ending with arr[i]. 
+	MSDBS[i] stores the sum of the Decreasing subsequence starting from arr[i]. 
+	return the max sum of MSIBS[i] + MSDBS[i] � Arr[i].
+
+    Maximum product of an increasing subsequence
+    https://www.geeksforgeeks.org/count-subsequences-product-less-k/ [https://ide.geeksforgeeks.org/TOUo1N5oLS]
+    Maximum subsequence sum such that no three are consecutive
+
+-------------------------------------------------------------------------------------------------------
+7. Matrices and DP
+---------------
+1. 	Count And Print All Possible paths in a Matrix from Top left to Bottom right.					[TODO print path + space optimization]
+2. 	Count And Print All Possible paths in a Matrix from Top left to Bottom right with obstacles.	[TODO print path + space optimization]
+3. 	Finding the Minimum Cost Path in a Grid when a Cost Matrix is given (MinCost + Path).			[TODO print path + space optimization]
+4.  Maximum Path sum from any cell in first row to any cell in last row.
+5.  Minimum Steps to reach any of the boundary edges of a matrix									[TODO]
+6.	Minimum cost/sum path in a triangle + print the path											[TODO print path + space optimization]
+7.	Maximum cost/sum path in a triangle + print the path											[TODO print path + space optimization]
+8.	Number of paths with exactly k coins 
+9.	Collect Maximum Coins before hitting a dead end
+10.	Path with maximum average value with right and down moves
+		To reach the bottom right, we can take max N-1 down moves 
+		and max N-1 right moves. so there is total 2N-1 moves possible
+		In average value, the denominator is fixed and we need to 
+		just maximize numerator. Therefore we basically need to find 
+		the maximum sum path. 
+11. Collect maximum points in a grid using two traversals
+
+Finding submatrix in a matrix
+------------------------------
+12. Maximum Sum Rectangle in a Matrix.
+13. Largest rectangular sub-matrix whose sum is 0
+14. Largest rectangular sub-matrix having sum divisible by k
+15. Find the largest area rectangular sub-matrix whose sum is equal to k
+16. Largest area rectangular sub-matrix with equal number of 1s and 0s
+Maximum size square sub-matrix with all 1s
+Find the longest path in a matrix with given constraints [todo]
+
+19. Gold Mine
+20. Cherry PickUp I, 
+21. Cherry PickUp II
+22. Dungeon Game
+23. Paint House I
+24. Paint House II [https://zhuhan0.blogspot.com/2017/08/265-paint-house-ii.html]
+
+----------------------------------------------------------------------------------------------------
+
+
+
+Dynamic Programming | Introduction
+Types of knapsack
+01 Knapsack Recursive
+01 Knapsack Memoization
+01 Knapsack Top Down DP
+Identification of Knapsack Problems and Introduction
+Subset Sum Problem
+Equal Sum Partition Problem
+Count of Subsets Sum with a Given Sum
+Minimum Subset Sum Difference
+Count the number of subset with a given difference
+Target sum
+Unbounded Knapsack
+Rod Cutting Problem
+Coin change problem: Maximum number of ways
+Coin change problem: Minimum number of coins
+Coin change problem Contd.
+Longest common subsequence Introduction
+Longest common subsequence Recursive
+Longest common subsequence Memoization
+Longest common subsequence Top down DP
+Longest Common Substring
+Printing Longest common subsequence
+Shortest Common SuperSequence
+Minimum Number of Insertion and Deletion to convert String a to String b
+Longest Palindromic Subsequence
+Minimum number of deletion in a string to make it a palindrome
+Print shortest common Supersequence
+Longest repeating subsequence
+Sequence Pattern Matching
+Minimum number of insertion in a string to make it a palindrome
+Matrix chain multiplication Introduction Identification and General Format
+Matrix Chain Multiplication Recursive
+Matrix chain multiplication Memoization
+Palindrome Partitioning Recursive
+Palindrome Partitioning Memoization
+Palindrome Partitioning Memoized Optimisation
+Evaluate Expression to True Boolean Parenthesization Recursive
+Evaluate Expression To True Boolean Parenthesization Memoized
+Scrambled String Recursive
+Scrambled String Memoized
+Egg Dropping Problem Recursive
+Egg Dropping Problem Memoization
+Egg Dropping Problem Memoization Optimization
+Dynamic programming on Trees Introduction and Identification
+Dynamic Programming on Tree General Syntax
+Diameter of a Binary Tree
+Maximum Path Sum | From any node to any node
+Maximum Path sum | From leaf node to leaf node
