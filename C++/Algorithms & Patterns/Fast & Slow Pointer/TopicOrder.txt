@@ -4,7 +4,7 @@ Linked List Cycle
 Linked List Cycle II
 Palindrome Linked List
 Happy Number
-Circular Array Loop
-Find the Duplicate Number
-Maximum Twin Sum of a Linked List
-Split a Circular Linked List
+Maximum Twin Sum of a Linked List  [TODO]
+Split a Circular Linked List       [TODO]
+Circular Array Loop                [TODO - need to check]
+Find the Duplicate Number          [TODO - need to check]

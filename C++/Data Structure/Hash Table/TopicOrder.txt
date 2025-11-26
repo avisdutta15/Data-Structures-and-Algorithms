@@ -1,0 +1,237 @@
+1. Two Sum & Variants Pattern
+Two Sum
+Two Sum Closest
+3 Sum
+3 Sum Closest
+Find three element from different three arrays such that that a + b + c = sum
+4 Sum I
+4 Sum II
+Two Sum II - Input Array Is Sorted
+Two Sum III- Data Structure Design
+Two Sum IV - Input is a BST
+Two Sum BSTs
+Two Sum Less Than K
+Count Number of Pairs With Absolute Difference K
+Count the number of pairs whose XOR is 0
+K-diff Pairs in an Array
+
+
+2. Prefix Sum
+Prefix Sum Introduction
+Range Sum
+Range Sum II - Input is Matrix
+Subarray Sum Equals K
+Find all Subarray with given Sum K
+Maximum Size Subarray Sum Equals k
+Largest subarray with equal number of 0s and 1s
+Longest subarray having count of 1s one more than count of 0s
+Count subarrays with same even and odd elements
+Subarray Sums Divisible by K
+Count Subarrays with given Sum K
+Continuous Subarray Sum
+Continuous Subarray Sum equals multiple of K
+Contiguous Array
+Length of Largest subarray with contiguous elements
+Find the length of smallest subarray with sum k
+Subarray Sum Closest To K
+Shortest Subarray with Sum at Least K - https://www.youtube.com/watch?v=eWbH_j6Lgnk
+Maximum Sum of SubArray Close to K.
+
+
+3. Mod and Hashing
+Note: Sum of all remainders of elements of A when divided by K is equal to K.  A[0]%K+A[1]%K+...+A[n-1]%K=K
+      a%b = K =>  a = b.j + K => a-K = b.j
+Find a subarray whose sum is divisible by K
+Count the number of subarrays whose sum is divisible by K
+Longest subarray with sum divisible by k
+Divisible Sum Pairs
+Check if an array can be divided into pairs whose sum is divisible by k  
+Find all pairs (a, b) in an array such that a % b = k  [IMP] 
+Subarray with no pair sum divisible by K
+
+
+4. Product and Hashing
+Pair with given product | Set 1 (Find if any pair exists) [special case when prod = 0] 
+   (a*b = K then K%a==0 and b = K/a)
+	If arr[i] is 0 and K is also 0, return true, else ignore arr[i].
+	If K % arr[i] is 0 that means there exists a b in for whom a*b=K. Find b using K/arr[i] exists in table, return true.
+	Insert arr[i] into the hash table.		
+Count number of triplets with product equal to given number
+
+5. Frequency Counting
+Group Anagrams
+Valid Anagram
+Find All Anagrams in a String 
+
+
+6. Frequency Counting
+Permutation in String
+Find Anagram Mappings
+Find and Replace Pattern
+Minimum Number of Steps to Make Two Strings Anagram 
+Determine if Two Strings Are Close 
+Find Resultant Array After Removing Anagrams
+Number of Wonderful Substrings
+Number of Valid Words for Each Puzzle
+Find Common Characters
+Maximum distance between two occurrences
+First Unique Character
+Find common characters between strings
+Longest consecutive subsequence
+Brick Wall
+Max Points on a Line
+Longest Palindrome by Contacting Two Letter Words
+Number of pairs with Concatenation equal to target
+
+
+7. Sliding Window and Hashing
+Count distinct element in every window
+Count numbers of substrings with exactly k distinct characters
+Count of substrings having at least k unique characters
+Largest substring with at least k unique characters
+Maximum sum of distinct subarrays with length k
+Longest Substring Without Repeating Characters 
+Minimum Window Substring 
+Longest Substring with At Most Two Distinct Characters
+Longest Substring with At Most K Distinct Characters 
+Longest Substring with At Least K Repeating Characters 
+Longest Repeating Character Replacement 
+Fruit Into Baskets 
+Subarrays with K Different Integers 
+Find K-Length Substrings With No Repeated Characters 
+Number of Substrings Containing All Three Characters 
+Maximum Erasure Value 
+
+8. Design Problems with Hash Tables
+LRU Cache 
+LFU Cache 
+Insert Delete GetRandom O(1) 
+Insert Delete GetRandom O(1) - Duplicates allowed 
+All O`one Data Structure 
+Design HashSet 
+Design HashMap 
+Design Underground System 
+Time Based Key-Value Store 
+Snapshot Array 
+Implement Trie (Prefix Tree) 
+Map Sum Pairs 
+Maximum Frequency Stack 
+Design Authentication Manager 
+
+9. Rolling Hash
+Repeated DNA Sequences
+Shortest Palindrome
+Maximum Length of Repeated Subarray
+Longest Duplicate Substring
+Longest Repeating Substring
+Longest Chunked Palindrome Decomposition
+Distinct Echo Substrings
+Longest Happy Prefix
+Check If a String Contains All Binary Codes of Size K
+Strings Differ by One Character
+Number of Distinct Substrings in a String
+Longest Common Subpath
+Maximum Product of the Length of Two Palindromic Substrings
+Find Substring With Given Hash Value
+Unique Substrings With Equal Digit Frequency
+Sum of Scores of Built Strings
+K Divisible Elements Subarrays
+Maximum Deletions on a String
+Find Beautiful Indices in the Given Array I
+Find Beautiful Indices in the Given Array II
+Find Pattern in Infinite Stream I
+Minimum Time to Revert Word to Initial State I
+Minimum Time to Revert Word to Initial State II
+Number of Subarrays That Match a Pattern I
+Number of Subarrays That Match a Pattern II
+Find Pattern in Infinite Stream II
+Count Prefix and Suffix Pairs I
+Count Prefix and Suffix Pairs II
+Minimum Number of Valid Strings to Form Target I
+Minimum Number of Valid Strings to Form Target II
+Count Cells in Overlapping Horizontal and Vertical Substrings
+Lexicographically Smallest String After Reverse II
+
+10. String & Word Pattern Problems
+Isomorphic Strings ⭐
+Word Pattern ⭐
+Word Pattern II ⭐
+Group Shifted Strings ⭐
+Find and Replace Pattern ⭐
+Verifying an Alien Dictionary ⭐
+String Transforms Into Another String ⭐
+
+11. Graph & Tree Problems with Hash Maps
+Clone Graph ⭐
+Copy List with Random Pointer ⭐
+Construct Binary Tree from Preorder and Inorder Traversal ⭐
+Construct Binary Tree from Inorder and Postorder Traversal ⭐
+All Nodes Distance K in Binary Tree ⭐
+Find Duplicate Subtrees ⭐
+Accounts Merge ⭐
+Most Stones Removed with Same Row or Column ⭐
+Smallest String With Swaps ⭐
+Create Binary Tree From Descriptions ⭐
+
+12. Array & Set Operations
+Contains Duplicate ⭐
+Contains Duplicate II ⭐
+Smallest Number in Infinite Set
+Missing Number ⭐
+Intersection of Two Arrays ⭐
+Intersection of Two Arrays II ⭐
+Find All Duplicates in an Array ⭐
+Find All Numbers Disappeared in an Array ⭐
+Set Mismatch ⭐
+Unique Number of Occurrences ⭐
+Find the Difference of Two Arrays ⭐
+Find Players With Zero or One Losses ⭐
+Number of Good Pairs
+
+13. Matrix & Grid Problems
+Valid Sudoku ⭐
+Sudoku Solver ⭐
+Set Matrix Zeroes ⭐
+Sparse Matrix Multiplication ⭐
+Equal Row and Column Pairs ⭐
+Check if Every Row and Column Contains All Numbers ⭐
+
+14. Math & Number Theory Problems
+Fraction to Recurring Decimal ⭐
+Majority Element ⭐
+Majority Element II ⭐
+Happy Number ⭐
+Pairs of Songs With Total Durations Divisible by 60 ⭐
+Check If Array Pairs Are Divisible by k ⭐
+Count Nice Pairs in an Array ⭐
+Continuous Subarray Sum ⭐
+
+15. Advanced Patterns & Specialized Problems
+
+Bit Manipulation & XOR:
+Maximum XOR of Two Numbers in an Array ⭐
+Count Triplets That Can Form Two Arrays of Equal XOR ⭐
+Largest Combination With Bitwise AND Greater Than Zero ⭐
+
+Palindrome Problems:
+Palindrome Permutation ⭐
+Palindrome Permutation II ⭐
+Longest Palindrome ⭐
+Palindrome Pairs ⭐
+Distinct Echo Substrings ⭐
+
+Sequence & Consecutive Patterns:
+Longest Consecutive Sequence ⭐
+Longest Arithmetic Subsequence of Given Difference ⭐
+Longest Arithmetic Subsequence ⭐
+Split Array into Consecutive Subsequences ⭐
+
+Word Ladder & BFS:
+Word Ladder ⭐
+Word Ladder II ⭐
+Minimum Genetic Mutation ⭐
+
+Game & Simulation Problems:
+Bulls and Cows ⭐
+Design Tic-Tac-Toe ⭐
+Find Winner on a Tic Tac Toe Game ⭐
