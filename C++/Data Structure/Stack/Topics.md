@@ -15,6 +15,7 @@ https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFGWj24H
 | 9 | Largest Rectangle in Histogram [LC: 84]| |
 | 10 | Maximal Rectangle [LC: 85] | |
 | 11 | Daily Temperatures [LC: 739] | https://www.youtube.com/watch?v=ZhZEmGv-sOY |
+| 12 | Final Prices With a Special Discount in a Shop [LC: 1475]| Next Smaller Or Equal |
 | 255 | Verify Preorder Sequence in Binary Search Tree | |
 | 316 | Remove Duplicate Letters | https://www.youtube.com/watch?v=rU5p0MRm5zU |
 | 321 | Create Maximum Number | |
@@ -34,7 +35,6 @@ https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFGWj24H
 | 1081 | Smallest Subsequence of Distinct Characters | |
 | 1124 | Longest Well-Performing Interval | |
 | 1130 | Minimum Cost Tree From Leaf Values | |
-| 1475 | Final Prices With a Special Discount in a Shop | |
 | 1504 | Count Submatrices With All Ones | |
 | 1526 | Minimum Number of Increments on Subarrays to Form a Target Array | |
 | 1574 | Shortest Subarray to be Removed to Make Array Sorted | |
