@@ -8,24 +8,23 @@ https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFGWj24H
 | 2 | Next Smaller Element | Left to right traversal + Monotonic Increasing Stack |
 | 3 | Previous Greater Element | Right to left traversal + Monotonic Decreasing Stack |
 | 4 | Previous Smaller Element | Right to left traversal + Monotonic Increasing Stack |
-| 5 | Next Greater Element of Circular Array | |
-| 42 | Trapping Rain Water | |
-| 84 | Largest Rectangle in Histogram | |
-| 85 | Maximal Rectangle | |
+| 5 | Next Greater Element I [LC: 496]  | (NGE + HashTable) |
+| 6 | Next Greater Element II [LC: 503] | https://www.youtube.com/watch?v=7PrncD7v9YQ |
+| 7 | Online Stock Span [LC: 901] | |
+| 8 | Trapping Rain Water [LC: 42] | |
+| 9 | Largest Rectangle in Histogram [LC: 84]| |
+| 10 | Maximal Rectangle [LC: 85] | |
+| 11 | Daily Temperatures [LC: 739] | https://www.youtube.com/watch?v=ZhZEmGv-sOY |
 | 255 | Verify Preorder Sequence in Binary Search Tree | |
 | 316 | Remove Duplicate Letters | https://www.youtube.com/watch?v=rU5p0MRm5zU |
 | 321 | Create Maximum Number | |
 | 402 | Remove K Digits | https://www.youtube.com/watch?v=cFabMOnJaq0; edge cases: https://www.youtube.com/watch?v=jmbuRzYPGrg |
 | 456 | 132 Pattern | |
-| 496 | Next Greater Element I | (NGE + HashTable) |
-| 503 | Next Greater Element II | https://www.youtube.com/watch?v=7PrncD7v9YQ |
 | 581 | Shortest Unsorted Continuous Subarray | https://www.youtube.com/watch?v=JKcX5k00oaA; https://www.youtube.com/watch?v=p-O7FExDH1M |
 | 654 | Maximum Binary Tree | |
-| 739 | Daily Temperatures | https://www.youtube.com/watch?v=ZhZEmGv-sOY |
 | 768 | Max Chunks To Make Sorted II | |
 | 769 | Max Chunks To Make Sorted | |
 | 853 | Car Fleet | |
-| 901 | Online Stock Span | |
 | 907 | Sum of Subarray Minimums | https://www.youtube.com/watch?v=v0e8p9JCgRc |
 | 962 | Maximum Width Ramp | |
 | 975 | Odd Even Jump | |
