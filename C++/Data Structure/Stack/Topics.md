@@ -10,7 +10,7 @@ https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFGWj24H
 | 4 | Previous Smaller Element | Right to left traversal + Monotonic Increasing Stack |
 | 5 | Next Greater Element I [LC: 496]  | (NGE + HashTable) |
 | 6 | Next Greater Element II [LC: 503] | Circular array. </br> <pre><code> nge[n]</br> for(int i=2*n-1; i>=0; i--){</br>    //actual element </br>    int j = i%n;</br>    ....ops on nums[j]</br> }</br></code></pre> https://www.youtube.com/watch?v=7PrncD7v9YQ |
-| 7 | Online Stock Span [LC: 901] | |
+| 7 | Online Stock Span [LC: 901] | Previous Greater Element.(Monotonic Decreasing Stack) </br> <pre><code>if no greater element : span =i+1 </br>else span = i-indexOfPreviousGreaterElement</code></pre>|
 | 8 | Trapping Rain Water [LC: 42] | |
 | 9 | Largest Rectangle in Histogram [LC: 84]| |
 | 10 | Maximal Rectangle [LC: 85] | |
