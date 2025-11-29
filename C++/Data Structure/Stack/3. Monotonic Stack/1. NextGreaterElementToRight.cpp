@@ -35,7 +35,7 @@ using namespace std;
     each element in the array. If we find one, we store it as the next greater element. If no greater 
     element is found, we store -1. This is done using two nested loops: the outer loop goes through 
     each element, and the inner loop searches the rest of the array for a greater element.
-
+	T.C. - O(N^2). S.C. - O(1)
 
     Approach 2:
     -----------
@@ -43,6 +43,7 @@ using namespace std;
     We traverse the array from right to left. For each element, we pop elements from the stack that are 
     smaller than or equal to it, since they cannot be the next greater element. If the stack is not empty, 
     the top of the stack is the next greater element. Finally, we push the current element onto the stack.
+	T.C. - O(N). S.C. - O(N)
 */
 
 class Solution {
@@ -110,7 +111,7 @@ int main() {
 		cout << i << "\t";
 
 	cout << endl;
-	//Test 1
+	//Test 2
 	A = { 8, 6, 8, 0, 1, 3 };
 	nger = obj.nextGreaterToRightOptimized(A);
 

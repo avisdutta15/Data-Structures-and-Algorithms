@@ -39,7 +39,7 @@ using namespace std;
 	each element in the array. If we find one, we store it as the next smaller element. If no smaller
 	element is found, we store -1. This is done using two nested loops: the outer loop goes through
 	each element, and the inner loop searches the rest of the array for a smaller element.
-
+    T.C. - O(N^2). S.C. - O(1)
 
 	Approach 2:
 	-----------
@@ -48,6 +48,7 @@ using namespace std;
 	than or equal to it, since they cannot be the next smaller element. If the stack is not empty after
 	this, the top element of the stack becomes the next smaller element for the current element. 
 	We then push the current element onto the stack.
+    T.C. - O(N). S.C. - O(N)
 */
 
 class Solution {
@@ -113,7 +114,7 @@ int main() {
 
 	cout << endl;
 
-	cout << "Next Greater To Right: \t\t";
+	cout << "Next Smaller To Right: \t\t";
 	for (int i : nser)
 		cout << i << "\t";
 
@@ -128,7 +129,7 @@ int main() {
 
 	cout << endl;
 
-	cout << "Next Greater To Right: \t\t";
+	cout << "Next Smaller To Right: \t\t";
 	for (int i : nser)
 		cout << i << "\t";
 	return 0;
