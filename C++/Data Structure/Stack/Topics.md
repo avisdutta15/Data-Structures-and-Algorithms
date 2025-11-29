@@ -9,7 +9,7 @@ https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFGWj24H
 | 3 | Previous Greater Element | Right to left traversal + Monotonic Decreasing Stack |
 | 4 | Previous Smaller Element | Right to left traversal + Monotonic Increasing Stack |
 | 5 | Next Greater Element I [LC: 496]  | (NGE + HashTable) |
-| 6 | Next Greater Element II [LC: 503] | https://www.youtube.com/watch?v=7PrncD7v9YQ |
+| 6 | Next Greater Element II [LC: 503] | Circular array. </br> <pre><code> nge[n]</br> for(int i=2*n-1; i>=0; i--){</br>    //actual element </br>    int j = i%n;</br>    ....ops on nums[j]</br> }</br></code></pre> https://www.youtube.com/watch?v=7PrncD7v9YQ |
 | 7 | Online Stock Span [LC: 901] | |
 | 8 | Trapping Rain Water [LC: 42] | |
 | 9 | Largest Rectangle in Histogram [LC: 84]| |
