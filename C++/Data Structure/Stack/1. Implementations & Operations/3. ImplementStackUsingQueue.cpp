@@ -16,10 +16,26 @@ using namespace std;
 
 	Examples:
 	---------
-
+	
 	Approach:
 	---------
-
+	Method 1: Using a Single Queue (Push operation is O(N))
+	This method ensures that the most recently added element is always at the front of the queue, 
+	making pop and top operations efficient (O(1)). 
+		push(x): The new element x is added to the rear of the queue. To make it the "top" of the stack, 
+				 all preceding elements are moved one by one from the front to the rear of the queue. 
+				 This effectively rotates the queue, placing x at the front.
+		pop(): Since the "top" element is always at the front of the queue, popleft() directly removes and returns it.
+		top(): Returns the element at the front of the queue without removing it. 
+		empty(): Checks if the queue is empty.
+	
+	Method 2: Using Two Queues (Pop operation is O(N))
+	This method ensures that the most recently added element is always at the end of the queue, 
+		push(x): The new element x is added to the rear of the queue. 
+		pop(): 	Since the "top" element is always at the end of the queue, all preceding elements are moved one by one 
+				from the front to the rear of the queue. This effectively rotates the queue, placing x at the front.
+		top(): Returns the element at the back of the queue without removing it. 
+		empty(): Checks if the queue is empty.
 */
 
 class Stack {

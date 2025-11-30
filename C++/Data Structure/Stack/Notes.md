@@ -6,6 +6,14 @@
 3. Parenthesis
 4. Expression & Parser
 
+## Pattern 1: Implementation
+### 1. Implement Queue Using Stack
+![Queue Using 2 stacks](./gist-assets/implementation/qusingstack.jpg)
+
+![Queue Using 1 stacks](./gist-assets/implementation/qusingstack-1stack.jpg)
+
+
+
 ## Pattern 2: Monotonic Stack
 A monotonic stack is a stack that maintains its elements in a fixed order either increasing or decreasing.
 
@@ -20,3 +28,11 @@ B. Monotonic Decreasing Stack
 
 
 ### 1. Next Greater Element To Right
+
+### 2. Next Smaller Element To Right
+
+### 3. Previous Greater Element To Left
+
+### 4. Previous Smaller Element To Right
+
+

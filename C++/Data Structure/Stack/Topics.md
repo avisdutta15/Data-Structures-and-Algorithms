@@ -92,7 +92,7 @@ https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFGWj24H
 
 ## Parentheses
 
-| id | problem | comment / urls |
+| Id | Problem | Comment / Urls |
 |----|---------|----------------|
 |  | Valid Parentheses | |
 |  | Longest Valid Parentheses | |
@@ -106,13 +106,45 @@ https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFGWj24H
 |  | Minimum Insertions to Balance a Parentheses String | |
 |  | Maximum Nesting Depth of the Parentheses | |
 |  | Check if a Parentheses String Can Be Valid | |
-|  | Ternary Expression Parser | |
-|  | Parse Lisp Expression | |
-|  | Parsing A Boolean Expression | |
-|  | Minimum Cost to Change the Final Value of Expression | |
-|  | The Score of Students Solving Math Expression | |
-|  | Brace Expansion | |
-|  | Brace Expansion II | |
+
+
+
+## Basic Calculator
+
+| Id | Problem | Comment / Urls |
+|----|---------|----------------|
+| 1 | Basic Calculator      | |
+| 2 | Basic Calculator II   | |
+| 3 | Basic Calculator III  | |
+| 4 | Basic Calculator IV   | |
+| 5 | Evaluate Reverse Polish Notation | |
+| 6 | Ternary Expression Parser | |
+| 7 | Parse Lisp Expression | |
+| 8 | Parsing A Boolean Expression | |
+| 9 | Minimum Cost to Change the Final Value of Expression | |
+| 10 | The Score of Students Solving Math Expression | |
+| 11 | Brace Expansion | |
+| 12 | Brace Expansion II | |
+
+## Implementations
+
+| Id | Problem | Comment / Urls |
+|----|---------|----------------|
+| 1 | Implement Stack using Array | |
+| 2 | Implement Stack using List | Keep head as top for O(1) operation |
+| 3 | Implement Stack using Queues | Approach1: Push - O(N) Pop - O(1). Push element at back then rotate all elements to bring Top element is always at front of the queue. </br> Approach2: Push - O(1) Pop - O(N). Push element at back of the queue. Top is at the rear of the queue. While popping, rotate all elements to bring the last to the front of the queue.|
+| 4 | Implement Queue using Stacks | https://www.youtube.com/watch?v=3Et9MrMc02A  |
+| 5 | Design a Middle Stack | |
+| 6 | Min Stack | |
+| 7 | Max Stack | |
+| 8 | Design a Stack With Increment Operation | https://www.youtube.com/watch?v=-JzKnBKOxyM |
+| 9 | Build an Array With Stack Operations | https://www.youtube.com/watch?v=nmNLu1Qz-C0&pp=ygUkQnVpbGQgYW4gQXJyYXkgV2l0aCBTdGFjayBPcGVyYXRpb25z |
+| 10 | Design Video Sharing Platform | https://leetcode.ca/2022-05-26-2254-Design-Video-Sharing-Platform/ |
+| 11 | Design a Text Editor | |
+| 12 | Design Browser History | |
+| 13 | Simplify Path | |
+| 14 | Reorder List | |
+
 
 ## Binary Tree
 
@@ -136,45 +168,6 @@ https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFGWj24H
 |  | Is Array a Preorder of Some ‌Binary Tree | |
 |  | Two Sum BSTs | |
 
-## Basic Calculator
-
-| id | problem | comment / urls |
-|----|---------|----------------|
-|  | Basic Calculator | |
-|  | Basic Calculator II | |
-|  | Basic Calculator III | |
-|  | Basic Calculator IV | |
-
-## Implementations
-
-| id | problem | comment / urls |
-|----|---------|----------------|
-|  | Implement Stack using Array | |
-|  | Implement Stack using List | |
-|  | Implement Stack using Queues | |
-|  | Implement Queue using Stacks | |
-|  | Design a Middle Stack | |
-|  | Min Stack | |
-|  | Max Stack | |
-|  | Design a Stack With Increment Operation | https://www.youtube.com/watch?v=-JzKnBKOxyM |
-|  | Build an Array With Stack Operations | https://www.youtube.com/watch?v=nmNLu1Qz-C0&pp=ygUkQnVpbGQgYW4gQXJyYXkgV2l0aCBTdGFjayBPcGVyYXRpb25z |
-|  | Design Video Sharing Platform | https://leetcode.ca/2022-05-26-2254-Design-Video-Sharing-Platform/ |
-|  | Design a Text Editor | |
-|  | Design Browser History | |
-|  | Simplify Path | |
-|  | Reorder List | |
-|  | Evaluate Reverse Polish Notation | |
-
-## Linked List
-
-| id | problem | comment / urls |
-|----|---------|----------------|
-|  | Palindrome Linked List | |
-|  | Flatten Nested List Iterator | |
-|  | Nested List Weight Sum II | |
-|  | Print Immutable Linked List in Reverse | |
-|  | Maximum Twin Sum of a Linked List | |
-|  | Double a Number Represented as a Linked List | |
 
 ## Misc / Strings / Others
 
