@@ -133,7 +133,7 @@ https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFGWj24H
 | 1 | Implement Stack using Array | |
 | 2 | Implement Stack using List | Keep head as top for O(1) operation |
 | 3 | Implement Stack using Queues | Approach1: Push - O(N) Pop - O(1). Push element at back then rotate all elements to bring Top element is always at front of the queue. </br> Approach2: Push - O(1) Pop - O(N). Push element at back of the queue. Top is at the rear of the queue. While popping, rotate all elements to bring the last to the front of the queue.|
-| 4 | Implement Queue using Stacks | https://www.youtube.com/watch?v=3Et9MrMc02A  |
+| 4 | Implement Queue using Stacks | 2 Stacks - Input and Output. Enqueue on InputStack. On Front and Dequeue, if OutputStack is empty then pop from InputStack and push to OutputStack. Then pop or return from Output.top(). This makes Front and Dequeue as amortized O(1). |
 | 5 | Design a Middle Stack | |
 | 6 | Min Stack | |
 | 7 | Max Stack | |
