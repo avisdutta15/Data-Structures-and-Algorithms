@@ -25,31 +25,55 @@ https://leetcode.com/discuss/post/6132428/all-graph-algorithms-one-stop-destinat
 
 
 1. BFS
+    Application of BFS
+        1. Path Finding
+        2. Connected Components
+        3. Cycle Detection in undirected and directed graph
+        4. Bipartite Graph
+        5. Shortest Path in Unweighted Graph
+        6. Topological Sorting
 2. DFS
-3. Detect A Cycle in Undirected graph
+    Types of edges
+        1. Types of edges in Undirected graph - Tree Edge, Back Edge
+        2. Types of edges in Directed graph   - Tree Edge, Forward Edge, Back Edge, Cross Edge 
+    Articulation Points
+    Bridges
+    Applications of DFS
+        1. Path Finding
+        2. Connected Components
+        3. Strongly Connected Component
+        4. Cycle Detection in undirected and directed graph
+        5. Bipartite Graph
+        6. Topological Sorting 
+3. Path Finding 
     Using BFS
     Using DFS
-4. Detect A Cycle in Directed graph
-    Using BFS (Toposort)
-    Using DFS
-5. Topological sort
-    Using Queue + BFS (Kahn's Algo) 
-    Using Stack + DFS
-6. Bipartite Graph
-    Using BFS
-    Using DFS
-7. Number of connected components
+4. Number of connected components
     Using BFS (Do in Grid and Graph Both)
     Using DFS (Do in Grid and Graph Both)
-8. Kosarajus For SCC (2 times DFS)
-9. Dijkstra's Algorithm [single source shortest path algorithm (SSSP)]
-10.Bellman Ford Algorithm [single-source shortest path algorithm (SSSP)]
-11.Floyd-warshall Algorithm [multisource shortest path algorithm]
-12.MST using Prim's Algo
-13.Disjoint set (Union-Find)
+5. Detect A Cycle in Undirected graph
+    Using BFS
+    Using DFS
+6. Detect A Cycle in Directed graph
+    Using BFS (Toposort)
+    Using DFS
+7. Bipartite Graph
+    Using BFS
+    Using DFS
+8. Topological sort
+    Using Queue + BFS (Kahn's Algo) 
+    Using Stack + DFS
+9. Kosarajus For SCC (2 times DFS)
+10. Dijkstra's Algorithm [single source shortest path algorithm (SSSP)]
+11.Bellman Ford Algorithm [single-source shortest path algorithm (SSSP)]
+12.Floyd-warshall Algorithm [multisource shortest path algorithm]
+13.MST using Prim's Algo
+14.Disjoint set (Union-Find)
     Union by Rank
     Union by size
-14.MST using Kruskal's Algo
-15.Tarjans For SCC (1 time DFS only)
+15.MST using Kruskal's Algo
+16.Tarjans For SCC (1 time DFS only)
+17.Eulerian path and circuit
+18.Maximum Flow
     Bridges in graph
     Articulation Point/vertex
