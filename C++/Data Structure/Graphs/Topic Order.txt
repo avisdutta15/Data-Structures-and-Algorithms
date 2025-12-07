@@ -18,3 +18,38 @@
 9. Maximum Flow
 10. BFS Applications
 11. DFS Applications
+
+
+https://leetcode.com/discuss/post/6132428/all-graph-algorithms-one-stop-destinatio-8eau/
+
+
+
+1. BFS
+2. DFS
+3. Detect A Cycle in Undirected graph
+    Using BFS
+    Using DFS
+4. Detect A Cycle in Directed graph
+    Using BFS (Toposort)
+    Using DFS
+5. Topological sort
+    Using Queue + BFS (Kahn's Algo) 
+    Using Stack + DFS
+6. Bipartite Graph
+    Using BFS
+    Using DFS
+7. Number of connected components
+    Using BFS (Do in Grid and Graph Both)
+    Using DFS (Do in Grid and Graph Both)
+8. Kosarajus For SCC (2 times DFS)
+9. Dijkstra's Algorithm [single source shortest path algorithm (SSSP)]
+10.Bellman Ford Algorithm [single-source shortest path algorithm (SSSP)]
+11.Floyd-warshall Algorithm [multisource shortest path algorithm]
+12.MST using Prim's Algo
+13.Disjoint set (Union-Find)
+    Union by Rank
+    Union by size
+14.MST using Kruskal's Algo
+15.Tarjans For SCC (1 time DFS only)
+    Bridges in graph
+    Articulation Point/vertex
