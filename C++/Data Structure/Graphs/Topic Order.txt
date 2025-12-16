@@ -54,23 +54,25 @@ https://leetcode.com/discuss/post/6132428/all-graph-algorithms-one-stop-destinat
 5. Detect A Cycle in Undirected graph
     Using BFS
     Using DFS
-6. Detect A Cycle in Directed graph
-    Using BFS (Toposort)
-    Using DFS
-7. Bipartite Graph
-    Using BFS
-    Using DFS
-8. Topological sort
+6. Topological sort
     Using Queue + BFS (Kahn's Algo) 
     Using Stack + DFS
+7. Detect A Cycle in Directed graph
+    Using BFS (Toposort)
+    Using DFS (using back edge)
+8. Bipartite Graph
+    Using BFS
+    Using DFS
 9. Kosarajus For SCC (2 times DFS)
-10. Dijkstra's Algorithm [single source shortest path algorithm (SSSP)]
+10.Dijkstra's Algorithm [single source shortest path algorithm (SSSP)]
 11.Bellman Ford Algorithm [single-source shortest path algorithm (SSSP)]
 12.Floyd-warshall Algorithm [multisource shortest path algorithm]
 13.MST using Prim's Algo
 14.Disjoint set (Union-Find)
     Union by Rank
     Union by size
+        Connected Components
+        Cycle Detection in Undirected Graph
 15.MST using Kruskal's Algo
 16.Tarjans For SCC (1 time DFS only)
 17.Eulerian path and circuit
