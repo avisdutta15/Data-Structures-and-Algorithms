@@ -21,7 +21,8 @@
 
 
 https://leetcode.com/discuss/post/6132428/all-graph-algorithms-one-stop-destinatio-8eau/
-
+https://www.youtube.com/@AlgorithmswithAttitude/playlists
+https://www.youtube.com/playlist?list=PLZ1XikRjVdB6bMxkZOfN3Y_p02z6GiIsk
 
 
 1. BFS
@@ -64,18 +65,21 @@ https://leetcode.com/discuss/post/6132428/all-graph-algorithms-one-stop-destinat
     Using BFS
     Using DFS
 9. Kosarajus For SCC (2 times DFS)
-10.Dijkstra's Algorithm [single source shortest path algorithm (SSSP)]
-11.Bellman Ford Algorithm [single-source shortest path algorithm (SSSP)]
-12.Floyd-warshall Algorithm [multisource shortest path algorithm]
-13.MST using Prim's Algo
-14.Disjoint set (Union-Find)
+10. Shortest Path
+    1. Shortest Path in a DAG - Topological Sort
+    2. Shortest Path in undirected graph with unit weights - BFS
+    3. Dijkstra's Algorithm [single source shortest path algorithm (SSSP)]
+    4. Bellman Ford Algorithm [single-source shortest path algorithm (SSSP)]
+    5. Floyd-warshall Algorithm [multisource shortest path algorithm]
+11.MST using Prim's Algo
+12.Disjoint set (Union-Find)
     Union by Rank
     Union by size
         Connected Components
         Cycle Detection in Undirected Graph
-15.MST using Kruskal's Algo
-16.Tarjans For SCC (1 time DFS only)
-17.Eulerian path and circuit
-18.Maximum Flow
+13.MST using Kruskal's Algo
+14.Tarjans For SCC (1 time DFS only)
+15.Eulerian path and circuit
+16.Maximum Flow
     Bridges in graph
     Articulation Point/vertex
