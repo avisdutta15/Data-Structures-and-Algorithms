@@ -6,7 +6,7 @@ using namespace std;
 
 /*
 	Reference: https://www.youtube.com/watch?v=M8H4F3fw2WE
-			   https://www.geeksforgeeks.org/dsa/detect-cycle-undirected-graph/
+               https://www.geeksforgeeks.org/dsa/detect-cycle-undirected-graph/
 */
 
 class Graph {
@@ -23,39 +23,31 @@ public:
 };
 
 class Solution {
+private:
+	bool DFS(Graph& g, int u, int parent, vector<bool>& visited) {
+		visited[u] = true;
+		for (int v : g.adj[u]) {
+            // if traversing the unvisited neighbour returns that the graph is cyclic then return true.
+			if (visited[v] == false) {
+				if (DFS(g, v, u, visited) == true)
+					return true;
+			}
+            // if the neighbour is visited and.
+			else if (visited[v] == true){
+                //if the neighbour is parent of u then continue
+                if(v == parent)
+                    continue;
+                //if the neighbour is not parent then its a cycle. Return true.
+                else if(v != parent)
+			    	return true;
+            }
+		}
+        return false;
+	}
 public:
 	bool cycleExists(Graph& g) {
-		//Q<node, parentFromWhichWeCanToNode>
-		queue<pair<int, int>> Q;
 		vector<bool> visited(g.V, false);
-
-		Q.push({ 0, -1 });
-		visited[0] = true;
-		while (!Q.empty()) {
-			int u = Q.front().first;
-			int parentOfU = Q.front().second;
-			Q.pop();
-
-			for (int v : g.adj[u]) {
-				//if this neighbour is not visited then visit it do traversal.
-				if (visited[v] == false) {
-					visited[v] = true;
-					Q.push({ v, u });
-				}
-				// if the neighbour is visited and.
-				else if (visited[v] == true) {
-					//if the neighbour is parent of u then continue
-					if (v == parentOfU)
-						continue;
-					//if this neighbour is visited and is not the parent of u i.e. this node is visited by 
-					//someone else. so already a path exists from source. If we take that path, it will
-					//end up in a cycle. So return true.
-					else if (v != parentOfU)
-						return true;
-				}				
-			}
-		}
-		return false;
+		return DFS(g, 0, -1, visited);
 	}
 };
 
