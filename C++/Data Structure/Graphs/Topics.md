@@ -80,10 +80,7 @@
 |   |keys-and-rooms|  |
 |   |get-watched-videos-by-your-friends|  |
 |   |detonate-the-maximum-bombs|  |
-<<<<<<< HEAD
 |   |count-sub-islands|  |
-=======
->>>>>>> b6fc055a46c7365575a62a9a7d9bedb5b4e87801
 
 ## BFS Variants (0-1 BFS, multi-source BFS)
 | Id | Problem | Comment / Urls |
@@ -164,13 +161,9 @@
 |    |parallel-courses-iii|    |
 |    |find-all-possible-recipes-from-given-supplies|    |
 |    |build-a-matrix-with-conditions|    |
-<<<<<<< HEAD
 |    |alien dictionary| |
 |    |Sequence Reconstruction| |
 
-=======
-|    |alien dictionary
->>>>>>> b6fc055a46c7365575a62a9a7d9bedb5b4e87801
 
 ## Connected Component/Union Find (Disjoint-set)
 | Id | Problem | Comment / Urls |
@@ -221,10 +214,7 @@
 |    |minimum-cost-of-a-path-with-special-roads|    |
 |    |minimum-time-to-visit-a-cell-in-a-grid|    |
 |    |modify-graph-edge-weights|    |
-<<<<<<< HEAD
 |    |swim in rising water |  |
-=======
->>>>>>> b6fc055a46c7365575a62a9a7d9bedb5b4e87801
 
 ## Shortest Path - Bellman–Ford Algorithm
 | Id | Problem | Comment / Urls |
@@ -333,11 +323,8 @@
 |    |Similar String Groups|    |
 |    |Web Crawler|    |
 |    |Remove minimum number of Invalid Parenthesis|    |
-<<<<<<< HEAD
 |    |Reorder routes to make all paths lead to the city zero |  |
 |    |snakes and ladders |  |
 |    |open the lock |  |
 
 
-=======
->>>>>>> b6fc055a46c7365575a62a9a7d9bedb5b4e87801
