@@ -65,12 +65,13 @@
 | Id | Problem | Comment / Urls |
 |----|---------|----------------|
 | 1 | Number Of Islands |  |
-| 2 | Number Of Islands II |  |
+| 2 | Number Of Islands II | TODO in DSU |
 | 3 | Number of Distinct Islands	|  |
 |   | Max Area of Island|  |
-| 3 | Flood Fill    |  |
-| 4 | Island Perimeter |  |
-| 5 | Find if Path Exists in a Graph |  |
+|   | Battleships in a Board| TODO |
+|   | Flood Fill    |  |
+|   | Island Perimeter | Simple DFS/BFS. But for a land how to get the sides that have water? </br>Contribution of land to the total perimeter = number of sides out of its 4 sides that has lands. </br><pre> <code>getLandPerimeter(grid, i, j) </br>     landPerimeter = 4; </br>     for each of its 4 connected neighbour, </br>        if(neighbour == 0) </br>            landPerimeter--; </br>     return landPerimeter </br>dfs() </br>     perimeter+= getLandPerimeter(i, j); </br>     visit[i][j] </br>     ...rest is normal DFS </br></code></pre>|
+|   | Find if Path Exists in a Graph |  |
 |   | Making A Large Island|  |
 |   | 0/1 Matrix | |
 |   | evaluate-division|  |
