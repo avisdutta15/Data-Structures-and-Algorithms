@@ -66,26 +66,26 @@
 |----|---------|----------------|
 | 1 | Number Of Islands |  |
 | 2 | Number Of Islands II |  |
-|   |Shortest Bridge|  |
-|   |Number Of Enclaves|  |
-|   |Number Of closed Islands|  |
-|   |Number of Distinct Islands	|  |
-|   |Max Area of Island|  |
-|   |Making A Large Island|  |
+| 3 | Number of Distinct Islands	|  |
+|   | Max Area of Island|  |
 | 3 | Flood Fill    |  |
 | 4 | Island Perimeter |  |
 | 5 | Find if Path Exists in a Graph |  |
-|   |0/1 Matrix | |
-|   |evaluate-division|  |
-|   |keys-and-rooms|  |
-|   |get-watched-videos-by-your-friends|  |
-|   |detonate-the-maximum-bombs|  |
-|   |count-sub-islands|  |
+|   | Making A Large Island|  |
+|   | 0/1 Matrix | |
+|   | evaluate-division|  |
+|   | keys-and-rooms|  |
+|   | get-watched-videos-by-your-friends|  |
+|   | detonate-the-maximum-bombs|  |
+|   | count-sub-islands|  |
 
 ## BFS Variants (0-1 BFS, multi-source BFS)
 | Id | Problem | Comment / Urls |
 |----|---------|----------------|
 |    |Surronded Regions |  |
+|    |Shortest Bridge|  |
+|    |Number Of Enclaves|  |
+|    |Number Of closed Islands|  |
 |    |minimum-height-trees| |
 |    |minimize-malware-spread| |
 |    |minimize-malware-spread-ii| |
