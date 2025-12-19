@@ -66,9 +66,8 @@
 |----|---------|----------------|
 | 1 | Number Of Islands |  |
 | 2 | Number Of Islands II | TODO in DSU |
-| 3 | Number of Distinct Islands	| We need find the shape of the island and save them in an unordered_set. Take a base cell (from where we start dfs) and find the shape using {baseI-i, baseJ-j} for each i and j.![](./assets/No-Of-distinct-islands-coordinates.png) |
-|   | Max Area of Island| 	Find the size of the largest connected component.
-  |
+| 3 | Number of Distinct Islands	| We need find the shape of the island and save them in an unordered_set. Take a base cell (from where we start dfs) and find the shape using {baseI-i, baseJ-j} for each i and j.![](./assets/No-Of-distinct-islands-coordinates.png)|
+|   | Max Area of Island| 	Find the size of the largest connected component.|
 |   | Battleships in a Board| TODO |
 |   | Flood Fill    |  |
 |   | Island Perimeter | Simple DFS/BFS. But for a land how to get the sides that have water? </br>Contribution of land to the total perimeter = number of sides out of its 4 sides that has lands. ![](./assets/island-perimeter.png)|
