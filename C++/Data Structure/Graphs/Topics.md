@@ -70,7 +70,7 @@
 |   | Max Area of Island|  |
 |   | Battleships in a Board| TODO |
 |   | Flood Fill    |  |
-|   | Island Perimeter | Simple DFS/BFS. But for a land how to get the sides that have water? </br>Contribution of land to the total perimeter = number of sides out of its 4 sides that has lands. </br><pre> <code>getLandPerimeter(grid, i, j) </br>     landPerimeter = 4; </br>     for each of its 4 connected neighbour, </br>        if(neighbour == 0) </br>            landPerimeter--; </br>     return landPerimeter </br>dfs() </br>     perimeter+= getLandPerimeter(i, j); </br>     visit[i][j] </br>     ...rest is normal DFS </br></code></pre>|
+|   | Island Perimeter | Simple DFS/BFS. But for a land how to get the sides that have water? </br>Contribution of land to the total perimeter = number of sides out of its 4 sides that has lands. ![](./assets/island-perimeter.png)|
 |   | Find if Path Exists in a Graph |  |
 |   | Making A Large Island|  |
 |   | 0/1 Matrix | |
