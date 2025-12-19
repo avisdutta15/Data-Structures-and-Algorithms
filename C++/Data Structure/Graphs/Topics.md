@@ -72,7 +72,7 @@
 |   | Flood Fill    |  |
 |   | Island Perimeter | Simple DFS/BFS. But for a land how to get the sides that have water? </br>Contribution of land to the total perimeter = number of sides out of its 4 sides that has lands. ![](./assets/island-perimeter.png)|
 |   | Find if Path Exists in a Graph |  |
-|   | Making A Large Island|  |
+|   | Making A Large Island| ![](./assets/make-larger-island-0.png) </br> ![](./assets/make-larger-island.png) |
 |   | 0/1 Matrix | |
 |   | evaluate-division|  |
 |   | keys-and-rooms|  |
