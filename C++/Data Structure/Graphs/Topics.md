@@ -73,12 +73,13 @@
 |   | Island Perimeter | Simple DFS/BFS. But for a land how to get the sides that have water? </br>Contribution of land to the total perimeter = number of sides out of its 4 sides that has lands. ![](./assets/island-perimeter.png)|
 |   | Find if Path Exists in a Graph |  |
 |   | Making A Large Island| ![](./assets/make-larger-island-0.png) </br> ![](./assets/make-larger-island.png) |
+|   | Count Sub-Islands | Continue the traversal of the island in grid2 even if the cells don't match. ![](./assets/count-sub-islands.png)  |
 |   | 0/1 Matrix | |
 |   | evaluate-division|  |
 |   | keys-and-rooms|  |
 |   | get-watched-videos-by-your-friends|  |
 |   | detonate-the-maximum-bombs|  |
-|   | count-sub-islands|  |
+
 
 ## BFS Variants (0-1 BFS, multi-source BFS)
 | Id | Problem | Comment / Urls |
