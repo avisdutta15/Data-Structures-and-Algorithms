@@ -75,10 +75,9 @@
 | 9  | Keys And Rooms|  |
 | 10 | Battleships in a Board| TODO |
 | 11 | Find if Path Exists in a Graph |  |
-| 12  | 0/1 Matrix | |
-| 13  | evaluate-division|  |
-| 14  | get-watched-videos-by-your-friends|  |
-| 15  | detonate-the-maximum-bombs|  |
+| 12  | evaluate-division|  |
+| 13  | get-watched-videos-by-your-friends|  |
+| 14  | detonate-the-maximum-bombs|  |
 
 
 ## BFS Variants (0-1 BFS, multi-source BFS)
@@ -88,6 +87,7 @@
 |    |Shortest Bridge|  |
 |    |Number Of Enclaves|  |
 |    |Number Of closed Islands|  |
+| 12 | 0/1 Matrix | Instead of BFS from 1 to 0, do a multi-source BFS from 0s to 1s. |
 |    |minimum-height-trees| |
 |    |minimize-malware-spread| |
 |    |minimize-malware-spread-ii| |
