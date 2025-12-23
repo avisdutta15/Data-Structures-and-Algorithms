@@ -70,6 +70,8 @@ using namespace std;
     This layer-by-layer expansion ensures that when we first visit a cell, we've found its minimum distance 
     to any 0. We mark visited cells (using ans[x][y] = -1 as "unvisited") to avoid processing them again, which 
     prevents infinite loops and ensures correctness.
+
+	Time Complexity: O(m*n)
 */
 
 class SolutionNaive{
@@ -285,4 +287,5 @@ int main()
     printMatrix(distance);
 
     return 0;
+
 }
