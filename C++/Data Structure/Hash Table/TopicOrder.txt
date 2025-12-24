@@ -60,7 +60,7 @@ Count number of triplets with product equal to given number
 5. Frequency Counting
 Group Anagrams
 Valid Anagram
-Find All Anagrams in a String
+Find All Anagrams in a String (TODO : Dry Run the optimized version without vector comparision)
 Permutation in String
 Find Anagram Mappings
 Find and Replace Pattern
