@@ -58,6 +58,8 @@ Pair with given product | Set 1 (Find if any pair exists) [special case when pro
 Count number of triplets with product equal to given number
 
 5. Frequency Counting
+First Unique Character
+Find common characters between strings
 Group Anagrams
 Valid Anagram
 Find All Anagrams in a String (TODO : Dry Run the optimized version without vector comparision)
@@ -69,10 +71,7 @@ Determine if Two Strings Are Close
 Find Resultant Array After Removing Anagrams
 Number of Wonderful Substrings
 Number of Valid Words for Each Puzzle
-Find Common Characters
 Maximum distance between two occurrences
-First Unique Character
-Find common characters between strings
 Longest consecutive subsequence
 Brick Wall
 Max Points on a Line
