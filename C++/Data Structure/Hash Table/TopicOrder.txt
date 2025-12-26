@@ -62,19 +62,19 @@ First Unique Character
 Find common characters between strings
 Group Anagrams
 Valid Anagram
+Find Resultant Array After Removing Anagrams
 Find All Anagrams in a String (TODO : Dry Run the optimized version without vector comparision)
 Permutation in String
 Find Anagram Mappings
 Find and Replace Pattern
 Minimum Number of Steps to Make Two Strings Anagram 
+Longest consecutive subsequence
+Max Points on a Line
 Determine if Two Strings Are Close 
-Find Resultant Array After Removing Anagrams
 Number of Wonderful Substrings
 Number of Valid Words for Each Puzzle
 Maximum distance between two occurrences
-Longest consecutive subsequence
 Brick Wall
-Max Points on a Line
 Longest Palindrome by Contacting Two Letter Words
 Number of pairs with Concatenation equal to target
 
@@ -148,13 +148,13 @@ Count Cells in Overlapping Horizontal and Vertical Substrings
 Lexicographically Smallest String After Reverse II
 
 10. String & Word Pattern Problems
-Isomorphic Strings ⭐
-Word Pattern ⭐
-Word Pattern II ⭐
-Group Shifted Strings ⭐
-Find and Replace Pattern ⭐
-Verifying an Alien Dictionary ⭐
-String Transforms Into Another String ⭐
+Isomorphic Strings
+Word Pattern
+Word Pattern II
+Group Shifted Strings
+Find and Replace Pattern 
+Verifying an Alien Dictionary
+String Transforms Into Another String
 
 11. Graph & Tree Problems with Hash Maps
 Clone Graph ⭐
