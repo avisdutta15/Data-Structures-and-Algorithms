@@ -1,0 +1,45 @@
+Z Algorithm Related
+1. Implement strStr()
+2. Repeated String Match
+3. Longest Happy Prefix
+4. Shortest Palindrome
+5. Maximum Deletions on a String
+
+Rabin-Karp Related
+1. Repeated DNA Sequences
+2. Find the Index of the First Occurrence in a String
+3. Longest Duplicate Substring
+4. Count the Repetitions
+5. Distinct Echo Substrings
+6. Substring with Concatenation of All Words
+7. Repeated String Match
+
+KMP Related
+1. Shortest Palindrome
+2. Distinct Echo Substrings
+3. Maximum Number of Vowels in a Substring of Given Length
+4. Find the Index of the First Occurrence in a String
+5. Rotate String
+6. Longest Prefix Suffix
+7. Check If a String Is a Prefix of Array
+8. Number of Matching Subsequences
+
+Trie Related
+1. Implement Trie (Prefix Tree)
+2. Word Search II
+3. Add and Search Word - Data structure design
+4. Prefix and Suffix Search
+5. Map Sum Pairs
+6. Replace Words
+7. Longest Word in Dictionary
+8. Camelcase Matching
+9. Stream of Characters
+10.Maximum XOR of Two Numbers in an Array
+
+Advanced String Matching Challenges
+1. Palindrome Pairs
+2. Maximum Number of Non-overlapping Substrings
+3. Longest Chunked Palindrome Decomposition
+4. Special Binary String
+
+Aho-Corasick Algorithm
