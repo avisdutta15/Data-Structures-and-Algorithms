@@ -17,7 +17,7 @@ K-diff Pairs in an Array
 
 
 2. Prefix Sum
-Prefix Sum Introduction
+Prefix Sum Introduction - https://www.youtube.com/watch?v=xbYr9JOC2Lk
 Range Sum
 Range Sum II - Input is Matrix
 Subarray Sum Equals K
@@ -117,19 +117,22 @@ Design Authentication Manager
 
 9. Rolling Hash
 Repeated DNA Sequences
+Number of Distinct Substrings in a String
+Longest Duplicate Substring (Binary Search + Rolling Hash) - pepcoding
+Longest Repeating Substring (Binary Search + Rolling Hash)
+Maximum Length of Repeated Subarray (Binary Search + Rolling Hash)
+Strings Differ by One Character
+Longest Prefix Suffix - pepcoding
+Good Substrings - pepcoding
 Shortest Palindrome
-Maximum Length of Repeated Subarray
-Longest Duplicate Substring
-Longest Repeating Substring
+Longest Happy Prefix
+Find Substring With Given Hash Value
+
 Longest Chunked Palindrome Decomposition
 Distinct Echo Substrings
-Longest Happy Prefix
 Check If a String Contains All Binary Codes of Size K
-Strings Differ by One Character
-Number of Distinct Substrings in a String
 Longest Common Subpath
 Maximum Product of the Length of Two Palindromic Substrings
-Find Substring With Given Hash Value
 Unique Substrings With Equal Digit Frequency
 Sum of Scores of Built Strings
 K Divisible Elements Subarrays
