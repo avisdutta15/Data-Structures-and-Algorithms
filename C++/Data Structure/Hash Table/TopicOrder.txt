@@ -22,7 +22,6 @@ Range Sum
 Range Sum II - Input is Matrix
 Subarray Sum Equals K
 Find all Subarray with given Sum K
-Count Subarrays with given Sum K
 Maximum Size Subarray Sum Equals k
 Largest subarray with equal number of 0s and 1s
 Longest subarray having count of 1s one more than count of 0s
