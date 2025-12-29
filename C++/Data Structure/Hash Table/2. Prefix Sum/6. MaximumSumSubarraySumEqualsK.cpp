@@ -8,18 +8,14 @@ using namespace std;
 /*
 	Problem Statement:
 	-----------------
-	Given an array of integers nums and an integer k, print all the subarrays whose sum equals to k.
-	A subarray is a contiguous non-empty sequence of elements within an array.
+	You are given an integer array nums and an integer k. Your task is to find the maximum length 
+	of a contiguous subarray whose elements sum to exactly k. If no such subarray exists, return 0.
 
 	Examples:
 	---------
-	Example 1:
-	Input: nums = [1,1,1], k = 2
-	Output: [0,1] [1,2]
-
-	Example 2:
-	Input: nums = [1,2,3], k = 3
-	Output: [0,1] [2,2]
+	If nums = [1, -1, 5, -2, 3] and k = 3, the subarray [1, -1, 5, -2] sums to 3 and has length 4, 
+										   which would be the answer.
+	If nums = [2, 3, 4] and k = 10, no subarray sums to 10, so the answer would be 0.
 
 	Constraints:
 	1 <= nums.length <= 2 * 10^4

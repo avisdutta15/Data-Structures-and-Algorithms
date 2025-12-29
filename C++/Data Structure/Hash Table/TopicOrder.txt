@@ -20,17 +20,17 @@ K-diff Pairs in an Array
 Prefix Sum Introduction - https://www.youtube.com/watch?v=xbYr9JOC2Lk
 Range Sum
 Range Sum II - Input is Matrix
-Subarray Sum Equals K
+Subarray Sum Equals K	(https://www.youtube.com/watch?v=-SWrz90jCUM&t=1208s, https://www.youtube.com/watch?v=20v8zSo2v18)
 Find all Subarray with given Sum K
 Maximum Size Subarray Sum Equals k
-Largest subarray with equal number of 0s and 1s
+Smallest Size Subarray Sum Equals k
+Largest subarray with equal number of 0s and 1s (Contiguous Array)
 Longest subarray having count of 1s one more than count of 0s
 Count subarrays with same even and odd elements
-Subarray Sums Divisible by K
+Subarray Sums Divisible by K (https://www.youtube.com/watch?v=7Xeorb721LQ)
+							 (https://leetcode.com/problems/subarray-sums-divisible-by-k/solutions/413234/whiteboard-explanation-by-george_chrysoc-qsox/)
 Continuous Subarray Sum equals multiple of K (https://www.youtube.com/watch?v=wmn3c1mP0pY&t=5s)
 Contiguous Array - https://www.youtube.com/watch?v=-SWrz90jCUM
-Length of Largest subarray with contiguous elements
-Find the length of smallest subarray with sum k
 Subarray Sum Closest To K
 Shortest Subarray with Sum at Least K - https://www.youtube.com/watch?v=eWbH_j6Lgnk
 Maximum Sum of SubArray Close to K.
