@@ -8,11 +8,11 @@
 | 5. | 30.    | Substring with Concatenation of All Words | Old solution not working for updated testcase. Need to recheck|
 | 6. | 187.   | Repeated DNA Sequences| |
 | 7. | 346.   | Moving Average from Data Stream | | 
-|    | 567.   | Permutation in String| |
-|    | 643.   | Maximum Average Subarray I| |
-|    | 658.   | Find K Closest Elements| Approach 1 : BS. Approach 2: Sliding window (shrink from bothe the end) https://leetcode.com/problems/find-k-closest-elements/solutions/7086897/using-sliding-window-java-by-sur2002-msfd/|
-|    | 995.   | Minimum Number of K Consecutive Bit Flips| |
-|    | 1100.  | Find K Length Substrings With No Repeated Characters (P)| |
+| 8. | 567.   | Permutation in String| |
+| 9. | 643.   | Maximum Average Subarray I| |
+| 10.| 658.   | Find K Closest Elements| Approach 1: MaxHeap (Keep absolute minimum difference within it) </br> Approach 2 : BS + 2 Pointer. </br> Approach 3: Sliding window (shrink from both the end) https://leetcode.com/problems/find-k-closest-elements/solutions/7086897/using-sliding-window-java-by-sur2002-msfd/|
+| 11.| 995.   | Minimum Number of K Consecutive Bit Flips| |
+| 12.| 1100.  | Find K Length Substrings With No Repeated Characters| The key insight is to use a sliding window approach with a hash set to track unique characters. When we encounter duplicates, we need to shrink the window from the left until the duplicate is removed. ![](./assets/K-length-substr-with-no-repeating-character.jpg)|
 |    | 1151.  | Minimum Swaps to Group All 1's Together (P)| |
 |    | 2134.  | Minimum Swaps to Group All 1's Together II| |
 |    | 1176.  | Diet Plan Performance (P)| |
