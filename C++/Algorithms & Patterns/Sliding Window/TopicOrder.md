@@ -1,19 +1,20 @@
 **Sliding Window - Fixed**
 | Id |  LC Id | Problem | Comment / Urls |
 |----|--------|---------|----------------|
-|    |        | Maximum Subarray Sum Of Size K | |
-|    |        | First Negative in Window Of Size K | |
-|    | 438.   | Find All Anagrams in a String| |
-|    | 239.   | Sliding Window Maximum  | Monotonic Decreasing Queue|
-|    | 30.    | Substring with Concatenation of All Words | |
-|    | 187.   | Repeated DNA Sequences| |
-|    | 346.   | Moving Average from Data Stream | | 
+| 1. |        | Maximum Subarray Sum Of Size K | |
+| 2. |        | First Negative in Window Of Size K | |
+| 3. | 438.   | Find All Anagrams in a String| |
+| 4. | 239.   | Sliding Window Maximum  | Monotonic Decreasing Queue|
+| 5. | 30.    | Substring with Concatenation of All Words | Old solution not working for updated testcase. Need to recheck|
+| 6. | 187.   | Repeated DNA Sequences| |
+| 7. | 346.   | Moving Average from Data Stream | | 
 |    | 567.   | Permutation in String| |
 |    | 643.   | Maximum Average Subarray I| |
-|    | 658.   | Find K Closest Elements| |
+|    | 658.   | Find K Closest Elements| Approach 1 : BS. Approach 2: Sliding window (shrink from bothe the end) https://leetcode.com/problems/find-k-closest-elements/solutions/7086897/using-sliding-window-java-by-sur2002-msfd/|
 |    | 995.   | Minimum Number of K Consecutive Bit Flips| |
 |    | 1100.  | Find K Length Substrings With No Repeated Characters (P)| |
 |    | 1151.  | Minimum Swaps to Group All 1's Together (P)| |
+|    | 2134.  | Minimum Swaps to Group All 1's Together II| |
 |    | 1176.  | Diet Plan Performance (P)| |
 |    | 1297.  | Maximum number of occurrences of a substring| |
 |    | 1343.  | Number of Sub arrays of Size K and Average Greater than or Equal to Threshold| |
@@ -23,7 +24,6 @@
 |    | 1652.  | Defuse the Bomb| |
 |    | 1876.  | Substrings of Size Three with Distinct Characters| |
 |    | 2090.  | K Radius Subarray Averages| |
-|    | 2134.  | Minimum Swaps to Group All 1's Together II| |
 |    | 2269.  | Find the K Beauty of a Number| |
 |    | 2379.  | Minimum Recolors to Get K Consecutive Black Blocks| |
 |    | 2461.  | Maximum Sum of Distinct Subarrays With Length K| |
