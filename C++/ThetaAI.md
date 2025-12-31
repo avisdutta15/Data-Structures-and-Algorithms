@@ -59,26 +59,26 @@
     * LC 904. Fruit Into Baskets
     * LC 1004. Max Consecutive Ones III
     * LC 1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit
-    * 1493. Longest Subarray of 1's After Deleting One Element
-    * 1658. Minimum Operations to Reduce X to Zero
-    * 1838. Frequency of the Most Frequent Element
-    * 2461. Maximum Sum of Distinct Subarrays With Length K
-    * 2516. Take K of Each Character From Left and Right
-    * 2762. Continuous Subarrays
-    * 2779. Maximum Beauty of an Array After Applying Operation
-    * 2981. Find Longest Special Substring That Occurs Thrice I
-    * 3026. Maximum Good Subarray Sum
-    * 3346. Maximum Frequency of an Element After Performing Operations I
-    * 3347. Maximum Frequency of an Element After Performing Operations II 2 
+    * LC 1493. Longest Subarray of 1's After Deleting One Element
+    * LC 1658. Minimum Operations to Reduce X to Zero
+    * LC 1838. Frequency of the Most Frequent Element
+    * LC 2461. Maximum Sum of Distinct Subarrays With Length K
+    * LC 2516. Take K of Each Character From Left and Right
+    * LC 2762. Continuous Subarrays
+    * LC 2779. Maximum Beauty of an Array After Applying Operation
+    * LC 2981. Find Longest Special Substring That Occurs Thrice I
+    * LC 3026. Maximum Good Subarray Sum
+    * LC 3346. Maximum Frequency of an Element After Performing Operations I
+    * LC 3347. Maximum Frequency of an Element After Performing Operations II 2 
 * Pattern 10: Monotonic Queue for Max/Min	
-    * 239. Sliding Window Maximum
-    * 862. Shortest Subarray with Sum at Least K
-    * 1696. Jump Game VI
+    * LC 239. Sliding Window Maximum
+    * LC 862. Shortest Subarray with Sum at Least K
+    * LC 1696. Jump Game VI
 
 * Pattern 11: Character Frequency Matching	
-    * 1. TwoSum
-    * 438. Find All Anagrams in a String
-    * 567. Permutation in String
+    * LC 1. TwoSum
+    * LC 438. Find All Anagrams in a String
+    * LC 567. Permutation in String
 
 **Tree Traversal Patterns (DFS & BFS)**
 * Pattern 12: Level Order Traversal	102. Binary Tree Level Order Traversal

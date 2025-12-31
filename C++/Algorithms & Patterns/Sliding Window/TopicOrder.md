@@ -1,10 +1,13 @@
 **Sliding Window - Fixed**
 | Id |  LC Id | Problem | Comment / Urls |
 |----|--------|---------|----------------|
+|    |        | Maximum Subarray Sum Of Size K | |
+|    |        | First Negative in Window Of Size K | |
+|    | 438.   | Find All Anagrams in a String| |
+|    | 239.   | Sliding Window Maximum  | Monotonic Decreasing Queue|
 |    | 30.    | Substring with Concatenation of All Words | |
 |    | 187.   | Repeated DNA Sequences| |
-|    | 239.   | sliding window maximum  | |
-|    | 438.   | Find All Anagrams in a String| |
+|    | 346.   | Moving Average from Data Stream | | 
 |    | 567.   | Permutation in String| |
 |    | 643.   | Maximum Average Subarray I| |
 |    | 658.   | Find K Closest Elements| |
@@ -25,14 +28,16 @@
 |    | 2379.  | Minimum Recolors to Get K Consecutive Black Blocks| |
 |    | 2461.  | Maximum Sum of Distinct Subarrays With Length K| |
 |    | 2653.  | sliding subarray beauty   | |
+|    | 2985.  | Calculate Compressed Mean   | |
 |    | 3191.  | Minimum Operations to Make Binary Array Elements Equal to One I| |
 |    | 3206.  | Alternating Groups I| |
 |    | 3208.  | Alternating Groups II| |
 |    | 3254.  | Find the Power of K Size Subarrays I| |
-|    | 3255.  | find the power of k size subarrays ii  | | 
+|    | 3255.  | Find the power of k size subarrays ii  | | 
+|    | 3318.  | Find X-Sum of All K-Long Subarrays I  | |
 |    | 3439.  | Reschedule Meetings for Maximum Free Time I| |
-|    | 3652.  | best time to buy and sell stock using strategy   | |
-|    | 3679.  | minimum discards to balance inventory| |
+|    | 3652.  | Best time to buy and sell stock using strategy   | |
+|    | 3679.  | Minimum discards to balance inventory| |
 
 **Sliding Window - Variable**
 | Id |  LC Id | Problem | Comment / Urls |
@@ -61,6 +66,7 @@
 |    | 1493.  | Longest Subarray of 1's After Deleting One Element|   |
 |    | 1658.  | minimum operations to reduce x to zero |   |
 |    | 1695.  | Maximum Erasure Value|   |
+|    | 1696.  | Jump Game VI|   |
 |    | 1838.  | Frequency of the Most Frequent Element|   |
 |    | 1852.  | Distinct Numbers in Each Subarray (P)|   |
 |    | 2024.  | Maximize the Confusion of an Exam|   |
