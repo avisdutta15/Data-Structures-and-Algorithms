@@ -68,13 +68,13 @@
 | 2 | Number Of Islands II | TODO in DSU |
 | 3 | Number of Distinct Islands	| We need find the shape of the island and save them in an unordered_set. Take a base cell (from where we start dfs) and find the shape using {baseI-i, baseJ-j} for each i and j.![](./assets/No-Of-distinct-islands-coordinates.png)|
 | 4  | Max Area of Island| 	Find the size of the largest connected component.|
-| 5  | Flood Fill    |  |
+| 5  | Flood Fill    | X |
 | 6  | Island Perimeter | Simple DFS/BFS. But for a land how to get the sides that have water? </br>Contribution of land to the total perimeter = number of sides out of its 4 sides that has lands. ![](./assets/island-perimeter.png)|
 | 7  | Making A Large Island| ![](./assets/make-larger-island-0.png) </br> ![](./assets/make-larger-island.png) |
 | 8  | Count Sub-Islands | Continue the traversal of the island in grid2 even if the cells don't match. ![](./assets/count-sub-islands.png)  |
 | 9  | Keys And Rooms|  |
 | 10 | Battleships in a Board| TODO |
-| 11 | Find if Path Exists in a Graph |  |
+| 11 | Find if Path Exists in a Graph | X |
 | 12  | evaluate-division|  |
 | 13  | get-watched-videos-by-your-friends|  |
 | 14  | detonate-the-maximum-bombs|  |
@@ -83,10 +83,10 @@
 ## BFS Variants (0-1 BFS, multi-source BFS)
 | Id | Problem | Comment / Urls |
 |----|---------|----------------|
-|    |Surronded Regions |  |
-|    |Shortest Bridge|  |
-|    |Number Of Enclaves|  |
-|    |Number Of closed Islands|  |
+|    |Surrounded Regions | X |
+|    |Shortest Bridge| X |
+|    |Number Of Enclaves| X |
+|    |Number Of closed Islands| X |
 | 12 | 0/1 Matrix | Instead of BFS from 1 to 0, do a multi-source BFS from 0s to 1s. |
 |    |minimum-height-trees| |
 |    |minimize-malware-spread| |
@@ -101,10 +101,10 @@
 ## Connected Components
 | Id | Problem | Comment / Urls |
 |----|---------|----------------|
-|1   | Graph Valid Tree| |
-|2   | Number of Connected Components in an Undirected Graph | |
-|3   | Rotting Oranges | |
-|    |number-of-provinces| |
+|1   | Graph Valid Tree| X |
+|2   | Number of Connected Components in an Undirected Graph | X |
+|3   | Rotting Oranges | X |
+|    | Number of Provinces | X |
 |    |redundant-connection| |
 |    |redundant-connection-ii| |
 |    |most-stones-removed-with-same-row-or-column| |
@@ -123,12 +123,12 @@
 ## Count Degrees
 | Id | Problem | Comment / Urls |
 |----|---------|----------------|
-|    |find-the-town-judge| |
+|    |Find the Town Judge| X |
 |    |minimum-number-of-vertices-to-reach-all-nodes| |
 |    |maximal-network-rank| |
 |    |minimum-degree-of-a-connected-trio-in-a-graph| |
 |    |count-pairs-of-nodes| |
-|    |find-center-of-star-graph| |
+|    |Find Center of Star Graph| X |
 |    |maximum-total-importance-of-roads| |
 |    |node-with-highest-edge-score| |
 |    |maximum-star-sum-of-a-graph| |
