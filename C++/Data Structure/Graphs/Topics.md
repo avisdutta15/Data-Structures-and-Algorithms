@@ -64,6 +64,7 @@
 ## 1. Simple DFS/BFS
 | Id | Problem | Comment / Urls |
 |----|---------|----------------|
+| 11 | Find if Path Exists in a Graph |   |
 | 1 | Number Of Islands |  |
 | 2 | Number Of Islands II | TODO in DSU |
 | 3 | Number of Distinct Islands	| We need find the shape of the island and save them in an unordered_set. Take a base cell (from where we start dfs) and find the shape using {baseI-i, baseJ-j} for each i and j.![](./assets/No-Of-distinct-islands-coordinates.png)|
@@ -74,10 +75,9 @@
 | 8  | Count Sub-Islands | Continue the traversal of the island in grid2 even if the cells don't match. ![](./assets/count-sub-islands.png)  |
 | 9  | Keys And Rooms|  |
 | 10 | Battleships in a Board| TODO |
-| 11 | Find if Path Exists in a Graph | X |
-| 12  | evaluate-division|  |
+| 12  | evaluate-division| X |
 | 13  | get-watched-videos-by-your-friends|  |
-| 14  | detonate-the-maximum-bombs|  |
+| 14  | detonate-the-maximum-bombs| X |
 
 
 ## BFS Variants (0-1 BFS, multi-source BFS)
@@ -87,13 +87,13 @@
 |    |Shortest Bridge| X |
 |    |Number Of Enclaves| X |
 |    |Number Of closed Islands| X |
-| 12 | 0/1 Matrix | Instead of BFS from 1 to 0, do a multi-source BFS from 0s to 1s. |
+| 12 |0/1 Matrix | Instead of BFS from 1 to 0, do a multi-source BFS from 0s to 1s. Imagine dropping stones into water at multiple points - each 0 is like a stone creating ripples. These ripples expand outward at the same speed, and when a ripple reaches a cell for the first time, that's the shortest distance from that cell to any 0. Use a distance matrix to capture distance and use to determine if the cell is visited or not|
 |    |minimum-height-trees| |
 |    |minimize-malware-spread| |
 |    |minimize-malware-spread-ii| |
 |    |maximum-candies-you-can-get-from-boxes| |
-|    |word-ladder-1| |
-|    |word-ladder-2| |
+|    |Word Ladder 1| |
+|    |Word Ladder 2| |
 
 
 
