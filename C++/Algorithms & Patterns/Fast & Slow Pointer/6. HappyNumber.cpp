@@ -96,6 +96,7 @@ private:
 	}
 
 public:
+	//use a set to determine if the number is seen in the past
 	bool isHappy1(int n) {
 		if (n == 1)
 			return true;
