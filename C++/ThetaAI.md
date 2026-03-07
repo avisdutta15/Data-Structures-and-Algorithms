@@ -12,9 +12,15 @@
 
 * Pattern 2: Fast & Slow 	
     * LC 141. Linked List Cycle
+    * LC 142. Linked List Cycle II
+    * LC 876. Middle of the Linked List
+    * LC 234. Palindrome Linked List
+    * LC 143. Reorder List
+    * LC 457. Circular Array Loop
     * LC 202. Happy Number
     * LC 287. Find the Duplicate Number
-    * LC 392. Is Subsequence,
+    * LC 392. Is Subsequence
+    * 
 * Pattern 3: Fixed Separation 	
     * LC 19. Remove Nth Node From End of List
     * LC 876. Middle of the Linked List
@@ -458,4 +464,5 @@ Pattern 94. Tries	208. Implement Trie (Prefix Tree)
 648. Replace Words
 425. Word Squares
 642. Design Search Autocomplete System
+
 745. Prefix and Suffix Search
