@@ -55,22 +55,26 @@ using namespace std;
 
 class Solution {
 private:
+	//if max(start times) <= min(end times)
 	bool overlap(const vector<int>& a, const vector<int>& b) {
 		return max(a[0], b[0]) <= min(a[1], b[1]);
 	}
 public:
 	//TC: O(NLogN) SC: O(N)
 	vector<vector<int>> mergeOverlappingIntervals(vector<vector<int>>& intervals) {
-		auto comparator = [](const vector<int>& a, const vector<int>& b) {
+		
+		//sort the intervals based on start time
+		sort(intervals.begin(), intervals.end(), [](vector<int>& a, vector<int>& b) {
 			return a[0] < b[0];
-			};
-
-		sort(intervals.begin(), intervals.end(), comparator);
-
+			});
+		
+		//Keep a stack to store and merge the intervals. Push the first interval.
 		stack<vector<int>> stack;
 		stack.push(intervals[0]);
-
+		
+		//for the rest of the intervals
 		for (int i = 1; i < intervals.size(); i++) {
+			//get the last interval i.e. the top of the stack and the current interval
 			vector<int> intervala = stack.top();
 			vector<int> intervalb = intervals[i];
 
@@ -87,12 +91,14 @@ public:
 			}
 		}
 
+		//transfer all the intervals from stack to a resultant vector.
 		vector<vector<int>> mergedIntervals;
 		while (!stack.empty()) {
 			mergedIntervals.push_back(stack.top());
 			stack.pop();
 		}
 
+		//reverse the vector to maintain the original order as stack popped LIFO.
 		reverse(mergedIntervals.begin(), mergedIntervals.end());
 
 		return mergedIntervals;
@@ -100,42 +106,43 @@ public:
 
 	//TC: O(NLogN) SC: O(1)
 	vector<vector<int>> mergeOverlappingIntervalsOptimized(vector<vector<int>>& intervals) {
-		auto comparator = [](const vector<int>& a, const vector<int>& b) {
+		//sort the meetings based on their start time
+		sort(intervals.begin(), intervals.end(), [](vector<int>& a, vector<int>& b) {
 			return a[0] < b[0];
-			};
+		});
 
-		//sort the intervals based on start time.
-		sort(intervals.begin(), intervals.end(), comparator);
-
-		//j is the index that represents the next index to put the new interval in the ans.
-		int j = 0;
+		//last denotes the last interval in the final merged list.
+		//Initially there is no interval in the final list, so we set last = -1.
+		int last = -1;
 		for (int i = 0; i < intervals.size(); i++) {
-
 			//if it is first interval then copy as it is.
-			if (j == 0) {
-				intervals[j] = intervals[i];
-				j++;
+			if (i == 0) {
+				intervals[last + 1] = intervals[i];
+				last++;
 			}
+			//check if it overlaps with any of the previous intervals
+			else if (overlap(intervals[last], intervals[i])) {
+				while (last >= 0 && overlap(intervals[last], intervals[i])) {
+					intervals[last][0] = min(intervals[last][0], intervals[i][0]);
+					intervals[last][1] = max(intervals[last][1], intervals[i][1]);
+					last--;
+				}
+
+				//suppose last was at 1. after merging i with 1 we made last-- i.e. last = 0. 
+				//But we have to insert the merged interval at last + 1 position. i.e. at position 1.
+				//So we need to do last++ to make it 1 again.
+				last++;
+			}
+			//if no overlap then copy as it is.
 			else {
-				//check if it overlaps with any of the previous intervals
-				if (overlap(intervals[j - 1], intervals[i]) == true) {
-					while (j > 0 && overlap(intervals[j - 1], intervals[i]) == true) {
-						intervals[j - 1][0] = min(intervals[j - 1][0], intervals[i][0]);
-						intervals[j - 1][1] = max(intervals[j - 1][1], intervals[i][1]);
-						j--;
-					}
-					j++;
-				}
-				//if no overlap then copy as it is.
-				else {
-					intervals[j] = intervals[i];
-					j++;
-				}
-			}			
+				intervals[last + 1] = intervals[i];
+				last++;
+			}
 		}
 
-		//j is the last index till where we modified.
-		return vector<vector<int>>(intervals.begin(), intervals.begin() + j);
+		//last is 0 based index. So if last is standing at 0, it means size is last + 1 = 0 + 1 = 1. 
+		//So we need to return size = last + 1 elements. Hence the range [begin, begin + last + 1).
+		return vector<vector<int>>(intervals.begin(), intervals.begin() + last + 1);
 	}
 };
 
