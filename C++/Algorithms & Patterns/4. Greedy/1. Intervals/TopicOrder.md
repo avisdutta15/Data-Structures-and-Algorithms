@@ -7,7 +7,7 @@
 |5|Meeting Rooms II||
 |6|Meeting Rooms III  |[TODO]|
 |7|N Meeting in One Room |If a meeting ends early, the room becomes available sooner, allowing more meetings to fit in. <br/> By always picking the meeting with the smallest finishing time that does not overlap with previously chosen meetings, we maximize the number of scheduled meetings.|
-|8|Maximum number of platforms required ||
+|8|Minimum number of platforms required ||
 |9|Find Intersection of all Intervals||
 |10|Non overlapping intervals ||
 |11|Find Right Interval||
