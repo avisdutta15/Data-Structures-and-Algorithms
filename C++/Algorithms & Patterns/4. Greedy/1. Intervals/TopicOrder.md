@@ -1,35 +1,65 @@
+##  Pattern 1 : The Merge (Sort by Start Time)
+These problems give you a static list (or simple arrays) and ask you to combine, group, or evaluate overlaps based on when things begin.
+
 | Id | Problem | Comment / Urls |
-| --- | --- | --- |
-|1|Find all intervals that overlap||
-|2|Merge Intervals||
-|3|Insert Interval||
-|4|Meeting Rooms||
-|5|Meeting Rooms II||
-|6|Meeting Rooms III  |[TODO]|
-|7|N Meeting in One Room |If a meeting ends early, the room becomes available sooner, allowing more meetings to fit in. <br/> By always picking the meeting with the smallest finishing time that does not overlap with previously chosen meetings, we maximize the number of scheduled meetings.|
-|8|Minimum number of platforms required ||
-|9|Find Intersection of all Intervals||
-|10|Non overlapping intervals ||
-|11|Find Right Interval||
-|12|Interval List Intersections||
-|13|Data Stream as Disjoint Intervals ||
-|14|Teemo Attacking ||
-|15|Add Bold Tag in String ||
-|16|Range Module ||
-|17|Employee Free Time (Own Solution + algomonster) ||
-|18|Partition Labels ||
-|19|Amount of New Area Painted Each Day ||
-|20|Longest Substring of One Repeating Character ||
-|21|Count Integers in Intervals ||
-|22|Divide Intervals Into Minimum Number of Groups ||
-|23|Determine if Two Events Have Conflict ||
-|24|Count Ways to Group Overlapping Ranges ||
-|25|Points That Intersect With Cars ||
-|26|Count Days Without Meetings ||
-|27|Minimize Connected Groups by Inserting Interval ||
-|28|My Calender I	||
-|29|My Calender II |(https://www.youtube.com/watch?v=rRMdxFA-8G4&t=212s)|
-|30|My Calender III  ||
+|----|---------|----------------|
+|1. |[Merge Intervals](./2.%20MergeIntervals.cpp)|![](./assets/1.%20MergeOverlappingIntervals.png)|
+|2. |[Insert Interval](./3.%20InsertInterval.cpp)|![](./assets/2.%20InsertInterval.png)|
+|3. |[Meeting Rooms](./4.%20MeetingRooms.cpp)|Simple overlap check|
+|4. |Teemo Attacking (Merging overlapping poison durations)||
+|5. |Add Bold Tag in String (Merge overlapping bold ranges before modifying the string)||
+|6. |Partition Labels (Expand your interval based on the last occurrence of a character)||
+|7. |Determine if Two Events Have Conflict||
+|8. |Count Ways to Group Overlapping Ranges (Merge into disjoint groups, then do the math)||
+|9. |Points That Intersect With Cars (Merge car footprints to count unique points)||
+|10.| Count Days Without Meetings (Merge all meetings, subtract from total days)||
+|11.| Minimize Connected Groups by Inserting Interval (Merge existing, see how the new one bridges gaps)||
+
+##  Pattern 2 : Two-Pointer Intersection
+These problems involve comparing distinct sets of intervals to find common ground.
+
+| Id | Problem | Comment / Urls |
+|----|---------|----------------|
+|1. |Find Intersection of all Intervals||
+|2. |Interval List Intersections||
+
+##  Pattern 3 : Sweep Line & Priority Queues (Chronological Events)
+These problems ask for peak concurrency, tracking active states, or distributing resources over time. 
+You split the intervals into +1 (start) and -1 (end) events, or use a Min-Heap to track when resources free up.
+
+| Id | Problem | Comment / Urls |
+|----|---------|----------------|
+|1. |Meeting Rooms II (Peak concurrency)||
+|2. |Meeting Rooms III (Requires a Min-Heap to simulate room availability)||
+|3. |Minimum number of platforms required (Exact same logic as Meeting Rooms II)||
+|4. |Employee Free Time (Sweep line across all employee schedules to find the gaps)||
+|5. |Divide Intervals Into Minimum Number of Groups (Another variation of Meeting Rooms II)||
+|6. |My Calendar II (Track if sweep line ever hits 3 concurrent events)||
+|7. |My Calendar III (Track the absolute maximum of the sweep line)||
+
+##  Pattern 4 : The Greedy Choice (Sort by End Time)
+These problems are about maximizing throughput or minimizing conflicts. You must ruthlessly pick the intervals that end the earliest to leave room for the rest.
+
+| Id | Problem | Comment / Urls |
+|----|---------|----------------|
+|1. |N Meeting in One Room (Maximize meetings)||
+|2. |Non-overlapping intervals (Minimize removals)||
+
+##  The "Hidden" Staff-Level Pattern 5 : Dynamic Intervals
+This is where the standard O(N log N) sorting trick breaks down. 
+In these problems, you are not given the intervals all at once. They arrive as a data stream, or you must perform frequent updates and queries.
+At the Staff level, you must recognize when to abandon static arrays and use a TreeMap (Balanced BST) or a Segment Tree.
+
+| Id | Problem | Comment / Urls |
+|----|---------|----------------|
+|1. |Data Stream as Disjoint Intervals (Use a TreeMap to efficiently find the floor/ceiling of incoming numbers and merge dynamically)||
+|2. |Range Module (Heavy use of TreeMap to track, add, and remove massive ranges dynamically)||
+|3. |Amount of New Area Painted Each Day (Segment Tree or Sweep Line with a TreeSet)||
+|4. |Longest Substring of One Repeating Character (Segment Tree to track merged character intervals upon updates)||
+|5. |Count Integers in Intervals (Dynamic merging, best handled with a TreeMap or Segment Tree)||
+|6. |My Calendar I (Can be done with an array, but the optimal dynamic solution is a TreeMap)||
+
+(Note: Problem 11. Find Right Interval is a slight outlier. It involves sorting by start time, but then using Binary Search to quickly find the next valid interval. It bridges Pattern 1 and standard searching.)
 
 
 

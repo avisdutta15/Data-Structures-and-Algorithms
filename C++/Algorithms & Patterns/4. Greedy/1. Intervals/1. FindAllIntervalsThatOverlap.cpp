@@ -30,10 +30,12 @@ public:
 		sort(intervals.begin(), intervals.end(), comp);
 
 		//iterate and find overlapping
-		for (int i = 1; i < intervals.size(); i++) {
-			if (intervals[i].first <= intervals[i - 1].second) {
+		for (int i = 0; i < intervals.size()-1; i++) {
+
+			//b.start <= a.end
+			if (intervals[i+1].first <= intervals[i].second) {
 				allOverlappingIntervals.push_back(intervals[i]);
-				allOverlappingIntervals.push_back(intervals[i-1]);
+				allOverlappingIntervals.push_back(intervals[i+1]);
 			}
 		}
 
