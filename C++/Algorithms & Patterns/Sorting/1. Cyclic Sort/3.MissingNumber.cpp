@@ -47,6 +47,8 @@ public:
 
         for (int i = 0; i < N; i++) {
             int correctIndexOfAi = A[i];
+
+            //skip if the number is N as we cannot have correct index for it. range (0, N) is size N
             while (A[i] != N && A[i] != A[correctIndexOfAi]) {
                 swap(A[i], A[correctIndexOfAi]);
                 correctIndexOfAi = A[i];
