@@ -30,6 +30,7 @@ priority_queue Basics:
    parent = (i-1)/2
    firstInternalNode = (heapSize-1)/2
 
+
 Warmup Problems
 ---------------
 1. Max Heap (maxHeap.cpp)
@@ -41,34 +42,46 @@ Warmup Problems
 Patterns:
 ----------
 1. Top K Pattern
-LC #215 - Kth largest number in an array
-LC #973 - K closest points to origin
-            K Closest element
-LC #347 - Top k frequent elements/numbers
-LC #692 - Top k frequent words
-LC #264 - Ugly Number II
-LC #451 - Frequency Sort
-LC #703 - Kth largest number in a stream
-LC #767 - Reorganize String
-LC #358 - Rearrange string K distance apart
-LC #1439 - Kth smallest sum of a matrix with sorted rows
-            Product of K Largest numbers in a stream (productOfLargestKInstream.cpp)
-            Sum of numbers between K1st and K2nd smallest elements in an Array where 
-                    K1<K2 (SumOfK1thandK2thSmallestElements.cpp)
-            Find the Kth Non repeating character in a string (FirstKthNonRepeatingCharacter.cpp)
-            Connect n ropes with minimum cost
+Kth largest number in an array
+Kth Largest Element in a Stream
+Reorganize String
+Rearrange string K distance apart
+K Closest Points to Origin
+K Closest element
+Top K Frequent Elements
+Top k frequent words
+Frequency Sort
+Third Maximum Number
+Ugly Number II
+Find Subsequence of Length K with the Largest Sum
+Minimum Cost to Hire K Workers
+Maximal Score After Applying K Operations
+Find the Kth Largest Integer in the Array
+Kth smallest sum of a matrix with sorted rows
+Product of K Largest numbers in a stream (productOfLargestKInstream.cpp)
+Sum of numbers between K1st and K2nd smallest elements in an Array where 
+    K1<K2 (SumOfK1thandK2thSmallestElements.cpp)
+Find the Kth Non repeating character in a string (FirstKthNonRepeatingCharacter.cpp)
+Connect n ropes with minimum cost
 
+2. K-way merge
 
+Merge Sorted Array
+Merge K Sorted Lists
+Kth Smallest Number in M Sorted Lists
+Kth Smallest Element in a Sorted Matrix
+Find K Pairs with Smallest Sums
 
-2. Merge K sorted pattern
-LC #23 - Merge K sorted
-LC #373 - K pairs with the smallest sum
-LC #378 - K smallest numbers in M-sorted lists
+3. Two Heaps
 
-3. Two Heaps Pattern
-LC #295 - Find median from a data stream
-LC #480 - Sliding window Median
-LC #502 - Maximize Capital/IPO
+IPO
+Find Median from Data Stream
+Sliding Window Median
+Schedule Tasks on Minimum Machines
+Meeting Rooms III
+Largest Number After Digit Swaps by Parity
+Find Right Interval
+Maximize Capital/IPO
 
 4. Minimum number Pattern
 LC #1167 - Minimum Cost to connect sticks/ropes
@@ -77,6 +90,8 @@ LC #759 - Employee free time
 LC #857 - Minimumcost to hire K workers
 LC #621 - Minimum number of CPU (Task scheduler)
 LC #871 - Minimum number of Refueling stops
+
+
 
 5. Misc
 1. Rearrange characters in a string such that no two adjacent are same.
@@ -127,37 +142,3 @@ LC #871 - Minimum number of Refueling stops
 14. course-schedule-iii/
 15. last-stone-weight/
 16. the-k-weakest-rows-in-a-matrix/
-
-7. Two Heaps
-
-Build on efficient data structures and algorithms using two heaps for dynamic data processing.
-IPO
-Find Median from Data Stream
-Sliding Window Median
-Schedule Tasks on Minimum Machines
-Meeting Rooms III
-Largest Number After Digit Swaps by Parity
-Find Right Interval
-
-8. K-way merge
-
-Introduction to K-way Merge
-Merge Sorted Array
-Merge K Sorted Lists
-Kth Smallest Number in M Sorted Lists
-Kth Smallest Element in a Sorted Matrix
-Find K Pairs with Smallest Sums
-
-9. Top K Elements
-
-Introduction to Top K Elements
-Kth Largest Element in a Stream
-Reorganize String
-K Closest Points to Origin
-Top K Frequent Elements
-Kth Largest Element in an Array
-Third Maximum Number
-Find Subsequence of Length K with the Largest Sum
-Minimum Cost to Hire K Workers
-Maximal Score After Applying K Operations
-Find the Kth Largest Integer in the Array
