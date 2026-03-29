@@ -1,0 +1,13 @@
+1. Longest Palindromic Subsequence (Length + Print)
+2. Count all palindromic subsequences of a string
+3. Longest Palindromic Substring
+4. Count All Palindrome Sub-Strings in a String 
+5. Longest Common Substring 
+6. Count all common subsequences of 2 strings
+7. Count Distinct subsequences of a string S in string T
+8. Count Distinct Subsequences
+9. Count the number of times a string occurs as a subsequence in given string
+
+
+
+Minimum Number Of insertions to make a string palindrome(N-LCS)

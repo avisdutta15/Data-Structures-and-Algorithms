@@ -1,0 +1,37 @@
+Count And Print All Possible paths in a Matrix from Top left to Bottom right
+Minimum cost path in a Matrix + print the path
+Minimum cost path in a triangle + print the path
+Maximum cost path in a triangle + print the path
+Maximum sum of a path in a Right Number Triangle
+Maximum Path sum from any cell in 0th row to any cell in last row
+Maximum weight path ending at any element of last row in a matrix
+Unique paths in a Grid with Obstacles
+Number of paths with exactly k coins 
+Collect Maximum Coins before hitting a dead end
+Path with maximum average value with right and down moves
+	To reach the bottom right, we can take max N-1 down moves 
+	and max N-1 right moves. so there is total 2N-1 moves possible
+	In average value, the denominator is fixed and we need to 
+	just maximize numerator. Therefore we basically need to find 
+	the maximum sum path. 
+Maximum path sum in a triangle
+Minimum Sum Path in a Triangle
+Maximum sum of a path in a Right Number Triangle
+Gold Mine
+Cherry PickUp I, II
+Dungeon Game
+Paint House I/II [https://zhuhan0.blogspot.com/2017/08/265-paint-house-ii.html]
+
+Finding submatrix in a matrix
+------------------------------
+Maximum Sum Rectangle in a Matrix.
+Largest rectangular sub-matrix whose sum is 0
+Largest rectangular sub-matrix having sum divisible by k
+Find the largest area rectangular sub-matrix whose sum is equal to k
+Largest area rectangular sub-matrix with equal number of 1’s and 0’s
+
+
+
+Maximum size square sub-matrix with all 1s
+Collect maximum points in a grid using two traversals
+Find the longest path in a matrix with given constraints [todo]

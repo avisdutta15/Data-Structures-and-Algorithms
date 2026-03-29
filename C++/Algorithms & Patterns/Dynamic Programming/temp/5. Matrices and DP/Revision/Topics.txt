@@ -1,0 +1,33 @@
+1. 	Count And Print All Possible paths in a Matrix from Top left to Bottom right.					[TODO print path + space optimization]
+2. 	Count And Print All Possible paths in a Matrix from Top left to Bottom right with obstacles.	[TODO print path + space optimization]
+3. 	Finding the Minimum Cost Path in a Grid when a Cost Matrix is given (MinCost + Path).			[TODO print path + space optimization]
+4.  Maximum Path sum from any cell in first row to any cell in last row.
+5.  Minimum Steps to reach any of the boundary edges of a matrix									[TODO]
+6.	Minimum cost/sum path in a triangle + print the path											[TODO print path + space optimization]
+7.	Maximum cost/sum path in a triangle + print the path											[TODO print path + space optimization]
+8.	Number of paths with exactly k coins 
+9.	Collect Maximum Coins before hitting a dead end
+10.	Path with maximum average value with right and down moves
+		To reach the bottom right, we can take max N-1 down moves 
+		and max N-1 right moves. so there is total 2N-1 moves possible
+		In average value, the denominator is fixed and we need to 
+		just maximize numerator. Therefore we basically need to find 
+		the maximum sum path. 
+11. Collect maximum points in a grid using two traversals
+
+Finding submatrix in a matrix
+------------------------------
+12. Maximum Sum Rectangle in a Matrix.
+13. Largest rectangular sub-matrix whose sum is 0
+14. Largest rectangular sub-matrix having sum divisible by k
+15. Find the largest area rectangular sub-matrix whose sum is equal to k
+16. Largest area rectangular sub-matrix with equal number of 1s and 0s
+Maximum size square sub-matrix with all 1s
+Find the longest path in a matrix with given constraints [todo]
+
+19. Gold Mine
+20. Cherry PickUp I, 
+21. Cherry PickUp II
+22. Dungeon Game
+23. Paint House I
+24. Paint House II [https://zhuhan0.blogspot.com/2017/08/265-paint-house-ii.html]
