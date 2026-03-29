@@ -1,0 +1,9 @@
+1. MCM Recursion
+2. MCM TopDown
+3. MCM BottomUp [similar to Longest Palindromic String]
+4. Print MCM with brackets
+4. Palindromic Partition
+5. Different Ways to Add Parenthesis
+6. Minimum and Maximum values of an expression with * and +
+7. Evaluate a boolean expression represented as string
+8. Scrambled String

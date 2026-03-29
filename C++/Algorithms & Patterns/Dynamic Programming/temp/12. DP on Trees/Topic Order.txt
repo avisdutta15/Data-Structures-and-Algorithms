@@ -1,0 +1,9 @@
+1. Count Balanced Binary Trees of Height h
+	Since the trees should be balanced, the difference between the left and right subtrees cannot
+	be more than 1
+	count(h) = count(h-1)*count(h-2) +
+		   count(h-2)*count(h-1) + 
+		   count(h-1)*count(h-1)
+2.
+
+Traversal of tree with k jumps allowed between nodes of same height
