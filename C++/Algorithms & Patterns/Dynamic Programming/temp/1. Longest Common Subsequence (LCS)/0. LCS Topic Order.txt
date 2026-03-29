@@ -1,0 +1,32 @@
+Build Concept:
+--------------
+1. LCS Intro and Length
+2. Printing LCS
+3. Space Optimized LCS [TODO]
+4. Printing all LCS (also in lexo graphical order)
+5. LCS (Longest Common Subsequence) of three strings
+
+
+Variations:
+-----------
+1. Shortest Common Supersequence (using LCS)
+2. Printing Shortest Common Supersequence (using LCS)
+3. Minimum Cost To Make Two Strings Identical
+   Minimum cost to make two strings identical by deleting the digits
+   Longest common subsequence with permutations allowed
+4. Longest Repeated Subsequence [LCS. When str[i]==str[j] then indices whould not match. i.e. i!=j]
+5. Longest Pallindromic Subsequence 
+6. Print Longest Palindromic Subsequence
+7. Find if string is K-Palindrome or not
+8. Minimum number of deletions and insertions to transform one string into another
+9. Shortest possible combination of two strings
+
+Hard Problems:
+--------------
+1. Count ways to increase LCS length of two strings by one
+				Or
+   Number of ways to insert a character to increase the LCS by one
+2. Longest Common Subsequence with at most k changes allowed
+3. Minimum cost to make Longest Common Subsequence of length k
+4. LCS formed by consecutive segments of at least length K
+

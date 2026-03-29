@@ -1,0 +1,31 @@
+Knapsack Intro
+0.  Knapsack Types(Fractional, 0/1, Unbounded)
+1.  0/1 Knapsack (Recursive, TopDown, BottomUp)
+2.  Print 0/1 Knapsack
+
+SubSet Sum Variations
+3.  Subset Sum
+4.  Print Subset sum
+5.  Count Number of Subsets with given Sum
+6.  Print All subsets with given sum 
+7.  Maximum Size subset with sum K
+8.  Maximum subset sum such that no two elements are adjacent
+9.  Count the number of distinct subset sums of an array
+
+Subset Sum & Partitions
+10. Equal Sum Partition (2 Sum Partition)
+11. 3 Sum Partition
+12. K Sum Partition
+13. Minimum Sum Partition.
+14. Count Subsets with Given Difference
+
+16. Target Sum
+17. Unbounded Knapsack
+18. Rod Cutting
+
+Coin Change & Variations
+19. Coin Change (Maximum number of ways)
+20. Coin Change 2 (Minimum number of coins)
+21. Find number of solutions of a linear equation of n variables dp
+22. Count number of ways to reach a given score in a game where a player can score 3 or 5 or 10 points in a move
+23. Maximum number of segments of lengths a, b and c (variation of min number of coins. Instead of min we need max)
