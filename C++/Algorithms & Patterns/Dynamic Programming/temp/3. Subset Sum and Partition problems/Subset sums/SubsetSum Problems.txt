@@ -1,0 +1,8 @@
+1. Subset Sum
+2. Print All subsets with given sum [TODO]
+3. Maximum Size subset with sum K
+4. Maximum Size such that no two elements are adjacent
+5. Count the number of distinct subset sums of an array
+6. Maximum size subset with given sum
+
+

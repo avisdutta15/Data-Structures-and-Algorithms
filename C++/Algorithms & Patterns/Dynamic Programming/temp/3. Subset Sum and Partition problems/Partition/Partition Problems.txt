@@ -1,0 +1,6 @@
+1. 2 Partition Problem
+2. 3 Partition Problem
+3. K Partition Problem
+4. Divide a set into 2 subsets such that the difference of the sums of the two subsets is minimum.
+   i.e. min(abs(sum(subset1)) - abs(sum(subset2)))
+5. 
