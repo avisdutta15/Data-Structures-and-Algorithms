@@ -1,0 +1,15 @@
+1. LCS
+2. LIS
+3. LPS
+4. Subset Sum
+5. Coin Change 1 & 2
+6. Tiling Problem
+7. Egg Dropping
+8. Friends Pairing
+9. Catalan Numbers , fibonacci , Bell Number , Binomial Coeff, Ugly Number
+10. Partition Problem
+11. Rod Cutting (1.[Concept]https://www.youtube.com/watch?v=rgzFSA3ch3k 
+				 2.[Understanding Bottom Up]https://www.youtube.com/watch?v=zFe-SX7jzDs)
+12. Matrix chain multiplication
+13. Boolean Parenthesization Problem
+14. Minimum and Maximum values of an expression with * and +

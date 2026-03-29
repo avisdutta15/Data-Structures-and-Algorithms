@@ -1,0 +1,6 @@
+Minimum number of coins req to make a total
+Total number of ways to make a total
+Find number of solutions of a linear equation of n variables dp
+Count number of ways to reach a given score in a game where a player can score 3 or 5 or 10 points in a move
+Maximum number of segments of lengths a, b and c (variation of min number of coins. Instead of min we need max)
+
