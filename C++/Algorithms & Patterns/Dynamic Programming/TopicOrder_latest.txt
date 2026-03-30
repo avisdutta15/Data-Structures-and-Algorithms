@@ -132,12 +132,32 @@ Different Ways to Add Parentheses
 LeetCode 62: Unique Paths
 Unique Paths II
 LeetCode 64: Minimum Path Sum
-Triangle
+Maximum/Minimum Path sum from any cell in first row to any cell in last row (Minimum Falling Path Sum)
+Minimum Steps to reach any of the boundary edges of a matrix
+Minimum cost/sum path in a triangle + print the path (Triangle)
+Maximum cost/sum path in a triangle + print the path
 Maximal Square
-Minimum Falling Path Sum
+Number of paths with exactly k coins
+Collect Maximum Coins before hitting a dead end
+Collect maximum points in a grid using two traversals
+Gold Mine
+Dungeon Game
+Cherry PickUp I
 Cherry Pickup II
+Paint House I
+Paint House II
 Count Square Submatrices with All Ones
 LeetCode 329. Longest Increasing Path in a Matrix
+
+Finding submatrix in a matrix
+------------------------------
+12. Maximum Sum Rectangle in a Matrix.
+13. Largest rectangular sub-matrix whose sum is 0
+14. Largest rectangular sub-matrix having sum divisible by k
+15. Find the largest area rectangular sub-matrix whose sum is equal to k
+16. Largest area rectangular sub-matrix with equal number of 1s and 0s
+Maximum size square sub-matrix with all 1s
+Find the longest path in a matrix with given constraints [todo]
 
 15. DP on Trees
 Diameter of Tree
