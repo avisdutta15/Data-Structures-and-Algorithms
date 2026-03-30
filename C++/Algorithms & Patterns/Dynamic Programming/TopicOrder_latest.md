@@ -20,19 +20,19 @@
 |                   |     |Minimum Sum Partition|
 |                   |     |Count Subsets with Given Difference|
 |**3. Unbounded Knapsack**|322 | Coin Change (Maximum number of ways)|
-|                   |     |LeetCode 518: Coin Change 2 (Minimum number of coins)|
+|                   | 518 | Coin Change 2 (Minimum number of coins)|
 |                   |     |Rod Cutting|
 |                   |     |Find number of solutions of a linear equation of n variables dp|
 |                   |     |Count number of ways to reach a given score in a game where a player can score 3 or 5 or 10 points in a move|
 |                   |     |Maximum number of segments of lengths a, b and c (variation of min number of coins. Instead of min we need max)|
-|                   |     |LeetCode 279. Perfect Squares|
+|                   | 279 |Perfect Squares|
 |                   |     |Combination Sum IV|
 |**4. Longest Common Subsequence (LCS)**| 1143 |  Longest Common Subsequence (Length + Print)| 
 |                   |     |Print All LCS (also in lexo graphical order).
 |                   |     |Space Optimized LCS
 |                   |     |LCS (Longest Common Subsequence) of three strings
-|                   |     |LeetCode 583: Delete Operation for Two Strings
-|                   |     |LeetCode 1092: Shortest Common Supersequence (Length + Print)
+|                   | 583 |Delete Operation for Two Strings
+|                   | 1092|Shortest Common Supersequence (Length + Print)
 |                   |     |Minimum Cost To Make Two Strings Identical
 |                   |     |Minimum cost to make two strings identical by deleting the digits
 |                   |     |Longest common subsequence with permutations allowed
@@ -68,50 +68,44 @@
 |                   | 354 |Russian Doll Envelopes
 |                   |     |Min Removals to Make Mountain Array
 |**9. Fibonacci Sequence**| 70 | Climbing Stairs
-|                   | 509| Fibonacci Number
-|                   | 746| Min Cost Climbing Stairs
+|                   | 509 | Fibonacci Number
+|                   | 746 | Min Cost Climbing Stairs
 |                   |     |Frog Jumps
 |                   |     |Frog Jumps with K Distance
 |                   |     |House Robber
 |                   |     |House Robber II
 |                   |     |Delete and Earn
+|**10. Count Distinct Ways**| 91    | Decode Ways
+|                   | 2266  | Count Number of Texts
+|**11. Kadane's Algorithm**| 53 | Maximum Subarray
+|                   | 918 |Maximum Sum Circular Subarray
+|                   | 152 |Maximum Product Subarray
+|                   |     |Max Score Of Spliced Array
+|                   |     |Max Absolute Sum of Any Subarray
+|**12. Matrix Chain Multiplication**| |Matrix Chain Multiplication
+|                   |     |Printing MCM
+|                   |     |Evaluate Expr to True / Boolean Parentheses
+|                   |     |Palindrome Partitioning
+|                   |     |Scramble String
+|                   |     |Egg Dropping
+|                   |1039 |Minimum Score Triangulation of Polygon
+|                   |312  |Burst Balloons
+|                   |     |Remove Boxes
+|                   | 1000|Minimum Cost to Merge Stones
 
-13. Count Distinct Ways
-LeetCode 91: Decode Ways
-LeetCode 2266. Count Number of Texts
-
-9. Kadane's Algorithm
-LeetCode 53: Maximum Subarray
-LeetCode 918: Maximum Sum Circular Subarray
-LeetCode 152: Maximum Product Subarray
-Max Score Of Spliced Array
-Max Absolute Sum of Any Subarray
-
-10. Matrix Chain Multiplication
-Matrix Chain Multiplication
-Printing MCM
-Evaluate Expr to True / Boolean Parentheses
-Palindrome Partitioning
-Scramble String
-Egg Dropping
-LeetCode 1039: Minimum Score Triangulation of Polygon
-LeetCode 312: Burst Balloons
-Remove Boxes
-LeetCode 1000: Minimum Cost to Merge Stones
-
-11. String Partition
+13. String Partition
 LeetCode 139: Word Break
 Word Break II
 LeetCode 132. Palindrome Partitioning II
 LeetCode 472: Concatenated Words
 
-12. Catalan Numbers
+14. Catalan Numbers
 LeetCode 96: Unique Binary Search Trees
 Unique Binary Search Trees II
 LeetCode 22: Generate Parentheses
 Different Ways to Add Parentheses
 
-14. DP on Grids
+15. DP on Grids
 LeetCode 62: Unique Paths
 Unique Paths II
 LeetCode 64: Minimum Path Sum
@@ -142,7 +136,7 @@ Finding submatrix in a matrix
 Maximum size square sub-matrix with all 1s
 Find the longest path in a matrix with given constraints [todo]
 
-15. DP on Trees
+16. DP on Trees
 Diameter of Tree
 Maximum Path Sum from any Node to Any (Only Positive numbers)
 Maximum Path Sum from any Node to Any (+ve and -ve numbers)
@@ -152,28 +146,31 @@ LeetCode 337: House Robber III
 LeetCode 124: Binary Tree Maximum Path Sum
 LeetCode 968: Binary Tree Cameras
 
-16. DP on Graphs
+17. DP on Graphs
 LeetCode 787: Cheapest Flights Within K Stops
 LeetCode 1334. Find the City With the Smallest Number of Neighbors at a Threshold Distance
 
-17. Digit DP
+18. Digit DP
 LeetCode 357: Count Numbers with Unique Digits
 LeetCode 233: Number of Digit One
 LeetCode 902. Numbers At Most N Given Digit Set
 
-18. Bitmasking DP
+19. Bitmasking DP
 LeetCode 1986: Minimum Number of Work Sessions to Finish the Tasks
 LeetCode 2305. Fair Distribution of Cookies
 LeetCode 847: Shortest Path Visiting All Nodes
 
-19. Probability DP
+20. Probability DP
 LeetCode 688: Knight Probability in Chessboard
 LeetCode 808: Soup Servings
 LeetCode 837. New 21 Game
 
-20. State Machine DP
+21. State Machine DP
 LeetCode 121: Best Time to Buy and Sell Stock
 LeetCode 122: Best Time to Buy and Sell Stock II
 LeetCode 123: Best Time to Buy and Sell Stock III
+best-time-to-buy-and-sell-stock-iv
+best-time-to-buy-and-sell-stock-with-cooldown
+best-time-to-buy-and-sell-stock-with-transaction-fee
 LeetCode 188: Best Time to Buy and Sell Stock IV
 LeetCode 309: Stock with Cooldown
