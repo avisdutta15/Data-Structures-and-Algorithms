@@ -1,1 +1,12 @@
 ![](./assets/PartitionPattern.png)
+
+![](./assets/MCM-1.png)
+![](./assets/MCM-2.png)
+![](./assets/MCM-3.png)
+![](./assets/MCM-4.png)
+![](./assets/MCM-5.png)
+![](./assets/MCM-6.png)
+![](./assets/MCM-9.png)
+![](./assets/MCM-10.png)
+![](./assets/MCM-11.png)
+![](./assets/mcm-bottom-up.png)
