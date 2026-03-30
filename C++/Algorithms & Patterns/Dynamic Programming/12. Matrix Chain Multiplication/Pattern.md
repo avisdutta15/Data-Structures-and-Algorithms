@@ -1,0 +1,1 @@
+![](./assets/PartitionPattern.png)
