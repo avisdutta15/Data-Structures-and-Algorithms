@@ -18,10 +18,12 @@
 |                   | 416 | Partition Equal Subset Sum|
 |                   | 698 | Partition to K Equal Sum Subsets|
 |                   |     |Minimum Sum Partition|
+|                   |     |Minimum subset sum difference|
 |                   |     |Count Subsets with Given Difference|
 |**3. Unbounded Knapsack**|322 | Coin Change (Maximum number of ways)|
 |                   | 518 | Coin Change 2 (Minimum number of coins)|
 |                   |     |Rod Cutting|
+|                   |     |Integer Break|
 |                   |     |Find number of solutions of a linear equation of n variables dp|
 |                   |     |Count number of ways to reach a given score in a game where a player can score 3 or 5 or 10 points in a move|
 |                   |     |Maximum number of segments of lengths a, b and c (variation of min number of coins. Instead of min we need max)|
@@ -75,6 +77,9 @@
 |                   |     |House Robber
 |                   |     |House Robber II
 |                   |     |Delete and Earn
+|                   |     |Domino and Tromino Tiling
+|                   |     |Intersecting chords in a circle
+|                   |     |Maximum subsequence sum such that no three are consecutive
 |**10. Count Distinct Ways**| 91    | Decode Ways
 |                   | 2266  | Count Number of Texts
 |**11. Kadane's Algorithm**| 53 | Maximum Subarray
@@ -92,63 +97,50 @@
 |                   |312  |Burst Balloons
 |                   |     |Remove Boxes
 |                   | 1000|Minimum Cost to Merge Stones
-
-13. String Partition
-LeetCode 139: Word Break
-Word Break II
-LeetCode 132. Palindrome Partitioning II
-LeetCode 472: Concatenated Words
-
-14. Catalan Numbers
-LeetCode 96: Unique Binary Search Trees
-Unique Binary Search Trees II
-LeetCode 22: Generate Parentheses
-Different Ways to Add Parentheses
-
-15. DP on Grids
-LeetCode 62: Unique Paths
-Unique Paths II
-LeetCode 64: Minimum Path Sum
-Maximum/Minimum Path sum from any cell in first row to any cell in last row (Minimum Falling Path Sum)
-Minimum Steps to reach any of the boundary edges of a matrix
-Minimum cost/sum path in a triangle + print the path (Triangle)
-Maximum cost/sum path in a triangle + print the path
-Maximal Square
-Number of paths with exactly k coins
-Collect Maximum Coins before hitting a dead end
-Collect maximum points in a grid using two traversals
-Gold Mine
-Dungeon Game
-Cherry PickUp I
-Cherry Pickup II
-Paint House I
-Paint House II
-Count Square Submatrices with All Ones
-LeetCode 329. Longest Increasing Path in a Matrix
-
-Finding submatrix in a matrix
-------------------------------
-12. Maximum Sum Rectangle in a Matrix.
-13. Largest rectangular sub-matrix whose sum is 0
-14. Largest rectangular sub-matrix having sum divisible by k
-15. Find the largest area rectangular sub-matrix whose sum is equal to k
-16. Largest area rectangular sub-matrix with equal number of 1s and 0s
-Maximum size square sub-matrix with all 1s
-Find the longest path in a matrix with given constraints [todo]
-
-16. DP on Trees
-Diameter of Tree
-Maximum Path Sum from any Node to Any (Only Positive numbers)
-Maximum Path Sum from any Node to Any (+ve and -ve numbers)
-Maximum Path Sum from leaf to leaf
-Diameter of N-ary Tree
-LeetCode 337: House Robber III
-LeetCode 124: Binary Tree Maximum Path Sum
-LeetCode 968: Binary Tree Cameras
-
-17. DP on Graphs
-LeetCode 787: Cheapest Flights Within K Stops
-LeetCode 1334. Find the City With the Smallest Number of Neighbors at a Threshold Distance
+|**13. String Partition**| 139| Word Break
+|                   |     |Word Break II
+|                   | 132 |Palindrome Partitioning II
+|                   | 472 |Concatenated Words
+|**14. Catalan Numbers**|  96  | Unique Binary Search Trees
+|                   |     |Unique Binary Search Trees II
+|                   |  22 |Generate Parentheses
+|                   |     |Different Ways to Add Parentheses
+|**15. DP on Grids**| 62  | Unique Paths
+|                   |     |Unique Paths II
+|                   | 64  |Minimum Path Sum
+|                   |     |Maximum/Minimum Path sum from any cell in first row to any cell in last row (Minimum Falling Path Sum)
+|                   |     |Minimum Steps to reach any of the boundary edges of a matrix
+|                   |     |Minimum cost/sum path in a triangle + print the path (Triangle)
+|                   |     |Maximum cost/sum path in a triangle + print the path
+|                   |     |Maximal Square
+|                   |     |Number of paths with exactly k coins
+|                   |     |Collect Maximum Coins before hitting a dead end
+|                   |     |Collect maximum points in a grid using two traversals
+|                   |     |Gold Mine
+|                   |     |Dungeon Game
+|                   |     |Cherry PickUp I
+|                   |     |Cherry Pickup II
+|                   |     |Paint House I
+|                   |     |Paint House II
+|                   |     |Count Square Submatrices with All Ones
+|                   | 329 |Longest Increasing Path in a Matrix
+|**Finding submatrix in a matrix**|     |Maximum Sum Rectangle in a Matrix.
+|                   |     |Largest rectangular sub-matrix whose sum is 0
+|                   |     |Largest rectangular sub-matrix having sum divisible by k
+|                   |     |Find the largest area rectangular sub-matrix whose sum is equal to k
+|                   |     |Largest area rectangular sub-matrix with equal number of 1s and 0s
+|                   |     |Maximum size square sub-matrix with all 1s
+|                   |     |Find the longest path in a matrix with given constraints [todo]
+|**16. DP on Trees**|     |Diameter of Tree
+|                   |     |Maximum Path Sum from any Node to Any (Only Positive numbers)
+|                   |     |Maximum Path Sum from any Node to Any (+ve and -ve numbers)
+|                   |     |Maximum Path Sum from leaf to leaf
+|                   |     |Diameter of N-ary Tree
+|                   | 337 |House Robber III
+|                   | 124 |Binary Tree Maximum Path Sum
+|                   | 968 |Binary Tree Cameras
+|**17. DP on Graphs**| 787 | Cheapest Flights Within K Stops
+|                    | 1334| Find the City With the Smallest Number of Neighbors at a Threshold Distance
 
 18. Digit DP
 LeetCode 357: Count Numbers with Unique Digits
@@ -156,6 +148,12 @@ LeetCode 233: Number of Digit One
 LeetCode 902. Numbers At Most N Given Digit Set
 
 19. Bitmasking DP
+Travelling salesman problem
+Find minimum sum Hamiltonian Path
+Task allotment to minimise the cost
+Maximum Students Taking Exam
+Find the Shortest Superstring
+Number of Ways to Wear Different Hats to Each Other
 LeetCode 1986: Minimum Number of Work Sessions to Finish the Tasks
 LeetCode 2305. Fair Distribution of Cookies
 LeetCode 847: Shortest Path Visiting All Nodes
