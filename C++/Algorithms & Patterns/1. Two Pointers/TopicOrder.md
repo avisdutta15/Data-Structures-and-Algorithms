@@ -64,7 +64,7 @@ Two pointers at the left and right ends of the array, moving them toward the cen
 | 942 | DI String Match | D → pick from right, I → pick from left |
 | 1750 | Minimum Length of String After Deleting Similar Ends | Trim matching chars from both ends |
 | 1813 | Sentence Similarity III | Match words from front and back |
-| 658 | Find K Closest Elements | Shrink window from both ends |
+| 658 | Find K Closest Elements | Shrink window from both ends ![alt text](./assets/kclosestelement.png) |
 | 821 | Shortest Distance to a Character | Two passes: left-to-right, right-to-left |
 
 ---
