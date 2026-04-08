@@ -16,7 +16,7 @@ Two pointers at the left and right ends of the array, moving them toward the cen
 | 1498 | Number of Subsequences That Satisfy the Given Sum Condition | Sort + count valid pairs with pow |
 | 653 | Two Sum IV - Input is a BST | Inorder traversal + two pointers |
 | 633 | Sum of Square Numbers | L=0, R=sqrt(c), squeeze toward target |
-| 881 | Boats to Save People | Greedy pair heaviest with lightest |
+| 881 | Boats to Save People | Greedy pair heaviest with lightest. Try To first sit larger weight people, and if some space left then check for allowing smaller weight can fit in same boat, allowing small weight people to sit in same boat help in reducing boat count. <br/>1. sort array <br/>2. if smallerwt+largerwt within the limit -> same boat i++ , j-- <br/> otherwise larger_wt will sit alone -> j-- <br/>![alt text](./assets/boatstosaveppl.png)|
 | 1877 | Minimize Maximum Pair Sum in Array | Sort, pair smallest with largest |
 | 923 | 3Sum With Multiplicity | Handle duplicate counts carefully |
 
@@ -25,7 +25,7 @@ Two pointers at the left and right ends of the array, moving them toward the cen
 | # | Problem | Notes |
 |---|---------|-------|
 | 42 | Trapping Rain Water (\*) | Track maxL/maxR, process shorter side |
-| 11 | Container With Most Water | Move the shorter wall inward. <br/> - The widest container (using first and last line) is a good candidate, because of its width. Its water level is the height of the smaller one of first and last line. <br/> - All other containers are less wide and thus would need a higher water level in order to hold more water. <br/> - The smaller one of first and last line doesn't support a higher water level and can thus be safely removed from further consideration. |
+| 11 | Container With Most Water | Move the shorter wall inward. <br/> - The widest container (using first and last line) is a good candidate, because of its width. Its water level is the height of the smaller one of first and last line. <br/> - All other containers are less wide and thus would need a higher water level in order to hold more water. <br/> - The smaller one of first and last line doesn't support a higher water level and can thus be safely removed from further consideration. ![alt text](./assets/containerWithMostWater.png)|
 
 ### Next Permutation
 
