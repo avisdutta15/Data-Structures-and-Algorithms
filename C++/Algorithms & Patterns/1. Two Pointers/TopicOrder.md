@@ -17,7 +17,7 @@ Two pointers at the left and right ends of the array, moving them toward the cen
 | 653 | Two Sum IV - Input is a BST | Inorder traversal + two pointers |
 | 633 | Sum of Square Numbers | L=0, R=sqrt(c), squeeze toward target |
 | 881 | Boats to Save People | Greedy pair heaviest with lightest. Try To first sit larger weight people, and if some space left then check for allowing smaller weight can fit in same boat, allowing small weight people to sit in same boat help in reducing boat count. <br/>1. sort array <br/>2. if smallerwt+largerwt within the limit -> same boat i++ , j-- <br/> otherwise larger_wt will sit alone -> j-- <br/>![alt text](./assets/boatstosaveppl.png)|
-| 1877 | Minimize Maximum Pair Sum in Array | Sort, pair smallest with largest |
+| 1877 | Minimize Maximum Pair Sum in Array | One might think of pairing up the smaller integers together so that the pair sum is minimized at the beginning. However, in this way, we will end up pairing the bigger integers together and hence will increase the maximum pair sum. For example, we can pair up the array [1, 1, 2, 3] as (1, 1), (2, 3) with maximum sum as 5. However, the optimal way would be to make a pair like (1, 3), (1, 2) with a maximum sum of 4. This suggests that pairing adjacent numbers by value may not be the optimal approach.Observing the above example we can think about another potential strategy to pair up the smallest integer with the greatest integer and then second-smallest with the second-greatest and so on. Final Approach: Sort, pair smallest with largest |
 | 923 | 3Sum With Multiplicity | Handle duplicate counts carefully |
 
 ### Trapping Water
