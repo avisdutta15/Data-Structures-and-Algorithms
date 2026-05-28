@@ -116,3 +116,12 @@ int main(){
         cout<<"Not Found"<<endl;
     }
 }
+
+/*
+Search in Rotated Sorted Array
+Search in Rotated Sorted Array II
+Find Minimum in Rotated Sorted Array
+Find Peak Element
+Peak Index in a Mountain Array
+Find in Mountain Array
+*/

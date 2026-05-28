@@ -30,9 +30,7 @@ using namespace std;
 	Input: 4 -> 5 -> 1 -> 9
 		  key = 5
 	Output: 4 -> 1 -> 9
-	Explanation: The second occurrence of 12 (the one after 11) and the second occurrence of 21 (the one at the end) are removed,
-	resulting in a linked list that maintains the order of their first appearances.
-
+	
 	Constraints:
 	------------
 	The number of the nodes in the given list is in the range [2, 1000].

@@ -38,7 +38,7 @@ public:
 			fast = fast->next->next;
 			slow = slow->next;
 
-			//if both collides then its a cyclce. so break from loop
+			//if both collides then its a cycle. so break from loop
 			if (fast == slow)
 				break;
 		}
@@ -77,5 +77,43 @@ public:
 			slow = slow->next;
 		}
 		return slow;
+	}
+
+	ListNode* removeCycle(ListNode* head){
+		// list is empty
+		if (head == nullptr)
+			return nullptr;
+
+		// list has 1 node
+		if (head->next == nullptr)
+			return nullptr;
+
+		// has cycle?
+		ListNode *slow = head, *fast = head;
+		while(fast!=nullptr && fast->next!=nullptr){
+			slow = slow->next;
+			fast = fast->next->next;
+			if(slow == fast)
+				break;
+		}
+
+		// if no cycle then return the list as it is
+		if(fast != slow){
+			return head;
+		}
+
+		// Reset one of the pointer to head and walk 1 step at a time until they meet
+		// Meeting point is the start of the cycle
+		slow = head;
+		ListNode *fastPrev = nullptr;
+		while (fast != slow) {
+			fastPrev = fast;
+			fast = fast->next;
+			slow = slow->next;
+		}
+
+		// fastPrev points to the last node in the cycle.
+		fastPrev->next = nullptr;
+		return head;
 	}
 };

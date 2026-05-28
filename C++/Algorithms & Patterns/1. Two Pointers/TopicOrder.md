@@ -25,7 +25,7 @@ Two pointers at the left and right ends of the array, moving them toward the cen
 | # | Problem | Notes |
 |---|---------|-------|
 | 42 | Trapping Rain Water (\*) | Track maxL/maxR, process shorter side |
-| 11 | Container With Most Water | Move the shorter wall inward. <br/> - The widest container (using first and last line) is a good candidate, because of its width. Its water level is the height of the smaller one of first and last line. <br/> - All other containers are less wide and thus would need a higher water level in order to hold more water. <br/> - The smaller one of first and last line doesn't support a higher water level and can thus be safely removed from further consideration. ![alt text](./assets/containerWithMostWater.png)|
+| 11 | Container With Most Water | Move the shorter wall inward. <br/> - The widest container (using first and last line) is a good candidate, because of its width. Its water level is the height of the smaller one of first and last line. <br/> - All other containers are less wide and thus would need a higher water level in order to hold more water. <br/> - The smaller one of first and last line doesn't support a higher water level and can thus be safely removed from further consideration. ![alt text](./assets/containerWithMostWaterProblem.png)![alt text](./assets/containerWithMostWater.png)|
 
 ### Next Permutation
 

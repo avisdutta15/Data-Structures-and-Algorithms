@@ -16,10 +16,12 @@ using namespace std;
 
 	Approach:
 	keep a keynode and keynode prev.
-	iterate the list and update them accordingly.
-	edge case - keynode not present - return head.
-				keynode = head		- update head delete keynode
-	delete keynode and return head
+	iterate the list and each time you find the key, store the node and its prevnode.
+	after the iteration,
+			keynode not present - return head.
+			keynode = head		- update head delete keynode
+			else keynodeprev->node = keynode->next and delete the keynode
+	return head;
 */
 struct ListNode {
 	int data;

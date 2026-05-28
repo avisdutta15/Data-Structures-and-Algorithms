@@ -32,13 +32,17 @@ public:
 			return head;
 		ListNode* current = head;
 		ListNode* nodeToBeDeleted = nullptr;
+
+		//iterate till i have a next node
 		while (current->next!=nullptr) {
+			//next node is duplicate so delete it.
 			if (current->data == current->next->data) {
 				nodeToBeDeleted = current->next;
 				current->next = current->next->next;
 				delete(nodeToBeDeleted);
 				nodeToBeDeleted = nullptr;
 			}
+			//next node is not duplicate so continue.
 			else {
 				current = current->next;
 			}			
