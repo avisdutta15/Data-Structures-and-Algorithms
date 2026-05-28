@@ -1,13 +1,49 @@
 # Backtracking Patterns
 
-## 1. Include/Exclude (The Binary Decision Pattern)
+## Pattern 1. Include/Exclude (The Binary Decision Pattern Pick / Don't Pick)
 
 Problems where the core logic is a sequence of mutually exclusive choices: "Take it or Leave it", "Add (+) or Subtract (-)", or "Option A or Option B".
 
-```cpp
-solve(nums, 0, current_subset, result);
+This pattern treats the problem as a sequence of binary decisions. For every element in the array, you have exactly two choices: you either include it in your current subset, or you exclude it. You make this decision for the first element, then move to the second, and so on.
 
-void solve(vector<int>& nums, int index, vector<int>& current_subset, vector<vector<int>>& result) {
+
+**Problem: Print all subsets of an array**
+
+Input: `A[] = [1,2,3]`
+
+Output: `[1,2,3], [1,2], [1,3], [1], [2,3], [2], [3], []`
+
+
+Recursion Tree — `nums = [1, 2, 3]`
+```
+Level 0:                      []  <-- Starting state (index 0)
+                          /        \
+                      Include 1     Exclude 1
+                     /                \
+Level 1:           [1]                 []  <-- Processing index 1
+                 /    \              /    \
+             Incl 2  Excl 2      Incl 2  Excl 2
+             /          \          /          \
+Level 2:  [1, 2]        [1]      [2]          []  <-- Base case (index 2 = len(nums))
+```
+Result: `[1,2,3], [1,2], [1,3], [1], [2,3], [2], [3], []`
+
+**Note:** We only add the subset to our final result when we reach the base case (the bottom of the tree).
+
+How it works step-by-step:
+1. Start at index 0 with an empty subset [].
+2. Branch Right: Include 1 (subset becomes [1]), move to index 1.
+3. Branch Left: Exclude 1 (subset remains []), move to index 1.
+4. Repeat this binary choice for 2 at index 1.
+5. When the index equals the length of the array (index 2), record the current subset and backtrack.
+
+
+
+
+```cpp
+backtrack(nums, 0, current_subset, result);
+
+void backtrack(vector<int>& nums, int index, vector<int>& current_subset, vector<vector<int>>& result) {
                        
     // Base case: We have made a yes/no decision for every element in the array
     if (index == nums.size()) {
@@ -15,52 +51,15 @@ void solve(vector<int>& nums, int index, vector<int>& current_subset, vector<vec
         return;
     }
 
-    // ==========================================
-    // DECISION 1: INCLUDE the current element
-    // ==========================================
+    // Decision 1: Include the current element
     current_subset.push_back(nums[index]);
-    solve(nums, index + 1, current_subset, result);
+    backtrack(nums, index + 1, current_subset, result);
     current_subset.pop_back(); // Backtrack to undo the choice
 
-    // ==========================================
-    // DECISION 2: EXCLUDE the current element
-    // ==========================================
-    
-    // -> IF HANDLING DUPLICATES (Subsets II style):
-    // Since we chose to exclude nums[index], we must also exclude 
-    // all identical adjacent elements to prevent duplicate branches.
-
-    int next_index = index + 1;
-    while (next_index < nums.size() && nums[next_index] == nums[index]) {
-        next_index++;
-    }
-    solve(nums, next_index, current_subset, result);
-    
-    // -> IF NO DUPLICATES exist (Classic Subsets):
-    // You can delete the while loop above and simply use:
-    // solve(nums, index + 1, current_subset, result);
+    // Decision 2: Exclude the current element
+    backtrack(nums, index + 1, current_subset, result);
 }
 ```
-
-### Recursion Tree — `nums = [1, 2, 3]`
-
-Each node makes a binary decision: include or exclude the current element.
-
-```
-                                solve(idx=0, [])
-                               /                \
-                     Include 1                    Exclude 1
-                    solve(idx=1, [1])            solve(idx=1, [])
-                   /              \              /              \
-            Include 2         Exclude 2    Include 2         Exclude 2
-        solve(idx=2,[1,2])  solve(idx=2,[1])  solve(idx=2,[2])  solve(idx=2,[])
-          /        \          /        \        /        \        /        \
-      Inc 3    Exc 3     Inc 3    Exc 3    Inc 3    Exc 3    Inc 3    Exc 3
-        |        |         |        |        |        |        |        |
-    [1,2,3]   [1,2]     [1,3]     [1]     [2,3]     [2]      [3]      []
-```
-
-Result: `[1,2,3], [1,2], [1,3], [1], [2,3], [2], [3], []`
 
 ### Classic Subsets (Take it or Leave it)
 - 78\. Subsets (Print all/ One/ Count with sum = k)
@@ -92,22 +91,249 @@ Result: `[1,2,3], [1,2], [1,3], [1], [2,3], [2], [3], []`
 
 ---
 
-## 2. Combinations & Fixed-Size Selection (The For-Loop "Team" Pattern)
+## Pattern 2.1. The For-Loop "Team" Pattern
 
-Problems where you are building a combination by iterating through remaining choices. This is strongly preferred over Include/Exclude when dealing with array duplicates or when picking exactly `k` elements.
+This pattern treats the problem as building a sequence step-by-step. Instead of a binary decision, your current state represents a valid subset, and your "choices" are which remaining element to add next. You use a for loop to iterate through all valid candidates that can be added to the current state.
+
+**Problem: Print all subsets of an array in lexicographicall order**
+
+Input: `A[] = [1, 2, 3]`
+
+Output: `[], [1], [1,2], [1,2,3], [1,3], [2], [2,3], [3]`
+
+**Can we solve this by the previous include/exclude pattern?**
+If we closely look at the previous answer we get:
+
+`[1,2,3], [1,2], [1,3], [1], [2,3], [2], [3], []`
+
+We want:
+
+`[], [1], [1,2], [1,2,3], [1,3], [2], [2,3], [3]`
+
+
+We need a a recursion lke the following:
+
+![alt text](image.png)
+
+Recursion Tree — `nums = [1, 2, 3]`
+
+```
+Level 0:                             []  <-- start_index = 0
+                          
+                          /          |          \
+                   i=0 (add 1)  i=1 (add 2)  i=2 (add 3)
+                        /            |            \
+Level 1:              [1]           [2]           [3]
+                     /   \           |
+          i=1 (add 2)  i=2 (add 3) i=2 (add 3)
+                  /        \         |
+Level 2:       [1, 2]     [1, 3]   [2, 3]
+                 |
+            i=2 (add 3)
+                 |
+Level 3:     [1, 2, 3]
+
+```
+
+**Note:** In this pattern, every node in the tree is a valid subset, so we add the current state to our final result at the very beginning of the recursive call, not just at the base case.
+
 
 ```cpp
-//  Optional: Sort if you need to handle duplicates
-sort(nums.begin(), nums.end()); 
+vector<vector<int>> allSubsetsLexicographical(){
+    backtrack(nums, 0, current_subset, result);
+    return result;
+}
+
+void backtrack(vector<int>& nums, int start_index, vector<int>& current_subset, vector<vector<int>>& result) {
+
+    // Add the current state to the result immediately
+    result.push_back(current_subset);
     
-solve(nums, 0, current_combo, 0, target, result);
-return result;
+    for (int i = start_index; i < nums.size(); ++i) {
+        // Make a choice
+        current_subset.push_back(nums[i]);
+        
+        // Recurse (i + 1 to move forward, or just 'i' if reuse is allowed)
+        backtrack(nums, i + 1, current_subset, result);
+        
+        // Undo choice
+        current_subset.pop_back();
+    }
+};
+```
 
-void solve(vector<int>& nums, int start_index, vector<int>& current_combo,
-           int current_sum, int target, vector<vector<int>>& result) {
 
-    // Base case: Found a valid combination
-    if (current_sum == target) { // Replace with your problem's valid condition
+## Pattern 2.2. The For-Loop "Team" Pattern - Conditioning
+
+**Problem: Print Subsets Without Duplicates**
+Given an integer array nums that may contain duplicates, return all possible subsets (the power set).
+The solution set must not contain duplicate subsets. Return the solution in any order.
+
+Example 1:
+
+Input: nums = `[1,2,2]`
+
+Output: `[[],[1],[1,2],[1,2,2],[2],[2,2]]`
+
+
+- If we go for include/exclude, we get the following result.
+`[[1,2,2],[1,2],[1,2],[1],[2,2],[2],[2],[]]`
+
+- If we go for for loop based approach, we get the following result.
+`[[],[1],[1,2],[1,2,2],[1,2],[2],[2,2],[2]]` Why? Lets look at its recursion tree:
+
+```
+Level 0:                                []  <-- start_index = 0
+                            /           |           \
+                     i=0 (add 1)   i=1 (add 2)   i=2 (add 2)
+                          /             |             \
+Level 1:                [1]            [2]            [2]
+                       /   \            |
+            i=1 (add 2)  i=2 (add 2)  i=2 (add 2)
+                    /        \          |
+Level 2:         [1, 2]     [1, 2]    [2, 2]
+                   |
+              i=2 (add 2)
+                   |
+Level 3:       [1, 2, 2]
+```
+
+At level 1, we pick 2(i=1) and form (1,2) and recur for the rest of the array. Once we come back from the recursion to level 1, we now goto i=2 and pick the second 2 and form the duplicate (1,2). 
+
+How can we avoid this? - By checking if at the current level, did I see the current element previously or not.
+At level 1, when i=2 the current element is nums[2] = 2. Did we see this before at this level? Yes. At i=1.
+How can we check if this element has ocurred in the past? 
+- By keeping a hash_set at every level.
+- By sorting the original array so that duplicates become adjacent and before we choose the current element in the current_subset, we check if its a duplicate at this level - `if (i!=start_index && nums[i-1] == nums[i])`. If duplicate, then we skip the current element.
+
+```cpp
+void backtrack(vector<int>& nums, int start_index, vector<int>& current_subset, vector<vector<int>>& result) {                       
+    // Add the current state to the result immediately
+    result.push_back(current_subset);
+    
+    for (int i = start_index; i < nums.size(); i++) {
+        
+        // Check for duplicates
+        if(i > start_index && nums[i-1] == nums[i])
+            continue;
+
+        // Make a choice
+        current_subset.push_back(nums[i]);
+        
+        // Recurse (i + 1 to move forward, or just 'i' if reuse is allowed)
+        backtrack(nums, i + 1, current_subset, result);
+        
+        // Undo choice
+        current_subset.pop_back();
+    }
+}
+
+vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+    vector<int> current_subset;
+    vector<vector<int>> result;
+    sort(nums.begin(), nums.end());
+    backtrack(nums, 0, current_subset, result);
+    return result;
+}
+```
+
+How can we solve this using include/exclude?
+- Sorting the original array so that duplicates become adjacent.
+- While exlude the current element, we skip the next elements if they are a duplicate of the current element.
+
+```
+Level (Index)                            Current State
+-------------                            -------------
+Level 0                                       [ ]
+                                           /       \
+                                  Include 1         Exclude 1
+                                 /                   \
+Level 1                        [1]                   [ ]
+                             /     \               /     \
+                   Include 2a      Exclude 2a   Include 2a   Exclude 2a
+                           /       (Skip 2b!)           /    (Skip 2b!)
+Level 2                 [1, 2]            \            [2]           \
+                     /      \            \          /   \           \
+           Include 2b        Exclude 2b   \  Include 2b  Exclude 2b  \
+                  /            \           \        /          \      \
+Level 3 (Base) [1, 2, 2]        [1, 2]       [1]    [2, 2]       [2]    [ ]
+```
+
+```cpp
+sort(nums.begin(), nums.end())
+backtrack(nums, 0, current_subset, result);
+
+void backtrack(vector<int>& nums, int index, vector<int>& current_subset, vector<vector<int>>& result) {
+                       
+    // Base case: We have made a yes/no decision for every element in the array
+    if (index == nums.size()) {
+        result.push_back(current_subset);
+        return;
+    }
+
+    // Decision 1: Include the current element
+    current_subset.push_back(nums[index]);
+    backtrack(nums, index + 1, current_subset, result);
+    current_subset.pop_back(); // Backtrack to undo the choice
+
+    // Decision 2: Exclude the current element
+    // Since we chose to exclude nums[index], we must also exclude 
+    // all identical adjacent elements to prevent duplicate branches.
+    int next_index = index + 1;
+    while (next_index < nums.size() && nums[next_index] == nums[index]) {
+        next_index++;
+    }
+    solve(nums, next_index, current_subset, result);
+}
+```
+
+
+## Pattern 2.3. The For-Loop "Team" Pattern - Pruning
+
+**Problem: Given two integers n and k, return all possible combinations of k numbers chosen from the range [1, n].**
+
+Example 1:
+
+Input: n = 4, k = 2
+Output: [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]
+Explanation: There are 4 choose 2 = 6 total combinations.
+Note that combinations are unordered, i.e., [1,2] and [2,1] are considered to be the same combination.
+
+A naive approach can be to generate all the subsets and add only those subsets whose size == 2. We can then solve it by include/exclude, for-loop based.
+
+Do we really need to generate all the subsets??? 
+- For the include/exclude approach, since we get the answer at the leaf of the recursion tree, and we donot have any way to control the size of the current_subset, we need to generate all the subsets.
+- For the for-loop based approach, we can prune the tree early. Lets see the recursion tree of the for-loop based approach.
+
+```
+Level 0:                             []  <-- start_index = 0
+                          
+                          /          |          \
+                   i=0 (add 1)  i=1 (add 2)  i=2 (add 3)
+                        /            |            \
+Level 1:              [1]           [2]           [3]
+                     /   \           |
+          i=1 (add 2)  i=2 (add 3) i=2 (add 3)
+                  /        \         |
+Level 2:       [1, 2]     [1, 3]   [2, 3]
+                 |
+            i=2 (add 3)
+                 |
+Level 3:     [1, 2, 3]
+
+```
+If we carefully look into the tree, we observe 
+- at level 1, all the subsets have size = 1.
+- at level 2, all the subsets have size = 2.
+- at level 3, all the subsets have size = 3.
+
+So at level k the subset size will be k and any level more than k will have subset size more than k. So when we get a subset of size k, we know we are at level k. We can return from this level and skip exploring the levels > k. 
+
+```cpp
+void backtrack(vector<int>& nums, int start_index, vector<int>& current_combo, int k,        vector<vector<int>>& result) {
+
+    // Base case: Found a valid combination of size k
+    if (current_combo.size() == k) {
         result.push_back(current_combo);
         return;
     }
@@ -116,14 +342,11 @@ void solve(vector<int>& nums, int start_index, vector<int>& current_combo,
         // Optional: Skip duplicates
         if (i > start_index && nums[i] == nums[i - 1]) continue;
         
-        // Optional: Prune the tree
-        if (current_sum + nums[i] > target) break; 
-        
         // Make a choice
         current_combo.push_back(nums[i]);
         
         // Recurse (i + 1 to move forward, or just 'i' if reuse is allowed)
-        backtrack(nums, i + 1, current_combo, current_sum + nums[i], target, result);
+        backtrack(nums, i + 1, current_combo, k, result);
         
         // Undo choice
         current_combo.pop_back();
@@ -131,24 +354,8 @@ void solve(vector<int>& nums, int start_index, vector<int>& current_combo,
 };
 ```
 
-### Recursion Tree — `nums = [1, 2, 3, 4]`, pick `k = 2`
-
-The for-loop at each level picks the next element from `start_index` onward. Base case: `current_combo.size() == k`.
-
-```
-                          solve(start=0, [])
-                       /        |         \
-                  pick 1      pick 2      pick 3
-            solve(start=1,[1]) solve(start=2,[2]) solve(start=3,[3])
-              /    |    \         /      \              |
-          pick 2 pick 3 pick 4  pick 3  pick 4       pick 4
-          [1,2]✓ [1,3]✓ [1,4]✓  [2,3]✓  [2,4]✓      [3,4]✓
-```
-
-Result: `[1,2], [1,3], [1,4], [2,3], [2,4], [3,4]`
-
-Note: picking `4` at the top level is skipped because there aren't enough remaining elements to form a pair.
-
+### Subsets
+- Subsets in Lexicographical Order
 ### Classic Combinations (Pick exactly k elements)
 - 77\. Combinations
 - 216\. Combination Sum III
@@ -170,6 +377,10 @@ Note: picking `4` at the top level is skipped because there aren't enough remain
 ## 3. Permutations (The "Ordering" Pattern)
 
 Problems where order matters. You must evaluate every element for every position, iterating from 0 each time while tracking used elements.
+
+For permutations, your thought process is: "*I have an empty slot. Out of all the elements I haven't used yet, which one should I put here?*" Because you can pick any unused element (not just elements strictly to the right of your current index), you use a `for` loop that always starts from 0, but you use a boolean array (or a set) called `used` to keep track of what is already in your current permutation.
+
+
 
 ```cpp
 class PermutationsPattern {
@@ -194,7 +405,8 @@ private:
         
         // ALWAYS start from 0 to evaluate all elements
         for (int i = 0; i < nums.size(); ++i) {
-            if (used[i]) continue; // Skip used elements
+            // Skip elements we've already placed in the current permutation
+            if (used[i]) continue;
             
             // Make a choice
             current_perm.push_back(nums[i]);
@@ -216,16 +428,16 @@ private:
 The for-loop always starts from index 0 and skips `used` elements. Every element is considered for every position.
 
 ```
-                                  solve(perm=[], used={})
-                            /            |            \
-                       pick 1          pick 2          pick 3
-                  solve([1],{1})   solve([2],{2})   solve([3],{3})
-                  /        \        /        \        /        \
-             pick 2     pick 3  pick 1    pick 3  pick 1    pick 2
-          solve([1,2]) solve([1,3]) solve([2,1]) solve([2,3]) solve([3,1]) solve([3,2])
-              |           |           |           |           |           |
-           pick 3      pick 2      pick 3      pick 1      pick 2      pick 1
-          [1,2,3]✓    [1,3,2]✓    [2,1,3]✓    [2,3,1]✓    [3,1,2]✓    [3,2,1]✓
+                                                   solve(perm=[], used={})
+                            /                               |                              \
+                       pick 1                            pick 2                            pick 3
+                  solve([1],{1})                     solve([2],{2})                     solve([3],{3})
+                  /             \                /                  \               /                  \
+             pick 2            pick 3           pick 1            pick 3          pick 1               pick 2
+          solve([1,2]{1,2}) solve([1,3]{1,3}) solve([2,1]{2,1}) solve([2,3]{2,3}) solve([3,1]{3,1}) solve([3,2]{3,2})
+              |                     |               |                   |                 |                |
+           pick 3                 pick 2          pick 3              pick 1           pick 2            pick 1
+          [1,2,3]✓               [1,3,2]✓        [2,1,3]✓           [2,3,1]✓         [3,1,2]✓          [3,2,1]✓
 ```
 
 Result: `[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]`  (3! = 6 permutations)
@@ -282,7 +494,7 @@ private:
         }
         
         for (int i = start_index; i < s.length(); ++i) {
-            // Extract the current slice
+            // Extract the current slice [startIndex...i]
             string current_slice = s.substr(start_index, i - start_index + 1);
             
             // Only recurse if the current slice is valid
@@ -306,20 +518,20 @@ private:
 The for-loop tries every possible slice starting at `start_index`. Only palindromic slices proceed.
 
 ```
-                              solve(start=0, [])
-                         /           |            \
-                    slice "a"    slice "aa"     slice "aab"
-                  (palindrome✓)  (palindrome✓)  (not palindrome✗)
-                       |              |
-              solve(start=1,["a"])  solve(start=2,["aa"])
-                /          \              |
-          slice "a"     slice "ab"    slice "b"
-        (palindrome✓) (not palin✗)  (palindrome✓)
-              |                           |
-     solve(start=2,["a","a"])    solve(start=3,["aa","b"])
-              |                           |
-          slice "b"                    BASE CASE
-        (palindrome✓)                 ➜ ["aa","b"] ✓
+                                         solve(start=0, [])
+                         /                       |                  \
+                    slice "a"               slice "aa"          slice "aab"
+                  (palindrome✓)            (palindrome✓)     (not palindrome✗)
+                       |                        |
+              solve(start=1,["a"])      solve(start=2,["aa"])
+                /          \                    |
+          slice "a"     slice "ab"          slice "b"
+        (palindrome✓) (not palin✗)        (palindrome✓)
+              |                                 |
+     solve(start=2,["a","a"])         solve(start=3,["aa","b"])
+              |                                 |
+          slice "b"                         BASE CASE
+        (palindrome✓)                    ➜ ["aa","b"] ✓
               |
      solve(start=3,["a","a","b"])
               |
