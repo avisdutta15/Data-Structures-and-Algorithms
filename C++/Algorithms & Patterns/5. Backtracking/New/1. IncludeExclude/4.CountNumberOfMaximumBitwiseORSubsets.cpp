@@ -47,27 +47,27 @@ using namespace std;
 
 class Solution {
 private:
-	void solve(vector<int>& A, int currentXor, int& maxXor, int& numOfSubsets, int i) {
+	void solve(vector<int>& A, int currentSubsetOR, int& maxXor, int& numOfSubsets, int i) {
 		if (i == A.size()) {
-			if (currentXor > maxXor) {
-				maxXor = currentXor;
+			if (currentSubsetOR > maxXor) {
+				maxXor = currentSubsetOR;
 				numOfSubsets = 1;
 			}
-			else if (currentXor == maxXor)
+			else if (currentSubsetOR == maxXor)
 				numOfSubsets++;
 			return;
 		}
 
 		//include
-		solve(A, currentXor | A[i], maxXor, numOfSubsets, i + 1);
+		solve(A, currentSubsetOR | A[i], maxXor, numOfSubsets, i + 1);
 
 		//exclude
-		solve(A, currentXor, maxXor, numOfSubsets, i + 1);
+		solve(A, currentSubsetOR, maxXor, numOfSubsets, i + 1);
 	}
 public:
 	int countMaxOrSubsets(vector<int>& nums) {
-		int currentXor = 0, maxXor = 0, numOfSubsets = 0;
-		solve(nums, currentXor, maxXor, numOfSubsets, 0);
+		int currentSubsetOR = 0, maxXor = 0, numOfSubsets = 0;
+		solve(nums, currentSubsetOR, maxXor, numOfSubsets, 0);
 		return numOfSubsets;
 	}
 };
