@@ -44,31 +44,39 @@ using namespace std;
 
 class Solution {
 private:
-	void solve(const vector<int>& A, vector<vector<int>> &allSubsets, vector<int> &subset, int i) {
+	void backtrack(const vector<int>& A, vector<vector<int>>& allSubsets, vector<int>& current_subset, int i) {
 
 		//base case: reached the end of the input list so push the current subsequnce to the result
 		if (i == A.size()) {
-			allSubsets.push_back(subset);
+			allSubsets.push_back(current_subset);
 			return;
 		}
 
 		//include
 		//condition? = No, canRepeat? = No
-		subset.push_back(A[i]);
-		solve(A, allSubsets, subset, i + 1);
-		subset.pop_back();	//backtrack
+		current_subset.push_back(A[i]);
+		backtrack(A, allSubsets, current_subset, i + 1);
+		current_subset.pop_back();	//backtrack
 
 		//exclude
-		solve(A, allSubsets, subset, i + 1);
+		backtrack(A, allSubsets, current_subset, i + 1);
 	}
 public:
 	void printAllSubsets(const vector<int>& A) {
 		vector<vector<int>> allSubsets;
-		vector<int> subset;
-		solve(A, allSubsets, subset, 0);
+		vector<int> current_subset;
+		backtrack(A, allSubsets, current_subset, 0);
 
 		for (auto v : allSubsets) {
-			for (auto i : v) cout << i << " ";
+			// print the empty subset
+			if (v.size() == 0){
+				cout << "[]" << endl;
+			}
+			// print the subset
+			else {
+				for (auto i : v)
+					cout << i << " ";
+			}
 			cout << endl;
 		}
 	}
@@ -76,6 +84,6 @@ public:
 
 int main() {
 	Solution obj;
-	vector<int> A = {1, 2, 3};
+	vector<int> A = { 1, 2, 3 };
 	obj.printAllSubsets(A);
 }
