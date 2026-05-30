@@ -378,7 +378,7 @@ void backtrack(vector<int>& nums, int start_index, vector<int>& current_combo, i
 
 Problems where order matters. You must evaluate every element for every position, iterating from 0 each time while tracking used elements.
 
-For permutations, your thought process is: "*I have an empty slot. Out of all the elements I haven't used yet, which one should I put here?*" Because you can pick any unused element (not just elements strictly to the right of your current index), you use a `for` loop that always starts from 0, but you use a boolean array (or a set) called `used` to keep track of what is already in your current permutation.
+For permutations, your thought process is: "*I have an empty slot. Out of all the elements I haven't used yet, which one should I put here?*" Because you can pick any unused element (not just elements strictly to the right of your current index), you use a `for` loop that always starts from 0, but you use a boolean array (or a set) called `used_in_current_perm` to keep track of what is already in your current permutation.
 
 
 
@@ -388,14 +388,14 @@ public:
     vector<vector<int>> solvePermutations(vector<int>& nums) {
         vector<vector<int>> result;
         vector<int> current_perm;
-        vector<bool> used(nums.size(), false);
+        vector<bool> used_in_current_perm(nums.size(), false);
         
-        backtrack(nums, used, current_perm, result);
+        backtrack(nums, used_in_current_perm, current_perm, result);
         return result;
     }
 
 private:
-    void backtrack(const vector<int>& nums, vector<bool>& used, 
+    void backtrack(const vector<int>& nums, vector<bool>& used_in_current_perm, 
                    vector<int>& current_perm, vector<vector<int>>& result) {
         // Base case: The arrangement is complete
         if (current_perm.size() == nums.size()) {
@@ -406,17 +406,17 @@ private:
         // ALWAYS start from 0 to evaluate all elements
         for (int i = 0; i < nums.size(); ++i) {
             // Skip elements we've already placed in the current permutation
-            if (used[i]) continue;
+            if (used_in_current_perm[i]) continue;
             
             // Make a choice
             current_perm.push_back(nums[i]);
-            used[i] = true;
+            used_in_current_perm[i] = true;
             
             // Recurse
-            backtrack(nums, used, current_perm, result);
+            backtrack(nums, used_in_current_perm, current_perm, result);
             
             // Undo choice
-            used[i] = false;
+            used_in_current_perm[i] = false;
             current_perm.pop_back();
         }
     }
@@ -425,10 +425,10 @@ private:
 
 ### Recursion Tree — `nums = [1, 2, 3]`
 
-The for-loop always starts from index 0 and skips `used` elements. Every element is considered for every position.
+The for-loop always starts from index 0 and skips `used_in_current_perm` elements. Every element is considered for every position.
 
 ```
-                                                   solve(perm=[], used={})
+                                          solve(perm=[], used_in_current_perm={})
                             /                               |                              \
                        pick 1                            pick 2                            pick 3
                   solve([1],{1})                     solve([2],{2})                     solve([3],{3})
