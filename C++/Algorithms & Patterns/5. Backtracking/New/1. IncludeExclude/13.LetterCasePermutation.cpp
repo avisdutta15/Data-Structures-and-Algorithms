@@ -29,10 +29,27 @@ using namespace std;
 	Approach 1 :
 	----------
 	Include and exclude
+	
+	//Tranasform the character -> Similar to Include
+	if the current character is a alphabet
+		if lowercase then make it uppercase. 
+		else if uppercase then make it lowercase
 
+	//Don't Transform the character -> Similar to Exclude
+	
+	
 	Approach 2:
 	----------
 	For loop based
+
+	store the result only when current_subset.size == input_str.size
+	for i=startidx to i<=input_str.size
+		//Tranasform the character -> Similar to Include
+		if the current character is a alphabet
+			if lowercase then make it uppercase. 
+			else if uppercase then make it lowercase
+
+		//Don't Transform the character -> Similar to Exclude
 */
 
 class Solution1 {
