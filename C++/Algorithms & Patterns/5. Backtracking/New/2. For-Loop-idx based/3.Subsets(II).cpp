@@ -51,7 +51,7 @@ public:
     vector<vector<int>> subsetsWithDup(vector<int>& A) {
         vector<int> subset;
         vector<vector<int>> allSubsets;
-        sort(A.begin(), A.end());       //IMP: This helps to eliminate the dups 
+        sort(A.begin(), A.end());       //IMP: This helps to eliminate the dups as it brings them together.
         solve(A, 0, subset, allSubsets);
         return allSubsets;
     }
