@@ -27,50 +27,81 @@ using namespace std;
 
     Approach:
     ----------
-    2. For - loop based: start idx
+    2. For - loop based: start idx and slicing the string
+    for(i=start_index to s.length)
+        slice from [start_index to i]
+        if(isValid(slice)
+            add to current_partitions
+            recurse for start_index = i+1
+            undo to explore other options
+
+                                             solve(start=0, [])
+                         /                       |                  \
+                    slice "a"               slice "aa"          slice "aab"
+                  (palindrome✓)            (palindrome✓)     (not palindrome✗)
+                       |                        |
+              solve(start=1,["a"])      solve(start=2,["aa"])
+                /          \                    |
+          slice "a"     slice "ab"          slice "b"
+        (palindrome✓) (not palin✗)        (palindrome✓)
+              |                                 |
+     solve(start=2,["a","a"])         solve(start=3,["aa","b"])
+              |                                 |
+          slice "b"                         BASE CASE
+        (palindrome✓)                    ➜ ["aa","b"] ✓
+              |
+     solve(start=3,["a","a","b"])
+              |
+          BASE CASE
+         ➜ ["a","a","b"] ✓
+    
 */
 
-//include/exclude based
+
 class Solution {
 private:
-    bool isPalindrome(string s) {
-        int i = 0, j = s.length() - 1;
-        while (i <= j) {
-            if (s[i] != s[j])
+    bool isPalindrome(string s){
+        int i=0, j=s.length()-1;
+        while(i<=j){
+            if(s[i] != s[j])
                 return false;
             i++; j--;
         }
         return true;
     }
-    void solve(int idx, string s, vector<string>& currentPartition, vector<vector<string>>& allPalindromes) {
+    
+    void solve(string s, int start_index, vector<string> &current_partitions, vector<vector<string>>& all_partitions){
         // Base case: Reached the end of the string
-        if (idx == s.length()) {
-            allPalindromes.push_back(currentPartition);
+        if(start_index == s.length()){
+            all_partitions.push_back(current_partitions);
             return;
         }
 
-        for (int i = idx; i < s.length(); i++) {
-            // Extract the current slice (starting at start_index, length is i - start_index + 1)
-            string str = s.substr(idx, i - idx + 1);
+        for(int i=start_index; i<s.length(); i++){
+            // Extract the current slice [startIndex...i]
+            string slice = s.substr(start_index, i-start_index+1);
 
-            // Only recurse if the current slice is valid (e.g., is a palindrome)
-            if (isPalindrome(str)) {
-                currentPartition.push_back(str);
+            // Only recurse if the current slice is valid
+            if(isPalindrome(slice)){
+                // add
+                current_partitions.push_back(slice);
 
-                // Recurse on the remaining part
-                solve(i + 1, s, currentPartition, allPalindromes);
+                // recurse for the remainig string i.e. start_index = i+1
+                solve(s, i+1, current_partitions, all_partitions);
 
-                // Undo choice
-                currentPartition.pop_back();
+                // undo to explore other options
+                current_partitions.pop_back();
             }
         }
     }
+
 public:
     vector<vector<string>> partition(string s) {
-        vector<string> currentPartition;
-        vector<vector<string>> allPalindromes;
-        solve(0, s, currentPartition, allPalindromes);
-        return allPalindromes;
+        vector<string> current_partitions;
+        vector<vector<string>> all_partitions;
+        int start_index = 0;
+        solve(s, start_index, current_partitions, all_partitions);
+        return all_partitions;
     }
 };
 
