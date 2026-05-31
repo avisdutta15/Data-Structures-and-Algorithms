@@ -74,16 +74,14 @@ void backtrack(vector<int>& nums, int index, vector<int>& current_subset, vector
 ### Strict A/B Selection (Two mutually exclusive actions)
 - 22\. Generate Parentheses (Choice: Add `(` or Add `)`)
 - 3211\. Generate Binary Strings Without Adjacent Zeros (Choice: Add `0` or Add `1`)
-- 1980\. Find Unique Binary String (Choice: Add `0` or Add `1`)
-- 401\. Binary Watch (Choice: Turn LED on or off)
-
-### TODO
+- 1980\. Find Unique Binary String (Choice: Add `0` or Add `1`)  [TODO]
+- 401\. Binary Watch (Choice: Turn LED on or off)  [TODO]
 - 494\. Target Sum (Choice: Assign `+` or Assign `-`)
 
 ### String & Character Mutation
 - 784\. Letter Case Permutation (Choice: Uppercase or Lowercase)
-- 320\. Generalized Abbreviation (Choice: Keep char or change to number)
-- 89\. Gray Code (Bit manipulation binary decisions)
+- 320\. Generalized Abbreviation (Choice: Keep char or change to number) [TODO]
+- 89\. Gray Code (Bit manipulation binary decisions) [TODO]
 - 17\. Letter Combinations of a Phone Number (Mapping single digits to specific character sets)
 
 ### Target Sum (Unbounded)
@@ -359,7 +357,7 @@ void backtrack(vector<int>& nums, int start_index, vector<int>& current_combo, i
 ### Classic Combinations (Pick exactly k elements)
 - 77\. Combinations
 - 216\. Combination Sum III
-- 254\. Factor Combinations
+- 254\. Factor Combinations [TODO]
 - 2178\. Maximum Split of Positive Even Integers
 
 ### Handling Duplicates (Sorting + Skip Logic)
@@ -369,7 +367,7 @@ void backtrack(vector<int>& nums, int start_index, vector<int>& current_combo, i
 ### String & Character Combinations
 - 1079\. Letter Tile Possibilities
 - 1087\. Brace Expansion
-- 1096\. Brace Expansion II
+- 1096\. Brace Expansion II [TODO]
 - 1286\. Iterator for Combination
 
 ---
