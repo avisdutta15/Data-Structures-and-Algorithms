@@ -694,6 +694,7 @@ return min_cuts;
 - 1593\. Split a String Into the Max Number of Unique Substrings
 
 ### Word Breaking & Sentence Parsing
+- 139\. Word Break
 - 140\. Word Break II
 - 1258\. Synonymous Sentences
 
