@@ -54,7 +54,7 @@ class Solution {
 private:
     int solve(int r, int c, vector<vector<int>>& grid, int m, int n) {
         //1. BASE CASE
-        //if out of bounds then return 0
+        //if out of bounds || current cell is obstacle then return 0
         if (r < 0 || r >= m || c < 0 || c >= n || grid[r][c] == 1)
             return 0;
 
@@ -81,7 +81,7 @@ class Solution {
 private:
     int solve(int r, int c, vector<vector<int>>& grid, vector<vector<int>>& dp, int m, int n) {
         //1. BASE CASE
-        //if out of bounds then return 0
+        //if out of bounds || current cell is obstacle then return 0
         if (r < 0 || r >= m || c < 0 || c >= n || grid[r][c] == 1)
             return 0;
 
@@ -89,6 +89,7 @@ private:
         if (r == m - 1 && c == n - 1)
             return dp[r][c] = 1;
 
+        // if this cell is already visited then return the number of ways to arrive here.
         if (dp[r][c] != -1)
             return dp[r][c];
 
@@ -121,15 +122,19 @@ public:
 
         for (int r = 0; r <= m - 1; r++) {
             for (int c = 0; c <= n - 1; c++) {
-                if (r == 0 && c == 0 && obstacleGrid[r][c] == 1) {
+                // if the cell is starting cell but has obstacle then 0 ways to reach here.
+                if (r == 0 && c == 0 && obstacleGrid[r][c] == 1)
                     dp[r][c] = 0;
-                }
+                // if the cell is starting cell but has no obstacle then 1 way to reach here.
                 else if (r == 0 && c == 0 && obstacleGrid[r][c] == 0)
                     dp[r][c] = 1;
+                // if the current cell is an obstacle then 0 ways to reach here.
                 else if (obstacleGrid[r][c] == 1)
                     dp[r][c] = 0;
+                // if the current cell is in the first row, then i can reach by taking right from previous cell.
                 else if (r == 0)
                     dp[r][c] = dp[r][c - 1];
+                // if the current cell is in the first col, then i can reach by taking bottom from previous cell.
                 else if (c == 0)
                     dp[r][c] = dp[r - 1][c];
                 else {
