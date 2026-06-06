@@ -696,6 +696,7 @@ return min_cuts;
 ### Word Breaking & Sentence Parsing
 - 139\. Word Break
 - 140\. Word Break II
+- 472\. Concatenated Words
 - 1258\. Synonymous Sentences
 
 ### Formatting (IPs & Coordinates)
