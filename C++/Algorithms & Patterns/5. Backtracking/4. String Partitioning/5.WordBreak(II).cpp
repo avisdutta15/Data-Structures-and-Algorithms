@@ -40,7 +40,7 @@ using namespace std;
 
     Approach:
     ---------
-    String Partitioning
+    String Partitioning + Memoization
     for every index i in string
         Extract Prefix (start_index to i).
         Validate Prefix (in this case check if present in the dict)
@@ -76,9 +76,18 @@ using namespace std;
     
     
     Takeaway: solve(7) is executed twice. It does the exact same work of finding "dog", but because it is 
-    carrying the history of the sentence with it, it doesn't realize it's repeating work.                     
-    
+    carrying the history of the sentence with it, it doesn't realize it's repeating work.    
 
+    Time complexity: O(n⋅2^n) - The algorithm explores all possible ways to break the string into words. 
+    In the worst case, where each character can be treated as a word, the recursion tree has 2^n leaf nodes, 
+    resulting in an exponential time complexity. For each leaf node, O(n) work is performed, so the overall complexity is O(n⋅2^n).
+
+    Space complexity: O(2^n) - The recursion stack can grow up to a depth of n, where each recursive call consumes additional space for storing the current state.
+    Since each position in the string can be a split point or not, and for n positions, there are 2^n possible combinations of splits. 
+    Thus, in the worst case, each combination generates a different sentence that needs to be stored, leading to exponential space complexity.
+    
+    Memoization:
+    ------------
     In the memoized approach currently in your Canvas, the function is "blind" to the history of the sentence. 
     It only cares about the start_index. It asks: "What are all the valid suffixes from index X to the end?" 
     Because of this, it can cache the result for index 7 and instantly reuse it the second time.
@@ -119,7 +128,8 @@ using namespace std;
     Takeaway: When solve(4) calls solve(7), the tree gets aggressively pruned. The memoization cache intercepted the call, 
     completely skipping the need to evaluate "dog" a second time, and immediately returned the pre-built suffix list to 
     be attached to "cats and".
-    
+
+    TC and SC same as above
 */
 
 class Solution1 {
