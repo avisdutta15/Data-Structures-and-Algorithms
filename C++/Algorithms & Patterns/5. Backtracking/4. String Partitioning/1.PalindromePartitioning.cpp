@@ -29,25 +29,25 @@ using namespace std;
     ----------
     2. For - loop based: start idx and slicing the string
     for(i=start_index to s.length)
-        slice from [start_index to i]
-        if(isValid(slice)
+        prefix from [start_index to i]
+        if(isValid(prefix)
             add to current_partitions
             recurse for start_index = i+1
             undo to explore other options
 
                                              solve(start=0, [])
                          /                       |                  \
-                    slice "a"               slice "aa"          slice "aab"
+                    prefix "a"               prefix "aa"          prefix "aab"
                   (palindrome✓)            (palindrome✓)     (not palindrome✗)
                        |                        |
               solve(start=1,["a"])      solve(start=2,["aa"])
                 /          \                    |
-          slice "a"     slice "ab"          slice "b"
+          prefix "a"     prefix "ab"          prefix "b"
         (palindrome✓) (not palin✗)        (palindrome✓)
               |                                 |
      solve(start=2,["a","a"])         solve(start=3,["aa","b"])
               |                                 |
-          slice "b"                         BASE CASE
+          prefix "b"                         BASE CASE
         (palindrome✓)                    ➜ ["aa","b"] ✓
               |
      solve(start=3,["a","a","b"])
@@ -78,13 +78,13 @@ private:
         }
 
         for(int i=start_index; i<s.length(); i++){
-            // Extract the current slice [startIndex...i]
-            string slice = s.substr(start_index, i-start_index+1);
+            // Extract the current prefix [startIndex...i]
+            string prefix = s.substr(start_index, i-start_index+1);
 
-            // Only recurse if the current slice is valid
-            if(isPalindrome(slice)){
+            // Only recurse if the current prefix is valid
+            if(isPalindrome(prefix)){
                 // add
-                current_partitions.push_back(slice);
+                current_partitions.push_back(prefix);
 
                 // recurse for the remainig string i.e. start_index = i+1
                 solve(s, i+1, current_partitions, all_partitions);
