@@ -50,36 +50,38 @@ class Solution{
             return 0;
 
         int include = INT_MIN, exclude = INT_MIN;
-        // Case 1. Include current item `p[n]` in the knapsack and recur for
-        // remaining items `n-1` with decreased capacity `W-w[n]`
+        // Case 1. Include current item `p[n-1]` in the knapsack and recur for
+        // remaining items `n-1` with decreased capacity `W-w[n-1]`
+        // we are using n-1 because we started from N
         if(weight[N-1]<=W)
             include = profit[N-1] + knapsackRecursive(profit, weight, N-1, W - weight[N-1]);
         
-        // Case 2. Excule current item `p[n]` in the knapsack and recur for
+        // Case 2. Exculde current item `p[n-1]` in the knapsack and recur for
         // remaining items `n-1` with same capacity `W`
         exclude = knapsackRecursive(profit, weight, N-1, W);
         return max(include, exclude);
     }
 
     //what is the max profit i can get if I have W max weight and N items.
-    int knapsackMemoized(vector<int> &profit, vector<int> &weight, int N, int W, unordered_map<string, int> &lookup){
+    int knapsackMemoized(vector<int> &profit, vector<int> &weight, int N, int W, vector<vector<int>> &memo){
         //base case: if no items left or capacity becomes 0
         if(N == 0 || W == 0)
             return 0;
 
-        string key = to_string(N) + " " + to_string(W);
-        if(lookup.find(key)!=lookup.end())
-            return lookup[key];
+        if(memo[N][W] != -1)
+            return memo[N][W];
 
         int include = INT_MIN, exclude = INT_MIN;
-        // Case 1. Include current item `v[n]` in the knapsack and recur for
-        // remaining items `n-1` with decreased capacity `W-w[n]`
+        // Case 1. Include current item `v[n-1]` in the knapsack and recur for
+        // remaining items `n-1` with decreased capacity `W-w[n-1]`
         if(weight[N-1]<=W)
-            include = profit[N-1] + knapsackMemoized(profit, weight, N-1, W - weight[N-1], lookup);
-        exclude = knapsackMemoized(profit, weight, N-1, W, lookup);
+            include = profit[N-1] + knapsackMemoized(profit, weight, N-1, W - weight[N-1], memo);
 
-        lookup[key] = max(include, exclude);
-        return lookup[key];
+        // Case 2. Exculde current item `p[n-1]` in the knapsack and recur for
+        // remaining items `n-1` with same capacity `W`
+        exclude = knapsackMemoized(profit, weight, N-1, W, memo);
+
+        return memo[N][W] = max(include, exclude);
     }
 
     //what is the max profit i can get if I have W max weight and N items.
@@ -128,10 +130,11 @@ class Solution{
 public:
     //O(n x W) Time and Space
     int knapsack(vector<int> &profit, vector<int> &weight, int N, int W){
-        unordered_map<string, int> lookup;
+        int N = weight.size();
+        vector<vector<int>> memo(N+1, vector<int>(W+1, -1));
         // int i = 0, totalProfit = 0, totalWeight = 0;
-        // return knapsackRecursive(profit, weight, i, N, W, totalProfit, totalWeight, lookup);
-        // return knapsackMemoizedOptimized(profit, weight, N, W, lookup);
+        // return knapsackRecursive(profit, weight, i, N, W, totalProfit, totalWeight, memo);
+        // return knapsackMemoizedOptimized(profit, weight, N, W, memo);
         return knapsackBottomUp1D(profit, weight, N, W);
     }
 };
