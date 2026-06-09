@@ -57,7 +57,43 @@ using namespace std;
 					  left neighbor, it is a peak.
 */
 
-class Solution {
+//Linear Search
+class Solution{
+public:
+	int findPeakElement(vector<int> &arr) {
+	    int n = arr.size();
+
+		if(n==1)
+			return 0;
+		if(arr[0]>arr[1])
+			return 0;
+		if(arr[n-1]>arr[n-2])
+			return n-1;
+		
+	    for(int i = 1; i < n-1; i++) {
+	    	bool left = true;
+	        bool right = true;
+	      
+	        // Check for element to the left
+	        if(arr[i] <= arr[i - 1]) 
+	            left = false;
+	      
+	        // Check for element to the right
+	        if(arr[i] <= arr[i + 1])
+	            right = false;
+	      
+	        // If arr[i] is greater than its left as well as
+	        // its right element, return its index
+	        if(left && right) {
+	        	return i;
+	        }
+	    }
+	    return 0;
+	}
+};
+
+// Binary Search
+class Solution2 {
 public:
 	int findPeakElement(vector<int>& A) {
 		int N = A.size();
