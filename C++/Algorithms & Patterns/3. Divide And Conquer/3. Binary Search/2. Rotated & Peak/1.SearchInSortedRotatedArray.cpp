@@ -41,7 +41,38 @@ using namespace std;
     This lets us avoid scanning the whole array like in brute force, and instead bring down 
     the number of checks to logarithmic time.
 
+    How to find sorted section?
+        if(A[left] <= A[mid])        // left section is sorted
+        else                         // right section is sorted
 
+
+    Why A[left] <= A[mid] and not A[left] < A[mid] even thought the array has distinct elements?
+    The reason you must use <= instead of < comes down to what happens when your search space shrinks to just two elements.
+    When there are only two elements left (for example, left = 0 and right = 1), integer division makes the mid pointer land on the exact same index as the left pointer:
+    mid = 0 + (1 - 0) / 2 = 0.    
+    Because left and mid are at the exact same index, A[left] is equal to A[mid].
+    
+    If you use A[left] < A[mid]:
+    The condition evaluates to false (because a number is not less than itself). Your code jumps to the else block, falsely assuming the right half is the sorted one, which ruins the search.
+    Let's trace a failing example with <:
+        - Array: [3, 1], Target: 1
+        - Iteration 1: left = 0 (val 3), right = 1 (val 1). mid = 0 (val 3).
+        - A[mid] == target -> 3 == 1 (False).
+        - A[left] < A[mid] -> 3 < 3 -> FALSE.
+        - Code jumps to the else block.
+        - It checks if target is in the right half: A[mid] <= target && target <= A[right] -> 3 <= 1 && 1 <= 1 (False).
+        - It executes right = mid - 1 -> right = -1.
+        - Loop terminates and returns -1. It failed to find the target!
+    
+    If you use A[left] <= A[mid]:
+        - A[left] <= A[mid] -> 3 <= 3 -> TRUE. (A single element is technically a sorted array).
+        - It checks if the target is in this left half: 3 <= 1 && 1 <= 3 -> (False).
+        - It executes left = mid + 1 -> left = 1.
+        - Iteration 2: left = 1, right = 1. mid = 1.
+        - A[mid] == target -> 1 == 1. Returns index 1. (Success!)
+    
+    In short: You need the = to handle the edge case where left and mid overlap. 
+    Without it, your algorithm breaks on arrays of size 2.
 */
 
 class Solution {
