@@ -94,7 +94,7 @@ public:
             // Calculate min
             mid = left + (right - left) / 2;
 
-            // if left half is sorted
+            // if left half is sorted (Harvest and Discard)
             if (A[left] <= A[mid]) {
 
                 // store the minimum element till now
@@ -104,6 +104,7 @@ public:
                 left = mid + 1;
             }
             else {
+                // Right half is sorted (Harvest and Discard)
 
                 // store the minimum till now
                 ans = min(A[mid], ans);
