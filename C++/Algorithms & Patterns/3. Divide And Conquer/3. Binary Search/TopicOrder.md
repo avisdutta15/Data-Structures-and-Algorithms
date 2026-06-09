@@ -38,13 +38,13 @@ Search in arrays that have been rotated or have duplicates.
 | # | Problem | Difficulty | Freq |
 |---|---|---|---|
 | 33 | Search in Rotated Sorted Array | Med | ★★★★★ |
-| 153 | Find Minimum in Rotated Sorted Array | Med | ★★★★★ |
 | 81 | Search in Rotated Sorted Array II | Med | ★★★★ |
+| 153 | Find Minimum in Rotated Sorted Array | Med | ★★★★★ |
 | 154 | Find Minimum in Rotated Sorted Array II | Hard | ★★★ |
 | 162 | Find Peak Element | Med | ★★★★ |
+| 1901 | Find a Peak Element II | Med | ★★ |
 | 852 | Peak Index in a Mountain Array | Med | ★★★ |
 | 1095 | Find in Mountain Array | Hard | ★★★ |
-| 1901 | Find a Peak Element II | Med | ★★ |
 
 ---
 
@@ -120,11 +120,11 @@ Combining binary search with two pointer techniques.
 | # | Problem | Difficulty | Freq |
 |---|---|---|---|
 | 167 | Two Sum II - Input Array Is Sorted | Med | ★★★★★ |
+| 1099 | Two Sum Less Than K | Easy | ★★★ |
 | 349 | Intersection of Two Arrays | Easy | ★★★★ |
 | 350 | Intersection of Two Arrays II | Easy | ★★★★ |
 | 259 | 3Sum Smaller | Med | ★★★ |
 | 611 | Valid Triangle Number | Med | ★★★ |
-| 1099 | Two Sum Less Than K | Easy | ★★★ |
 | 633 | Sum of Square Numbers | Med | ★★★ |
 | 532 | K-diff Pairs in an Array | Med | ★★★ |
 | 2563 | Count the Number of Fair Pairs | Med | ★★★ |
