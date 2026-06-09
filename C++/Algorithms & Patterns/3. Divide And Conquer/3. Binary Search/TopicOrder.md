@@ -1,3 +1,360 @@
+Broader Patterns
+1. Pattern 1: Classic Binary Search (Search an Element)
+   When to use:
+   - Array is sorted
+   - Find exact target
+2. Lower Bound Upper Bound
+3. Rotated Sorted Array
+4. Binary Search on Matrix
+5. Binary Search on Answer.
+
+# Binary Search Patterns — Grouped and Sorted by Interview Frequency
+
+## Pattern 1: Standard Binary Search (Find Exact Target)
+
+Direct search for a target value in a sorted structure.
+
+| # | Problem | Difficulty | Freq |
+|---|---|---|---|
+| 704 | Binary Search | Easy | ★★★★★ |
+| 702 | Search in a Sorted Array of Unknown Size | Med | ★★★ |
+| 35 | Search Insert Position | Easy | ★★★★★ |
+| 374 | Guess Number Higher or Lower | Easy | ★★★★ |
+| 278 | First Bad Version | Easy | ★★★★ |
+| 74 | Search a 2D Matrix | Med | ★★★★ |
+| 240 | Search a 2D Matrix II | Med | ★★★★ |
+| 1064 | Fixed Point | Easy | ★★★ |
+| 1150 | Check If a Number Is Majority Element in a Sorted Array | Easy | ★★ |
+| 1533 | Find the Index of the Large Integer | Med | ★★ |
+| 2089 | Find Target Indices After Sorting Array | Easy | ★★ |
+| 1966 | Binary Searchable Numbers in an Unsorted Array | Med | ★ |
+
+---
+
+## Pattern 2: Binary Search on Rotated/Modified Sorted Arrays
+
+Search in arrays that have been rotated or have duplicates.
+
+| # | Problem | Difficulty | Freq |
+|---|---|---|---|
+| 33 | Search in Rotated Sorted Array | Med | ★★★★★ |
+| 153 | Find Minimum in Rotated Sorted Array | Med | ★★★★★ |
+| 81 | Search in Rotated Sorted Array II | Med | ★★★★ |
+| 154 | Find Minimum in Rotated Sorted Array II | Hard | ★★★ |
+| 162 | Find Peak Element | Med | ★★★★ |
+| 852 | Peak Index in a Mountain Array | Med | ★★★ |
+| 1095 | Find in Mountain Array | Hard | ★★★ |
+| 1901 | Find a Peak Element II | Med | ★★ |
+
+---
+
+## Pattern 3: Binary Search on Answer (Minimize Maximum / Maximize Minimum)
+
+Binary search on the answer space to find the optimal value satisfying a constraint.
+
+| # | Problem | Difficulty | Freq |
+|---|---|---|---|
+| 875 | Koko Eating Bananas | Med | ★★★★★ |
+| 1011 | Capacity To Ship Packages Within D Days | Med | ★★★★★ |
+| 410 | Split Array Largest Sum | Hard | ★★★★★ |
+| 1283 | Find the Smallest Divisor Given a Threshold | Med | ★★★★ |
+| 2187 | Minimum Time to Complete Trips | Med | ★★★★ |
+| 1482 | Minimum Number of Days to Make m Bouquets | Med | ★★★★ |
+| 774 | Minimize Max Distance to Gas Station | Hard | ★★★★ |
+| 1870 | Minimum Speed to Arrive on Time | Med | ★★★★ |
+| 2064 | Minimized Maximum of Products Distributed to Any Store | Med | ★★★ |
+| 1760 | Minimum Limit of Balls in a Bag | Med | ★★★ |
+| 2226 | Maximum Candies Allocated to K Children | Med | ★★★ |
+| 1552 | Magnetic Force Between Two Balls | Med | ★★★ |
+| 2616 | Minimize the Maximum Difference of Pairs | Med | ★★★ |
+| 2594 | Minimum Time to Repair Cars | Med | ★★★ |
+| 778 | Swim in Rising Water | Hard | ★★★ |
+| 1631 | Path With Minimum Effort | Med | ★★★ |
+| 2560 | House Robber IV | Med | ★★★ |
+| 2517 | Maximum Tastiness of Candy Basket | Med | ★★★ |
+| 2439 | Minimize Maximum of Array | Med | ★★★ |
+| 2861 | Maximum Number of Alloys | Med | ★★ |
+| 1802 | Maximum Value at a Given Index in a Bounded Array | Med | ★★ |
+| 2141 | Maximum Running Time of N Computers | Hard | ★★ |
+| 1231 | Divide Chocolate | Hard | ★★ |
+| 2528 | Maximize the Minimum Powered City | Hard | ★★ |
+| 1891 | Cutting Ribbons | Med | ★★ |
+| 2513 | Minimize the Maximum of Two Arrays | Med | ★★ |
+| 2448 | Minimum Cost to Make Array Equal | Med | ★★ |
+| 1648 | Sell Diminishing-Valued Colored Balls | Med | ★★ |
+| 3296 | Minimum Number of Seconds to Make Mountain Height Zero | Med | ★★ |
+| 3449 | Maximize the Minimum Game Score | Hard | ★ |
+| 3814 | Maximum Capacity Within Budget | Med | ★ |
+| 3824 | Minimum K to Reduce Array Within Limit | Med | ★ |
+
+---
+
+## Pattern 4: First/Last Position (Leftmost/Rightmost Binary Search)
+
+Find the first or last occurrence of a condition.
+
+| # | Problem | Difficulty | Freq |
+|---|---|---|---|
+| 34 | Find First and Last Position of Element in Sorted Array | Med | ★★★★★ |
+| 744 | Find Smallest Letter Greater Than Target | Easy | ★★★★ |
+| 1539 | Kth Missing Positive Number | Easy | ★★★★ |
+| 268 | Missing Number | Easy | ★★★★ |
+| 1060 | Missing Element in Sorted Array | Med | ★★★ |
+| 1351 | Count Negative Numbers in a Sorted Matrix | Easy | ★★★ |
+| 2300 | Successful Pairs of Spells and Potions | Med | ★★★ |
+| 1428 | Leftmost Column with at Least a One | Med | ★★★ |
+| 436 | Find Right Interval | Med | ★★ |
+| 1608 | Special Array With X Elements Greater Than or Equal X | Easy | ★★ |
+| 2529 | Maximum Count of Positive Integer and Negative Integer | Easy | ★★ |
+| 275 | H-Index II | Med | ★★ |
+| 2540 | Minimum Common Value | Easy | ★★ |
+| 1170 | Compare Strings by Frequency of the Smallest Character | Med | ★★ |
+| 3152 | Special Array II | Med | ★ |
+
+---
+
+## Pattern 5: Two Pointers + Binary Search (Pair/Subarray Problems)
+
+Combining binary search with two pointer techniques.
+
+| # | Problem | Difficulty | Freq |
+|---|---|---|---|
+| 167 | Two Sum II - Input Array Is Sorted | Med | ★★★★★ |
+| 349 | Intersection of Two Arrays | Easy | ★★★★ |
+| 350 | Intersection of Two Arrays II | Easy | ★★★★ |
+| 259 | 3Sum Smaller | Med | ★★★ |
+| 611 | Valid Triangle Number | Med | ★★★ |
+| 1099 | Two Sum Less Than K | Easy | ★★★ |
+| 633 | Sum of Square Numbers | Med | ★★★ |
+| 532 | K-diff Pairs in an Array | Med | ★★★ |
+| 2563 | Count the Number of Fair Pairs | Med | ★★★ |
+| 1855 | Maximum Distance Between a Pair of Values | Med | ★★ |
+| 1885 | Count Pairs in Two Arrays | Med | ★★ |
+| 2824 | Count Pairs Whose Sum is Less than Target | Easy | ★★ |
+| 1498 | Number of Subsequences That Satisfy the Given Sum Condition | Med | ★★ |
+| 825 | Friends Of Appropriate Ages | Med | ★★ |
+
+---
+
+## Pattern 6: Sliding Window + Binary Search
+
+Binary search combined with sliding window or prefix sums.
+
+| # | Problem | Difficulty | Freq |
+|---|---|---|---|
+| 209 | Minimum Size Subarray Sum | Med | ★★★★★ |
+| 1004 | Max Consecutive Ones III | Med | ★★★★ |
+| 713 | Subarray Product Less Than K | Med | ★★★★ |
+| 862 | Shortest Subarray with Sum at Least K | Hard | ★★★★ |
+| 1208 | Get Equal Substrings Within Budget | Med | ★★★ |
+| 2024 | Maximize the Confusion of an Exam | Med | ★★★ |
+| 1658 | Minimum Operations to Reduce X to Zero | Med | ★★★ |
+| 1838 | Frequency of the Most Frequent Element | Med | ★★★ |
+| 2271 | Maximum White Tiles Covered by a Carpet | Med | ★★ |
+| 2831 | Find the Longest Equal Subarray | Med | ★★ |
+| 644 | Maximum Average Subarray II | Hard | ★★ |
+| 2555 | Maximize Win From Two Segments | Med | ★★ |
+| 2398 | Maximum Number of Robots Within Budget | Hard | ★★ |
+| 2779 | Maximum Beauty of an Array After Applying Operation | Med | ★★ |
+
+---
+
+## Pattern 7: Kth Element / Median (Binary Search on Value Range)
+
+Find the Kth smallest/largest element by binary searching on the value.
+
+| # | Problem | Difficulty | Freq |
+|---|---|---|---|
+| 4 | Median of Two Sorted Arrays | Hard | ★★★★★ |
+| 378 | Kth Smallest Element in a Sorted Matrix | Med | ★★★★ |
+| 287 | Find the Duplicate Number | Med | ★★★★ |
+| 658 | Find K Closest Elements | Med | ★★★ |
+| 719 | Find K-th Smallest Pair Distance | Hard | ★★★ |
+| 786 | K-th Smallest Prime Fraction | Med | ★★★ |
+| 668 | Kth Smallest Number in Multiplication Table | Hard | ★★ |
+| 1439 | Find the Kth Smallest Sum of a Matrix With Sorted Rows | Hard | ★★ |
+| 2040 | Kth Smallest Product of Two Sorted Arrays | Hard | ★★ |
+| 1918 | Kth Smallest Subarray Sum | Med | ★★ |
+| 2387 | Median of a Row Wise Sorted Matrix | Med | ★★ |
+| 540 | Single Element in a Sorted Array | Med | ★★★ |
+
+---
+
+## Pattern 8: Binary Search + Greedy/DP (Optimization Problems)
+
+Binary search combined with dynamic programming or greedy validation.
+
+| # | Problem | Difficulty | Freq |
+|---|---|---|---|
+| 300 | Longest Increasing Subsequence | Med | ★★★★★ |
+| 1235 | Maximum Profit in Job Scheduling | Hard | ★★★★ |
+| 354 | Russian Doll Envelopes | Hard | ★★★ |
+| 1027 | Longest Arithmetic Subsequence | Med | ★★★ |
+| 887 | Super Egg Drop | Hard | ★★★ |
+| 1964 | Find the Longest Valid Obstacle Course at Each Position | Hard | ★★ |
+| 1713 | Minimum Operations to Make a Subsequence | Hard | ★★ |
+| 1187 | Make Array Strictly Increasing | Hard | ★★ |
+| 1671 | Minimum Number of Removals to Make Mountain Array | Hard | ★★ |
+| 2054 | Two Best Non-Overlapping Events | Med | ★★ |
+| 1751 | Maximum Number of Events That Can Be Attended II | Hard | ★★ |
+| 2008 | Maximum Earnings From Taxi | Med | ★★ |
+| 2830 | Maximize the Profit as the Salesman | Med | ★★ |
+
+---
+
+## Pattern 9: Binary Search on Strings / Hashing (Binary Search + Rolling Hash)
+
+Binary search on string length combined with hashing to find substrings.
+
+| # | Problem | Difficulty | Freq |
+|---|---|---|---|
+| 1268 | Search Suggestions System | Med | ★★★★ |
+| 1044 | Longest Duplicate Substring | Hard | ★★★ |
+| 1062 | Longest Repeating Substring | Med | ★★★ |
+| 718 | Maximum Length of Repeated Subarray | Med | ★★★ |
+| 792 | Number of Matching Subsequences | Med | ★★ |
+| 1055 | Shortest Way to Form String | Med | ★★ |
+| 1923 | Longest Common Subpath | Hard | ★ |
+
+---
+
+## Pattern 10: Binary Search + Sorted Containers / BIT / Segment Tree
+
+Binary search combined with advanced data structures for order statistics.
+
+| # | Problem | Difficulty | Freq |
+|---|---|---|---|
+| 315 | Count of Smaller Numbers After Self | Hard | ★★★★ |
+| 493 | Reverse Pairs | Hard | ★★★ |
+| 327 | Count of Range Sum | Hard | ★★★ |
+| 1649 | Create Sorted Array through Instructions | Hard | ★★ |
+| 2179 | Count Good Triplets in an Array | Hard | ★★ |
+| 2426 | Number of Pairs Satisfying Inequality | Hard | ★★ |
+| 352 | Data Stream as Disjoint Intervals | Hard | ★★ |
+| 2926 | Maximum Balanced Subsequence Sum | Hard | ★ |
+| 2736 | Maximum Sum Queries | Hard | ★ |
+
+---
+
+## Pattern 11: Binary Search + Math/Number Theory
+
+Binary search applied to mathematical properties.
+
+| # | Problem | Difficulty | Freq |
+|---|---|---|---|
+| 69 | Sqrt(x) | Easy | ★★★★★ |
+| 367 | Valid Perfect Square | Easy | ★★★★ |
+| 441 | Arranging Coins | Easy | ★★★ |
+| 400 | Nth Digit | Med | ★★ |
+| 878 | Nth Magical Number | Hard | ★★ |
+| 1201 | Ugly Number III | Med | ★★ |
+| 483 | Smallest Good Base | Hard | ★ |
+| 754 | Reach a Number | Med | ★ |
+| 1954 | Minimum Garden Perimeter to Collect Enough Apples | Med | ★ |
+
+---
+
+## Pattern 12: Weighted Random / Interval Binary Search
+
+Binary search on prefix sums for weighted random selection or interval queries.
+
+| # | Problem | Difficulty | Freq |
+|---|---|---|---|
+| 528 | Random Pick with Weight | Med | ★★★★ |
+| 981 | Time Based Key-Value Store | Med | ★★★★ |
+| 362 | Design Hit Counter | Med | ★★★★ |
+| 729 | My Calendar I | Med | ★★★ |
+| 731 | My Calendar II | Med | ★★★ |
+| 732 | My Calendar III | Hard | ★★ |
+| 497 | Random Point in Non-overlapping Rectangles | Med | ★★ |
+| 710 | Random Pick with Blacklist | Hard | ★★ |
+| 911 | Online Election | Med | ★★ |
+| 1146 | Snapshot Array | Med | ★★★ |
+| 1348 | Tweet Counts Per Frequency | Med | ★★ |
+
+---
+
+## Pattern 13: Binary Search on Sorted Subarrays / Prefix Sums
+
+Binary search on cumulative sums or sorted subsequences.
+
+| # | Problem | Difficulty | Freq |
+|---|---|---|---|
+| 1508 | Range Sum of Sorted Subarray Sums | Med | ★★★ |
+| 1292 | Maximum Side Length of a Square with Sum Less than or Equal to Threshold | Med | ★★ |
+| 363 | Max Sum of Rectangle No Larger Than K | Hard | ★★ |
+| 1300 | Sum of Mutated Array Closest to Target | Med | ★★ |
+| 2055 | Plates Between Candles | Med | ★★ |
+| 222 | Count Complete Tree Nodes | Easy | ★★★ |
+| 270 | Closest Binary Search Tree Value | Easy | ★★★ |
+| 1214 | Two Sum BSTs | Med | ★★ |
+| 2476 | Closest Nodes Queries in a Binary Search Tree | Med | ★★ |
+| 1182 | Shortest Distance to Target Color | Med | ★★ |
+
+---
+
+## Pattern 14: Binary Search on Events / Intervals (Sweep Line + BS)
+
+Binary search on sorted events or intervals for scheduling/overlap problems.
+
+| # | Problem | Difficulty | Freq |
+|---|---|---|---|
+| 2251 | Number of Flowers in Full Bloom | Hard | ★★★ |
+| 1851 | Minimum Interval to Include Each Query | Hard | ★★ |
+| 2070 | Most Beautiful Item for Each Query | Med | ★★ |
+| 826 | Most Profit Assigning Work | Med | ★★ |
+| 475 | Heaters | Med | ★★ |
+| 1488 | Avoid Flood in The City | Med | ★★ |
+| 1847 | Closest Room | Hard | ★★ |
+| 2250 | Count Number of Rectangles Containing Each Point | Med | ★★ |
+| 1898 | Maximum Number of Removable Characters | Med | ★★ |
+| 2838 | Maximum Coins Heroes Can Collect | Med | ★ |
+
+---
+
+## Study Priority (Top 30 Must-Do Problems)
+
+Sorted by combined frequency and pattern coverage:
+
+| Priority | # | Problem | Pattern |
+|---|---|---|---|
+| 1 | 704 | Binary Search | Standard |
+| 2 | 33 | Search in Rotated Sorted Array | Rotated |
+| 3 | 34 | Find First and Last Position | First/Last |
+| 4 | 4 | Median of Two Sorted Arrays | Kth Element |
+| 5 | 875 | Koko Eating Bananas | BS on Answer |
+| 6 | 300 | Longest Increasing Subsequence | BS + DP |
+| 7 | 153 | Find Minimum in Rotated Sorted Array | Rotated |
+| 8 | 69 | Sqrt(x) | Math |
+| 9 | 167 | Two Sum II | Two Pointers |
+| 10 | 209 | Minimum Size Subarray Sum | Sliding Window |
+| 11 | 1011 | Capacity To Ship Packages | BS on Answer |
+| 12 | 410 | Split Array Largest Sum | BS on Answer |
+| 13 | 162 | Find Peak Element | Rotated |
+| 14 | 378 | Kth Smallest Element in Sorted Matrix | Kth Element |
+| 15 | 528 | Random Pick with Weight | Weighted Random |
+| 16 | 287 | Find the Duplicate Number | Kth Element |
+| 17 | 981 | Time Based Key-Value Store | Design |
+| 18 | 315 | Count of Smaller Numbers After Self | BS + BIT |
+| 19 | 1235 | Maximum Profit in Job Scheduling | BS + DP |
+| 20 | 74 | Search a 2D Matrix | Standard |
+| 21 | 1283 | Find the Smallest Divisor | BS on Answer |
+| 22 | 862 | Shortest Subarray with Sum at Least K | Sliding Window |
+| 23 | 278 | First Bad Version | Standard |
+| 24 | 1268 | Search Suggestions System | Strings |
+| 25 | 713 | Subarray Product Less Than K | Sliding Window |
+| 26 | 540 | Single Element in a Sorted Array | Kth Element |
+| 27 | 2187 | Minimum Time to Complete Trips | BS on Answer |
+| 28 | 1482 | Min Days to Make m Bouquets | BS on Answer |
+| 29 | 658 | Find K Closest Elements | Kth Element |
+| 30 | 362 | Design Hit Counter | Design |
+
+
+
+
+
+
+
 1. Binary Search
 2. Find First and Last Occurance
 3. Count the numbers of ones in a sorted binary array.
