@@ -32,10 +32,14 @@ using namespace std;
 class Solution{
 private:
     void DFSUtil(vector<vector<int>> &adjList, int u, vector<int> &traversal, vector<bool> &visited){
+        // visit the node u and save it to traversal []
         visited[u] = true;
         traversal.push_back(u);
+
+        // for every neighbour v of u
         for(auto v: adjList[u]){
-            if(!visited[v])
+            // if the neighbour is not visited then traverse it.
+            if(visited[v] == false)
                 DFSUtil(adjList, v, traversal, visited);
         }
     }
