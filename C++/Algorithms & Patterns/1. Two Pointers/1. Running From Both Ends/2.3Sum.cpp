@@ -39,7 +39,30 @@ using namespace std;
     ----------
     - Sort the array first
     - Fix the first element, and use two pointers approach to find the other two elements
-    - Skip duplicates at each step to avoid duplicate triplets
+    - Skip duplicates at each step to avoid duplicate triplets.
+    -    How to skip duplicates?
+    -        We are standing at i. Ask have we seen this element before? If yes, that means we have
+    -        already processed for this element. So skip it.
+    -        [-2, -2, 1, 1, 0, 0]
+    -          i      j        k
+    -        Now we need to move j and k
+    -        [-2, -2, 1, 1, 0, 0]
+    -          i         j  k
+    -        Should we process this j and k? No, because A[j] == A[j-1] and we have already 
+    -        processed A[j-1] so processing A[j] will yield a duplicate result. Hence we move j i.e. j++
+    -        Similarly for k. Since A[k] == A[k+1] and we have already processed A[k+1], so processing
+    -        it will yield a duplicate result. Hence we move k. i.e. k--
+    -        We will follow the same thing for i.
+
+    Time Complexity - 
+        Sorting - O(NlogN)
+              +
+        for loop - O(N)
+              X
+        while loop - O(N)
+        = O(NlogN) + O(N^2)
+        
+    Space Complexity - O(1)
 */
 
 class Solution {
@@ -62,18 +85,17 @@ public:
                 //skip duplicates for j
                 if (j != i + 1 && nums[j] == nums[j - 1]) {
                     j++;
-                    continue;
                 }
                 //skip duplicates for k
                 else if (k != nums.size() - 1 && nums[k] == nums[k + 1]) {
                     k--;
-                    continue;
                 }
                 //normal case
                 else {
                     sum = nums[i] + nums[j] + nums[k];
                     if (sum == 0) {
                         ans.push_back({ nums[i], nums[j], nums[k] });
+                        // move both pointers to search for other triplets
                         j++; k--;
                     }
                     else if (sum < 0)
