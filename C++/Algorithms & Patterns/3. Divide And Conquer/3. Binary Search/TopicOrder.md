@@ -493,7 +493,8 @@ Check whether an array is k sorted.
 TODO: Page 1-5 in Binary Search Tag
 
 ------------------------------------------------------------C++ STL Binary Search--------------------------------------
-bool binary_search(A.begin(), A.end(), key) - returns true or false
+
+- `bool binary_search(A.begin(), A.end(), key)`  : returns true or false
 
 lower_bound - first equal to or greater than
 	A = {1, 4, 5, 6, 9, 9}
@@ -553,14 +554,14 @@ upper bound - first greater than
     		return ans;
 	  }
 ```
-lower_bound : first equal to or greater than
-upper bound - first greater than
-Floor : Given a sorted array and a value x, the floor of x is the largest element in array smaller than or equal to x.
-Ceil  : Given a sorted array and a value x, the ceiling of x is the smallest element in array greater than or equal to x.
+ - lower_bound : first equal to or greater than
+ - upper bound - first greater than
+ - Floor : Given a sorted array and a value x, the floor of x is the largest element in array smaller than or equal to x.
+ - Ceil  : Given a sorted array and a value x, the ceiling of x is the smallest element in array greater than or equal to x.
 
 ---------------------------------------------------------------------------------------------------
 
-Problems on upper_bound and lower_bound
+## Problems on upper_bound and lower_bound
 1. Find the first occurrence of X in a sorted array. If it does not occur then print -1
 	A = {1, 4, 5, 6, 9, 9}
 	X = 9
