@@ -9,7 +9,7 @@
 using namespace std;
 
 /*
-    https://youtu.be/JXU4Akft7yk?list=PLgUwDviBIf0pMFMWuuvDNMAkoQFi-h0ZF
+    https://www.youtube.com/watch?v=9ZbB397jU4k&list=PLgUwDviBIf0pMFMWuuvDNMAkoQFi-h0ZF&index=27&pp=iAQB
 
     Problem Statement:
     -----------------
