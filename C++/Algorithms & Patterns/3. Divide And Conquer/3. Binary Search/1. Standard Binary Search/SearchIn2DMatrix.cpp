@@ -9,7 +9,6 @@
 using namespace std;
 
 /*
-
     https://youtu.be/JXU4Akft7yk?list=PLgUwDviBIf0pMFMWuuvDNMAkoQFi-h0ZF
 
     Problem Statement:
@@ -42,27 +41,7 @@ using namespace std;
     1 <= m, n <= 100
     -10^4 <= matrix[i][j], target <= 10^4
 
-   
-    Approach 1: Binary Search on the "virtual" 1D array formed by flattening the 2D matrix.
-    ---------------------------------------------------------------------------------------
-    Treat the 2D matrix as a 1D array of size m*n.
-    Convert between 1D index and 2D coordinates:
-        row = id / cols;
-        col = id % cols;
-
-    Why id / cols and id % cols?
-    id / cols (Division): Calculates the Row. It finds how many full rows fit into the sequential index, dropping any remainder.
-    id % cols (Modulo): Calculates the Column. It uses the remainder of the division to tell you how far into the current row you are
-    
-    Consider a 3x4 matrix (m=3, n=4). Total elements = 12.
-
-    Indices:[0  1  2  3]
-            [4, 5, 6, 7]
-            [8, 9, 10,11]
-
-    Time Complexity: O(log(m*n))
-
-    Approach 2: Stair Case Search
+    Approach 1: Stair Case Search
     ------------------------------
     Start from the Top Right Corner:
     Begin at the top-right corner of the matrix (row = 0, col = n-1).
@@ -81,9 +60,56 @@ using namespace std;
     - If we're larger than target, we know all elements below in the same column are also larger, so we go left.
 
     Time Complexity: O(m + n)
+
+    Approach 2: Binary Search on the "virtual" 1D array formed by flattening the 2D matrix.
+    ---------------------------------------------------------------------------------------
+        Row rule: Each row is sorted in ascending order.
+        Connection rule: The first integer of the current row is always strictly 
+                         greater than the last integer of the previous row.
+    
+        THIS MEANES WE CAN TREAT THE ENTIRE 2D MATRIX AS A SORTED 1D ARRAY.
+
+    Treat the 2D matrix as a 1D array of size m*n.
+    Convert between 1D index and 2D coordinates:
+        row = id / cols;
+        col = id % cols;
+
+    Why id / cols and id % cols?
+    id / cols (Division): Calculates the Row. It finds how many full rows fit into the sequential index, dropping any remainder.
+    id % cols (Modulo): Calculates the Column. It uses the remainder of the division to tell you how far into the current row you are
+    
+    Consider a 3x4 matrix (m=3, n=4). Total elements = 12.
+
+    Indices:[0  1  2  3]
+            [4, 5, 6, 7]
+            [8, 9, 10,11]
+
+    Time Complexity: O(log(m*n))    
 */
 
 class Solution1 {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int rows = matrix.size();
+        int cols = matrix[0].size();
+
+        int row = 0, col = cols - 1; // start from top right corner
+
+        while (row < rows && col >= 0) {
+            if (matrix[row][col] == target)
+                return true;
+            else if (target < matrix[row][col]) {
+                col = col - 1;
+            }
+            else if (target > matrix[row][col]) {
+                row = row + 1;
+            }
+        }
+        return false;
+    }
+};
+
+class Solution2 {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
         int m = matrix.size();
@@ -108,33 +134,6 @@ public:
         return false;
     }
 };
-
-class Solution2 {
-public:
-    /*
-    
-
-    */
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        int rows = matrix.size();
-        int cols = matrix[0].size();
-
-        int row = 0, col = cols - 1; // start from top right corner
-
-        while (row < rows && col >= 0) {
-            if (matrix[row][col] == target)
-                return true;
-            else if (target < matrix[row][col]) {
-                col = col - 1;
-            }
-            else if (target > matrix[row][col]) {
-                row = row + 1;
-            }
-        }
-        return false;
-    }
-};
-
 
 int main() {
     Solution1 obj;
