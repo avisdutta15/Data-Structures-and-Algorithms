@@ -1,6 +1,42 @@
 # Stack Topic Order
 
-## 1. Monotonic Stack
+## 1. Parenthesis
+
+| Id | Problem | Comment / Urls |
+|----|---------|----------------|
+|  | Valid Parentheses | |
+|  | Longest Valid Parentheses | |
+|  | Score of Parentheses | |
+|  | Minimum Add to Make Parentheses Valid | |
+|  | Valid Parenthesis String | |
+|  | Remove Outermost Parentheses | |
+|  | Maximum Nesting Depth of Two Valid Parentheses Strings | |
+|  | Reverse Substrings Between Each Pair of Parentheses | |
+|  | Minimum Remove to Make Valid Parentheses | |
+|  | Minimum Insertions to Balance a Parentheses String | |
+|  | Maximum Nesting Depth of the Parentheses | |
+|  | Check if a Parentheses String Can Be Valid | |
+
+## 2. Implementations
+
+| Id | Problem | Comment / Urls |
+|----|---------|----------------|
+| 1 | Implement Stack using Array | |
+| 2 | Implement Stack using List | Keep head as top for O(1) operation |
+| 3 | Implement Stack using Queues | Approach1: Push - O(N) Pop - O(1). Push element at back then rotate all elements to bring Top element is always at front of the queue. </br> Approach2: Push - O(1) Pop - O(N). Push element at back of the queue. Top is at the rear of the queue. While popping, rotate all elements to bring the last to the front of the queue.|
+| 4 | Implement Queue using Stacks | 2 Stacks - Input and Output. Enqueue on InputStack. On Front and Dequeue, if OutputStack is empty then pop from InputStack and push to OutputStack. Then pop or return from Output.top(). This makes Front and Dequeue as amortized O(1). |
+| 5 | Design a Middle Stack | |
+| 6 | Min Stack | |
+| 7 | Max Stack | |
+| 8 | Design a Stack With Increment Operation | https://www.youtube.com/watch?v=-JzKnBKOxyM |
+| 9 | Build an Array With Stack Operations | https://www.youtube.com/watch?v=nmNLu1Qz-C0&pp=ygUkQnVpbGQgYW4gQXJyYXkgV2l0aCBTdGFjayBPcGVyYXRpb25z |
+| 10 | Design Video Sharing Platform | https://leetcode.ca/2022-05-26-2254-Design-Video-Sharing-Platform/ |
+| 11 | Design a Text Editor | |
+| 12 | Design Browser History | |
+| 13 | Simplify Path | |
+| 14 | Reorder List | |
+
+## 3. Monotonic Stack
 https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFGWj24HmY-&index=2&pp=iAQB
 | Id | Problem | Comment / Urls |
 |----|---------|----------------|
@@ -26,7 +62,7 @@ https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFGWj24H
 | 768 | Max Chunks To Make Sorted II | |
 | 769 | Max Chunks To Make Sorted | |
 | 853 | Car Fleet | |
-| 907 | Sum of Subarray Minimums | https://www.youtube.com/watch?v=v0e8p9JCgRc |
+| 907 | Sum of Subarray Minimums | http://youtube.com/watch?v=HRQB7-D2bi0 |
 | 962 | Maximum Width Ramp | |
 | 975 | Odd Even Jump | |
 | 1008 | Construct Binary Search Tree from Preorder Traversal | |
@@ -79,37 +115,8 @@ https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFGWj24H
 | 3638 | Maximum Balanced Shipments | |
 | 3676 | Count Bowl Subarrays | |
 
-## Categorized Monotonic Stack
 
-| id | problem | comment / urls |
-|----|---------|----------------|
-|  | Next Greater Element / Next Smaller Element | Next Greater Node In Linked List; Final Prices With a Special Discount in a Shop (next smaller or equal); Number of Visible People in a Queue (next greater, but also count); Next Greater Element IV (next greater element but with two conditions) |
-|  | Previous Greater Element / Previous Smaller Element | Buildings With an Ocean View (previous greater element, but from right to left); Number of People That Can Be Seen in a Grid (previous greater in two dimensions) |
-|  | Span-like problems | Sum of Subarray Ranges (two stacks for min/max); Sum of Total Strength of Wizards (min and max in subarrays) |
-|  | Left/right boundary problems | Sum of Subarray Minimums; Maximum Subarray Min-Product; Subarray With Elements Greater Than Varying Threshold; Find Sorted Submatrices With Maximum Element at Most K (2D) |
-|  | Monotonic stack for subsequence | Find the Most Competitive Subsequence; Smallest Subsequence of Distinct Characters; Smallest K-Length Subsequence With Occurrences of a Letter |
-|  | Complex uses (DP / two passes / simulation) | Odd Even Jump; Longest Well-Performing Interval; Minimum Cost Tree From Leaf Values; Minimum Number of Increments on Subarrays to Form a Target Array; Shortest Subarray to be Removed to Make Array Sorted; Car Fleet II; Maximum Score of a Good Subarray; Maximum of Minimum Values in All Subarrays; The Number of Weak Characters in the Game; Steps to Make Array Non-decreasing; Jump Game VIII; Finding the Number of Visible Mountains; Maximum Number of Books You Can Take; Remove Nodes From Linked List; Minimum Number of Visited Cells in a Grid; Maximum Sum Queries; Apply Operations to Maximize Score; Maximal Range That Each Element Is Maximum in It; Maximum Length of Semi-Decreasing Subarrays; Beautiful Towers I & II; Find Building Where Alice and Bob Can Meet; Find Maximum Non-decreasing Array Length; Find the Number of Subarrays Where Boundary Elements Are Maximum; Maximum Array Hopping Score I & II; Minimum Operations to Make Array Equal to Target; Count Non-Decreasing Subarrays After K Operations; Maximum and Minimum Sums of at Most Size K Subarrays; Make Array Non-decreasing; Minimum Operations to Convert All Elements to Zero; Smallest Subarray to Sort in Every Sliding Window; Maximum Balanced Shipments; Count Bowl Subarrays |
-
-## Parentheses
-
-| Id | Problem | Comment / Urls |
-|----|---------|----------------|
-|  | Valid Parentheses | |
-|  | Longest Valid Parentheses | |
-|  | Score of Parentheses | |
-|  | Minimum Add to Make Parentheses Valid | |
-|  | Valid Parenthesis String | |
-|  | Remove Outermost Parentheses | |
-|  | Maximum Nesting Depth of Two Valid Parentheses Strings | |
-|  | Reverse Substrings Between Each Pair of Parentheses | |
-|  | Minimum Remove to Make Valid Parentheses | |
-|  | Minimum Insertions to Balance a Parentheses String | |
-|  | Maximum Nesting Depth of the Parentheses | |
-|  | Check if a Parentheses String Can Be Valid | |
-
-
-
-## Basic Calculator
+## 4. Basic Calculator
 
 | Id | Problem | Comment / Urls |
 |----|---------|----------------|
@@ -126,27 +133,7 @@ https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFGWj24H
 | 11 | Brace Expansion | |
 | 12 | Brace Expansion II | |
 
-## Implementations
-
-| Id | Problem | Comment / Urls |
-|----|---------|----------------|
-| 1 | Implement Stack using Array | |
-| 2 | Implement Stack using List | Keep head as top for O(1) operation |
-| 3 | Implement Stack using Queues | Approach1: Push - O(N) Pop - O(1). Push element at back then rotate all elements to bring Top element is always at front of the queue. </br> Approach2: Push - O(1) Pop - O(N). Push element at back of the queue. Top is at the rear of the queue. While popping, rotate all elements to bring the last to the front of the queue.|
-| 4 | Implement Queue using Stacks | 2 Stacks - Input and Output. Enqueue on InputStack. On Front and Dequeue, if OutputStack is empty then pop from InputStack and push to OutputStack. Then pop or return from Output.top(). This makes Front and Dequeue as amortized O(1). |
-| 5 | Design a Middle Stack | |
-| 6 | Min Stack | |
-| 7 | Max Stack | |
-| 8 | Design a Stack With Increment Operation | https://www.youtube.com/watch?v=-JzKnBKOxyM |
-| 9 | Build an Array With Stack Operations | https://www.youtube.com/watch?v=nmNLu1Qz-C0&pp=ygUkQnVpbGQgYW4gQXJyYXkgV2l0aCBTdGFjayBPcGVyYXRpb25z |
-| 10 | Design Video Sharing Platform | https://leetcode.ca/2022-05-26-2254-Design-Video-Sharing-Platform/ |
-| 11 | Design a Text Editor | |
-| 12 | Design Browser History | |
-| 13 | Simplify Path | |
-| 14 | Reorder List | |
-
-
-## Binary Tree
+## 5. Binary Tree
 
 | id | problem | comment / urls |
 |----|---------|----------------|
@@ -169,7 +156,7 @@ https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFGWj24H
 |  | Two Sum BSTs | |
 
 
-## Misc / Strings / Others
+## 6. Misc / Strings / Others
 
 | id | problem | comment / urls |
 |----|---------|----------------|
@@ -219,3 +206,26 @@ https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFGWj24H
 |  | Find Mirror Score of a String | |
 |  | Resulting String After Adjacent Removals | |
 |  | Remove K-Balanced Substrings | |
+
+
+
+## 7. Categorized Monotonic Stack
+
+| id | problem | comment / urls |
+|----|---------|----------------|
+|  | Next Greater Element / Next Smaller Element | Next Greater Node In Linked List; Final Prices With a Special Discount in a Shop (next smaller or equal); Number of Visible People in a Queue (next greater, but also count); Next Greater Element IV (next greater element but with two conditions) |
+|  | Previous Greater Element / Previous Smaller Element | Buildings With an Ocean View (previous greater element, but from right to left); Number of People That Can Be Seen in a Grid (previous greater in two dimensions) |
+|  | Span-like problems | Sum of Subarray Ranges (two stacks for min/max); Sum of Total Strength of Wizards (min and max in subarrays) |
+|  | Left/right boundary problems | Sum of Subarray Minimums; Maximum Subarray Min-Product; Subarray With Elements Greater Than Varying Threshold; Find Sorted Submatrices With Maximum Element at Most K (2D) |
+|  | Monotonic stack for subsequence | Find the Most Competitive Subsequence; Smallest Subsequence of Distinct Characters; Smallest K-Length Subsequence With Occurrences of a Letter |
+|  | Complex uses (DP / two passes / simulation) | Odd Even Jump; Longest Well-Performing Interval; Minimum Cost Tree From Leaf Values; Minimum Number of Increments on Subarrays to Form a Target Array; Shortest Subarray to be Removed to Make Array Sorted; Car Fleet II; Maximum Score of a Good Subarray; Maximum of Minimum Values in All Subarrays; The Number of Weak Characters in the Game; Steps to Make Array Non-decreasing; Jump Game VIII; Finding the Number of Visible Mountains; Maximum Number of Books You Can Take; Remove Nodes From Linked List; Minimum Number of Visited Cells in a Grid; Maximum Sum Queries; Apply Operations to Maximize Score; Maximal Range That Each Element Is Maximum in It; Maximum Length of Semi-Decreasing Subarrays; Beautiful Towers I & II; Find Building Where Alice and Bob Can Meet; Find Maximum Non-decreasing Array Length; Find the Number of Subarrays Where Boundary Elements Are Maximum; Maximum Array Hopping Score I & II; Minimum Operations to Make Array Equal to Target; Count Non-Decreasing Subarrays After K Operations; Maximum and Minimum Sums of at Most Size K Subarrays; Make Array Non-decreasing; Minimum Operations to Convert All Elements to Zero; Smallest Subarray to Sort in Every Sliding Window; Maximum Balanced Shipments; Count Bowl Subarrays |
+
+
+
+
+
+
+
+
+
+

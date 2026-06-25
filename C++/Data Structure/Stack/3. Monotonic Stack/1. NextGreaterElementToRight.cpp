@@ -72,14 +72,17 @@ public:
 		stack<int> stack;
 
 		for (int i = A.size() - 1; i > 0; i--) {
+			// if stack is empty nge[i] = -1
 			if (stack.empty()) {
 				nger[i] = -1;
 				stack.push(A[i]);
 			}
+			// if stack.top() > A[i] then nge[i] = stack.top()
 			else if (stack.top() > A[i]) {
 				nger[i] = stack.top();
 				stack.push(A[i]);
 			}
+			// else pop from stack to maintain monotonic decreasing property
 			else {
 				while (!stack.empty() && stack.top() <= A[i])
 					stack.pop();

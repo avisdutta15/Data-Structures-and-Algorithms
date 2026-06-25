@@ -37,41 +37,79 @@ using namespace std;
 	for(int i=2n; i>=0; i--)
 		int j = i%n;		//this is the actual element we will calculate the nge for.
 	
+
+	We can also do 2 traversals.
+	first traversal => Stack opration for monotonic decreasing property
+	second traversal => Stack op + nge population
  	T.C. - O(2n). S.C. - O(2n)
 */
 
-class Solution {
+class Solution1 {
 public:
-	vector<int> nextGreaterElements(vector<int>& nums) {
-		vector<int> nge(nums.size(), -1);
-		stack<int> stack;
-		int n = nums.size();
-		for (int i = (2 * n) - 1; i >= 0; i--) {
-			int j = i % n;
-			if (stack.empty()) {
-				nge[j] = -1;
-				stack.push(nums[j]);
+    vector<int> nextGreaterElements(vector<int>& nums) {
+        int N = nums.size();
+        if(N == 0)
+            return vector<int>();
+
+        vector<int> nge(N, -1);
+        stack<int> stack;
+
+        //second traversal : stack + nge population
+        for(int i=2*N-1; i>=0; i--){
+			
+			int actual_index = i % N;
+
+            while(!stack.empty() && stack.top() <= nums[actual_index])
+                stack.pop();
+			if(i < N){
+				if(stack.empty())
+                	nge[i] = -1;
+            	else
+                	nge[i] = stack.top();
 			}
-			else if (stack.top() > nums[j]) {
-				nge[j] = stack.top();
-				stack.push(nums[j]);
-			}
-			else {
-				while (!stack.empty() && stack.top() <= nums[j])
-					stack.pop();
-				if (stack.empty())
-					nge[j] = -1;
-				else
-					nge[j] = stack.top();
-				stack.push(nums[j]);
-			}
-		}
-		return nge;
-	}
+            
+            stack.push(nums[actual_index]);
+        }
+
+        return nge;
+    }
+};
+
+class Solution2 {
+public:
+    vector<int> nextGreaterElements(vector<int>& nums) {
+        int N = nums.size();
+        if(N == 0)
+            return vector<int>();
+
+        vector<int> nge(N, -1);
+        stack<int> stack;
+
+        //for circular array traverse twice
+        //first traversal : only stack ops
+        for(int i=N-1; i>=0; i--){
+            while(!stack.empty() && stack.top() <= nums[i])
+                stack.pop();
+            stack.push(nums[i]);
+        }
+
+        //second traversal : stack + nge population
+        for(int i=N-1; i>=0; i--){
+            while(!stack.empty() && stack.top() <= nums[i])
+                stack.pop();
+            if(stack.empty())
+                nge[i] = -1;
+            else
+                nge[i] = stack.top();
+            stack.push(nums[i]);
+        }
+
+        return nge;
+    }
 };
 
 int main() {
-	Solution obj;
+	Solution1 obj;
 	//Test 1
 	vector<int> nums1 = { 1,2,1 };
 	auto ngtr = obj.nextGreaterElements(nums1);
