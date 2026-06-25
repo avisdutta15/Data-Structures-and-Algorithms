@@ -6,15 +6,15 @@
 |----|---------|----------------|
 |  | Valid Parentheses | |
 |  | Longest Valid Parentheses | |
-|  | Score of Parentheses | |
 |  | Minimum Add to Make Parentheses Valid | |
+|  | Minimum Remove to Make Valid Parentheses | |
 |  | Valid Parenthesis String | |
+|  | Score of Parentheses | |
 |  | Remove Outermost Parentheses | |
+|  | Maximum Nesting Depth of the Parentheses | |
 |  | Maximum Nesting Depth of Two Valid Parentheses Strings | |
 |  | Reverse Substrings Between Each Pair of Parentheses | |
-|  | Minimum Remove to Make Valid Parentheses | |
 |  | Minimum Insertions to Balance a Parentheses String | |
-|  | Maximum Nesting Depth of the Parentheses | |
 |  | Check if a Parentheses String Can Be Valid | |
 
 ## 2. Implementations
