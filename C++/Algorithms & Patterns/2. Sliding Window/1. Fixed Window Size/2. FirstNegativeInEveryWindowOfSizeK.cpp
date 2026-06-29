@@ -41,7 +41,39 @@ using namespace std;
 
 class Solution {
 public:
-    vector<int> firstNegativeOfWindowSizeK(vector<int>& A, int K) {
+    vector<int> firstNegativeOfWindowSizeKType1(vector<int>& A, int K) {
+
+        vector<int> firstNegatives;
+        queue<int> Q;
+
+        int start = 0, end = 0;
+		
+		while (end < A.size())
+		{
+			if (A[end] < 0)
+				Q.push(end);
+			
+			// check window size
+			if (end - start + 1 < k)
+				end++;
+			else if (end - start + 1 == k)
+			{
+				int negativeNum = Q.empty() ? 0 : A[Q.front()];
+				firstNegatives.push_back(negativeNum);
+				
+				// delete the out of window elements
+				if (!Q.empty() && Q.front() <= end - k + 1)
+					Q.pop();
+				
+                // slide the window
+				start++;
+				end++;
+			}
+		}
+        
+        return firstNegatives;
+    }
+    vector<int> firstNegativeOfWindowSizeKType2(vector<int>& A, int K) {
 
         vector<int> firstNegatives;
         queue<int> Q;
@@ -78,19 +110,19 @@ public:
 int main() {
     Solution obj;
     vector<int> A = { -8, 2, 3, -6, 1 };
-    auto firstNegatives = obj.firstNegativeOfWindowSizeK(A, 2);
+    auto firstNegatives = obj.firstNegativeOfWindowSizeKType1(A, 2);
     for (auto i : firstNegatives) {
         cout << i << " ";
     }
     cout << endl; 
     A = { 12, -1, -7, 8, -15, 30, 16, 28 };
-    firstNegatives = obj.firstNegativeOfWindowSizeK(A, 3);
+    firstNegatives = obj.firstNegativeOfWindowSizeKType1(A, 3);
     for (auto i : firstNegatives) {
         cout << i << " ";
     }
     cout << endl;
     A = { 2, 3 };
-    firstNegatives = obj.firstNegativeOfWindowSizeK(A, 1);
+    firstNegatives = obj.firstNegativeOfWindowSizeKType1(A, 1);
     for (auto i : firstNegatives) {
         cout << i << " ";
     }

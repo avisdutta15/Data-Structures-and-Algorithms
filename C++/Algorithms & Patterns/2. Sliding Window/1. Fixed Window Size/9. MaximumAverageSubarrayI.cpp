@@ -38,7 +38,42 @@ using namespace std;
 
 class Solution {
 public:
-	double findMaxAverage(vector<int>& nums, int k) {
+	double findMaxAverageType1(vector<int>& nums, int k) {
+        int sum = 0, maxSum = 0;
+        int start = 0, end = 0;
+
+        // since we have -ve numbers, we cannot keep maxSum = 0
+        // so we will keep the first window sum as maxSum. Track the
+        // first window using a boolean variable
+        bool firstWindow = false;
+
+        while(end < nums.size()){
+            sum = sum + nums[end];
+
+            if(end - start + 1 < k)
+                end++;
+            else if(end - start + 1 == k){
+                // process window
+                if(firstWindow == false){
+                    firstWindow = true;
+                    maxSum = sum;
+                }else
+                    maxSum = max(maxSum, sum);
+
+                // eliminate out of window elements
+                sum = sum - nums[start];
+
+                // slide the window
+                start++;
+                end++;
+            }
+        }
+		
+		// return the average
+        return (double)maxSum / k;
+    }
+
+	double findMaxAverageType2(vector<int>& nums, int k) {
 		double maxAverage = 0;
 		int n = nums.size();
 		double sum = 0;
@@ -62,10 +97,10 @@ public:
 int main() {
 	Solution obj;
 	vector<int> nums = { 1,12,-5,-6,50,3 };
-	cout << obj.findMaxAverage(nums, 4) << endl;
+	cout << obj.findMaxAverageType1(nums, 4) << endl;
 
 	nums = { -1 };
-	cout << obj.findMaxAverage(nums, 1) << endl;
+	cout << obj.findMaxAverageType1(nums, 1) << endl;
 
 	return 0;
 }

@@ -67,7 +67,38 @@ using namespace std;
 
 class Solution {
 public:
-	vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+    vector<int> maxSlidingWindowType1(vector<int>& nums, int k) {
+        vector<int> result;
+        deque<int> DQ;  //Q has indices
+        int start = 0, end = 0;
+
+        while (end < nums.size()) {
+            // add to current window
+            while (!DQ.empty() && nums[DQ.back()] < nums[end])
+                DQ.pop_back();
+
+            DQ.push_back(end);
+
+            // check window size
+            if (end - start + 1 < k)
+                end++;
+            else if (end - start + 1 == k) {
+                // process window
+                result.push_back(nums[DQ.front()]);
+
+                // eliminate out of window indices
+                if(DQ.front() <= end - k + 1)
+                    DQ.pop_front();
+
+                // slide the window
+                start++;
+                end++;
+            }
+        }
+        return result;
+    }
+
+	vector<int> maxSlidingWindowType2(vector<int>& nums, int k) {
 		if (nums.size() <= 1)
 			return nums;
 
@@ -110,7 +141,7 @@ public:
 int main() {
 	Solution obj;
 	vector<int> nums = { 1,3,1,2,0,5 };
-	auto maxOfEachWindow = obj.maxSlidingWindow(nums, 3);
+	auto maxOfEachWindow = obj.maxSlidingWindowType1(nums, 3);
 	for (auto i : maxOfEachWindow) {
 		cout << i << " ";
 	}

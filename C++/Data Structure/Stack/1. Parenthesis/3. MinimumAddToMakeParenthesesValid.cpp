@@ -38,7 +38,7 @@ using namespace std;
     Approach:
     ---------
     In Stack we store the invalid brackets.
-    Whenever we find a valid pair, we pop from stack.
+    Whenever we find a valid pair i.e. (, we pop from stack.
     At the end the stack has invalid brackets for whome we need the corresponding partner.
 
     Traverse 0 to n-1:

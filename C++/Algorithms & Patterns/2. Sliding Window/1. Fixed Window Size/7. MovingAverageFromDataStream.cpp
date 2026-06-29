@@ -24,7 +24,16 @@ using namespace std;
 
 	Approach:
 	---------
-
+	Maintain a Q to store the incoming numbers.
+	Maintain a variable sum to store the sum of numbers.
+	Q.push(x); 
+	sum = sum + x;
+	if(Q.size() < K)
+		return sum / Q.size();
+	else
+		sum = sum - Q.front();
+		Q.pop();
+	return sum / Q.size();
 */
 
 class MovingAverage {

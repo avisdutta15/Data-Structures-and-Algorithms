@@ -55,8 +55,47 @@ using namespace std;
 */
 
 class Solution {
+private:
+    void getFrequencyOfP(string &s, vector<int> &pFreq){
+        for(char c: s)
+            pFreq[c-'a']++;
+    }
 public:
-	vector<int> findAnagrams(string s, string p) {
+    vector<int> findAnagramsType1(string s, string p) {
+        vector<int> pFreq(26, 0);
+        vector<int> sFreq(26, 0);
+        vector<int> startIndices;
+        int K = p.length();
+
+        getFrequencyOfP(p, pFreq);
+
+        int start = 0, end = 0;
+
+        while(end < s.length()){
+            // add to current window
+            sFreq[s[end] - 'a']++;
+
+            // check window size
+            if(end - start + 1 < K)
+                end++;
+            else if (end - start + 1 == K){
+                // process window
+                if(pFreq == sFreq)
+                    startIndices.push_back(start);
+                
+                // eliminate out of window indices
+                sFreq[s[start] - 'a']--;
+
+                // slide window
+                start++;
+                end++;
+            }
+        }
+
+        return startIndices;
+    }
+
+	vector<int> findAnagramsType2(string s, string p) {
 		vector<int> allanagrams;
 
 		vector<int> pHash(26, 0);
@@ -92,7 +131,7 @@ int main() {
 	string s = "abab";
 	string p = "ab";
 
-	auto allAnagrams = obj.findAnagrams(s, p);
+	auto allAnagrams = obj.findAnagramsType1(s, p);
 	for (int i : allAnagrams) {
 		cout << i << " ";
 	}
@@ -100,7 +139,7 @@ int main() {
 
 	s = "abacabad";
 	p = "aaab";
-	allAnagrams = obj.findAnagrams(s, p);
+	allAnagrams = obj.findAnagramsType1(s, p);
 	for (int i : allAnagrams) {
 		cout << i << " ";
 	}
@@ -108,7 +147,7 @@ int main() {
 
 	s = "cbaebabacd";
 	p = "abc";
-	allAnagrams = obj.findAnagrams(s, p);
+	allAnagrams = obj.findAnagramsType1(s, p);
 	for (int i : allAnagrams) {
 		cout << i << " ";
 	}
