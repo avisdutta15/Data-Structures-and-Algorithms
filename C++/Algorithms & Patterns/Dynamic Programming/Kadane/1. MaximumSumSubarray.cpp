@@ -127,6 +127,52 @@ public:
     }
 };
 
+// Print the start and end indices
+class Solution4 {
+public:
+    int printMaxSubArray(vector<int>& nums) {
+
+        // maximum_subarray_sum_ending_at_i represents the maximum sum of a contiguous subarray ending at index i
+        // This is not the global maximum, just the maximum ending at that index
+        int maximum_subarray_sum_ending_at_i = nums[0];
+
+        // global maximum sum
+        int max_subarray_sum = nums[0];
+
+        int start_index = 0;
+        int end_index = 0;
+
+
+        for (int i = 1; i < nums.size(); i++)
+        {
+            // At index i, either extend the existing subarray or start a new one
+            int subarray_sum_ending_at_i = maximum_subarray_sum_ending_at_i + nums[i];
+            int subarray_sum_starting_at_i = nums[i];
+
+            // Update start if we start from ith index.
+            if (subarray_sum_starting_at_i > subarray_sum_ending_at_i) {
+                start_index = i;
+                maximum_subarray_sum_ending_at_i = subarray_sum_starting_at_i;
+            }
+            else {
+                maximum_subarray_sum_ending_at_i = subarray_sum_ending_at_i;
+            }
+
+            // Update the global maximum if the current running sum is larger
+            // Update the end index if we update the global max sum
+            if (maximum_subarray_sum_ending_at_i > max_subarray_sum ) {
+                end_index = i;
+                max_subarray_sum = maximum_subarray_sum_ending_at_i;
+            }
+        }
+
+        cout << "Start Index: " << start_index << ", End Index: " << end_index << endl;
+
+        return max_subarray_sum;
+    }
+};
+
+
 int main() {
     Solution1 obj1;
 	vector<int> A = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
@@ -137,5 +183,8 @@ int main() {
 
     Solution3 obj3;
     cout << obj3.maxSubArray(A) << endl;
+
+    Solution4 obj4;
+    cout << obj4.printMaxSubArray(A) << endl;
 	return 0;
 }
