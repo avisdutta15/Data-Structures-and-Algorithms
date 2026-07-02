@@ -98,7 +98,10 @@ class Solution{
         int N = prices.size();
         vector<vector<vector<int>>> dp(N+1, vector<vector<int>>(2, vector<int>(3, 0)));
 
-        //dp[i][j][k] : represents on ith day if we can do jth action(0: buy, 1: sell) with at max k transactions 
+        //dp[i][j][k] : represents on ith day if we can do jth action(0: buy, 1: sell) with at max 2 transactions
+        // i can span from 0 to N-1.                            Total N states
+        // j can span from 0 to 1 (buy and not buy).            Total 2 states
+        // k can span from 0 to 2 (0 tranx, 1 tranx, 2 tranx).  Total 3 states.
         for(int i=N; i>=0; i--){
             for(int canIBuyOnIthDay = 0; canIBuyOnIthDay<=1; canIBuyOnIthDay++){
                 for(int maxTransaction = 0; maxTransaction<=2; maxTransaction++){
