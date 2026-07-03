@@ -6,6 +6,8 @@
 using namespace std;
 
 /*
+    https://www.youtube.com/watch?v=Ss9ta1zmiZo&pp=ygUXYm9vayBhbGxvY2F0aW9uIHByb2JsZW0%3D
+    
     Given number of pages in n different books and m students. The books are arranged
     in ascending order of number of pages. Every student is assigned to read some
     consecutive books. The task is to assign books in such a way that the maximum number
