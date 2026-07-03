@@ -17,6 +17,7 @@
 |  | Minimum Insertions to Balance a Parentheses String | |
 |  | Check if a Parentheses String Can Be Valid | |
 
+
 ## 2. Implementations
 
 | Id | Problem | Comment / Urls |
@@ -35,6 +36,7 @@
 | 12 | Design Browser History | |
 | 13 | Simplify Path | |
 | 14 | Reorder List | |
+| 15 | Maximum Frequency Stack  | |
 
 ## 3. Monotonic Stack
 https://www.youtube.com/watch?v=Dq_ObZwTY_Q&list=PLA96ZCqAS-Ysbg74pGnOF7qFGWj24HmY-&index=2&pp=iAQB
