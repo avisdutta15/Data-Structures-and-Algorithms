@@ -139,6 +139,8 @@ private:
 			if (hs.find(A[i]) != hs.end())
 				continue;
 			
+			// insert into subsequence only if the subsequence is empty or it is greater than last
+			// element of subsequence
 			if (subsequence.size() == 0 || subsequence[subsequence.size() - 1] <= A[i])
 			{
 				hs.insert(A[i]);
