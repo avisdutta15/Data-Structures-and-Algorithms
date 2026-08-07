@@ -292,10 +292,10 @@ void backtrack(vector<int>& nums, int index, vector<int>& current_subset, vector
 
 Example 1:
 
-Input: n = 4, k = 2
-Output: [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]
-Explanation: There are 4 choose 2 = 6 total combinations.
-Note that combinations are unordered, i.e., [1,2] and [2,1] are considered to be the same combination.
+Input: n = 4, k = 2 <br/>
+Output: [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]] <br/>
+Explanation: There are 4 choose 2 = 6 total combinations. <br/>
+Note that combinations are unordered, i.e., [1,2] and [2,1] are considered to be the same combination. <br/>
 
 A naive approach can be to generate all the subsets and add only those subsets whose size == 2. We can then solve it by include/exclude, for-loop based.
 
