@@ -1,5 +1,18 @@
 # Backtracking Patterns
 
+## Table of Contents
+
+- [Pattern 1. Include/Exclude (The Binary Decision Pattern)](#pattern-1-includeexclude-the-binary-decision-pattern-pick--dont-pick)
+- [Pattern 2.1. The For-Loop "Team" Pattern](#pattern-21-the-for-loop-team-pattern)
+- [Pattern 2.2. The For-Loop "Team" Pattern - Conditioning](#pattern-22-the-for-loop-team-pattern---conditioning)
+- [Pattern 2.3. The For-Loop "Team" Pattern - Pruning](#pattern-23-the-for-loop-team-pattern---pruning)
+- [3. Permutations (The "Ordering" Pattern)](#3-permutations-the-ordering-pattern)
+- [4. String Partitioning (The "Slicing" Pattern)](#4-string-partitioning-the-slicing-pattern)
+- [5. 2D Grid & Graph Search (The "Pathfinding" Pattern)](#5-2d-grid--graph-search-the-pathfinding-pattern)
+- [6. Bin Packing & Complex State Space (The "Distribution" Pattern)](#6-bin-packing--complex-state-space-the-distribution-pattern)
+
+---
+
 ## Pattern 1. Include/Exclude (The Binary Decision Pattern Pick / Don't Pick)
 
 Problems where the core logic is a sequence of mutually exclusive choices: "Take it or Leave it", "Add (+) or Subtract (-)", or "Option A or Option B".
