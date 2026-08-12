@@ -28,14 +28,12 @@ using namespace std;
 
 	Approach 1 :
 	----------
-	Include and exclude
-	
-	//Tranasform the character -> Similar to Include
-	if the current character is a alphabet
-		if lowercase then make it uppercase. 
-		else if uppercase then make it lowercase
-
-	//Don't Transform the character -> Similar to Exclude
+	At every recursive step i, you only make a decision for the current character at index i.
+		- If it's a letter -> Branch twice 
+			append lower, recurse, backtrack
+			append upper, recurse, backtrack.
+		- If it's a digit -> Branch once 
+			append digit, recurse, backtrack.
 	
 	
 	Approach 2:
@@ -44,17 +42,18 @@ using namespace std;
 
 	store the result only when current_subset.size == input_str.size
 	for i=startidx to i<=input_str.size
-		//Tranasform the character -> Similar to Include
-		if the current character is a alphabet
-			if lowercase then make it uppercase. 
-			else if uppercase then make it lowercase
-
-		//Don't Transform the character -> Similar to Exclude
+		you only make a decision for the current character at index i.
+		- If it's a letter -> Branch twice 
+			append lower, recurse, backtrack
+			append upper, recurse, backtrack.
+		- If it's a digit -> Branch once 
+			append digit, recurse, backtrack.
 */
 
+// include / exclude
 class Solution1 {
 private:
-	void solve(string s, int i, string current_subset, vector<string>& allSubsets) {
+	void solve(string s, int i, string &current_subset, vector<string>& allSubsets) {
 		if (i == s.length()) {
 			allSubsets.push_back(current_subset);
 			return;
@@ -63,49 +62,102 @@ private:
 		//if the current character is a alphabet
 		//if lowercase then make it uppercase. if uppercase then make it lowercase
 		if (isalpha(s[i])) {
-			if (islower(s[i]))
-				solve(s, i + 1, current_subset + (char)toupper(s[i]), allSubsets);
-			else
-				solve(s, i + 1, current_subset + (char)tolower(s[i]), allSubsets);
-		}
+            // branch 1: toupper
+            current_subset = current_subset + (char)toupper(s[i]);
+			solve(s, i + 1, current_subset, allSubsets);
+            current_subset.pop_back();
 
-		//either leave it as it is.        
-		solve(s, i + 1, current_subset + s[i], allSubsets);
+            // branch 2: tolower
+            current_subset = current_subset + (char)tolower(s[i]);
+			solve(s, i + 1, current_subset, allSubsets);
+            current_subset.pop_back();
+		}
+        else{
+			// else it is a digit. add it to current_subset.
+    		current_subset = current_subset + s[i];
+		    solve(s, i + 1, current_subset, allSubsets);
+            current_subset.pop_back();
+        }
 	}
 public:
 	vector<string> letterCasePermutation(string s) {
 		vector<string> allSubsets;
 		string current_subset;
-		int i = 0;
-		solve(s, i, current_subset, allSubsets);
+		int start_index = 0;
+		solve(s, start_index, current_subset, allSubsets);
 		return allSubsets;
 	}
 };
 
+// include / exclude + inplace
 class Solution2 {
 private:
-	void solve(string s, int start_index, string current_subset, vector<string>& allSubsets) {
+	void solve(string &s, int i, vector<string>& allSubsets) {
+		if (i == s.length()) {
+			allSubsets.push_back(s);
+			return;
+		}
 
-		// In normal scenarios we add all the nodes, but here we need the nodes
-		// whose size is equal to the size of the i/p string.
+        char originalChar = s[i];	//track it to restore after each recursive call
+
+		//if the current character is a alphabet
+		//if lowercase then make it uppercase. if uppercase then make it lowercase
+		if (isalpha(s[i])) {
+            // branch 1: toupper
+            s[i] = (char)toupper(s[i]);
+			solve(s, i + 1, allSubsets);
+            s[i] = originalChar;	// backtrack -> place the original character back
+
+            // branch 2: tolower
+            s[i] = (char)tolower(s[i]);
+			solve(s, i + 1, allSubsets);
+            s[i] = originalChar;	// backtrack -> place the original character back
+		}
+        else{
+			// else it is a digit. leave it as it is.
+    		solve(s, i + 1, allSubsets);
+        }
+	}
+public:
+	vector<string> letterCasePermutation(string s) {
+		vector<string> allSubsets;
+		int i = 0;
+		solve(s, i, allSubsets);
+		return allSubsets;
+	}
+};
+
+// for-loop. Add only when the current_subset has length = original string length
+class Solution3 {
+private:
+	void solve(string s, int start_index, string &current_subset, vector<string>& allSubsets) {
+		// base case: 
 		if (current_subset.length() == s.length()) {
 			allSubsets.push_back(current_subset);
 			return;
 		}
 
-		for (int i = start_index; i < s.length(); i++) {
-			//if the current character is a alphabet
-			//if lowercase then make it uppercase. if uppercase then make it lowercase
-			if (isalpha(s[i])) {
-				if (islower(s[i]))
-					solve(s, i + 1, current_subset + (char)toupper(s[i]), allSubsets);
-				else
-					solve(s, i + 1, current_subset + (char)tolower(s[i]), allSubsets);
-			}
+        for (int i = start_index; i < s.length(); i++){
+            //if the current character is a alphabet
+            //if lowercase then make it uppercase. if uppercase then make it lowercase
+            if (isalpha(s[i])) {
+                // branch 1: toupper
+                current_subset = current_subset + (char)toupper(s[i]);
+                solve(s, i + 1, current_subset, allSubsets);
+                current_subset.pop_back();
 
-			//either leave it as it is.        
-			solve(s, i + 1, current_subset + s[i], allSubsets);
-		}
+                // branch 2: tolower
+                current_subset = current_subset + (char)tolower(s[i]);
+                solve(s, i + 1, current_subset, allSubsets);
+                current_subset.pop_back();
+            }
+            else{
+				// else it is a digit. add it to current_subset.
+                current_subset = current_subset + s[i];
+                solve(s, i + 1, current_subset, allSubsets);
+                current_subset.pop_back();
+            }
+        }
 	}
 public:
 	vector<string> letterCasePermutation(string s) {

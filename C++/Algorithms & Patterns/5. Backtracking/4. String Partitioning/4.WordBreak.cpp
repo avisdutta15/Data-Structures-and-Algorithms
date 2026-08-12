@@ -80,7 +80,7 @@ Level 2:             solve(8)
         Returns True (Sets memo[8] = 1)
 
 
-    How Memoization is used?
+How Memoization is used?
     Let's use a new Word Break example that fails, forcing the algorithm to try everything:
         
         s = "aab"
@@ -106,6 +106,16 @@ Level 2:             solve(8)
     Notice that solve(2) (which evaluates the remaining string "b") is called twice.
     Once after taking "a" then "a".
     Again after taking "aa".
+
+    aab
+    a -
+      |
+      ab
+       |
+       b
+    aa-
+      |
+      b
     In a small string, this is fine. But in a string like "aaaaaaaaab", this overlapping 
     explodes exponentially, causing millions of redundant solve() calls.
 

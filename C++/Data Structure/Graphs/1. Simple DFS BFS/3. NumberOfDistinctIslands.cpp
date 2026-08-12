@@ -58,9 +58,73 @@ using namespace std;
 
 
 	Optimization:
-	Instead of using set to get the unique, we can use string encoding + unordered_map
+	Instead of using set to get the unique, we can use string encoding + unordered_set
 
+		unordered_set<string> uniqueIslands;
+		traverse the grid
+			if land
+				string islandSignature;
+				islandSignature.reserve(50 * 50 * 8);
+				DFS(...., &islandSignature)
+				uniqueIslands.insert(islandsignature)
+		return uniqueIslands.size();
 
+		In C++, strings automatically allocate memory as they grow. If you append characters one by one, 
+		the string will run out of space, create a bigger block of memory, copy everything over, and 
+		delete the old block. This is called reallocation, and doing it thousands of times inside a 
+		DFS is very slow.
+
+		By using reserve(), the developer tells C++:
+		"I am about to build a string. Please reserve enough contiguous memory upfront to hold 
+		[Max Island Size] * [8 characters per block]. This way, you will never have to pause and 
+		reallocate memory while my DFS is running."
+
+		why 50 * 50 * 8?
+		The * 8 represents the maximum number of characters generated per cell visited. 
+		Let's break down the worst-case scenario for a single cell's coordinate string:
+		- Row Coordinate: Can be a negative number, up to 2 digits (e.g., -50) -> 3 chars
+		- Delimiter: A comma separating row and col (,) -> 1 char
+		- Col Coordinate: Can be a negative number, up to 2 digits (e.g., -50) -> 3 chars
+		- Separator: A delimiter separating this cell from the next (|) -> 1 char
+		- Total characters for a worst-case cell: 3 + 1 + 3 + 1 = 8 characters.
+
+		why row and col can grow to -50?
+		Since we are doing baseI-i and baseJ-j, 
+		for a 50*50 grid, if the entire grid is a big island, then starting the DFS at 0,0
+		and at 49*49 cell, we will have {0-49, 0-49} which is {-49, -49}
+
+	Time Complexity: R x C
+		The secret to this strict O(R x C) limit is that as soon as the DFS visits a land cell (1), 
+		it immediately marks it as visited (usually by turning it into a 0 or updating a boolean array).
+		Because of this, a cell can never be processed by the DFS loop more than once.
+		
+		Let's look at the extreme grid layouts to prove this:
+		
+		Extreme Case 1: The grid is 100% water (All 0s)
+		- The double for loop checks every single cell.
+		- The if (grid[i][j] == 1) condition is never met.
+		- The DFS is never called.
+		- Total Operations: R x C checks.
+		
+		Extreme Case 2: The grid is 100% land (All 1s)
+		- The double for loop checks the very first cell at (0,0).
+		- The if condition is met! The DFS triggers.
+		- The DFS runs wildly through the entire grid, visiting every single cell, processing them, 
+		and turning them all into 0s.
+		- The DFS finishes and returns to the double for loop.
+		- The for loop continues from (0,1) to the end of the board. 
+		- But because the DFS already turned everything into 0s, the if condition is never met again.
+		- Total Operations: R x C cells visited by DFS + R x C cells skipped by the loop = O(2 x R x C), 
+		  which simplifies exactly to O(R x C).
+		  
+		Extreme Case 3: The Checkerboard (Alternating 1s and 0s)
+		- The double for loop checks every cell.
+		- It finds a 1, triggers the DFS. 
+		- The DFS visits exactly one cell (because it is surrounded by 0s), flips it, and returns.
+		- This happens R x C / 2 times.
+		- Total Operations: Half the cells processed by DFS + all cells checked by the loop = O(R x C).
+
+	Space Complexity : O(R x C)
 	
 */
 class Solution {

@@ -63,18 +63,22 @@ class Solution{
 private:
 	unordered_map<int, string> mapping;
 	void solve(const string &digits, int digit_index, string current_combination, vector<string> &allCombinations) {
+		// base case
 		if (digit_index == digits.length()) {
 			allCombinations.push_back(current_combination);
 			return;
 		}
 
+		// get the current word from the dict based on the digit_index
 		int current_digit = digits[digit_index] - '0';
 		string word = mapping[current_digit];
 
+		// recurse for every character in the current word by 
+		// adding it to the combination.
 		for (int i = 0; i < word.length(); i++) {
 			current_combination += word[i];
 			solve(digits, digit_index + 1, current_combination, allCombinations);
-			current_combination.pop_back();
+			current_combination.pop_back();	// backtrack
 		}
 	}
 public:
