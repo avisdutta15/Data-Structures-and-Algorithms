@@ -83,15 +83,15 @@
 ## BFS Variants (0-1 BFS, multi-source BFS)
 | Id | Problem | Comment / Urls |
 |----|---------|----------------|
-|    |Surrounded Regions | X |
-|    |Shortest Bridge| X |
-|    |Number Of Enclaves| X |
-|    |Number Of closed Islands| X |
+|    |Surrounded Regions |  |
+|    |Shortest Bridge|  |
+|    |Number Of Enclaves|  |
+|    |Number Of closed Islands|  |
 | 12 |0/1 Matrix | Instead of BFS from 1 to 0, do a multi-source BFS from 0s to 1s. Imagine dropping stones into water at multiple points - each 0 is like a stone creating ripples. These ripples expand outward at the same speed, and when a ripple reaches a cell for the first time, that's the shortest distance from that cell to any 0. Use a distance matrix to capture distance and use to determine if the cell is visited or not|
-|    |minimum-height-trees| |
-|    |minimize-malware-spread| |
-|    |minimize-malware-spread-ii| |
-|    |maximum-candies-you-can-get-from-boxes| |
+|    |minimum-height-trees| x |
+|    |minimize-malware-spread| x |
+|    |minimize-malware-spread-ii| x |
+|    |maximum-candies-you-can-get-from-boxes| x |
 |    |Word Ladder 1| |
 |    |Word Ladder 2| |
 
