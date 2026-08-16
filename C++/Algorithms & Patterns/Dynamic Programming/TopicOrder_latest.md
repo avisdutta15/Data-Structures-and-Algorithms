@@ -271,9 +271,11 @@
 
 ### 21. State Machine DP - Recurrences
 
-**Stock I (121):** No recurrence needed. Single pass tracking min price.
+#### Stock I (121)
+No recurrence needed. Single pass tracking min price.
 
-**Stock II (122):** Unlimited transactions.
+#### Stock II (122)
+Unlimited transactions.
 ```
 solve(i, canBuy):
   if i == n: return 0
@@ -287,7 +289,8 @@ solve(i, canBuy):
     return max(sell, skip)
 ```
 
-**Stock III (123):** At most 2 transactions.
+#### Stock III (123)
+At most 2 transactions.
 ```
 solve(i, canBuy, txLeft):
   if i == n or txLeft == 0: return 0
@@ -301,7 +304,8 @@ solve(i, canBuy, txLeft):
     return max(sell, skip)
 ```
 
-**Stock IV (188):** At most K transactions. Same as III with `txLeft = k`.
+#### Stock IV (188)
+At most K transactions. Same as III with `txLeft = k`.
 ```
 solve(i, canBuy, txLeft):
   if i == n or txLeft == 0: return 0
@@ -315,7 +319,8 @@ solve(i, canBuy, txLeft):
     return max(sell, skip)
 ```
 
-**Stock with Cooldown (309):** Sell jumps to i+2 instead of i+1.
+#### Stock with Cooldown (309)
+Sell jumps to i+2 instead of i+1.
 ```
 solve(i, canBuy):
   if i >= n: return 0
@@ -329,7 +334,8 @@ solve(i, canBuy):
     return max(sell, skip)
 ```
 
-**Stock with Transaction Fee (714):** Subtract fee on sell.
+#### Stock with Transaction Fee (714)
+Subtract fee on sell.
 ```
 solve(i, canBuy):
   if i == n: return 0
