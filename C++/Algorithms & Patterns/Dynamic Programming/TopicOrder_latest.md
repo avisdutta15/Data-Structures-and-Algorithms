@@ -262,9 +262,83 @@
 
 | LC Code | Problem Name | Notes |
 |---------|-------------|-------|
-| 121 | Best Time to Buy and Sell Stock | |
-| 122 | Best Time to Buy and Sell Stock II | |
-| 123 | Best Time to Buy and Sell Stock III | |
-| 188 | Best Time to Buy and Sell Stock IV | |
-| 309 | Best Time to Buy and Sell Stock with Cooldown | |
-| 714 | Best Time to Buy and Sell Stock with Transaction Fee | |
+| 121 | Best Time to Buy and Sell Stock | 1 transaction only. Track `minPrice`, update `maxProfit = max(maxProfit, price - minPrice)`. [Recurrence](#stock-i-121) |
+| 122 | Best Time to Buy and Sell Stock II | Unlimited transactions. Greedy: sum all positive differences. [Recurrence](#stock-ii-122) |
+| 123 | Best Time to Buy and Sell Stock III | At most 2 transactions. Decrement `txLeft` on sell. [Recurrence](#stock-iii-123) |
+| 188 | Best Time to Buy and Sell Stock IV | At most K transactions. Generalization of III. If `K >= N/2`, use Stock II greedy. [Recurrence](#stock-iv-188) |
+| 309 | Best Time to Buy and Sell Stock with Cooldown | Unlimited transactions + 1 day cooldown after sell. Jump to `i+2` on sell. [Recurrence](#stock-with-cooldown-309) |
+| 714 | Best Time to Buy and Sell Stock with Transaction Fee | Unlimited transactions + fee per transaction. Subtract fee on sell. [Recurrence](#stock-with-transaction-fee-714) |
+
+### 21. State Machine DP - Recurrences
+
+**Stock I (121):** No recurrence needed. Single pass tracking min price.
+
+**Stock II (122):** Unlimited transactions.
+```
+solve(i, canBuy):
+  if i == n: return 0
+  if canBuy:
+    buy  = -prices[i] + solve(i+1, 0)
+    skip = solve(i+1, 1)
+    return max(buy, skip)
+  else:
+    sell = prices[i] + solve(i+1, 1)
+    skip = solve(i+1, 0)
+    return max(sell, skip)
+```
+
+**Stock III (123):** At most 2 transactions.
+```
+solve(i, canBuy, txLeft):
+  if i == n or txLeft == 0: return 0
+  if canBuy:
+    buy  = -prices[i] + solve(i+1, 0, txLeft)
+    skip = solve(i+1, 1, txLeft)
+    return max(buy, skip)
+  else:
+    sell = prices[i] + solve(i+1, 1, txLeft - 1)
+    skip = solve(i+1, 0, txLeft)
+    return max(sell, skip)
+```
+
+**Stock IV (188):** At most K transactions. Same as III with `txLeft = k`.
+```
+solve(i, canBuy, txLeft):
+  if i == n or txLeft == 0: return 0
+  if canBuy:
+    buy  = -prices[i] + solve(i+1, 0, txLeft)
+    skip = solve(i+1, 1, txLeft)
+    return max(buy, skip)
+  else:
+    sell = prices[i] + solve(i+1, 1, txLeft - 1)
+    skip = solve(i+1, 0, txLeft)
+    return max(sell, skip)
+```
+
+**Stock with Cooldown (309):** Sell jumps to i+2 instead of i+1.
+```
+solve(i, canBuy):
+  if i >= n: return 0
+  if canBuy:
+    buy  = -prices[i] + solve(i+1, 0)
+    skip = solve(i+1, 1)
+    return max(buy, skip)
+  else:
+    sell = prices[i] + solve(i+2, 1)      // cooldown: skip next day
+    skip = solve(i+1, 0)
+    return max(sell, skip)
+```
+
+**Stock with Transaction Fee (714):** Subtract fee on sell.
+```
+solve(i, canBuy):
+  if i == n: return 0
+  if canBuy:
+    buy  = -prices[i] + solve(i+1, 0)
+    skip = solve(i+1, 1)
+    return max(buy, skip)
+  else:
+    sell = prices[i] - fee + solve(i+1, 1)
+    skip = solve(i+1, 0)
+    return max(sell, skip)
+```
