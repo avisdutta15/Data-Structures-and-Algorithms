@@ -11,6 +11,7 @@
 using namespace std;
 
 /*
+    https://www.youtube.com/watch?v=wmn3c1mP0pY&t=1081s
     Problem Statement:
     ------------------
     Given an integer array nums and an integer k, return true if nums has a
