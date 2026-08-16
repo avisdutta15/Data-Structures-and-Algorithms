@@ -239,7 +239,7 @@
 | LC Code | Problem Name | Notes |
 |---------|-------------|-------|
 | | Diameter of Tree | |
-| | Maximum Path Sum from any Node to Any (Only Positive numbers) | |
+| | Binary Tree Maximum Path Sum - Maximum Path Sum from any Node to Any (Only Positive numbers) | |
 | | Maximum Path Sum from any Node to Any (+ve and -ve numbers) | |
 | | Maximum Path Sum from leaf to leaf | |
 | | Diameter of N-ary Tree | |
