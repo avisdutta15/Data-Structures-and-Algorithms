@@ -57,6 +57,7 @@ using namespace std;
 */
 
 class Solution {
+    // Time: O(2^N), Space: O(N)
     int maxProfitRecursive(vector<int>& prices, int i, bool canIBuyOnIthDay, int transactionsLeft) {
         //Base Case : No days left. Return 0 profit.
         if (i == prices.size())
@@ -86,6 +87,7 @@ class Solution {
         return profitOnIthDay;
     }
 
+    // Time: O(N × 2 × 3) = O(N), Space: O(N × 2 × 3) = O(N)
     int maxProfitTopDown(vector<int>& prices, int i, bool canIBuyOnIthDay, int transactionsLeft, unordered_map<string, int>& lookup) {
         //Base Case : No days left. Return 0 profit.
         if (i == prices.size())
@@ -118,6 +120,7 @@ class Solution {
         return lookup[key] = profitOnIthDay;
     }
 
+    // Time: O(N × 2 × 3) = O(N), Space: O(N × 2 × 3) = O(N)
     int maxProfitTopDown2(vector<int>& prices, int i, bool canIBuyOnIthDay, int transactionsLeft, vector<vector<vector<int>>> &dp) {
         //Base Case : No days left. Return 0 profit.
         if (i == prices.size())
@@ -150,7 +153,7 @@ class Solution {
         return dp[i][canIBuyOnIthDay][transactionsLeft] = profitOnIthDay;
     }
 
-
+    // Time: O(N × 2 × 3) = O(N), Space: O(N × 2 × 3) = O(N)
     int maxProfitBottomUp(vector<int>& prices) {
         int N = prices.size();
         vector<vector<vector<int>>> dp(N + 1, vector<vector<int>>(2, vector<int>(3, 0)));
