@@ -1,5 +1,31 @@
 # Dynamic Programming
 
+## Contents
+
+1. [0/1 Knapsack](#1-01-knapsack)
+2. [Subset Sum](#2-subset-sum)
+3. [Unbounded Knapsack](#3-unbounded-knapsack)
+4. [Longest Common Subsequence (LCS)](#4-longest-common-subsequence-lcs)
+5. [Palindromic Subsequence](#5-palindromic-subsequence)
+6. [Longest Common Substring](#6-longest-common-substring)
+7. [Edit Distance](#7-edit-distance)
+8. [Longest Increasing Subsequence (LIS)](#8-longest-increasing-subsequence-lis)
+9. [Fibonacci Sequence](#9-fibonacci-sequence)
+10. [Count Distinct Ways](#10-count-distinct-ways)
+11. [Kadane's Algorithm](#11-kadanes-algorithm)
+12. [Matrix Chain Multiplication](#12-matrix-chain-multiplication)
+13. [String Partition](#13-string-partition)
+14. [Catalan Numbers](#14-catalan-numbers)
+15. [DP on Grids](#15-dp-on-grids)
+16. [DP on Trees](#16-dp-on-trees)
+17. [DP on Graphs](#17-dp-on-graphs)
+18. [Digit DP](#18-digit-dp)
+19. [Bitmasking DP](#19-bitmasking-dp)
+20. [Probability DP](#20-probability-dp)
+21. [State Machine DP](#21-state-machine-dp)
+
+---
+
 ## 1. 0/1 Knapsack
 
 | LC Code | Problem Name | Notes |
