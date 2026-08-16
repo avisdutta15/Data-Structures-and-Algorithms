@@ -11,6 +11,7 @@
 using namespace std;
 
 /*
+    https://www.youtube.com/watch?v=7Xeorb721LQ
     Problem Statement:
     ------------------
     Given an integer array nums and an integer k, return the number of non-empty
@@ -65,9 +66,31 @@ using namespace std;
 
     Handling Negative Numbers:
     --------------------------
-    In C++, (-5) % 3 can give -2. We need a non-negative remainder in range [0, K-1]:
-
         int rem = ((sum % k) + k) % k;
+
+    In C++, the % operator can return negative remainders when the left operand is negative.
+
+    -7 % 5 = -2    (in C++)
+    But we need remainders in the range [0, K-1] for our hashmap to group them correctly. -2 and 3 should be the same group (both are "equivalent mod 5"), but they'd map to different keys.
+
+    The formula ((sum % k) + k) % k fixes this:
+
+    Step by step for sum = -7, k = 5:
+
+        sum % k         = -7 % 5  = -2
+        (sum % k) + k   = -2 + 5  = 3
+        ((sum % k) + k) % k = 3 % 5 = 3   ✓ (now in range [0, 4])
+    
+    Why the final % k again? For when sum is already positive:
+    sum = 7, k = 5:
+
+        sum % k         = 7 % 5  = 2
+        (sum % k) + k   = 2 + 5  = 7
+        ((sum % k) + k) % k = 7 % 5 = 2   ✓ (without the final %k, we'd get 7, which is wrong)
+    TL;DR:
+        + k handles the negative case (shifts it to positive)
+        The outer % k handles the positive case (brings it back into [0, k-1] after adding k)
+
 
     Worked Example:
     ---------------
