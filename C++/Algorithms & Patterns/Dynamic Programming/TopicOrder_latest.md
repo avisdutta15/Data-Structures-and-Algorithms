@@ -274,8 +274,12 @@
 #### Stock I (121)
 No recurrence needed. Single pass tracking min price.
 
+**States:** None (greedy single pass).
+
 #### Stock II (122)
 Unlimited transactions.
+
+**States:** `dp[n+1][2]` → `i`: 0 to n (n+1 values), `canBuy`: 0 or 1 (2 values).
 ```
 solve(i, canBuy):
   if i == n: return 0
@@ -291,6 +295,8 @@ solve(i, canBuy):
 
 #### Stock III (123)
 At most 2 transactions.
+
+**States:** `dp[n+1][2][3]` → `i`: 0 to n (n+1), `canBuy`: 0 or 1 (2), `txLeft`: 0 to 2 (3 values).
 ```
 solve(i, canBuy, txLeft):
   if i == n or txLeft == 0: return 0
@@ -306,6 +312,8 @@ solve(i, canBuy, txLeft):
 
 #### Stock IV (188)
 At most K transactions. Same as III with `txLeft = k`.
+
+**States:** `dp[n+1][2][k+1]` → `i`: 0 to n (n+1), `canBuy`: 0 or 1 (2), `txLeft`: 0 to k (k+1 values).
 ```
 solve(i, canBuy, txLeft):
   if i == n or txLeft == 0: return 0
@@ -321,6 +329,8 @@ solve(i, canBuy, txLeft):
 
 #### Stock with Cooldown (309)
 Sell jumps to i+2 instead of i+1.
+
+**States:** `dp[n+2][2]` → `i`: 0 to n+1 (n+2 values, extra because sell jumps to i+2), `canBuy`: 0 or 1 (2).
 ```
 solve(i, canBuy):
   if i >= n: return 0
@@ -336,6 +346,8 @@ solve(i, canBuy):
 
 #### Stock with Transaction Fee (714)
 Subtract fee on sell.
+
+**States:** `dp[n+1][2]` → `i`: 0 to n (n+1 values), `canBuy`: 0 or 1 (2 values).
 ```
 solve(i, canBuy):
   if i == n: return 0
