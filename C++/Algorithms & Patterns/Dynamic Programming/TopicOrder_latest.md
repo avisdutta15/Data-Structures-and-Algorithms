@@ -241,7 +241,7 @@
 | | Diameter of Tree | At each node: `diameter = max(diameter, L + R)`, return `1 + max(L, R)`. [Recurrence](#diameter-of-tree) |
 | 124 | Binary Tree Maximum Path Sum (any node to any) | At each node: `maxSum = max(maxSum, val + L + R)`, return `val + max(L, R)`. Use `max(0, branch)` to skip negatives. [Recurrence](#maximum-path-sum-124) |
 | | Maximum Path Sum from leaf to leaf | Same as 124 but path must start/end at leaves. No `max(0, branch)`. Only update global when both children exist. [Recurrence](#maximum-path-sum-leaf-to-leaf) |
-| | Diameter of N-ary Tree | |
+| | Diameter of N-ary Tree | Same as binary diameter but track two tallest children. `diameter = max(diameter, top1 + top2)`, return `1 + top1`. [Recurrence](#diameter-of-n-ary-tree) |
 | 337 | House Robber III | Return `{rob, skip}` pair from each node. `robThis = val + leftSkip + rightSkip`, `skipThis = max(leftRob,leftSkip) + max(rightRob,rightSkip)`. [Recurrence](#house-robber-iii-337) |
 | 968 | Binary Tree Cameras | Greedy post-order. States: 0=not monitored, 1=has camera, 2=monitored. Place cameras on parents of leaves. [Recurrence](#binary-tree-cameras-968) |
 
@@ -324,6 +324,21 @@ dfs(node):
   return 0                      // NOT monitored, parent will handle
 
 // After DFS: if root returns 0, add one more camera on root.
+```
+
+#### Diameter of N-ary Tree
+Same as binary tree diameter but track the two tallest child heights. The diameter through a node = sum of its two tallest branches.
+```
+height(node):
+  if node == null: return 0
+
+  maxHeight1 = 0, maxHeight2 = 0   // two tallest children
+  for each child in node->children:
+    h = height(child)
+    update maxHeight1, maxHeight2 with h
+
+  diameter = max(diameter, maxHeight1 + maxHeight2)   // global update
+  return 1 + maxHeight1                               // return to parent
 ```
 
 ## 17. DP on Graphs
