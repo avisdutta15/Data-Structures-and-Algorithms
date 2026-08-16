@@ -238,14 +238,93 @@
 
 | LC Code | Problem Name | Notes |
 |---------|-------------|-------|
-| | Diameter of Tree | |
-| | Binary Tree Maximum Path Sum - Maximum Path Sum from any Node to Any (Only Positive numbers) | |
-| | Maximum Path Sum from any Node to Any (+ve and -ve numbers) | |
-| | Maximum Path Sum from leaf to leaf | |
+| | Diameter of Tree | At each node: `diameter = max(diameter, L + R)`, return `1 + max(L, R)`. [Recurrence](#diameter-of-tree) |
+| 124 | Binary Tree Maximum Path Sum (any node to any) | At each node: `maxSum = max(maxSum, val + L + R)`, return `val + max(L, R)`. Use `max(0, branch)` to skip negatives. [Recurrence](#maximum-path-sum-124) |
+| | Maximum Path Sum from leaf to leaf | Same as 124 but path must start/end at leaves. No `max(0, branch)`. Only update global when both children exist. [Recurrence](#maximum-path-sum-leaf-to-leaf) |
 | | Diameter of N-ary Tree | |
-| 337 | House Robber III | |
-| 124 | Binary Tree Maximum Path Sum | |
-| 968 | Binary Tree Cameras | |
+| 337 | House Robber III | Return `{rob, skip}` pair from each node. `robThis = val + leftSkip + rightSkip`, `skipThis = max(leftRob,leftSkip) + max(rightRob,rightSkip)`. [Recurrence](#house-robber-iii-337) |
+| 968 | Binary Tree Cameras | Greedy post-order. States: 0=not monitored, 1=has camera, 2=monitored. Place cameras on parents of leaves. [Recurrence](#binary-tree-cameras-968) |
+
+### 16. DP on Trees - Recurrences
+
+#### Diameter of Tree
+At each node, compute left and right subtree heights. The path through this node = L + R edges. Return single side height to parent.
+```
+height(node):
+  if node == null: return 0
+  L = height(node->left)
+  R = height(node->right)
+
+  diameter = max(diameter, L + R)   // global update (edges in path through this node)
+  return 1 + max(L, R)             // return to parent (longest single branch)
+```
+
+#### Maximum Path Sum (124)
+At each node, take both branches if positive for global update, but return only one branch to parent. Use `max(0, branch)` to discard negative contributions.
+```
+maxGain(node):
+  if node == null: return 0
+  L = max(0, maxGain(node->left))
+  R = max(0, maxGain(node->right))
+
+  maxSum = max(maxSum, node->val + L + R)   // global update (both branches)
+  return node->val + max(L, R)              // return to parent (one branch only)
+```
+
+#### Maximum Path Sum Leaf to Leaf
+Path must start and end at leaf nodes. No `max(0, branch)` since we must reach leaves. Only update global when node has both children.
+```
+maxGain(node, maxSum):
+  if node == null: return 0
+  if node is leaf: return node->val
+
+  L = maxGain(node->left, maxSum)
+  R = maxGain(node->right, maxSum)
+
+  if both children exist:
+    maxSumViaThisNode = val + L + R
+    maxSum = max(maxSum, maxSumViaThisNode)   // leaf-to-leaf through this node
+    return val + max(L, R)                    // return better branch
+
+  if only left:  return val + L
+  if only right: return val + R
+```
+
+#### House Robber III (337)
+At each node, return a pair `{rob, skip}`. If we rob this node, we must skip children. If we skip, take the best from each child.
+```
+dfs(node):
+  if node == null: return {0, 0}
+
+  {leftRob, leftSkip}   = dfs(node->left)
+  {rightRob, rightSkip} = dfs(node->right)
+
+  robThis  = node->val + leftSkip + rightSkip
+  skipThis = max(leftRob, leftSkip) + max(rightRob, rightSkip)
+
+  return {robThis, skipThis}
+```
+
+#### Binary Tree Cameras (968)
+Greedy post-order. 3 states: 0=not monitored, 1=has camera, 2=monitored. Null nodes return 2. Place cameras as low as possible (on parents of leaves) to maximize coverage.
+```
+dfs(node):
+  if node == null: return 2 (monitored)
+
+  left  = dfs(node->left)
+  right = dfs(node->right)
+
+  if left == 0 or right == 0:   // child not monitored
+    cameras++
+    return 1                    // place camera here
+
+  if left == 1 or right == 1:   // child has camera
+    return 2                    // we are monitored
+
+  return 0                      // NOT monitored, parent will handle
+
+// After DFS: if root returns 0, add one more camera on root.
+```
 
 ## 17. DP on Graphs
 
