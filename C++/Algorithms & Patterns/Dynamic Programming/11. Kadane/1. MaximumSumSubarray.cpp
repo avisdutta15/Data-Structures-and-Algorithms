@@ -75,10 +75,10 @@ class Solution2 {
 public:
     int maxSubArray(vector<int>& nums) {
 
-        // maximum_subarray_sum_ending_at_i[i] represents the maximum sum of a contiguous subarray ending at index i
+        // maximum_subarray_sum_ending_at[i] represents the maximum sum of a contiguous subarray ending at index i
         // This is not the global maximum, just the maximum ending at that index
-        vector<int> maximum_subarray_sum_ending_at_i(nums.size());
-        maximum_subarray_sum_ending_at_i[0] = nums[0];
+        vector<int> maximum_subarray_sum_ending_at(nums.size());
+        maximum_subarray_sum_ending_at[0] = nums[0];
 
         // global maximum sum
         int max_subarray_sum = nums[0];
@@ -86,13 +86,13 @@ public:
         for (int i = 1; i < nums.size(); i++)
         {
             // At index i, either extend the existing subarray or start a new one
-            int subarray_sum_ending_at_i = maximum_subarray_sum_ending_at_i[i-1] + nums[i];
+            int subarray_sum_ending_at_i = maximum_subarray_sum_ending_at[i-1] + nums[i];
             int subarray_sum_starting_at_i = nums[i];
 
-            maximum_subarray_sum_ending_at_i[i] = max(subarray_sum_ending_at_i, subarray_sum_starting_at_i);
+            maximum_subarray_sum_ending_at[i] = max(subarray_sum_ending_at_i, subarray_sum_starting_at_i);
 
             // Update the global maximum if the current running sum is larger
-            max_subarray_sum = max(max_subarray_sum, maximum_subarray_sum_ending_at_i[i]);
+            max_subarray_sum = max(max_subarray_sum, maximum_subarray_sum_ending_at[i]);
         }
 
         return max_subarray_sum;
