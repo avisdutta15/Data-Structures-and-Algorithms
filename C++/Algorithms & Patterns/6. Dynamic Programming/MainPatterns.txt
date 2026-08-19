@@ -1,0 +1,21 @@
+0/1 Knapsack
+Subset Sum
+Unbounded Knapsack
+Coin Change
+Longest Common Subsquence
+Longest Increasing Subsequence
+Palindromic Subsquence
+Edit Distance
+String Partition
+Catalan Numbers
+Matrix Chain Multiplication
+Count Distinct Ways
+DP on Matrices
+DFS and DP
+DP on Grids
+DP on Trees
+DP on Graphs
+Probability DP
+Digit DP
+Bitmasking
+State Machine DP
