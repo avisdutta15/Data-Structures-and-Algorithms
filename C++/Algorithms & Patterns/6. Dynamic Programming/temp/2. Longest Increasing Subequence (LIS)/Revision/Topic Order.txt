@@ -1,0 +1,56 @@
+1. LIS
+2. print LIS (https://www.geeksforgeeks.org/construction-of-longest-increasing-subsequence-using-dynamic-programming/)
+3. Number Of LIS in an array
+4. Count all increasing subsequences
+5. Maximum Sum Increasing Subsequence (MSIS)
+6. print MSIS (https://www.geeksforgeeks.org/printing-maximum-sum-increasing-subsequence/)
+7. Maximum Length Chain of Pairs 
+   Print Maximum Length Chain of Pairs 
+8. Building Bridges
+9. Longest bitonic sequence (max(abs(LIS[i]-LDS[i])-1)). -1 because A[i] is counted 2wice in LIS and LDS both 
+10.printing Longest bitonic sequence 
+11.Box Stacking
+12.Russion Doll
+13.Find LIS of an array in a circular manner.
+	Append the same elements(i.e. whole array) with the given array.
+	For every window of size n(no. of elements in the given array), perform LIS.
+	Return maximum length.
+	
+	{1, 4, 6, 2, 3}
+	After appending elements resultant array
+	will be {1, 4, 6, 2, 3, 1, 4, 6, 2, 3}.
+
+	Now for every consecutive n elements perform LIS.
+	1- {1, 4, 6, 2, 3} --3 is length of LIS.
+	2- {4, 6, 2, 3, 1} --2 is length of LIS.
+	3- {6, 2, 3, 1, 4} --3
+	4- {2, 3, 1, 4, 6}-- 4 {2, 3, 4, 6}
+	5- {3, 1, 4, 6, 2} --3.
+	6- {1, 4, 6, 2, 3} Original list.
+
+	So, maximum length of LIS in circular manner is 4. 	
+14. Find longest bitonic sequence such that increasing and decreasing parts are from two different arrays
+        Calculate LIS from 1st array and LDS from 2nd array
+15. Longest Increasing Consequtive Subsequence
+16. Longest subsequence such that difference between adjacents is one
+17. Maximum length subsequence with difference between adjacent elements as either 0 or 1
+18. Find the Longest Increasing Subsequence in Circular manner
+    
+
+
+Applications:
+1. Size of array after repeated deletion of LIS
+2. Minimum number of deletions to make a sorted sequence. (sizeOfArray - LIS)
+3. Minimum insertions to sort an array. At any step we can insert any array 
+   element from its position to any other position. (sizeOfArray - LIS)
+
+
+    Maximum sum Bi-tonic Sub-sequence 
+	construct two arrays MSIBS[] and MSDBS[]. 
+	MSIBS[i] stores the sum of the Increasing subsequence ending with arr[i]. 
+	MSDBS[i] stores the sum of the Decreasing subsequence starting from arr[i]. 
+	return the max sum of MSIBS[i] + MSDBS[i] � Arr[i].
+
+    Maximum product of an increasing subsequence
+    https://www.geeksforgeeks.org/count-subsequences-product-less-k/ [https://ide.geeksforgeeks.org/TOUo1N5oLS]
+    Maximum subsequence sum such that no three are consecutive
