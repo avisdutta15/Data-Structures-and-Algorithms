@@ -74,22 +74,34 @@ using namespace std;
 class Solution1 {
 private:
 	int solve(int i, string& s) {
-		// if reached the end of the string then it means there is 1 way
+		// Base case: reached past the end → we successfully decoded the entire string
+        // That counts as 1 valid decoding
 		if (i == s.length())
 			return 1;
 
-		if (s[i] == '0')
-			return 0;
+		// If current digit is '0', it can't map to any letter (no letter for 0)
+        // This path is invalid → 0 ways
+        if (s[i] == '0')
+            return 0;
 
-		int total_ways_by_including_i = solve(i + 1, s);
-		int total_ways_by_including_iPlus1 = 0;
-		if (i + 1 < s.length()) {
-			if (s[i] == '1' || (s[i] == '2' && s[i + 1] <= '6'))
-				total_ways_by_including_iPlus1 = solve(i + 2, s);
-		}
+		// Choice 1: Take single digit s[i] as one letter (always valid since s[i] != '0')
+        // Move to next index i+1
+        int total_ways_by_including_i = solve(i + 1, s);
 
+		// Choice 2: Take two digits s[i..i+1] as one letter (valid only if 10-26)
+        int total_ways_by_including_iPlus1 = 0;
 
-		return total_ways_by_including_i + total_ways_by_including_iPlus1;
+        // Check if there IS a next character
+        if (i + 1 < s.length()) {
+            // Two-digit number is valid if:
+            // - Starts with '1': "10"-"19" → all valid (10-19 maps to J-S)
+            // - Starts with '2' and second digit <= '6': "20"-"26" → valid (20-26 maps to T-Z)
+            if (s[i] == '1' || (s[i] == '2' && s[i + 1] <= '6'))
+                total_ways_by_including_iPlus1 = solve(i + 2, s);
+        }
+
+        // Total ways = ways using single digit + ways using two digits
+        return total_ways_by_including_i + total_ways_by_including_iPlus1;
 	}
 
 public:
@@ -102,24 +114,38 @@ public:
 class Solution2 {
 private:
 	int solve(int i, string& s, vector<int>& dp) {
-		// if reached the end of the string then it means there is 1 way
+		// Base case: reached past the end → we successfully decoded the entire string
+        // That counts as 1 valid decoding
 		if (i == s.length())
 			return dp[i] = 1;
-
+		
+		// If current digit is '0', it can't map to any letter (no letter for 0)
+        // This path is invalid → 0 ways
 		if (s[i] == '0')
 			return dp[i] = 0;
 
+		// check cache
 		if (dp[i] != -1)
 			return dp[i];
 
-		int total_ways_by_including_i = solve(i + 1, s, dp);
-		int total_ways_by_including_iPlus1 = 0;
-		if (i + 1 < s.length()) {
-			if (s[i] == '1' || (s[i] == '2' && s[i + 1] <= '6'))
-				total_ways_by_including_iPlus1 = solve(i + 2, s, dp);
-		}
+		// Choice 1: Take single digit s[i] as one letter (always valid since s[i] != '0')
+        // Move to next index i+1
+        int total_ways_by_including_i = solve(i + 1, s, dp);
 
-		return dp[i] = total_ways_by_including_i + total_ways_by_including_iPlus1;
+		// Choice 2: Take two digits s[i..i+1] as one letter (valid only if 10-26)
+        int total_ways_by_including_iPlus1 = 0;
+
+        // Check if there IS a next character
+        if (i + 1 < s.length()) {
+            // Two-digit number is valid if:
+            // - Starts with '1': "10"-"19" → all valid (10-19 maps to J-S)
+            // - Starts with '2' and second digit <= '6': "20"-"26" → valid (20-26 maps to T-Z)
+            if (s[i] == '1' || (s[i] == '2' && s[i + 1] <= '6'))
+                total_ways_by_including_iPlus1 = solve(i + 2, s, dp);
+        }
+
+        // Total ways = ways using single digit + ways using two digits
+        return dp[i] = total_ways_by_including_i + total_ways_by_including_iPlus1;
 	}
 
 public:

@@ -5,6 +5,11 @@ using namespace std;
     Problem: Longest Palindromic Subsequence (LeetCode 516)
     ────────────────────────────────────────────────────────
 
+    https://www.youtube.com/watch?v=M4pfB3G-YQc
+    https://www.youtube.com/watch?v=_nCsPn7_OgI
+    https://algo.monster/problems/dp_interval_intro
+    https://algo.monster/liteproblems/516
+
     Problem Statement:
     ------------------
     Given a string s, find the longest palindromic subsequence's length in s.
