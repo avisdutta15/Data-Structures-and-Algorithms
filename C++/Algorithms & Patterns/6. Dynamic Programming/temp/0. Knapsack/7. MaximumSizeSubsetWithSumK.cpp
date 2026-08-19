@@ -23,6 +23,62 @@ using namespace std;
 
     count[i][j-1]. Here current element is not considered.
     count[i- X][j-1] + 1. Here X is the value of the current element selected for the subset.
+
+    ════════════════════════════════════════════════════════════════════════
+    RECURRENCE
+    ════════════════════════════════════════════════════════════════════════
+
+    f(n, s) = maximum SIZE of subset using first n elements that sums to s
+
+    Base cases:
+        f(0, 0) = 0        (empty subset has sum 0, size 0 — valid!)
+        f(0, s) = -1       (no elements, can't form positive sum — impossible)
+
+    Recurrence:
+        if A[n-1] <= s AND f(n-1, s-A[n-1]) != -1:
+            include = 1 + f(n-1, s - A[n-1])
+        else:
+            include = -1    (can't include or including doesn't lead to valid subset)
+
+        exclude = f(n-1, s)
+
+        f(n, s) = max(include, exclude)
+
+    Answer: f(N, targetSum)
+
+    ════════════════════════════════════════════════════════════════════════
+    COMPARISON WITH STANDARD SUBSET SUM
+    ════════════════════════════════════════════════════════════════════════
+
+    Standard Subset Sum:
+        dp[n][s] = bool (can we form sum s?)
+        Transition: dp[n][s] = dp[n-1][s-A[n-1]] || dp[n-1][s]
+        Combine with: OR (||)
+
+    Maximum Size Subset Sum:
+        dp[n][s] = int (max subset SIZE that sums to s, or -1 if impossible)
+        Transition: dp[n][s] = max(1 + dp[n-1][s-A[n-1]], dp[n-1][s])
+        Combine with: max()
+        Extra: check != -1 before adding 1 (only include if path is valid)
+
+    The structure is identical — just change:
+        bool → int
+        || → max()
+        true → 0 (valid, size 0)
+        false → -1 (impossible)
+        include = dp[...] → include = 1 + dp[...]
+
+    ════════════════════════════════════════════════════════════════════════
+    PRINTING THE ITEMS (Backtracking through DP table)
+    ════════════════════════════════════════════════════════════════════════
+
+    Start at dp[N][target]. At each step:
+    - If dp[n][sum] == dp[n-1][sum]: item n was EXCLUDED (go to n-1, same sum)
+    - Else: item n was INCLUDED (print A[n-1], go to n-1, sum - A[n-1])
+
+    This is a greedy backtrack — it finds ONE optimal subset (not all).
+
+    ════════════════════════════════════════════════════════════════════════
 */
 
 class Solution{

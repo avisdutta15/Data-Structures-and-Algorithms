@@ -26,7 +26,8 @@ class Solution{
         if(A[N-1]<=target)
             include = countNumberOfSubsetsWithGivenSumRecursive(A, N-1, target-A[N-1]);
         exclude = countNumberOfSubsetsWithGivenSumRecursive(A, N-1, target);
-
+        
+        // return total count achieved by including or excluding the current item N-1
         return include + exclude;
     }
 

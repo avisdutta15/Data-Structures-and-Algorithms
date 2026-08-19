@@ -2,6 +2,8 @@
 using namespace std;
 
 /*
+    https://youtu.be/GqOmJHQZivw?t=1944  [Space Optimization]
+
     Given N items where each item has some weight and profit associated with it and 
     also given a bag with capacity W, [i.e., the bag can hold at most W weight in it]. 
     The task is to put the items into the bag such that the sum of profits associated 
@@ -38,6 +40,96 @@ using namespace std;
     Recursion tree for Knapsack capacity 2 units and 3 items.
     
     Subproblem K(1,1) is repeated.
+
+    ════════════════════════════════════════════════════════════════════════
+    RECURRENCE
+    ════════════════════════════════════════════════════════════════════════
+
+    dp[n][w] = maximum profit using first n items with capacity w
+
+    Base case:
+        dp[0][w] = 0  (no items → 0 profit)
+        dp[n][0] = 0  (no capacity → 0 profit)
+
+    Transition:
+        if weight[n-1] <= w:
+            dp[n][w] = max(
+                profit[n-1] + dp[n-1][w - weight[n-1]],   // include item n
+                dp[n-1][w]                                  // exclude item n
+            )
+        else:
+            dp[n][w] = dp[n-1][w]   // can't include, too heavy
+
+    Answer: dp[N][W]
+
+    ════════════════════════════════════════════════════════════════════════
+    2D → 1D SPACE OPTIMIZATION
+    ════════════════════════════════════════════════════════════════════════
+
+    Observation: dp[n][w] only depends on dp[n-1][...] (the previous row).
+    So we only need ONE row, updated in-place.
+
+    2D version:
+        for n = 1 to N:
+            for w = 0 to W:
+                dp[n][w] = max(profit[n-1] + dp[n-1][w-weight[n-1]], dp[n-1][w])
+
+    1D version:
+        for n = 0 to N-1:
+            for w = W down to weight[n]:      ← MUST go RIGHT to LEFT
+                dp[w] = max(profit[n] + dp[w-weight[n]], dp[w])
+
+    Why iterate w from RIGHT to LEFT?
+    ──────────────────────────────────
+    In 2D: dp[n][w] uses dp[n-1][w-weight[n-1]] — the PREVIOUS row's value
+            at a SMALLER index.
+
+    In 1D: dp[w] = max(profit[n] + dp[w-weight[n]], dp[w])
+            We need dp[w-weight[n]] to still hold the OLD value (from the previous iteration of n).
+
+    If we go LEFT to RIGHT: dp[w-weight[n]] might already be updated in this
+    iteration (for the current item n), meaning we'd use it TWICE — that's
+    unbounded knapsack (using an item multiple times)!
+
+    If we go RIGHT to LEFT: when we compute dp[w], dp[w-weight[n]] hasn't been
+    touched yet in this iteration, so it still holds the value from the previous
+    item — exactly what dp[n-1][w-weight[n-1]] would be.
+
+    Example:
+    weight = [2, 3], profit = [3, 4], W = 5
+
+    2D table:
+           w=0  w=1  w=2  w=3  w=4  w=5
+    n=0:    0    0    0    0    0    0
+    n=1:    0    0    3    3    3    3     (item weight=2, profit=3)
+    n=2:    0    0    3    4    4    7     (item weight=3, profit=4)
+
+    1D (right to left):
+    Initial: dp = [0, 0, 0, 0, 0, 0]
+
+    n=0 (weight=2, profit=3), w from 5 down to 2:
+      w=5: dp[5] = max(3 + dp[3], dp[5]) = max(3+0, 0) = 3
+      w=4: dp[4] = max(3 + dp[2], dp[4]) = max(3+0, 0) = 3
+      w=3: dp[3] = max(3 + dp[1], dp[3]) = max(3+0, 0) = 3
+      w=2: dp[2] = max(3 + dp[0], dp[2]) = max(3+0, 0) = 3
+    dp = [0, 0, 3, 3, 3, 3]   ← matches row n=1 in 2D table ✓
+
+    n=1 (weight=3, profit=4), w from 5 down to 3:
+      w=5: dp[5] = max(4 + dp[2], dp[5]) = max(4+3, 3) = 7
+      w=4: dp[4] = max(4 + dp[1], dp[4]) = max(4+0, 3) = 3
+      w=3: dp[3] = max(4 + dp[0], dp[3]) = max(4+0, 3) = 3
+    dp = [0, 0, 3, 3, 3, 7]   ← dp[5]=7 matches dp[2][5] ✓
+
+    If we went LEFT to RIGHT (wrong for 0/1):
+      n=0, w=2: dp[2] = max(3+dp[0], 0) = 3
+      n=0, w=4: dp[4] = max(3+dp[2], 0) = max(3+3, 0) = 6  ← WRONG!
+                dp[2] was already updated to 3, so item 0 is used twice!
+
+    Summary:
+    - 0/1 Knapsack → iterate w RIGHT to LEFT (each item used once)
+    - Unbounded Knapsack → iterate w LEFT to RIGHT (items can be reused)
+
+    ════════════════════════════════════════════════════════════════════════
 
  */
 
@@ -107,6 +199,28 @@ class Solution{
         return lookup[N][W];
     }
 
+
+    int knapsackBottomUp2Rows(vector<int> &profit, vector<int> &weight, int N, int W){
+        // Instead of full N+1 x W+1 table, use two rows: prev and curr
+        // prev = dp[n-1][...], curr = dp[n][...]
+        vector<int> prev(W+1, 0);  // base case: dp[0][w] = 0 for all w
+        vector<int> curr(W+1, 0);
+
+        for(int n=1; n<=N; n++){
+            for(int w=0; w<=W; w++){
+                int include = INT_MIN;
+                if(weight[n-1] <= w)
+                    include = profit[n-1] + prev[w - weight[n-1]];  // prev row
+                int exclude = prev[w];  // prev row
+                curr[w] = max(include, exclude);
+            }
+            // Current row becomes previous for next iteration
+            prev = curr;
+        }
+
+        // return the last row (which represents all N items)
+        return prev[W];
+    }
 
     int knapsackBottomUp1D(vector<int> &profit, vector<int> &weight, int N, int W){
         vector<int> dp(W+1, 0);

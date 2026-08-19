@@ -41,7 +41,43 @@ Approach:
     Now here if we return f(2,0) == returns 1 then we would not get the other subsets where 24 is 
     included but the sum of other elements are also included and their sum is 0.
 
-    Draw a complete recursion tree to understand.      
+    Draw a complete recursion tree to understand.
+
+    ════════════════════════════════════════════════════════════════════════
+    RECURRENCE
+    ════════════════════════════════════════════════════════════════════════
+
+    dp[n][s] = can we form sum s using the first n elements?
+
+    Base cases:
+        f(0, 0) = true     (empty subset has sum 0)
+        f(0, s) = false    (no elements, can't form positive sum)
+
+    Recurrence:
+        if A[n-1] <= s:
+            include = f(n-1, s - A[n-1])        //(include item n)
+            exclude = f(n-1, s)                 //(exclude item n)
+            f(n, s) = include || exclude                                 
+        else:
+            f(n, s) = f(n-1, s)   (can't include, too big)
+
+    Answer: f(N, targetSum)
+
+    States:
+    - n: number of items considered so far (0 to N)
+    - s: the remaining sum we're trying to achieve (0 to targetSum)
+
+    Why 2D memoization?
+    ───────────────────
+    The function has TWO changing parameters: N (items remaining) and targetSum.
+    Each unique (N, targetSum) pair defines a unique subproblem.
+    So we need a 2D structure indexed by [N][targetSum] to store results.
+
+    Using a hashmap with string key "N targetSum" works but is slow due to
+    string creation and hashing. A 2D vector dp[N+1][targetSum+1] is faster
+    because both dimensions are bounded integers with direct indexing.
+
+    ════════════════════════════════════════════════════════════════════════      
 */
 
 class Solution{
@@ -77,6 +113,49 @@ class Solution{
 
         lookup[key] = include || exclude;
         return lookup[key];
+    }
+
+    // ── Top-Down with 2D Vector Memoization ──
+    // 
+    // Why 2D? The recursive function has 2 changing parameters:
+    //   1. N (index/number of items considered, ranges from 0 to N)
+    //   2. targetSum (remaining sum to form, ranges from 0 to targetSum)
+    //
+    // Each unique combination (N, targetSum) is a unique subproblem.
+    // A 2D vector memo[N+1][targetSum+1] maps directly to these states:
+    //   - Row index = how many items are being considered
+    //   - Col index = the remaining sum we're trying to form
+    //
+    // We use -1 = not computed, 0 = false, 1 = true.
+    //
+    // Advantage over hashmap approach:
+    //   - O(1) lookup (direct indexing) vs O(1) amortized but with string
+    //     creation overhead and hash collisions.
+    //   - No string allocation per subproblem.
+    //
+    bool subsetSumTopDown2(vector<int> &A, int N, int targetSum, vector<vector<int>> &memo){
+        // Base cases
+        if(N == 0 && targetSum == 0)
+            return true;
+        if(N == 0 && targetSum != 0)
+            return false;
+
+        // Check memo: -1 means not computed yet
+        if(memo[N][targetSum] != -1)
+            return memo[N][targetSum];
+
+        bool include = false, exclude = false;
+
+        // Include A[N-1] if it fits
+        if(A[N-1] <= targetSum)
+            include = subsetSumTopDown2(A, N-1, targetSum - A[N-1], memo);
+
+        // Exclude A[N-1]
+        exclude = subsetSumTopDown2(A, N-1, targetSum, memo);
+
+        // Store in memo and return
+        memo[N][targetSum] = (include || exclude) ? 1 : 0;
+        return memo[N][targetSum];
     }
 
     bool subsetSumBottomDown(vector<int> &A, int N, int targetSum){        

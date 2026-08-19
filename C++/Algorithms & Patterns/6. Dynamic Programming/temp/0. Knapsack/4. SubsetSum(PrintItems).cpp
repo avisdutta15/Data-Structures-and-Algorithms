@@ -60,9 +60,10 @@ class Solution{
         int n = N, sum = targetSum;
         while(n>0 && sum>0){
             bool excluded = dp[n-1][sum];
+            // if current item is excluded then goto next item
             if(excluded == true)
                 n = n-1;
-            else{
+            else{   // else include this item and goto next item
                 cout<<"Including item "<<A[n-1]<<endl;
                 //once this item is included, goto the next item with reduced sum.
                 sum = sum - A[n-1];
