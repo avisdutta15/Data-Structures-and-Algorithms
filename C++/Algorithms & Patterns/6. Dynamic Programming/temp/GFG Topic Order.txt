@@ -1,0 +1,111 @@
+0. Ugly Number, nth Ugly Number, Super Ugly Number
+1. LCS
+	a. Print all LCS
+	b. Longest Repeating Subsequence
+	c. Minimum number of insert/delete to convert one string to another.
+
+2. LIS
+	a. Longest Bitonic Subsequence
+	b. Maximum Length Chain of Pairs
+3. Maximum Sum Increasing Subsequence
+4. Longest Palindromic Subsequence
+	a. Print Longest Palindromic Subsequence
+	b. Count all lps
+	c. Minimum insertions to form a palindrome
+5. Longest Palindromic Substring (3 approaches - using LCS, using LPS, using expand in middle)
+6. Longest Common Substring
+7. Edit distance
+9. Count all unique paths in a matrix
+10. Print all unique paths in a matrix
+11. Count all unique paths with obstacles. 
+12. Min Cost Path
+13. Unique Path I/II
+14. Minimum Falling Path Sum I/II
+15. Subset sum
+16. Partition problem
+17. Coin Change I 
+18. Coin Change II
+19. 0-1 Knapsack
+20. Unbounded Knapsack
+21. Dice Throw
+22. StairCase
+23. Egg Drop
+24. Matrix Chain Multiplication
+25. Boolean Parenthesization Problem
+26. Palindrome Partitioning
+All ways to add parenthesis for evaluation
+Scrambled String
+27. Binomial Coeff
+28. Find if a string is interleaved of two other strings
+29. Print all string interleaving
+30. Regular Expression Matching
+31. Wildcard Matching
+32. Friend Pairing Problem
+33. Fibonacci Number
+34. Maximum games played by winner
+35. Optimal Strategy for a Game
+36. Largest Independent Set Problem. (check vertex cover and extend for nary)
+37. Unique Binary Search Trees
+38. Print All Unique Binary Search Tree
+39. Rod Cutting [Check Aditya Video Unbounded Knapsack]
+40. Floyd Warshall Algorithm
+41. Word Wrap Problem [TODO]
+42. Optimal Binary Search Tree  -----09/05
+43. Maximum sum contiguous subarray - Kadane
+44. Maximum sum rectangle in a 2D matrix 
+45. Word Break Problem 
+46. Assembly Line Scheduling
+47. Longest Arithmetic Progression
+48. Longest Geometric Progression
+49. Maximum Product Cutting
+50. Mobile Numeric Keypad Problem 
+51. Painting Fence Algorithm
+52. 
+53. Minimum number of jumps to reach array end
+54. Jump Game I/II/III
+55. Burst Ballon
+56. Maximal Square
+57. Maximal Rectangle
+58. Decode Ways I/II
+59. Dungeon Game
+60. House Robber I/II/III
+61. 
+62. Counting Bits
+Maximum Number of As using Ctrl+A, Ctrl+C, Ctrl+V
+
+Stock Span
+Online Stock span
+Best Time to Buy and Sell Stock    
+Best Time to Buy and Sell Stock II    
+Best Time to Buy and Sell Stock III    
+Best Time to Buy and Sell Stock IV    
+Best Time to Buy and Sell Stock with Cooldown    
+Best Time to Buy and Sell Stock with Transaction Fee    
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/discuss/108870/most-consistent-ways-of-dealing-with-the-series-of-stock-problems
+
+
+
+Aditya Verma DP series
+------------------------
+1. 2 Types of Knapsack
+2. 01 Knapsack
+3. Identification of Knapsack Problems
+4. Subset Sum
+	Equal Sum Partition
+	Count of Subsets with Given Sum
+	Minimum Subset Sum difference
+	Count the number of subset with given difference
+	Target Sum
+5. Unbounded Knapsack
+6. Rod Cutting 
+7. Coin Change - Maximum number of ways
+8. Coin Change - Minimum number of coins
+9. Longest Common Sequence
+10. Longest Palindromic Sequence
+11. Sequence Pattern Matching
+12. Matrix Chain Multiplication
+13. Palindrome Partitioning
+14. Boolean Parenthesization
+15. Scrambled String
+16. Egg Dropping
+17. DP on trees

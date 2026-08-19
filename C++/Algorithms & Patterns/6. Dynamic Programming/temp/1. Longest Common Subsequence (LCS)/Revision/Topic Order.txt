@@ -1,0 +1,34 @@
+1. LCS Length
+2. Print LCS
+3. Print All LCS (also in lexo graphical order).
+4. Space Optimized LCS [TODO]
+5. LCS (Longest Common Subsequence) of three strings
+
+
+Variations:
+-----------
+6. Shortest Common Supersequence (using LCS)
+7. Printing Shortest Common Supersequence (using LCS)
+8. Minimum Cost To Make Two Strings Identical
+9. Minimum cost to make two strings identical by deleting the digits
+10. Longest common subsequence with permutations allowed
+11. Longest Repeated Subsequence [LCS. When str[i]==str[j] then indices whould not match. i.e. i!=j]
+12. Longest Pallindromic Subsequence 
+13. Print Longest Palindromic Subsequence
+14. Minimum Number of deletion to make a string palindrome
+15. Minimum Number of insertion to make a string palindrome
+16. Find if string is K-Palindrome or not
+17. Minimum number of deletions and insertions to transform one string into another
+18. Shortest possible combination of two strings
+19. Longest Common Substring
+
+Hard Problems:
+--------------
+20. Count ways to increase LCS length of two strings by one
+				Or
+   Number of ways to insert a character to increase the LCS by one
+21. Longest Common Subsequence with at most k changes allowed
+22. Minimum cost to make Longest Common Subsequence of length k
+23. LCS formed by consecutive segments of at least length K
+24. Edit Distance
+25. Distinct Subsequences
