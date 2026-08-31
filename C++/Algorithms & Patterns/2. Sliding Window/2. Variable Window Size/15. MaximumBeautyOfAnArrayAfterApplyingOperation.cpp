@@ -6,9 +6,7 @@
 
 using namespace std;
 
-// ──────────────────────────────────────────────────────────────────────────────
 // Problem: Maximum Beauty of an Array After Applying Operation (LeetCode 2779)
-// ──────────────────────────────────────────────────────────────────────────────
 
 /*
     https://www.youtube.com/watch?v=VrFolxiw_yQ  (Queue based approach)

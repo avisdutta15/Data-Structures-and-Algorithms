@@ -72,14 +72,17 @@ public:
         int start = 0, end = 0;
 
         while(end < s.length()){
-            // add to current window
+            // Expand: add current character to window frequency
             sFreq[s[end] - 'a']++;
 
-            // check window size
-            if(end - start + 1 < K)
+            int windowSize = end - start + 1;
+
+            if (windowSize < p.length()) {
+                // Window not big enough yet, keep expanding
                 end++;
-            else if (end - start + 1 == K){
-                // process window
+            }
+            else if (windowSize == K){
+                // Window is exactly p.length() — check if it's an anagram
                 if(pFreq == sFreq)
                     startIndices.push_back(start);
                 

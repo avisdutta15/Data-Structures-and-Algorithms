@@ -95,6 +95,9 @@ public:
         int result = 0;
 
         while (right < n) {
+            // Dont do if (nums[right] == 1) continue;
+            // because if this is at the end, we will lose the window size update at last.
+            
             // 1. EXPAND: add nums[right] to window
             if (nums[right] == 0)
                 zeroCount++;

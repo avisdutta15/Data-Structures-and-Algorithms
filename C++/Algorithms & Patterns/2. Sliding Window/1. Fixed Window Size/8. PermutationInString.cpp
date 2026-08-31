@@ -40,32 +40,39 @@ public:
         if (pLen > tLen)
             return false;
 
-        vector<int> pHash(26, 0), tHash(26, 0);
+        vector<int> pFreq(26, 0), tFreq(26, 0);
 
-        //find the hash of the pattern and text(first window)
+        //find the hash of the pattern
         for (int i = 0; i < pLen; i++) {
-            pHash[pattern[i] - 'a']++;
-            tHash[text[i] - 'a']++;
+            pFreq[pattern[i] - 'a']++;
         }
 
-        if (pHash == tHash)
-            return true;
+        int start = 0, end = 0;
 
-        //iterate over the text
-        for (int i = pLen; i < tLen; i++) {
-            //remove from window
-            tHash[text[i - pLen] - 'a']--;
+        while (end < tLen) {
+            // Expand: add current character to window
+            tFreq[text[end] - 'a']++;
 
-            //add to the window
-            tHash[text[i] - 'a']++;
+            int windowSize = end - start + 1;
 
-            //process the window
-            if (tHash == pHash)
-                return true;
+            if (windowSize < pLen) {
+                // Window not big enough yet
+                end++;
+            }
+            else {
+                // Window is exactly pLen — check if it's a permutation
+                if (tFreq == pFreq)
+                    return true;
+
+                // Shrink: remove leftmost character and slide forward
+                tFreq[text[start] - 'a']--;
+                start++;
+                end++;
+            }
         }
         return false;
     }
-}; 
+};
 
 int main() {
 	Solution obj;
