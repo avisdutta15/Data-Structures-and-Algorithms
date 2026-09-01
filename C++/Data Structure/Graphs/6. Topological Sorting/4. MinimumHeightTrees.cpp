@@ -100,12 +100,19 @@ using namespace std;
     A tree has either:
         - 1 center node (odd-length longest path): like the middle
           bead on a string of beads.
+          1---2---3         (tree with root 1 have the smallest height)
         - 2 center nodes (even-length longest path): like the two
           middle beads.
+          1---2---3----4    (tree with root either 2 or 3 will have smallest height)
 
     It can never have 3+ center nodes. If it did, two of them would
     be adjacent, and one of them would be farther from some leaf —
     contradicting that both are centers.
+
+    Intuition
+    ---------
+    We need to treat start peeling off the leaves layer by layer.
+    At last if either 2 or 1 node is left then those are the roots.
 
     Connection to topological sort:
     --------------------------------
@@ -162,7 +169,7 @@ using namespace std;
     Answer: [3, 4] ✓
 
     Edge case dry run (n=3, edges=[[0,1],[0,2]]):
-    -----------------------------------------------
+    ---------------------------------------------
 
     Tree: 1 — 0 — 2
 
