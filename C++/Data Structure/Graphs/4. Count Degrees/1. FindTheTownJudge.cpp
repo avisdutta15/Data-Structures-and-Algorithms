@@ -32,7 +32,18 @@ using namespace std;
     
 	Example:
 	--------
-	
+	Example 1:
+	Input: n = 2, trust = [[1,2]]
+	Output: 2
+
+	Example 2:
+	Input: n = 3, trust = [[1,3],[2,3]]
+	Output: 3
+
+	Example 3:
+	Input: n = 3, trust = [[1,3],[2,3],[3,1]]
+	Output: -1
+ 
 	Approach: 
     ---------
 	if :
