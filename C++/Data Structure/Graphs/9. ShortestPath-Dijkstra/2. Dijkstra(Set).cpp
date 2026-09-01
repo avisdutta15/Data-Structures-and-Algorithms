@@ -17,27 +17,27 @@ using namespace std;
 
 	Example:
 	--------
-	        4         6
+			4         6
 	   0 ------- 1 ------- 4
 	   |       / |         |
 	 8 |    3/   | (not    | 10
 	   |   /     |  direct)|
 	   2 ------- 3 --------+
-	        2
+			2
 
 	  Adjacency:
-	    0: (1,4), (2,8)
-	    1: (0,4), (2,3), (4,6)
-	    2: (0,8), (1,3), (3,2)
-	    3: (2,2), (4,10)
-	    4: (1,6), (3,10)
+		0: (1,4), (2,8)
+		1: (0,4), (2,3), (4,6)
+		2: (0,8), (1,3), (3,2)
+		3: (2,2), (4,10)
+		4: (1,6), (3,10)
 
 	  Shortest distances from src=0:
-	    0->0: 0
-	    0->1: 4        (0->1)
-	    0->2: 7        (0->1->2)
-	    0->3: 9        (0->1->2->3)
-	    0->4: 10       (0->1->4)
+		0->0: 0
+		0->1: 4        (0->1)
+		0->2: 7        (0->1->2)
+		0->3: 9        (0->1->2->3)
+		0->4: 10       (0->1->4)
 
 	Approach:
 	---------
@@ -46,15 +46,15 @@ using namespace std;
 	  2. Insert source into the set as {0, src}.
 	  3. Extract the vertex with minimum distance (begin()).
 	  4. For each neighbour, if a shorter path is found (relax):
-	       - Erase the stale {old_distance, neighbour} entry from the set.
-	       - Update distance and parent.
-	       - Insert fresh {new_distance, neighbour} into the set.
+		   - Erase the stale {old_distance, neighbour} entry from the set.
+		   - Update distance and parent.
+		   - Insert fresh {new_distance, neighbour} into the set.
 	  5. Repeat until the set is empty.
 
 	  Time Complexity: O((V + E) log V)
 	  ---------------------------------
 	  - Set size is always <= V because stale entries are erased before
-	    inserting updated ones, so at most one entry per vertex exists.
+		inserting updated ones, so at most one entry per vertex exists.
 	  - V extractions via erase(begin()):     V  * O(log V) = O(V log V)
 	  - E relaxations, each with erase+insert: E  * O(log V) = O(E log V)
 	  - Total: O((V + E) log V)
@@ -66,7 +66,7 @@ using namespace std;
 	  - Each push/pop costs O(log E), and we do O(E) of them.
 	  - Total: O(E log E) which simplifies to O(E log V) since E <= V^2.
 	  - Set variant has a tighter bound due to bounded set size O(V),
-	    and avoids memory bloat on dense graphs.
+		and avoids memory bloat on dense graphs.
 
 	  Space: O(V)  (set holds at most V entries at any time)
 */
@@ -82,31 +82,31 @@ public:
 		vector<int> parent(V, -1);
 		set<pair<int, int>> Q;
 		distance[src] = 0;
-		Q.insert({0, src});
+		Q.insert({ 0, src });
 
 		// WHILE WE HAVE VERTICES WHOSE SHORETEST PATH IS STILL AN ESTIMATE
 		while (!Q.empty()) {
 
 			// EXTRACT MIN
-			auto [nodeWeight, node] = *(Q.begin());
+			auto [currentDist, u] = *(Q.begin());
 			Q.erase(Q.begin());
 
 			// FOR EACH VERTEX ADJACENT TO NODE, RELAX IT
-			for (auto neighbourInfo : adj[node]) {
-				int neighbour = neighbourInfo.first;
+			for (auto neighbourInfo : adj[u]) {
+				int v = neighbourInfo.first;
 				int edgeWeight = neighbourInfo.second;
-				
+
 				// RELAX
-				if (distance[neighbour] > distance[node] + edgeWeight) {
+				if (distance[v] > distance[u] + edgeWeight) {
 
 					// DECREASE KEY
-					if (Q.find({ distance[neighbour], neighbour }) != Q.end()) {
-						Q.erase({ distance[neighbour], neighbour });
+					if (Q.find({ distance[v], v }) != Q.end()) {
+						Q.erase({ distance[v], v });
 					}
 
-					distance[neighbour] = distance[node] + edgeWeight;
-					parent[neighbour] = node;
-					Q.insert({distance[neighbour], neighbour});
+					distance[v] = distance[u] + edgeWeight;
+					parent[v] = u;
+					Q.insert({ distance[v], v });
 				}
 			}
 		}
@@ -116,9 +116,9 @@ public:
 };
 
 void printPath(vector<int>& parent, int v) {
-	if (parent[v] == -1) { 
-		cout << v; 
-		return; 
+	if (parent[v] == -1) {
+		cout << v;
+		return;
 	}
 	printPath(parent, parent[v]);
 	cout << " " << v;
@@ -154,6 +154,6 @@ int main() {
 	cout << endl;
 
 	printParent(parent);
-	
+
 	return 0;
 }

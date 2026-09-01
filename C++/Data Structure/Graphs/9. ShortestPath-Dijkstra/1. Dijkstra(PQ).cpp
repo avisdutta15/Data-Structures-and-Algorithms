@@ -69,22 +69,25 @@ public:
 		while (!Q.empty()) {
 
 			// EXTRACT MIN
-			auto [nodeWeight, node] = Q.top();
+			auto [currentDist, u] = Q.top();
 			Q.pop();
+			
+			// Nodes can get added to the priority queue multiple times. We only
+        	// process a vertex the first time we remove it from the priority queue.
+			// Skip stale entries.
+			if(currentDist > distance[u])
+				continue;
 
-			// Remove the processed node from the set
-        	st.erase(st.begin());
-
-			// FOR EACH VERTEX ADJACENT TO NODE, RELAX IT
-			for (auto neighbourInfo : adj[node]) {
-				int neighbour = neighbourInfo.first;
+			// FOR EACH VERTEX ADJACENT v of u, RELAX IT
+			for (auto neighbourInfo : adj[u]) {
+				int v = neighbourInfo.first;
 				int edgeWeight = neighbourInfo.second;
 				
 				// RELAX
-				if (distance[neighbour] > distance[node] + edgeWeight) {
-					distance[neighbour] = distance[node] + edgeWeight;
-					parent[neighbour] = node;
-					Q.push({distance[neighbour], neighbour});
+				if (distance[v] > distance[u] + edgeWeight) {
+					distance[v] = distance[u] + edgeWeight;
+					parent[v] = u;
+					Q.push({distance[v], v});
 				}
 			}
 		}
