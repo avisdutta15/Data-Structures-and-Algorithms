@@ -12,26 +12,36 @@ using namespace std;
 /*
 	https://www.youtube.com/watch?v=9XybHVqTHcQ (why Dijkstra won't work)
 	https://www.youtube.com/watch?v=VmUpydhNmuw (BFS)
-    https://leetcode.com/problems/cheapest-flights-within-k-stops/solutions/8343913/3-approaches-a-bfs-b-dijkstra1d-min_stop-w2nt/
+	https://leetcode.com/problems/cheapest-flights-within-k-stops/solutions/8343913/3-approaches-a-bfs-b-dijkstra1d-min_stop-w2nt/
 
 	Problem Statement:
 	------------------
-	There are n cities connected by some number of flights. 
-    You are given an array flights where flights[i] = [fromi, toi, pricei] 
-    indicates that there is a flight from city fromi to city toi with cost pricei.
-    
-    You are also given three integers src, dst, and k, return the cheapest price 
-    from src to dst with at most k stops. If there is no such route, return -1.
+	There are n cities connected by some number of flights.
+	You are given an array flights where flights[i] = [fromi, toi, pricei]
+	indicates that there is a flight from city fromi to city toi with cost pricei.
 
- 
+	You are also given three integers src, dst, and k, return the cheapest price
+	from src to dst with at most k stops. If there is no such route, return -1.
+
+
 	Example:
 	--------
 	Input: n = 4, flights = [[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]], src = 0, dst = 3, k = 1
-    Output: 700
-    Explanation:
-        The graph is shown above.
-        The optimal path with at most 1 stop from city 0 to 3 is marked in red and has cost 100 + 600 = 700.
-        Note that the path through cities [0,1,2,3] is cheaper but is invalid because it uses 2 stops
+	Output: 700
+	Explanation:
+		The graph is shown above.
+		The optimal path with at most 1 stop from city 0 to 3 is marked in red and has cost 100 + 600 = 700.
+		Note that the path through cities [0,1,2,3] is cheaper but is invalid because it uses 2 stops
+
+
+	Intuition:
+	----------
+	K stops means K edges.
+	for a flight path u->v, we will start from u and stop at v.
+	Stopping at v will be counted.
+	So, for K edges, we need to process K+1 vertices.
+	To process 2 edges, we need to process 3 vertices.
+	1--2--3
 
 	Approach 1 - DFS (Brute Force)
 	---------------------
@@ -41,13 +51,13 @@ using namespace std;
 
 	Approach 2 - Dijkstra's Algorithm
 	---------------------------------
-	We use a Min-Heap (Priority Queue) sorted by cost (cost, node, stops). 
-	Because it's a Min-Heap, paths are popped in strictly increasing order of cost. 
+	We use a Min-Heap (Priority Queue) sorted by cost (cost, node, stops).
+	Because it's a Min-Heap, paths are popped in strictly increasing order of cost.
 	The first path to pop a node is the absolute cheapest path to that node.
 
-	Any subsequent path that pops the same node will inherently have an equal or higher cost. 
-	Therefore, that subsequent path is only useful if it offers something better: 
-		strictly fewer stops than any path seen before. 
+	Any subsequent path that pops the same node will inherently have an equal or higher cost.
+	Therefore, that subsequent path is only useful if it offers something better:
+		strictly fewer stops than any path seen before.
 	We can maintain a 1D min_stops array to track this.
 
 	Algorithm Steps
@@ -75,7 +85,7 @@ using namespace std;
 			pq.pop();                               // O(log(E·K)) per pop
 			// ...
 			for (auto& [v, weight] : graph[u]) {    // Total across all valid processings: E·K
-				// Each node u is validly processed at most K+1 times. 
+				// Each node u is validly processed at most K+1 times.
 				// Each processing iterates all outgoing edges of u.
 				// Total iterations of this inner loop = Σ (K+1) × degree(u) for all u = (K+1) · E
 
@@ -97,35 +107,44 @@ using namespace std;
 		Level 1 contains all nodes reachable with exactly 1 flight.
 		Level 2 contains all nodes reachable with exactly 2 flights.
 
-	Because we advance level-by-level, we can stop exactly after k+1 levels. 
-	This guarantees we never process paths that violate the stop constraint. 
-	Inside this level-by-level sweep, a simple 1D dist array tracks the minimum cost found up to the current level.
+	Because we advance level-by-level, we can stop exactly after k+1 levels.
+	This guarantees we never process paths that violate the stop constraint.
+	Each level adds one flight.
 	
+	We have a COST[] that tracks the minimum cost to reach each node from source.
+	This is similar to the distance[] in standard Dijkstra's algorithm.
+
+	- Normal BFS: first time you reach dst = shortest path (by hops). Return immediately.
+	- This problem: first time you reach dst might not be the cheapest. A path with more flights 
+	could be cheaper. So you can't return early — you keep exploring until you've exhausted 
+	all paths within K+1 flights, updating the cost to dst whenever you find a cheaper one.
+
 	Algorithm Steps
 	1. Build an adjacency list: adj[u] = {v, weight}.
-	2. Initialize a 1D array dist of size n with INT_MAX. Set dist[src] = 0.
+	2. Initialize a 1D array COST of size n with INT_MAX. Set COST[src] = 0.
 	3. Push {src, 0} into a standard FIFO queue.
-	4. Run a loop while the queue is not empty, keeping track of flights_taken. 
+	4. Run a loop while the queue is not empty, keeping track of flights_taken.
 	   Stop when flights_taken > k.
-	5. For each level, record the current size of the queue (sz). 
+	5. For each level, record the current size of the queue (sz).
 			Pop sz elements to process the current layer completely before moving to the next.
-	6. When relaxing a neighbor, 
-			if current_cost + weight < dist[neighbor], 
-				update dist[neighbor] 
+	6. When relaxing a neighbor v,
+			if current_cost_from_src_to_u + cost_from_u_to_v < COST[v] i.e.current_cost_from_src_to_v,
+			i.e. COST[u] + cost < COST[v]
+				update COST[v]
 				and push it to the queue.
 
 	Time Complexity:
 	----------------
 		1.  Initialize distance[V] = O(V)
-		2.  This is level-order BFS where each level = one more flight taken. 
-		    You process K+1 levels total (0 through K, inclusive).
+		2.  This is level-order BFS where each level = one more flight taken.
+			You process K+1 levels total (0 through K, inclusive).
 			At each level:
 				You pop all nodes in the current queue
 				For each node, you iterate its adjacency list. Max E edges
 			Total = O(E * (K + 1))
 		3.  1 + 2 = O(V + (E * (K+1)))
 
-	Space Complexity: 
+	Space Complexity:
 		E — the adjacency list (graph storage). You store all E edges.
 		N — the distance vector of size N.
 		N·K — the queue size in the worst case.
@@ -142,10 +161,10 @@ using namespace std;
 */
 class Solution1 {
 private:
-	void DFS(unordered_map<int, vector<pair<int, int>>> &graph, vector<bool> &visited, int currentCity, int dst, int k, int stopsTaken, int currentPathPrice, int &cheapestPrice) {
-		
+	void DFS(unordered_map<int, vector<pair<int, int>>>& graph, vector<bool>& visited, int currentCity, int dst, int k, int stopsTaken, int currentPathPrice, int& cheapestPrice) {
+
 		visited[currentCity] = true;
-		
+
 		// Base Case 1: Reached destination
 		// If we hit the destination, we don't care if we took 0 stops or K stops. 
 		// We arrived successfully! We must record the price and stop exploring 
@@ -155,7 +174,7 @@ private:
 			visited[currentCity] = false;
 			return;
 		}
-		
+
 		// Base Case 2: Exceeded stop limit
 		// If we haven't hit the destination yet, but we've used more than K stops, 
 		// this path is dead.
@@ -173,7 +192,7 @@ private:
 			int next_city = edge.first;
 			int price = edge.second;
 
-			if(!visited[next_city])
+			if (!visited[next_city])
 				DFS(graph, visited, next_city, dst, k, stopsTaken + 1, currentPathPrice + price, cheapestPrice);
 		}
 
@@ -186,12 +205,12 @@ public:
 		int currentPathPrice = 0;
 
 		unordered_map<int, vector<pair<int, int>>> graph;
-		for(auto flight : flights) {
+		for (auto flight : flights) {
 			int source = flight[0];
 			int destination = flight[1];
 			int price = flight[2];
 
-			graph[source].push_back({destination, price});
+			graph[source].push_back({ destination, price });
 		}
 
 		vector<bool> visited(n, false);
@@ -266,35 +285,37 @@ private:
 		queue<pair<int, int>> q;
 		q.push({ src, 0 });
 
-		// Keeps track of minimum distance needed to reach a city
-		vector<int> distance(n, INT_MAX);
+		// Keeps track of minimum COST needed to reach a city
+		vector<int> COST(n, INT_MAX);	// similar to distance[]
 		int flightsTaken = 0;
 
 		// Level-by-Level BFS
-		while (!q.empty() && flightsTaken <= K) {
+		while (!q.empty()) {
+			if (flightsTaken == K + 1)
+				break;
 
 			int size = q.size();
 
 			// Process all nodes currently at the exact same flight-depth layer
 			while (size--)
 			{
-				auto [u, cost] = q.front();
+				auto [u, costToUFromSrc] = q.front();
 				q.pop();
 
 				for (auto edge : graph[u]) {
 					int v = edge.first;
-					int price = edge.second;
+					int priceFromUToV = edge.second;
 
-					// If we find a cheaper way to reach neighbor 'v' at this layer
-					if (cost + price < distance[v]) {
-						distance[v] = cost + price;
-						q.push({ v, cost + price });
+					// If we find a cheaper way to reach neighbor 'v' from src at this layer
+					if (COST[v] > costToUFromSrc + priceFromUToV) {
+						COST[v] = costToUFromSrc + priceFromUToV;
+						q.push({ v, COST[v] });
 					}
 				}
 			}
 			flightsTaken++;
 		}
-		return distance[dst] == INT_MAX ? -1 : distance[dst];
+		return COST[dst] == INT_MAX ? -1 : COST[dst];
 	}
 
 public:
@@ -314,7 +335,7 @@ public:
 };
 
 int main() {
-	
+
 
 	return 0;
 }
