@@ -89,13 +89,23 @@ using namespace std;
         else
             weight = 0;
 
-    Approach 1: Dijkstra (min-heap)
+    Approach 1: Brute Force DFS
+    ----------------------------
+    Try every possible path from (0,0) to (m-1, n-1).
+    At each cell, try all 4 directions. Cost is 0 if the move follows
+    the arrow, 1 if it doesn't. Track the running path cost and update
+    the global minimum when the destination is reached.
+    Pruning: skip any path whose cost already exceeds the current best.
+    Time:  O(4^(m×n)) worst case — exponential, visits all paths
+    Space: O(m × n)   — visited matrix + recursion stack
+
+    Approach 2: Dijkstra (min-heap)
     --------------------------------
     Standard shortest path. Weights are 0 or 1.
     Time:  O(m × n × log(m × n))
     Space: O(m × n)
 
-    Approach 2: 0-1 BFS (deque) — optimal
+    Approach 3: 0-1 BFS (deque) — optimal
     ----------------------------------------
     Weights are only 0 or 1, so deque replaces the heap:
         - Weight 0 → push to FRONT
@@ -138,11 +148,67 @@ using namespace std;
 
 */
 
+// Approach 1: DFS
+// Try every possible path, accumulate cost (0 if following arrow, 1 if not), track the global minimum.
+class Solution1{
+private:
+    int rows;
+    int cols;
+    // 4 directions: right, left, down, up
+    //     d:          0      1     2     3
+    int dirs[4][2] = { {0,1}, {0,-1}, {1,0}, {-1,0} };
+
+    void DFS(const vector<vector<int>> &grid, int i, int j, vector<vector<bool>> &visited, int pathCost, int &minCost){
+        if(i == rows - 1 && j == cols - 1){
+            minCost = min(minCost, pathCost);
+            return;
+        }
+        visited[i][j] = true;
+        for(int d=0; d<4; d++){
+            int x = i + dirs[d][0];
+            int y = j + dirs[d][1];
+
+            if(x >=0 && x < rows && y >=0 && y<cols && visited[x][y] == false){
+                // Check if direction d matches the arrow at (i,j).
+                // The arrow at the CURRENT cell determines if the move is free.
+                int gridDirection = grid[i][j];
+                int weight = 0;
+                if ((gridDirection == 1 && d != 0) ||   // arrow=right, not going right
+                    (gridDirection == 2 && d != 1) ||   // arrow=left,  not going left
+                    (gridDirection == 3 && d != 2) ||   // arrow=down,  not going down
+                    (gridDirection == 4 && d != 3)) {   // arrow=up,    not going up
+                    weight = 1;  // direction doesn't match → pay cost 1
+                }
+                int newPathCost = pathCost + weight;
+                // Pruning
+                if(newPathCost > minCost)
+                    continue;
+                DFS(grid, x, y, visited, newPathCost, minCost);
+            }
+        }
+
+        visited[i][j] = false;
+    }
+
+public:
+    int minCost(vector<vector<int>>& grid) {
+        rows = grid.size();
+        cols = grid[0].size();
+
+        int pathCost = 0;
+        int minPathCost = INT_MAX;
+        vector<vector<bool>> visited (rows, vector<bool>(cols, false));
+        DFS(grid, 0, 0, visited, pathCost, minPathCost);
+        return minPathCost;
+    }
+};
+
+
 // =============================================================
-// Approach 1: Dijkstra (min-heap)
+// Approach 2: Dijkstra (min-heap)
 // =============================================================
 
-class Solution1 {
+class Solution2 {
 public:
     int minCost(vector<vector<int>>& grid) {
         int rows = grid.size(), cols = grid[0].size();
@@ -210,10 +276,10 @@ public:
 };
 
 // =============================================================
-// Approach 2: 0-1 BFS (deque) — optimal
+// Approach 3: 0-1 BFS (deque) — optimal
 // =============================================================
 
-class Solution2 {
+class Solution3 {
 public:
     int minCost(vector<vector<int>>& grid) {
         int rows = grid.size(), cols = grid[0].size();
