@@ -307,7 +307,33 @@ public:
     dist[v] = max(dist[u], |grid[v] - grid[u]|)
 
     Time Complexity : E log (V) -> (m*n)*log(m*n)
+*/
 
+/*  
+    Identification:
+    0. Graph (implicit grid graph)
+    1. start (0,0) -> end (m-1,n-1). finding path
+    2. graph is undirected with weights (absolute height difference).
+    3. path optimization - minimum effort. effort is the max of edge weights, not sum
+    4. Dijkstra
+
+    Normal Dijkstra
+    1. Shortest Path (Minimum)  -> MinHeap
+    2. Metric : Path is computed using distance. So metric is distance[]
+    3. How add a new node to the path?  add (+) edge weight to distance[u]
+    4. What is the optimization we want? minimum.
+
+    newDistance = ____ (dist[u], weight(u,v))        ->   sum of weights: +
+    if newDistance is ____ than dist[v]              ->   minimize: <
+
+    This Problem
+    1. Minimum Effort  -> MinHeap
+    2. Metric : Effort (worst step so far) is used for computation. So metric is effort[]
+    3. How add a new node to the path?  take max of edge weight and already computed effort[u]
+       (not adding — just checking if this step is worse than anything before)
+
+    newEffort = ____ (effort[u], weight(u,v))       ->   bottleneck of weights in a path: max
+    if newEffort is ____ than effort[v]             ->   along all paths need minimum: <
 */
 class Solution3{
 public:
