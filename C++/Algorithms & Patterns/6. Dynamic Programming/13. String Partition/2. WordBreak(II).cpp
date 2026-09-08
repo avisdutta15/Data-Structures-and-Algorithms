@@ -47,6 +47,8 @@ using namespace std;
         Answer: solve(0, "")
 
     Memoization version returns list of all sentences from start_index onwards:
+    At every index, try all possible substrings. If the substring exists in the dictionary, recursively generate 
+    sentences from the remaining string and append the current word.
         solve(start_index):
             if start_index == n: return [""]
 
@@ -112,6 +114,8 @@ public:
 
     To use memoization, the function needs to return the results (all valid sentences for a given substring)
     so we can cache them and build the sentences on the way up the tree.
+    At every index, try all possible substrings. If the substring exists in the dictionary, recursively generate 
+    sentences from the remaining string and append the current word.
 */
 class Solution2 {
 private:
