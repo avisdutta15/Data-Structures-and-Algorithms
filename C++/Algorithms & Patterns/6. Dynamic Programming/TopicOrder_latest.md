@@ -196,8 +196,10 @@ At index i, try every possible word. If s[i..end-1] is in dict and rest can be b
 ```
 solve(i):
   if i == n: return true
-  for end = i+1 to n:
-    if s[i..end-1] in dict AND solve(end): return true
+  for i=1 to n:
+    prefix = s[0...i];
+    suffix = s[i+1....n];
+    if prefix in dict AND solve(suffix): return true
   return false
 
 // Answer: solve(0)
@@ -211,8 +213,8 @@ solve(start_index):
 
   sentences = []
   for i = start_index to n-1:
-    word = s[start_index..i]
-    if word in dict:
+    prefix = s[start_index..i]
+    if prefix in dict:
       for suffix in solve(i+1):
         sentences.add(word + " " + suffix)
 
