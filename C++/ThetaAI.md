@@ -261,6 +261,7 @@
 |  | 1046 | Last Stone Weight |
 |  | 2558 | Take Gifts From the Richest Pile |
 | **Pattern 43: Two Heaps (Median)** | 295 | Find Median from Data Stream |
+|  | 480  | Sliding Window Median |
 |  | 1825 | Finding MK Average |
 | **Pattern 44: K-way Merge** | 23 | Merge k Sorted Lists |
 |  | 373 | Find K Pairs with Smallest Sums |
@@ -274,6 +275,7 @@
 |  | 1834 | Single-Threaded CPU |
 |  | 1942 | Number of the Smallest Unoccupied Chair |
 |  | 2402 | Meeting Rooms III |
+| **Pattern : Misc** | 502 | IPO (https://www.youtube.com/watch?v=b12SZXrZF9I) |
 
 ## VII. Backtracking Patterns
 
