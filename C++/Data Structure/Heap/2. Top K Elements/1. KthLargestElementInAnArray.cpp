@@ -59,8 +59,8 @@ using namespace std;
 
     Array layout during partition:
 
-        [  < pivot  |  >= pivot  |    unseen   | pivot ]
-         low ... i-1   i ... j-1   j ... high-1   high
+        [  < pivot        |  >= pivot       |    unseen         | pivot ]
+         low ... i-1        i ... j-1         j ... high-1         high
 
         nums[low..i-1]    → all < pivot     (processed, smaller)
         nums[i..j-1]      → all >= pivot    (processed, larger or equal)
@@ -73,6 +73,31 @@ using namespace std;
 
     After the loop, swap nums[i] with nums[high] to place the pivot
     at index i — its correct sorted position.
+
+
+    Array Layout:
+    -------------
+    1. During partition
+
+        [  < pivot        |  >= pivot       |    unseen         | pivot ]
+         low ... i-1        i ... j-1         j ... high-1         high
+
+    2. After loop finishes
+
+        [ < pivot   |     >=pivot       |   pivot ]
+         low...i-1       i..high-1           high     
+
+    3. Last swap. i...high-1 has elements >= pivot. but pivot is at high
+       To make all the elements from i....high >=pivot, swap A[i] and A[high]
+       bringing pivot at ith position.
+
+        [ < pivot   |     pivot         |   >=pivot ]
+         low...i-1          i              i+1...high     
+
+    Why >=pivot
+      [i+1..high]
+
+    Because nums[i+1..high] could contain elements equal to pivot too (not just strictly greater)
 
     Dry Run:
     --------
