@@ -276,6 +276,13 @@
 |  | 1942 | Number of the Smallest Unoccupied Chair |
 |  | 2402 | Meeting Rooms III |
 | **Pattern : Misc** | 502 | IPO (https://www.youtube.com/watch?v=b12SZXrZF9I) |
+|  |  | Sort an almost(K) sorted array |
+|  |  |Minimum Number Of refueling stops |
+|  |  |The Skyline Problem |
+|  |  |Smallest Range in K lists |
+|  |  |Rearrange characters in a string such that no two adjacent are same. |
+|  |  |Rearrange characters in a string such that the duplicates are K distance apart |
+|  |  |Rearrange characters in a string such that the duplicates are atleast K distance apart |
 
 ## VII. Backtracking Patterns
 
