@@ -269,6 +269,7 @@
 |  | 632 | Smallest Range Covering Elements |
 | **Pattern 45: Scheduling / Min Cost** | 253 | Meeting Rooms II |
 |  | 767 | Reorganize String |
+|  | 358 | Rearrange String k Distance Apart |
 |  | 857 | Minimum Cost to Hire K Workers |
 |  | 1642 | Furthest Building You Can Reach |
 |  | 1792 | Maximum Average Pass Ratio |
