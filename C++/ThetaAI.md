@@ -280,9 +280,6 @@
 |  |  | Sort an almost(K) sorted array |
 |  |  |Minimum Number Of refueling stops |
 |  |  |The Skyline Problem |
-|  |  |Rearrange characters in a string such that no two adjacent are same. |
-|  |  |Rearrange characters in a string such that the duplicates are K distance apart |
-|  |  |Rearrange characters in a string such that the duplicates are atleast K distance apart |
 
 ## VII. Backtracking Patterns
 
