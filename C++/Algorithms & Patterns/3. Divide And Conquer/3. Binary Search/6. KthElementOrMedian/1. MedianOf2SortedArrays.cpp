@@ -9,111 +9,317 @@
 using namespace std;
 
 /*
-    https://www.youtube.com/watch?v=6D9T2ZY8h5c
-    https://www.youtube.com/watch?v=7nABqJCEMuY
+    ============================================================================
+    LeetCode 4 — Median of Two Sorted Arrays
+    ============================================================================
 
-	  Problem Statement:
-	  -----------------
-	  Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
-    The overall run time complexity should be O(log (m+n)).
-	
-    Examples:
-	  ---------
-	  Input: nums1 = [1,3], nums2 = [2]
-    Output: 2.00000
-    Explanation: merged array = [1,2,3] and median is 2.
+    References:
+        https://www.youtube.com/watch?v=6D9T2ZY8h5c
+        https://www.youtube.com/watch?v=7nABqJCEMuY
 
+    Problem
+    -------
+    Given two sorted arrays A (size m) and B (size n), return the median of
+    the combined sorted sequence. Required time complexity: O(log(m+n)).
 
-    Input: nums1 = [1,2], nums2 = [3,4]
-    Output: 2.50000
-    Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
+    Examples
+    --------
+    1) A = [1,3], B = [2]        →  merged = [1,2,3]       →  median = 2.0
+    2) A = [1,2], B = [3,4]      →  merged = [1,2,3,4]     →  median = 2.5
+    3) A = [1,3,8], B = [2,4,7,10,11] → merged = [1,2,3,4,7,8,10,11] → median = 5.5
 
-	  Constraints:
-	  ------------
-    nums1.length == m
-    nums2.length == n
-    0 <= m <= 1000
-    0 <= n <= 1000
-    1 <= m + n <= 2000
-    -10^6 <= nums1[i], nums2[i] <= 10^6
+    Constraints
+    -----------
+    • 0 ≤ m, n ≤ 1000      • 1 ≤ m + n ≤ 2000
+    • −10^6 ≤ A[i], B[i] ≤ 10^6
 
-    Intuition:
-    ---------
-    If the total number of elements in both the arrays is odd  - Median = temp[total_elements/2]
-    If the total number of elements in both the arrays is even - Median = (temp[total_elements/2 - 1] + temp[total_elements/2])/2.0
-    e.g:
-        temp[] = [0, 1, 2, 3, 4]
-        total_elements = odd
-        median = A[total_elements/2] 
-               = A[5/2] 
-               = A[2] 
-               = 2
+    ============================================================================
+    What Is a Median?
+    ============================================================================
 
-        temp[] = [0, 1, 2, 3, 4, 5]
-        total_elements = even
-        median = (A[total_elements/2] + A[total_elements/2 - 1])/2.0 
-               = (A[5/2] + A[5/2 - 1])/2.0 
-               = (A[2] + A[1])/2.0
-               = (2+1)/2.0 
-               = 1.5
+    The median splits a sorted sequence into two equal (or near-equal) halves:
+        • Odd  length:  middle element.
+        • Even length:  average of the two middle elements.
 
-	  Approach 1: Temp[] + Sort
-	  -------------------------
-    
-    Approach 2: Temp[] + Insert using merge procedure to skip sorting
-	  -----------------------------------------------------------------
+        temp = [0, 1, 2, 3, 4]       →  median = temp[5/2]           = temp[2] = 2
+        temp = [0, 1, 2, 3, 4, 5]    →  median = (temp[2]+temp[3])/2 = 2.5
 
-    Approach 3: Variables to store target elements instead of temp[] + Insert using merge procedure to skip sorting
-    ---------------------------------------------------------------------------------------------------------------
+    ============================================================================
+    Approach 1 — Concatenate + Sort                     O((m+n)log(m+n)) / O(m+n)
+    ============================================================================
+    Dump both arrays into temp[], sort, pick the middle element(s).
+    Simple but ignores the fact that A and B are already sorted.
 
-    Approach 4: Binary Search on the first array size
-    -------------------------------------------------
-    Key Idea: Partition both arrays such that:
-      - Left partition has exactly (m+n+1)/2 elements
-          The +1 ensures both odd and even totals are handled uniformly:
-          - odd  total (e.g. m+n=7): (7+1)/2=4 -> left=4, right=3 -> median = max(left)
-          - even total (e.g. m+n=8): (8+1)/2=4 -> left=4, right=4 -> median = (max(left)+min(right))/2
-          Without +1, odd case gives 7/2=3 (integer division), putting the median
-          element in the right partition and requiring extra handling.
-      - All elements in left partition <= all elements in right partition
+    ============================================================================
+    Approach 2 — Merge Procedure (temp array)           O(m+n) / O(m+n)
+    ============================================================================
+    Use the merge step of merge-sort to build a sorted temp[] in one
+    pass, then pick the middle element(s). Avoids re-sorting.
 
-    For a valid partition, we need all the elements in the left partition to be smaller than
-    all elements in the right partition. This gives us the conditions to validate a partition:
-      a1 (max of A's left) <= b2 (min of B's right)
-      b1 (max of B's left) <= a2 (min of A's right)
+    ============================================================================
+    Approach 3 — Merge Procedure (no temp array)        O(m+n) / O(1)
+    ============================================================================
+    Same merge walk, but instead of storing everything, just track the
+    elements at positions idx1 = (m+n)/2 − 1 and idx2 = (m+n)/2 as we
+    go. Constant space, still linear time.
 
-    Why are we not checking a1 <= a2 and b1 <=b2? 
-    Because the arrays are already sorted, so we know:
-    a1 <= a2 (because they're in sorted order in A)
-    b1 <= b2 (because they're in sorted order in B)
+    ============================================================================
+    Approach 4 — Binary Search on Partition              O(log(min(m,n))) / O(1)
+    ============================================================================
 
-    We binary search on the number of elements we take from A (smaller array).
-    The rest are taken from B to fill the left partition.
+    This is the key approach that meets the O(log(m+n)) requirement.
+    It deserves a deep walkthrough.
 
-    Example: A = [1, 3, 8], B = [2, 4, 7, 10, 11]  =>  m=3, n=5
-    leftBucketSize = (3+5+1)/2 = 4
+    ────────────────────────────────────────────────────────────────────
+    CORE IDEA: PARTITION, DON'T MERGE
+    ────────────────────────────────────────────────────────────────────
 
-    Iteration 1: lo=0, hi=3, mid=1
-      setASize=1, setBSize=3
-      A:  | 1 | 3  8        =>  a1=A[0]=1,  a2=A[1]=3
-      B:  | 2  4  7 | 10 11 =>  b1=B[2]=7,  b2=B[3]=10
-      a1(1) <= b2(10)? YES
-      b1(7) <= a2(3)?  NO  =>  lo = mid+1 = 2
+    Instead of actually merging the arrays, we ask:
 
-    Iteration 2: lo=2, hi=3, mid=2
-      setASize=2, setBSize=2
-      A:  | 1  3 | 8        =>  a1=A[1]=3,  a2=A[2]=8
-      B:  | 2  4 | 7 10 11  =>  b1=B[1]=4,  b2=B[2]=7
-      a1(3) <= b2(7)?  YES
-      b1(4) <= a2(8)?  YES  =>  Valid partition!
+        "Can we find a CUT in A and a CUT in B such that everything
+         on the left of both cuts would form the left half of the
+         merged array, and everything on the right would form the
+         right half?"
 
-    merged left  = [1, 3, 2, 4]  =>  max(a1, b1) = max(3, 4) = 4
-    merged right = [8, 7, 10, 11] =>  min(a2, b2) = min(8, 7) = 7
-    (m+n)=8 is even => median = (max(a1,b1) + min(a2,b2)) / 2.0
-                              = (4 + 7) / 2.0 = 5.5
+    If yes, the median sits right at the boundary of that partition.
 
-    Verification: merged = [1,2,3,4,7,8,10,11] => median = (4+7)/2 = 5.5 ✓
+    ────────────────────────────────────────────────────────────────────
+    STEP 1: DEFINE THE PARTITION SIZE
+    ────────────────────────────────────────────────────────────────────
 
+    The left half of the merged array must contain exactly:
+
+        leftSize = (m + n + 1) / 2    elements
+
+    Why +1?  Integer division floors the result. The +1 makes the left
+    half absorb the extra element when the total is odd:
+        • m+n = 7  →  leftSize = 4, rightSize = 3  →  median = max(left)
+        • m+n = 8  →  leftSize = 4, rightSize = 4  →  median = avg(max(left), min(right))
+    This lets us handle odd/even with the same formula.
+
+    ────────────────────────────────────────────────────────────────────
+    STEP 2: WHAT DOES A "CUT" LOOK LIKE?
+    ────────────────────────────────────────────────────────────────────
+
+    Suppose we take `i` elements from A and `j` elements from B for
+    the left half, where j = leftSize − i.
+
+        A:  [ a0  a1  ...  a(i-1) | a(i)  a(i+1) ...  a(m-1) ]
+                 ← left A →             ← right A →
+
+        B:  [ b0  b1  ...  b(j-1) | b(j)  b(j+1) ...  b(n-1) ]
+                 ← left B →             ← right B →
+
+    Define four boundary values:
+        a1 = A[i−1]   (max of A's left)       a2 = A[i]     (min of A's right)
+        b1 = B[j−1]   (max of B's left)       b2 = B[j]     (min of B's right)
+
+    If i = 0 (nothing taken from A's left):  a1 = −∞
+    If i = m (nothing in A's right):         a2 = +∞
+    Same logic for j with B.
+
+    ────────────────────────────────────────────────────────────────────
+    STEP 3: WHEN IS A PARTITION VALID?
+    ────────────────────────────────────────────────────────────────────
+
+    For the partition to correctly split the merged array, every element
+    on the left must be ≤ every element on the right. We need:
+
+        a1 ≤ b2    (A's left max  ≤  B's right min)
+        b1 ≤ a2    (B's left max  ≤  A's right min)
+
+    Why only these two cross-checks?
+    Because A and B are individually sorted, so:
+        a1 ≤ a2   is already guaranteed  (sorted order within A)
+        b1 ≤ b2   is already guaranteed  (sorted order within B)
+
+    The only unknowns are the CROSS-ARRAY relationships: a1 vs b2
+    and b1 vs a2. That's what we check.
+
+    ────────────────────────────────────────────────────────────────────
+    STEP 4: WHY BINARY SEARCH WORKS HERE
+    ────────────────────────────────────────────────────────────────────
+
+    The variable we binary-search on is `i` — the number of elements
+    we take from A for the left half. Range: 0 ≤ i ≤ m.
+
+    At each candidate `i`, exactly one of three things is true:
+
+    CASE 1: a1 ≤ b2  AND  b1 ≤ a2   →  VALID partition. Done.
+    ─────────────────────────────────────────────────────────────
+        Everything on the left ≤ everything on the right.
+        Median = max(a1,b1)                          if odd total
+                 (max(a1,b1) + min(a2,b2)) / 2.0    if even total
+
+    CASE 2: a1 > b2   →  We took TOO MANY from A.
+    ─────────────────────────────────────────────────────────────
+        A's left-side maximum (a1) is bigger than B's right-side
+        minimum (b2). That means a1 would need to be on the right,
+        so we've pushed A's cut too far right. Fix: move hi ← mid−1
+        (take fewer from A).
+
+        Visually:
+            A:  [ ... 15 | 20 ... ]     a1=15
+            B:  [ ... 8  | 10 ... ]     b2=10
+            15 > 10 → a1 is too big for the left half → shrink A's contribution.
+
+    CASE 3: b1 > a2   →  We took TOO FEW from A.
+    ─────────────────────────────────────────────────────────────
+        B's left-side maximum (b1) is bigger than A's right-side
+        minimum (a2). That means we gave B too many elements on
+        the left (because j = leftSize − i, taking fewer from A
+        means taking more from B). Fix: move lo ← mid+1
+        (take more from A, fewer from B).
+
+        Visually:
+            A:  [ ... 3  | 5  ... ]     a2=5
+            B:  [ ... 12 | 18 ... ]     b1=12
+            12 > 5 → b1 is too big for the left half → give more to A, less to B.
+
+    KEY INSIGHT: Cases 2 and 3 are mutually exclusive and tell us a
+    clear direction (left or right), which is exactly what binary
+    search needs. There is always exactly one valid partition, and
+    the search space is monotonic — moving `i` left makes a1 smaller
+    and b1 larger, and vice versa. This monotonicity guarantees
+    convergence.
+
+    ────────────────────────────────────────────────────────────────────
+    STEP 5: ALWAYS BINARY-SEARCH ON THE SMALLER ARRAY
+    ────────────────────────────────────────────────────────────────────
+
+    If m > n, swap A and B so we always binary-search on the shorter
+    array. Two reasons:
+        1. Fewer iterations: O(log(min(m,n))) instead of O(log(max(m,n))).
+        2. Prevents invalid index: if m > n, then j = leftSize − i
+           could go negative for large i, causing out-of-bounds on B.
+           When m ≤ n, j stays in [0, n] for all valid i in [0, m].
+
+    ────────────────────────────────────────────────────────────────────
+    STEP 6: READING THE MEDIAN FROM THE PARTITION
+    ────────────────────────────────────────────────────────────────────
+
+    Once we find a valid partition:
+        • max(a1, b1) is the largest element in the entire left half.
+        • min(a2, b2) is the smallest element in the entire right half.
+
+    Odd total  →  median = max(a1, b1)
+        The left half has one more element, so its max IS the median.
+
+    Even total →  median = (max(a1, b1) + min(a2, b2)) / 2.0
+        The two middle elements straddle the partition boundary.
+
+    ============================================================================
+    Dry Run 1:  A = [1, 3, 8],  B = [2, 4, 7, 10, 11]
+                m = 3,  n = 5,  leftSize = (3+5+1)/2 = 4
+    ============================================================================
+
+    Binary search on A (smaller array):  lo = 0,  hi = 3
+
+    Iteration 1:  mid = 1  →  i = 1 from A,  j = 3 from B
+    ┌─────────────────────────────────────────────────────────────┐
+    │  A:   [ 1 | 3, 8 ]          a1 = A[0] = 1,  a2 = A[1] = 3   │
+    │  B:   [ 2, 4, 7 | 10, 11 ]  b1 = B[2] = 7,  b2 = B[3] = 10  │
+    │                                                             │
+    │  Check:  a1(1) ≤ b2(10)?  YES  ✓                            │
+    │          b1(7) ≤ a2(3)?   NO   ✗                            │
+    │                                                             │
+    │  b1 > a2  →  took too few from A  →  lo = mid + 1 = 2       │
+    └─────────────────────────────────────────────────────────────┘
+        Why? B contributed 7 to the left, but A's right starts at 3.
+        7 > 3 breaks the partition. We need more from A (push the
+        cut in A rightward so a2 grows and b1 shrinks).
+
+    Iteration 2:  mid = 2  →  i = 2 from A,  j = 2 from B
+    ┌─────────────────────────────────────────────────────────────┐
+    │  A:   [ 1, 3 | 8 ]          a1 = A[1] = 3,  a2 = A[2] = 8   │
+    │  B:   [ 2, 4 | 7, 10, 11 ]  b1 = B[1] = 4,  b2 = B[2] = 7   │
+    │                                                             │
+    │  Check:  a1(3) ≤ b2(7)?  YES  ✓                             │
+    │          b1(4) ≤ a2(8)?  YES  ✓                             │
+    │                                                             │
+    │  VALID PARTITION!                                           │
+    │  Left  half = {1, 3, 2, 4}    →  max(a1, b1) = max(3, 4) = 4│
+    │  Right half = {8, 7, 10, 11}  →  min(a2, b2) = min(8, 7) = 7│
+    │  Total = 8 (even) →  median = (4 + 7) / 2.0 = 5.5           │
+    └─────────────────────────────────────────────────────────────┘
+
+    Verify: merged = [1, 2, 3, 4, 7, 8, 10, 11]  →  (4+7)/2 = 5.5  ✓
+
+    ============================================================================
+    Dry Run 2:  A = [1, 3],  B = [2]
+                m = 2,  n = 1,  leftSize = (2+1+1)/2 = 2
+    ============================================================================
+
+    Binary search on B (smaller, so we swap: search on the array of size 1).
+    After swap:  A = [2],  B = [1, 3],  m = 1,  n = 2
+
+    lo = 0,  hi = 1
+
+    Iteration 1:  mid = 0  →  i = 0 from A,  j = 2 from B
+    ┌──────────────────────────────────────────────────────────────┐
+    │  A:   [ | 2 ]               a1 = −∞,       a2 = A[0] = 2     │
+    │  B:   [ 1, 3 | ]            b1 = B[1] = 3, b2 = +∞           │
+    │                                                              │
+    │  Check:  a1(−∞) ≤ b2(+∞)?  YES  ✓                            │
+    │          b1(3)  ≤ a2(2)?    NO   ✗                           │
+    │                                                              │
+    │  b1 > a2  →  lo = mid + 1 = 1                                │
+    └──────────────────────────────────────────────────────────────┘
+
+    Iteration 2:  mid = 1  →  i = 1 from A,  j = 1 from B
+    ┌──────────────────────────────────────────────────────────────┐
+    │  A:   [ 2 | ]               a1 = A[0] = 2, a2 = +∞           │
+    │  B:   [ 1 | 3 ]             b1 = B[0] = 1, b2 = B[1] = 3     │
+    │                                                              │
+    │  Check:  a1(2) ≤ b2(3)?   YES  ✓                             │
+    │          b1(1) ≤ a2(+∞)?  YES  ✓                             │
+    │                                                              │
+    │  VALID PARTITION!                                            │
+    │  Left half = {2, 1}  →  max(2, 1) = 2                        │
+    │  Total = 3 (odd)     →  median = 2                           │
+    └──────────────────────────────────────────────────────────────┘
+
+    Verify: merged = [1, 2, 3]  →  median = 2  ✓
+
+    ============================================================================
+    Dry Run 3 (edge case):  A = [1, 2],  B = [3, 4]
+                            m = 2,  n = 2,  leftSize = (2+2+1)/2 = 2
+    ============================================================================
+
+    lo = 0,  hi = 2
+
+    Iteration 1:  mid = 1  →  i = 1 from A,  j = 1 from B
+    ┌──────────────────────────────────────────────────────────────┐
+    │  A:   [ 1 | 2 ]             a1 = 1,  a2 = 2                  │
+    │  B:   [ 3 | 4 ]             b1 = 3,  b2 = 4                  │
+    │                                                              │
+    │  Check:  a1(1) ≤ b2(4)?  YES  ✓                             │
+    │          b1(3) ≤ a2(2)?  NO   ✗                             │
+    │                                                              │
+    │  b1 > a2  →  lo = mid + 1 = 2                                │
+    └──────────────────────────────────────────────────────────────┘
+
+    Iteration 2:  mid = 2  →  i = 2 from A,  j = 0 from B
+    ┌──────────────────────────────────────────────────────────────┐
+    │  A:   [ 1, 2 | ]            a1 = 2,   a2 = +∞                │
+    │  B:   [ | 3, 4 ]            b1 = −∞,  b2 = 3                 │
+    │                                                              │
+    │  Check:  a1(2)  ≤ b2(3)?   YES  ✓                            │
+    │          b1(−∞) ≤ a2(+∞)?  YES  ✓                            │
+    │                                                              │
+    │  VALID PARTITION!                                            │
+    │  Left  = {1, 2}   →  max(2, −∞) = 2                          │
+    │  Right = {3, 4}   →  min(+∞, 3)  = 3                         │
+    │  Total = 4 (even) →  median = (2 + 3) / 2.0 = 2.5            │
+    └──────────────────────────────────────────────────────────────┘
+
+    Verify: merged = [1, 2, 3, 4]  →  (2+3)/2 = 2.5  ✓
+
+    ============================================================================
+    Complexity
+    ============================================================================
+    Time  : O(log(min(m, n)))  —  binary search on the shorter array.
+    Space : O(1)               —  only a handful of variables.
 */
 
 //T.C. - O(m) + O(n) + O((m+n)log(m+n))
