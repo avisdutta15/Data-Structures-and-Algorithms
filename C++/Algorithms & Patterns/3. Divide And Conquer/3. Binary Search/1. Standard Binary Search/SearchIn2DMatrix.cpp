@@ -84,7 +84,7 @@ using namespace std;
             [4, 5, 6, 7]
             [8, 9, 10,11]
 
-    Time Complexity: O(log(m*n))    
+    Time Complexity: O(log(m*n))
 */
 
 class Solution1 {
