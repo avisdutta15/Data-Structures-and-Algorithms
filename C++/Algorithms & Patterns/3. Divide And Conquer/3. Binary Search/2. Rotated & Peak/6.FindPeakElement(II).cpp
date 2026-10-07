@@ -56,7 +56,7 @@ using namespace std;
     4. Get the left and right element of the max row index. If mid is in boundary cols left or right will be +INF
     5. If left < maxElement > right, then we found the peak element
     6. If left > maxElement, search in left half        (peak element might be on left)
-    7. If right > maxElement, search in right half      (peak element might be on right)
+    7. If maxElement < right , search in right half      (peak element might be on right)
     8. Return the peak element
 
     Time Complexity: O(N*LogM)

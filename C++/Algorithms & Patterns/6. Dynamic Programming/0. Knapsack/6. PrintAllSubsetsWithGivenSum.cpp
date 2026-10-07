@@ -187,25 +187,15 @@ class Solution{
                 sum = top.second.first;
                 auto items = top.second.second;
 
-                //base case. if n==0 and sum==0 then we got the subset. insert it into all subsets.
+                //base case 1: n==0 and sum==0 → found a valid subset
                 if(n == 0 && sum == 0){
                     allSubsets.push_back(items);
                 }
-                //need to check this case using dry run.
-                else if(n == 1 && sum!=0 && dp[1][sum]==true){
-                    items.push_back(A[n-1]);
-                    if(A[n-1] == sum)
-                        allSubsets.push_back(items);
+                //base case 2: n==0 and sum!=0 → dead end, do nothing
+                else if(n == 0 && sum != 0){
+                    // no valid subset on this path
                 }
                 else{
-                    bool excluded = dp[n-1][sum];
-
-                    //if we can reach the target by excluding the current element
-                    //then push it to Q.
-                    if(excluded == true){
-                        Q.push({n-1, {sum, items}});
-                    }
-                    
                     //if we can reach the target by including the current element
                     //then push it to Q.
                     if(A[n-1]<=sum){
@@ -213,7 +203,15 @@ class Solution{
                         if(included == true){
                             items.push_back(A[n-1]);
                             Q.push({n - 1, {sum - A[n-1], items}});
+                            items.pop_back();
                         }
+                    }
+
+                    //if we can reach the target by excluding the current element
+                    //then push it to Q.
+                    bool excluded = dp[n-1][sum];
+                    if(excluded == true){
+                        Q.push({n-1, {sum, items}});
                     }
                 }
             }

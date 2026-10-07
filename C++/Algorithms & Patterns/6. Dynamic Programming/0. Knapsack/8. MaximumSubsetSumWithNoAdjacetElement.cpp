@@ -21,52 +21,66 @@ using namespace std;
 */
 
 class Solution{
+        // Recursive: try all valid subsequences, pick the max sum
+        // N = number of elements we're considering (first N elements of A)
         int maxSumSuchThatNo2ElementsAreAdjacentRecursive(vector<int> &A, int N){
+            // No elements left to consider, sum is 0
             if(N==0)
                 return 0;
+            // Only one element, best we can do is take it
             if(N==1)
                 return A[N-1];
 
             int include = INT_MIN, exclude = INT_MIN;
 
-            //Do N-2 as current element is included
+            // Include A[N-1]: add its value, skip adjacent A[N-2] by jumping to N-2
             include = A[N-1] + maxSumSuchThatNo2ElementsAreAdjacentRecursive(A, N-2);
             
-            //Do N-1 as current element is excluded 
+            // Exclude A[N-1]: move to N-1 (A[N-2] is still eligible)
             exclude = maxSumSuchThatNo2ElementsAreAdjacentRecursive(A, N-1);        
             return max(include, exclude);
         }
 
+        // Top-Down (memoized): same logic as recursive, but cache results by N
+        // Only 1 changing variable (N), so lookup is a 1D map
         int maxSumSuchThatNo2ElementsAreAdjacentTopDown(vector<int> &A, int N, unordered_map<int, int> &lookup){
             if(N==0)
                 return 0;
             if(N==1)
                 return A[N-1];
 
+            // If we've already solved for this N, return cached result
             if(lookup.find(N) != lookup.end())
                 return lookup[N];
             
             int include = INT_MIN, exclude = INT_MIN;
 
-            //Do N-2 as current element is included
+            // Include A[N-1]: add its value, jump to N-2 (skip adjacent)
             include = A[N-1] + maxSumSuchThatNo2ElementsAreAdjacentTopDown(A, N-2, lookup);
             
-            //Do N-1 as current element is excluded 
-            exclude = maxSumSuchThatNo2ElementsAreAdjacentTopDown(A, N-1, lookup);        
+            // Exclude A[N-1]: move to N-1
+            exclude = maxSumSuchThatNo2ElementsAreAdjacentTopDown(A, N-1, lookup);
+
+            // Cache and return the best of include/exclude
             return lookup[N] = max(include, exclude);
         }
 
+        // Bottom-Up: fill dp[] iteratively from base cases up to N
+        // dp[n] = max sum using first n elements with no two adjacent
         int maxSumSuchThatNo2ElementsAreAdjacentBottomUp(vector<int> &A, int N){
             vector<int> dp(N+1, 0);
-            dp[0] = 0;
-            dp[1] = A[0];
+            dp[0] = 0;       // No elements → sum is 0
+            dp[1] = A[0];    // One element → take it
 
             for(int n=2; n<=N; n++){
+                // Include A[n-1]: its value + best sum from first n-2 elements
                 int include = A[n-1] + dp[n-2];
+                // Exclude A[n-1]: best sum from first n-1 elements
                 int exclude = dp[n-1];
+                // Take the better option
                 dp[n] = max(include, exclude);
             }
-            return dp[N];
+            return dp[N];  // Answer for all N elements
         }
 
     public:

@@ -47,11 +47,11 @@ Approach:
         Create a 2D array (N+1, totalSum+1).
         dp[n][sum] denotes if sum is possible with n elements.
 
-        if n=0 and sum = 0
+        if n=0 and sum = 0          // if no elements left i.e. empty set{} and sum = 0, we can make this sum since we can exclude all elems.
             dp[n][sum] = true
-        if sum = 0
+        if sum = 0:                 // we can always form sum - by excluding all remaining elements
             dp[n][sum] = true
-        if n = 0
+        if n = 0:                   // no elements left so we cannot make any sum
             dp[n][sum] = false
         else{
             include, exclude
@@ -65,34 +65,46 @@ Approach:
 */
 
 class Solution{
+    // Recursive: explore all subsets, collect every reachable sum
+    // Analogous to subset sum recursive, but instead of checking one target,
+    // we collect all sums reached when N == 0
     void countDistinctSubsetSumsRecursive(vector<int> &A, int sum, int N, unordered_set<int> &sums){
+        // Base case 1: N == 0, we've made a decision about every element
+        // Whatever sum we accumulated is a valid distinct sum — collect it
+        // (analogous to subset sum's: if N==0 && targetSum==0 return true; if N==0 && targetSum!=0 return false)
+        // Here we don't check sum value — we just record it since we want ALL reachable sums
         if(N == 0){
             sums.insert(sum);
             return;
         }
 
-        //include
+        // Include A[N-1]: add its value to running sum, move to N-1
         countDistinctSubsetSumsRecursive(A, sum + A[N-1], N-1, sums);
-        //exclude
+        // Exclude A[N-1]: keep sum unchanged, move to N-1
         countDistinctSubsetSumsRecursive(A, sum, N-1, sums);
     }
 
+    // Top-Down (memoized): same as recursive but skip already-explored (N, sum) states
+    // Analogous to subset sum top-down, but lookup marks visited states instead of storing true/false results
     void countDistinctSubsetSumsTopDown(vector<int> &A, int sum, int N, unordered_set<int> &sums, vector<vector<bool>> &lookup){
+        // Base case: same as recursive — collect the sum when all decisions are made
         if(N == 0){
             sums.insert(sum);
             return;
         }
         
-        //if we can make sum with N elements then return.
+        // If we've already explored this (N, sum) state, skip it — all sums reachable
+        // from here have already been collected
+        // (analogous to subset sum's memo check: if memo[N][sum] != -1 return cached result)
         if(lookup[N][sum] == true)
             return;
 
-        //include
+        // Include A[N-1]: add its value to running sum, recurse with N-1
         countDistinctSubsetSumsTopDown(A, A[N-1] + sum, N-1, sums, lookup);
-        //exclude
+        // Exclude A[N-1]: keep sum unchanged, recurse with N-1
         countDistinctSubsetSumsTopDown(A, sum, N-1, sums, lookup);
 
-        //sum can be made with N elements.
+        // Mark this (N, sum) state as visited so we don't re-explore it
         lookup[N][sum] = true;
     }
 
@@ -102,14 +114,11 @@ class Solution{
 
         for(int n=0; n<=N; n++){
             for(int sum=0; sum<=totalSum; sum++){
-                // we can make 0 sum with 0 elements
+                // empty subset has sum 0
                 if(n==0 && sum==0)
                     dp[n][sum] = true;
-                // with n elements we can always make 0 sum by excluding those elements
-                else if(sum == 0)
-                    dp[n][sum] = true;
-                // with no elements, we cannot make sum>1
-                else if(n==0)
+                // no elements, can't form positive sum
+                else if(n==0 && sum!=0)
                     dp[n][sum] = false;
                 else{
                     bool include = false, exclude = false;

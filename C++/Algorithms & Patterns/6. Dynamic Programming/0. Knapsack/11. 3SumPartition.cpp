@@ -195,38 +195,33 @@ class Solution{
         //   f(0, 0, 0) = true   → no items, both targets met
         //   f(0, s1, s2) = false if s1 != 0 or s2 != 0
         //
-        // In bottom-up: we initialized everything to false,
-        // so we only need to set dp[0][0][0] = true.
-        // The n=0 row serves as the base case.
-        dp[0][0][0] = true;
-
-        // Fill from n=1 to N
-        // ──────────────────
-        // Why start from n=1?
-        // n=0 is the base case (already filled above).
-        // n=1 means "considering the first 1 item" — it looks up dp[n-1] = dp[0] (the base case).
-        // n=2 means "considering first 2 items" — it looks up dp[1] (which we just computed).
-        // ...and so on. Each row n depends only on row n-1.
-        //
-        // This exactly mirrors the recursion:
-        //   f(n, s1, s2) calls f(n-1, ...) → dp[n] depends on dp[n-1]
-        for(int n = 1; n <= N; n++){
+        // In bottom-up: we handle these explicitly inside the loop,
+        // analogous to how subset sum handles n=0 cases inline.
+        for(int n = 0; n <= N; n++){
             for(int s1 = 0; s1 <= target; s1++){
                 for(int s2 = 0; s2 <= target; s2++){
-                    // Choice 3: put A[n-1] in S3 (don't reduce s1 or s2)
-                    bool putInS3 = dp[n-1][s1][s2];
+                    // Base case 1: no elements, both sums are 0 — valid
+                    if(n == 0 && s1 == 0 && s2 == 0)
+                        dp[n][s1][s2] = true;
+                    // Base case 2: no elements, at least one sum != 0 — invalid
+                    else if(n == 0)
+                        dp[n][s1][s2] = false;
+                    else{
+                        // Choice 1: put A[n-1] in S1
+                        bool putInS1 = false;
+                        if(A[n-1] <= s1)
+                            putInS1 = dp[n-1][s1 - A[n-1]][s2];
 
-                    // Choice 1: put A[n-1] in S1
-                    bool putInS1 = false;
-                    if(A[n-1] <= s1)
-                        putInS1 = dp[n-1][s1 - A[n-1]][s2];
+                        // Choice 2: put A[n-1] in S2
+                        bool putInS2 = false;
+                        if(A[n-1] <= s2)
+                            putInS2 = dp[n-1][s1][s2 - A[n-1]];
 
-                    // Choice 2: put A[n-1] in S2
-                    bool putInS2 = false;
-                    if(A[n-1] <= s2)
-                        putInS2 = dp[n-1][s1][s2 - A[n-1]];
+                        // Choice 3: put A[n-1] in S3 (don't reduce s1 or s2)
+                        bool putInS3 = dp[n-1][s1][s2];
 
-                    dp[n][s1][s2] = putInS1 || putInS2 || putInS3;
+                        dp[n][s1][s2] = putInS1 || putInS2 || putInS3;
+                    }
                 }
             }
         }

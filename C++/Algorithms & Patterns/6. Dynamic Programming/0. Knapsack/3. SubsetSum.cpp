@@ -26,12 +26,20 @@ Approach:
         if(targetSum == 0)
             return 1;
 
-    This is because if we have an array like {1, -1, 24}
+    This is because if we have an array like {1, -1, 24} and target = 24.
     Then there are 2 subsets possible (1, -1, 24) and (24).
 
-    Now if we add add targetSum==0 ? return 1;
-    Then it would not consider the case (1, -1, 24). It only considered (24).
-    This would give a wrong result if wanted to count the number of subsets with given sum.
+    If your base case is if (targetSum == 0) return 1:
+        At f(3, 24), you include A[2] = 24, which gives f(2, 0). 
+        Now targetSum == 0, so you immediately return 1 and stop recursing. 
+        You never explore whether including A[1] = -1 and A[0] = 1 (which sum to 0) could also work alongside 24. 
+        So you find {24} but miss {1, -1, 24}.
+
+    The problem is you're saying "sum is 0, I'm done" before you've given the remaining elements a chance 
+    to form a zero-sum group that could also be part of a valid subset.
+
+    By only checking at N == 0 (when you've made a decision about every element), you force the recursion 
+    to go all the way down the tree:
 
     i.e. at 
                      f(3, 24)
@@ -70,6 +78,9 @@ Approach:
     Why 2D memoization?
     ───────────────────
     The function has TWO changing parameters: N (items remaining) and targetSum.
+    Looking at the recursive function f(n, targetSum):
+        n ranges from 0 to N (the size of the array). It starts at N and decreases by 1 each call, so you need N + 1 rows.
+        targetSum ranges from 0 to targetSum (the original target).  It either stays the same (exclude) or decreases by A[i] (include), so you need targetSum + 1 columns.
     Each unique (N, targetSum) pair defines a unique subproblem.
     So we need a 2D structure indexed by [N][targetSum] to store results.
 
@@ -81,36 +92,48 @@ Approach:
 */
 
 class Solution{
+    // Recursive: try all include/exclude combinations, check if targetSum is reachable
     bool subsetSumRecursive(vector<int> &A, int N, int targetSum){
-        //empty subset {} possible if N = 0 and sum = 0
+        // Base case 1: all decisions made and sum is exactly 0 — found a valid subset
         if(N==0 && targetSum == 0)
             return true;    
+        // Base case 2: all decisions made but sum isn't 0 — this path doesn't work
         if(N == 0 && targetSum!=0)
             return false;
         
         bool include = false, exclude = false;
+        // Include A[N-1]: subtract its value from targetSum, move to N-1
         if(A[N-1]<=targetSum)
             include = subsetSumRecursive(A, N-1, targetSum - A[N-1]);
+        // Exclude A[N-1]: targetSum stays the same, move to N-1
         exclude = subsetSumRecursive(A, N-1, targetSum);
+        // If either path found a valid subset, return true
         return include || exclude;
     }
 
+    // Top-Down with hashmap: same as recursive but caches results by "N targetSum" key
     bool subsetSumTopDown(vector<int> &A, int N, int targetSum, unordered_map<string, bool> &lookup){
+        // Base case 1: all decisions made, sum reached 0 — valid subset exists
         if(N==0 && targetSum == 0)
             return true;
+        // Base case 2: all decisions made, sum not 0 — no valid subset on this path
         if(N == 0 && targetSum!=0)
             return false;
 
+        // Check if this (N, targetSum) subproblem was already solved
         string key = to_string(N) + " " + to_string(targetSum);
         if(lookup.find(key)!=lookup.end())
             return lookup[key];
 
         bool include = false, exclude = false;
+        // Include A[N-1] if it doesn't exceed remaining targetSum
         if(A[N-1]<=targetSum)
             include = subsetSumTopDown(A, N-1, targetSum - A[N-1], lookup);
 
+        // Exclude A[N-1]
         exclude = subsetSumTopDown(A, N-1, targetSum, lookup);
 
+        // Cache and return result for this subproblem
         lookup[key] = include || exclude;
         return lookup[key];
     }
@@ -158,25 +181,33 @@ class Solution{
         return memo[N][targetSum];
     }
 
+    // Bottom-Up: fill dp[n][sum] iteratively from base cases
+    // dp[n][sum] = can we form 'sum' using the first 'n' elements?
     bool subsetSumBottomDown(vector<int> &A, int N, int targetSum){        
         vector<vector<bool>> dp(N+1, vector<bool>(targetSum+1, false));
         for(int n=0; n<=N; n++){
             for(int sum=0; sum<=targetSum; sum++){
+                // Base case 1: empty subset has sum 0
                 if(n == 0 && sum == 0)
                     dp[n][sum] = true;
+                // Base case 2: no elements left, can't form positive sum
                 else if(n == 0 && sum!=0)
                     dp[n][sum] = false;
                 else{
                     bool include = false, exclude = false;
+                    // Include A[n-1]: check if (sum - A[n-1]) was achievable with n-1 elements
                     if(A[n-1]<=sum){
                         include = dp[n-1][sum-A[n-1]];
                     }
+                    // Exclude A[n-1]: check if sum was already achievable with n-1 elements
                     exclude = dp[n-1][sum];
+                    // Either path makes this sum achievable
                     dp[n][sum] = include || exclude;
                 }
             }
         }
 
+        // Answer: can we form targetSum using all N elements?
         return dp[N][targetSum];
     }
 
