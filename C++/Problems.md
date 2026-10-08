@@ -48,6 +48,7 @@
 |  | 344 | [Reverse String](Algorithms%20&%20Patterns/1.%20Two%20Pointers/1.%20Running%20From%20Both%20Ends/ReversingOrSwapping/2.ReverseString.cpp) |
 |  | 345 | [Reverse Vowels of a String](Algorithms%20&%20Patterns/1.%20Two%20Pointers/1.%20Running%20From%20Both%20Ends/ReversingOrSwapping/3.ReverseVowelsOfAString.cpp) |
 |  | 541 | Reverse String II |
+| **Misc** | 1768 | Merge Strings Alternately |
 
 ## 2. Sliding Window Patterns
 
@@ -84,6 +85,8 @@
 | **Pattern 11: Character Freq Matching** | 1 | Two Sum |
 |  | 438 | [Find All Anagrams in a String](Algorithms%20&%20Patterns/2.%20Sliding%20Window/1.%20Fixed%20Window%20Size/3.%20FindAllAnagramsInAString.cpp) |
 |  | 567 | [Permutation in String](Algorithms%20&%20Patterns/2.%20Sliding%20Window/1.%20Fixed%20Window%20Size/8.%20PermutationInString.cpp) |
+| **Misc** | 128 | Longest Consecutive Sequence |
+|  | 217 | Contains Duplicate |
 
 ## 3. Tree Traversal Patterns (DFS & BFS)
 
@@ -122,6 +125,10 @@
 | **Pattern 17: Serialization** | 297 | Serialize and Deserialize Binary Tree |
 |  | 572 | Subtree of Another Tree |
 |  | 652 | Find Duplicate Subtrees |
+| **Misc** | 450 | Delete Node in a BST |
+|  | 700 | Search in a Binary Search Tree |
+|  | 701 | Insert into a Binary Search Tree |
+|  | 1448 | Count Good Nodes in Binary Tree |
 
 ## 4. Graph Traversal Patterns
 
@@ -141,6 +148,7 @@
 | **Pattern 19: BFS - Islands** | 542 | [01 Matrix](Data%20Structure/9.%20Graphs/2.%20BFS%20Variations/5.01Matrix.cpp) |
 |  | 994 | [Rotting Oranges](Data%20Structure/9.%20Graphs/3.%20ConnectedComponents/3.%20RottingOranges.cpp) |
 |  | 1091 | [Shortest Path in Binary Matrix](Data%20Structure/9.%20Graphs/2.%20BFS%20Variations/01%20BFS/1.%20ShortestPathInBinaryMatrix.cpp) |
+|  | 286 | Walls and Gates |
 | **Pattern 20: DFS - Cycle Detection** | 207 | [Course Schedule](Data%20Structure/9.%20Graphs/6.%20Topological%20Sorting/1.%20CourseSchedule.cpp) |
 |  | 210 | [Course Schedule II](Data%20Structure/9.%20Graphs/6.%20Topological%20Sorting/2.%20CourseSchedule(II).cpp) |
 |  | 802 | Find Eventual Safe States |
@@ -192,9 +200,14 @@
 |  | 1584 | [Min Cost to Connect All Points](Data%20Structure/9.%20Graphs/11.%20Minimum%20Spanning%20Tree/4.%20MinCostToConnectAllPoints.cpp) |
 |  | 1168 | Optimize Water Distribution in a Village |
 |  | 1489 | Find Critical Edges in MST |
+|  | 1579 | Find Critical and Pseudo Critical Edges in MST |
 | **Pattern 29: Bidirectional BFS** | 127 | [Word Ladder](Data%20Structure/9.%20Graphs/2.%20BFS%20Variations/6.WordLadder(I).cpp) |
 |  | 126 | [Word Ladder II](Data%20Structure/9.%20Graphs/2.%20BFS%20Variations/7.WordLadder(II).cpp) |
 |  | 815 | Bus Routes |
+|  | 752 | Open the Lock |
+| **Misc** | 332 | Reconstruct Itinerary |
+|  | 399 | Evaluate Division |
+|  | 1791 | Find Center of Star Graph |
 
 ## 5. Dynamic Programming (DP) Patterns
 
@@ -208,6 +221,7 @@
 |  | 509 | [Fibonacci Number](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/9.%20Fibonacci/1.%20FibonacciNumber.cpp) |
 |  | 740 | Delete and Earn |
 |  | 746 | [Min Cost Climbing Stairs](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/9.%20Fibonacci/7.%20MinCostClimbingStairs.cpp) |
+|  | 1137 | N-th Tribonacci Number |
 | **Pattern 31: Kadane's Algorithm** | 53 | [Maximum Subarray](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/11.%20Kadane/1.%20MaximumSumSubarray.cpp) |
 |  | 918 | [Maximum Sum Circular Subarray](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/11.%20Kadane/2.%20MaximumCircularSubarraySum.cpp) |
 |  | 2321 | Max Score Of Spliced Array |
@@ -216,6 +230,7 @@
 | **Pattern 32: Unbounded Knapsack** | 322 | [Coin Change](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/0.%20Knapsack/23.%20CoinChange(MinimumNumberOfCoins).cpp) |
 |  | 377 | [Combination Sum IV](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/0.%20Knapsack/28.%20CombinationSum(IV).cpp) |
 |  | 518 | [Coin Change II](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/0.%20Knapsack/22.%20CoinChange(TotalWays).cpp) |
+|  | 279 | Perfect Squares |
 | **Pattern 33: 0/1 Knapsack / Subset** | 416 | [Partition Equal Subset Sum](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/0.%20Knapsack/10.%20EqualSumPartition.cpp) |
 |  | 494 | [Target Sum](Algorithms%20&%20Patterns/5.%20Backtracking/1.%20IncludeExclude/12.TargetSum.cpp) |
 | **Pattern 34: Word Break Style** | 139 | [Word Break](Algorithms%20&%20Patterns/5.%20Backtracking/4.%20String%20Partitioning/4.WordBreak.cpp) |
@@ -223,9 +238,12 @@
 | **Pattern 35: LCS Style** | 1143 | [Longest Common Subsequence](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/MainPatterns/5.LongestCommonSubsequence.cpp) |
 |  | 1092 | Shortest Common Supersequence |
 |  | 1312 | Min Insertion Steps for Palindrome |
+|  | 115 | Distinct Subsequences |
+|  | 516 | Longest Palindromic Subsequence |
 | **Pattern 36: Edit Distance** | 72 | Edit Distance |
 |  | 583 | Delete Operation for Two Strings |
 |  | 712 | Minimum ASCII Delete Sum |
+|  | 44 | Wildcard Matching |
 | **Pattern 37: Unique Paths / Grid** | 62 | [Unique Paths](Algorithms%20&%20Patterns/5.%20Backtracking/5.%20Grid/1.UniquePaths(I).cpp) |
 |  | 63 | [Unique Paths II](Algorithms%20&%20Patterns/5.%20Backtracking/5.%20Grid/2.UniquePaths(II).cpp) |
 |  | 64 | [Minimum Path Sum](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/15.%20DP%20On%20Grids/3.%20MinimumPathSum.cpp) |
@@ -235,6 +253,8 @@
 |  | 1277 | Count Square Submatrices with All Ones |
 | **Pattern 38: Interval DP** | 312 | Burst Balloons |
 |  | 546 | Remove Boxes |
+|  | 1043 | Partition Array for Maximum Sum |
+|  | 1547 | Minimum Cost to Cut a Stick |
 | **Pattern 39: Catalan Numbers** | 95 | Unique Binary Search Trees II |
 |  | 96 | Unique Binary Search Trees |
 |  | 241 | [Different Ways to Add Parentheses](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/14.%20CatalanNumbers/4.%20DifferentWaysToAddParentheses.cpp) |
@@ -242,11 +262,20 @@
 |  | 354 | Russian Doll Envelopes |
 |  | 1671 | Min Removals to Make Mountain Array |
 |  | 2407 | Longest Increasing Subsequence II |
+|  | 673 | Number of Longest Increasing Subsequences |
+|  | 1048 | Longest String Chain |
 | **Pattern 41: Stock Problems** | 121 | [Best Time to Buy and Sell Stock](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/21.%20State%20Machine%20DP%20(DP%20on%20Stocks)/1.%20BestTimeToBuyAndSellStock(I).cpp) |
 |  | 122 | [Best Time to Buy and Sell Stock II](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/21.%20State%20Machine%20DP%20(DP%20on%20Stocks)/2.%20BestTimeToBuyAndSellStock(II).cpp) |
 |  | 123 | [Best Time to Buy and Sell Stock III](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/21.%20State%20Machine%20DP%20(DP%20on%20Stocks)/3.%20BestTimeToBuyAndSellStock(III).cpp) |
 |  | 188 | [Best Time to Buy and Sell Stock IV](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/21.%20State%20Machine%20DP%20(DP%20on%20Stocks)/4.%20BestTimeToBuyAndSellStock(IV).cpp) |
 |  | 309 | [Stock with Cooldown](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/21.%20State%20Machine%20DP%20(DP%20on%20Stocks)/5.%20BestTimeToBuyAndSellStockwithCooldown.cpp) |
+| **Misc** | 10 | Regular Expression Matching |
+|  | 97 | Interleaving String |
+|  | 329 | Longest Increasing Path in a Matrix |
+|  | 343 | Integer Break |
+|  | 877 | Stone Game |
+|  | 1140 | Stone Game II |
+|  | 1406 | Stone Game III |
 
 ## 6. Heap (Priority Queue) Patterns
 
@@ -276,6 +305,7 @@
 |  | 1834 | Single-Threaded CPU |
 |  | 1942 | Number of the Smallest Unoccupied Chair |
 |  | 2402 | Meeting Rooms III |
+|  | 1094 | Car Pooling |
 | **Pattern : Misc** | 502 | IPO (https://www.youtube.com/watch?v=b12SZXrZF9I) |
 |  |  | Sort an almost(K) sorted array |
 |  |  |Minimum Number Of refueling stops |
@@ -292,6 +322,7 @@
 | **Pattern 47: Permutations** | 31 | Next Permutation |
 |  | 46 | [Permutations](Algorithms%20&%20Patterns/5.%20Backtracking/3.%20Permutations/1.Permutations(I).cpp) |
 |  | 60 | Permutation Sequence |
+|  | 47 | Permutations II |
 | **Pattern 48: Combination Sum** | 39 | [Combination Sum](Algorithms%20&%20Patterns/5.%20Backtracking/1.%20IncludeExclude/17.CombinationSum(I).cpp) |
 |  | 40 | [Combination Sum II](Algorithms%20&%20Patterns/5.%20Backtracking/2.%20For-Loop-idx%20based/4.CombinationSum(II).cpp) |
 | **Pattern 49: Parentheses Generation** | 22 | [Generate Parentheses](Algorithms%20&%20Patterns/5.%20Backtracking/1.%20IncludeExclude/8.GenerateParenthesis.cpp) |
@@ -301,9 +332,12 @@
 |  | 2018 | Check if Word Can Be Placed In Crossword |
 | **Pattern 51: Constraint Satisfaction** | 37 | Sudoku Solver |
 |  | 51 | N-Queens |
+|  | 52 | N-Queens II |
 | **Pattern 52: Palindrome Partitioning** | 131 | [Palindrome Partitioning](Algorithms%20&%20Patterns/5.%20Backtracking/4.%20String%20Partitioning/1.PalindromePartitioning.cpp) |
 |  | 132 | [Palindrome Partitioning II](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/12.%20Matrix%20Chain%20Multiplication/2.PalindromePartition(II).cpp) |
 |  | 1457 | Pseudo-Palindromic Paths in a Tree |
+| **Misc** | 473 | Matchsticks to Square |
+|  | 698 | Partition to K Equal Sum Subsets |
 
 ## 8. Greedy Patterns
 
@@ -314,6 +348,7 @@
 |  | 759 | Employee Free Time |
 |  | 986 | Interval List Intersections |
 |  | 2406 | Divide Intervals Into Min Groups |
+|  | 435 | Non-overlapping Intervals |
 | **Pattern 54: Jump Game** | 45 | Jump Game II |
 |  | 55 | Jump Game |
 | **Pattern 55: Buy/Sell Stock** | 121 | [Best Time to Buy and Sell Stock](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/21.%20State%20Machine%20DP%20(DP%20on%20Stocks)/1.%20BestTimeToBuyAndSellStock(I).cpp) |
@@ -327,6 +362,11 @@
 |  | 135 | Candy |
 |  | 406 | Queue Reconstruction by Height |
 |  | 1029 | Two City Scheduling |
+| **Misc** | 678 | Valid Parenthesis String |
+|  | 763 | Partition Labels |
+|  | 860 | Lemonade Change |
+|  | 1291 | Sequential Digits |
+|  | 1899 | Merge Triplets to Form Target Triplet |
 
 ## 9. Binary Search Patterns
 
@@ -378,6 +418,7 @@
 |  | 962 | Maximum Width Ramp |
 |  | 1475 | [Final Prices With a Special Discount](Data%20Structure/2.%20Stack/3.%20Monotonic%20Stack/15.%20FinalPriceWithASpecialDiscountInAShop.cpp) |
 |  | 1673 | Find the Most Competitive Subsequence |
+|  | 42 | Trapping Rain Water |
 | **Pattern 66: Expression Evaluation** | 150 | Evaluate Reverse Polish Notation |
 |  | 224 | Basic Calculator |
 |  | 227 | [Basic Calculator II](Data%20Structure/2.%20Stack/4.%20Expressions%20&%20Calculator/1.%20BasicCalculator%20II%20.cpp) |
@@ -390,6 +431,8 @@
 |  | 901 | [Online Stock Span](Data%20Structure/2.%20Stack/3.%20Monotonic%20Stack/7.%20OnlineStockSpan.cpp) |
 | **Pattern 69: Histogram / Rectangle** | 84 | [Largest Rectangle in Histogram](Data%20Structure/2.%20Stack/3.%20Monotonic%20Stack/13.%20LargestRectangleInHistogram.cpp) |
 |  | 85 | [Maximal Rectangle](Data%20Structure/2.%20Stack/3.%20Monotonic%20Stack/14.%20MaximalRectangle.cpp) |
+| **Misc** | 682 | Baseball Game |
+|  | 853 | Car Fleet |
 
 ## 11. Bit Manipulation Patterns
 
@@ -407,6 +450,10 @@
 |  | 1442 | Count Triplets With Equal XOR |
 | **Pattern 73: Power Checks** | 231 | Power of Two |
 |  | 342 | Power of Four |
+| **Misc** | 29 | Divide Two Integers |
+|  | 190 | Reverse Bits |
+|  | 201 | Bitwise AND of Numbers Range |
+|  | 371 | Sum of Two Integers |
 
 ## 12. Linked List Manipulation Patterns
 
@@ -451,6 +498,9 @@
 |  | 43 | Multiply Strings |
 |  | 989 | Add to Array-Form of Integer |
 |  | 67 | Add Binary |
+|  | 7 | Reverse Integer |
+|  | 50 | Pow(x, n) |
+|  | 168 | Excel Sheet Column Title |
 | **Pattern 84: In-place from End** | 88 | Merge Sorted Array |
 |  | 977 | [Squares of a Sorted Array](Algorithms%20&%20Patterns/1.%20Two%20Pointers/1.%20Converging/8.%20SquaresOfASortedArray.cpp) |
 | **Pattern 85: Cyclic Sort** | 41 | [First Missing Positive](Algorithms%20&%20Patterns/Sorting/1.%20Cyclic%20Sort/8.FirstMissingPositive.cpp) |
@@ -458,6 +508,11 @@
 |  | 287 | [Find the Duplicate Number](Algorithms%20&%20Patterns/1.%20Two%20Pointers/2.%20Fast%20&%20Slow%20Pointer/7.%20FindTheDuplicateNumber.cpp) |
 |  | 442 | [Find All Duplicates in an Array](Algorithms%20&%20Patterns/Sorting/1.%20Cyclic%20Sort/6.FindAllDuplicatesInAnArray.cpp) |
 |  | 448 | [Find All Numbers Disappeared in Array](Algorithms%20&%20Patterns/Sorting/1.%20Cyclic%20Sort/4.FindAllDisappearedNumbers1toN.cpp) |
+| **Misc** | 36 | Valid Sudoku |
+|  | 118 | Pascals Triangle |
+|  | 169 | Majority Element |
+|  | 229 | Majority Element II |
+|  | 493 | Reverse Pairs |
 
 ## 14. String Manipulation Patterns
 
@@ -483,6 +538,8 @@
 | **Pattern 92: Repeated Substring** | 459 | Repeated Substring Pattern |
 |  | 28 | Index of First Occurrence |
 |  | 686 | Repeated String Match |
+| **Misc** | 14 | Longest Common Prefix |
+|  | 1071 | Greatest Common Divisor of Strings |
 
 ## 15. Design Patterns & Tries
 
@@ -521,6 +578,7 @@
 |  | 2034 | Stock Price Fluctuation |
 |  | 2296 | Design a Text Editor |
 |  | 2336 | [Smallest Number in Infinite Set](Data%20Structure/11.%20Design/34.%20SmallestNumberInInfiniteSet.cpp) |
+|  | 355 | Design Twitter |
 | **Pattern 94: Tries** | 208 | [Implement Trie (Prefix Tree)](Data%20Structure/Trie/1.Trie.cpp) |
 |  | 211 | Design Add and Search Words |
 |  | 720 | Longest Word in Dictionary |
@@ -528,5 +586,6 @@
 |  | 425 | Word Squares |
 |  | 642 | Design Search Autocomplete System |
 |  | 745 | Prefix and Suffix Search |
+|  | 2707 | Extra Characters in a String |
 
 ---
