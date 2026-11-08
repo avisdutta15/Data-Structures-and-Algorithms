@@ -1,5 +1,3 @@
-## Quick Analysis
- - **The Largest Category:** Graph Traversal (58 questions) is your most extensive section, covering everything from basic DFS to complex Shortest Path and Minimum Spanning Tree algorithms.
 
  - **The Most "Design-Heavy" Section:** Design & Tries has a high concentration of questions (40) per pattern, as these often require implementing full classes rather than just a single function.
 
@@ -92,11 +90,11 @@
 
 | Pattern | LC Code | Problem Name |
 | --- | --- | --- |
-| **Pattern 12: Level Order Traversal** | 102 | Binary Tree Level Order Traversal |
-|  | 103 | Binary Tree Zigzag Level Order Traversal |
+| **Pattern 12: Level Order Traversal** | 102 | [Binary Tree Level Order Traversal] (Data%20Structure/6.%20Binary%20Trees/1.%20Traversals/2.%20BinaryTreeLevelOrderTraversal.cpp)|
+|  | 103 | [Binary Tree Zigzag Level Order Traversal](Data%20Structure/6.%20Binary%20Trees/1.%20Traversals/3.%20BinaryTreeZigZagLevelOrderTraversal.cpp) |
 |  | 199 | Binary Tree Right Side View |
-|  | 515 | Find Largest Value in Each Tree Row |
-|  | 1161 | Maximum Level Sum of a Binary Tree |
+|  | 515 | [Find Largest Value in Each Tree Row](Data%20Structure/6.%20Binary%20Trees/1.%20Traversals/4.%20FindLargestValueInEachTreeRow.cpp) |
+|  | 1161 | [Maximum Level Sum of a Binary Tree](Data%20Structure/6.%20Binary%20Trees/1.%20Traversals/5.%20MaximumLevelSumOfABinaryTree.cpp)|
 | **Pattern 13: Recursive Preorder** | 100 | Same Tree |
 |  | 101 | Symmetric Tree |
 |  | 105 | Construct Binary Tree from Preorder and Inorder |
