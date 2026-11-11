@@ -90,17 +90,17 @@
 
 | Pattern | LC Code | Problem Name |
 | --- | --- | --- |
-| **Pattern 12: Level Order Traversal** | 102 | [Binary Tree Level Order Traversal] (Data%20Structure/6.%20Binary%20Trees/1.%20Traversals/2.%20BinaryTreeLevelOrderTraversal.cpp)|
+| **Pattern 12: Level Order Traversal** | 102 | [Binary Tree Level Order Traversal](Data%20Structure/6.%20Binary%20Trees/1.%20Traversals/2.%20BinaryTreeLevelOrderTraversal.cpp)|
 |  | 103 | [Binary Tree Zigzag Level Order Traversal](Data%20Structure/6.%20Binary%20Trees/1.%20Traversals/3.%20BinaryTreeZigZagLevelOrderTraversal.cpp) |
-|  | 199 | Binary Tree Right Side View |
+|  | 199 | [Binary Tree Right Side View](Data%20Structure/6.%20Binary%20Trees/1.%20Traversals/6.%20BinaryTreeRightSideView.cpp) |
 |  | 515 | [Find Largest Value in Each Tree Row](Data%20Structure/6.%20Binary%20Trees/1.%20Traversals/4.%20FindLargestValueInEachTreeRow.cpp) |
 |  | 1161 | [Maximum Level Sum of a Binary Tree](Data%20Structure/6.%20Binary%20Trees/1.%20Traversals/5.%20MaximumLevelSumOfABinaryTree.cpp)|
-| **Pattern 13: Recursive Preorder** | 100 | Same Tree |
-|  | 101 | Symmetric Tree |
+| **Pattern 13: Recursive Preorder** | 100 | [Same Tree](Data%20Structure/6.%20Binary%20Trees/2.%20Recursive%20Preorder/1.%20SameTree.cpp) |
+|  | 101 | [Symmetric Tree](Data%20Structure/6.%20Binary%20Trees/2.%20Recursive%20Preorder/2.%20SymmetricTree.cpp) |
 |  | 105 | Construct Binary Tree from Preorder and Inorder |
 |  | 114 | [Flatten Binary Tree to Linked List](Data%20Structure/4.%20LinkedList/36.%20FlattenABinaryTreeToLinkedList.cpp) |
-|  | 226 | Invert Binary Tree |
-|  | 257 | Binary Tree Paths |
+|  | 226 | [Invert Binary Tree](Data%20Structure/6.%20Binary%20Trees/2.%20Recursive%20Preorder/5.%20InvertBinaryTree.cpp) |
+|  | 257 | [Binary Tree Paths]() |
 |  | 988 | Smallest String Starting From Leaf |
 | **Pattern 14: Recursive Inorder** | 94 | Binary Tree Inorder Traversal |
 |  | 98 | Validate Binary Search Tree |
