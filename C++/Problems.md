@@ -84,7 +84,7 @@
 |  | 438 | [Find All Anagrams in a String](Algorithms%20&%20Patterns/2.%20Sliding%20Window/1.%20Fixed%20Window%20Size/3.%20FindAllAnagramsInAString.cpp) |
 |  | 567 | [Permutation in String](Algorithms%20&%20Patterns/2.%20Sliding%20Window/1.%20Fixed%20Window%20Size/8.%20PermutationInString.cpp) |
 | **Misc** | 128 | [Longest Consecutive Sequence](Algorithms%20&%20Patterns/2.%20Sliding%20Window/4.%20Misc/1.%20LongestConsecutiveSequence.cpp) |
-|  | 217 | [Contains Duplicate]()|
+|  | 217 | [Contains Duplicate](Algorithms%20&%20Patterns/2.%20Sliding%20Window/4.%20Misc/2.%20ContainsDuplicate.cpp)|
 
 ## 3. Tree Traversal Patterns (DFS & BFS)
 
