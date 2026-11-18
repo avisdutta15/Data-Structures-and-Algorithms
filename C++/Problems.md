@@ -101,7 +101,7 @@
 |  | 114 | [Flatten Binary Tree to Linked List](Data%20Structure/4.%20LinkedList/36.%20FlattenABinaryTreeToLinkedList.cpp) |
 |  | 226 | [Invert Binary Tree](Data%20Structure/6.%20Binary%20Trees/2.%20Recursive%20Preorder/5.%20InvertBinaryTree.cpp) |
 |  | 257 | [Binary Tree Paths]() |
-|  | 988 | Smallest String Starting From Leaf |
+|  | 988 | [Smallest String Starting From Leaf](Data%20Structure/6.%20Binary%20Trees/2.%20Recursive%20Preorder/7.%20SmallestStringStartingFromLeaf.cpp) |
 | **Pattern 14: Recursive Inorder** | 94 | Binary Tree Inorder Traversal |
 |  | 98 | Validate Binary Search Tree |
 |  | 173 | Binary Search Tree Iterator |
