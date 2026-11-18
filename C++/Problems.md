@@ -78,13 +78,13 @@
 |  | 3346 | Max Frequency After Performing Operations I |
 |  | 3347 | Max Frequency After Performing Operations II |
 | **Pattern 10: Monotonic Queue** | 239 | [Sliding Window Maximum](Algorithms%20&%20Patterns/2.%20Sliding%20Window/3.%20Monotonic%20Queue/1.%20SlidingWindowMaximum.cpp) |
-|  | 862 | Shortest Subarray with Sum at Least K |
+|  | 862 | [Shortest Subarray with Sum at Least K](Algorithms%20&%20Patterns/2.%20Sliding%20Window/3.%20Monotonic%20Queue/2.%20ShortestSubarrayWithSumAtLeastK.cpp) |
 |  | 1696 | Jump Game VI |
 | **Pattern 11: Character Freq Matching** | 1 | Two Sum |
 |  | 438 | [Find All Anagrams in a String](Algorithms%20&%20Patterns/2.%20Sliding%20Window/1.%20Fixed%20Window%20Size/3.%20FindAllAnagramsInAString.cpp) |
 |  | 567 | [Permutation in String](Algorithms%20&%20Patterns/2.%20Sliding%20Window/1.%20Fixed%20Window%20Size/8.%20PermutationInString.cpp) |
-| **Misc** | 128 | Longest Consecutive Sequence |
-|  | 217 | Contains Duplicate |
+| **Misc** | 128 | [Longest Consecutive Sequence](Algorithms%20&%20Patterns/2.%20Sliding%20Window/4.%20Misc/1.%20LongestConsecutiveSequence.cpp) |
+|  | 217 | [Contains Duplicate]()|
 
 ## 3. Tree Traversal Patterns (DFS & BFS)
 
