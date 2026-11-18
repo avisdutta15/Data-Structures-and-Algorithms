@@ -23,6 +23,7 @@
 19. [Bitmasking DP](#19-bitmasking-dp)
 20. [Probability DP](#20-probability-dp)
 21. [State Machine DP](#21-state-machine-dp)
+22. [Misc](#22-misc)
 
 ---
 
@@ -121,6 +122,7 @@
 | 72 | Edit Distance | |
 | 583 | Delete Operation for Two Strings | |
 | 712 | Minimum ASCII Delete Sum for Two Strings | |
+| 44 | Wildcard Matching | |
 
 ## 8. Longest Increasing Subsequence (LIS)
 
@@ -131,6 +133,7 @@
 | 673 | Number of Longest Increasing Subsequence | |
 | 354 | Russian Doll Envelopes | |
 | | Min Removals to Make Mountain Array | |
+| 1048 | Longest String Chain | |
 
 ## 9. Fibonacci Sequence
 
@@ -147,6 +150,7 @@
 | | Domino and Tromino Tiling | |
 | | Intersecting chords in a circle | |
 | | Maximum subsequence sum such that no three are consecutive | |
+| 1137 | N-th Tribonacci Number | |
 
 ## 10. Count Distinct Ways
 
@@ -179,6 +183,8 @@
 | 312 | Burst Balloons | |
 | | Remove Boxes | |
 | 1000 | Minimum Cost to Merge Stones | |
+| 1043 | Partition Array for Maximum Sum | |
+| 1547 | Minimum Cost to Cut a Stick | |
 
 ## 13. String Partition
 
@@ -741,3 +747,13 @@ solve(i, canBuy):
     skip = solve(i+1, 0)
     return max(sell, skip)
 ```
+
+## 22. Misc
+
+| LC Code | Problem Name | Notes |
+|---------|-------------|-------|
+| 10 | Regular Expression Matching | |
+| 97 | Interleaving String | |
+| 877 | Stone Game | |
+| 1140 | Stone Game II | |
+| 1406 | Stone Game III | |

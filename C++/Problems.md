@@ -209,6 +209,8 @@
 
 ## 5. Dynamic Programming (DP) Patterns
 
+> 📘 [Topic Order & Recurrences](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/TopicOrder_latest.md)
+
 | Pattern | LC Code | Problem Name |
 | --- | --- | --- |
 | **Pattern 30: Fibonacci Style** | 70 | [Climbing Stairs](Algorithms%20&%20Patterns/6.%20Dynamic%20Programming/9.%20Fibonacci/2.%20ClimbingStairs.cpp) |
