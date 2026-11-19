@@ -72,25 +72,21 @@ public:
         int start = 0, end = 0;
 
         while(end < s.length()){
-            // Expand: add current character to window frequency
-            sFreq[s[end] - 'a']++;
+			// 1. Add the current element to window
+            sFreq[s[end] - 'a']++;					
 
-            int windowSize = end - start + 1;
-
-            if (windowSize < p.length()) {
-                // Window not big enough yet, keep expanding
+			// 2.1. Check if the window size == K (here p.length). If not then expand the pointer to right to add more element
+            if (windowSize < K) {
                 end++;
             }
+			// 2.2. If the window size == K.
             else if (windowSize == K){
-                // Window is exactly p.length() — check if it's an anagram
-                if(pFreq == sFreq)
+                if(pFreq == sFreq)						// 1. Process this window — check if it's an anagram
                     startIndices.push_back(start);
-                
-                // eliminate out of window indices
-                sFreq[s[start] - 'a']--;
+				
+                sFreq[s[start] - 'a']--;				// 2. Delete the starting element from window
 
-                // slide window
-                start++;
+                start++;								// 3. Adjust pointers to slide the window
                 end++;
             }
         }
