@@ -44,29 +44,27 @@ public:
     vector<int> firstNegativeOfWindowSizeKType1(vector<int>& A, int K) {
 
         vector<int> firstNegatives;
-        queue<int> Q;
-
-        int start = 0, end = 0;
+        queue<int> Q;	// holds indices of the negative numbers
+        int start = 0, end = 0;		
 		
-		while (end < A.size())
-		{
+		while (end < A.size()){
+
+			// 1. Add the current element to window
 			if (A[end] < 0)
 				Q.push(end);
 			
-			// check window size
+			// 2.1. Check if the window size == K. If not then expand the pointer to right to add more element
 			if (end - start + 1 < k)
 				end++;
-			else if (end - start + 1 == k)
-			{
-				int negativeNum = Q.empty() ? 0 : A[Q.front()];
+			// 2.2. If the window size == K.
+			else if (end - start + 1 == k){
+				int negativeNum = Q.empty() ? 0 : A[Q.front()];		// 1. Process this window
 				firstNegatives.push_back(negativeNum);
-				
-				// delete the out of window elements
-				if (!Q.empty() && Q.front() <= end - k + 1)
+
+				if (!Q.empty() && Q.front() <= start)				// 2. Delete the starting element from window
 					Q.pop();
 				
-                // slide the window
-				start++;
+                start++;											// 3. Adjust pointers to slide the window
 				end++;
 			}
 		}
