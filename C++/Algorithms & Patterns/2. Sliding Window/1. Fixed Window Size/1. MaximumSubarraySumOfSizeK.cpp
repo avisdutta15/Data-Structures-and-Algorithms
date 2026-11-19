@@ -43,15 +43,18 @@ public:
         
         int start = 0, end = 0;
         while(end < A.size()){
+			// 1. Add the current element to window
             subarraySum = subarraySum + A[end];
 
+			// 2.1. Check if the window size == K. If not then expand the pointer to right to add more element
             if (end - start + 1 < K) {
                 end++;
             }
+			// 2.2. If the window size == K.
             else if (end - start + 1 == K) {
-                maxSum = max(maxSum, subarraySum);
-                subarraySum = subarraySum - A[start];
-                start++;
+                maxSum = max(maxSum, subarraySum);		// 1. Process this window
+                subarraySum = subarraySum - A[start];	// 2. Delete the starting element from window
+                start++;								// 3. Adjust pointers
                 end++;
             }
         }
