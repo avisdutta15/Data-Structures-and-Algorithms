@@ -73,25 +73,22 @@ public:
         int start = 0, end = 0;
 
         while (end < nums.size()) {
-            // add to current window
+            // 1. Add the current element to window. Maintain decereasing monotonicity of the deque so that largest element always at front
             while (!DQ.empty() && nums[DQ.back()] < nums[end])
                 DQ.pop_back();
-
             DQ.push_back(end);
 
-            // check window size
+            // 2.1. Check if the window size == K. If not then expand the pointer to right to add more element
             if (end - start + 1 < k)
                 end++;
+			// 2.2. If the window size == K.
             else if (end - start + 1 == k) {
-                // process window
-                result.push_back(nums[DQ.front()]);
+                result.push_back(nums[DQ.front()]);			// 1. Process this window
 
-                // eliminate out of window indices
-                if(DQ.front() <= end - k + 1)
+                if(DQ.front() <= start)						// 2. Delete the starting element from window
                     DQ.pop_front();
 
-                // slide the window
-                start++;
+                start++;									// 3. Adjust pointers to slide this window
                 end++;
             }
         }
