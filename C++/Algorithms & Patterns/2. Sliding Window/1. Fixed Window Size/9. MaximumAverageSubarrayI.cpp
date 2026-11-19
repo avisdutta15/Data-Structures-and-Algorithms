@@ -48,23 +48,23 @@ public:
         bool firstWindow = false;
 
         while(end < nums.size()){
-            sum = sum + nums[end];
+            // 1. Add the current element to window
+            sum = sum + nums[end];  
 
+            // 2.1. Check if the window size == K. If not then expand the pointer to right to add more element
             if(end - start + 1 < k)
                 end++;
+            // 2.2. If the window size == K.
             else if(end - start + 1 == k){
-                // process window
-                if(firstWindow == false){
+                if(firstWindow == false){           // 1. Process this window
                     firstWindow = true;
                     maxSum = sum;
                 }else
                     maxSum = max(maxSum, sum);
 
-                // eliminate out of window elements
-                sum = sum - nums[start];
+                sum = sum - nums[start];            // 2. Delete the starting element from window
 
-                // slide the window
-                start++;
+                start++;                            // 3. Adjust pointers to slide the window
                 end++;
             }
         }
